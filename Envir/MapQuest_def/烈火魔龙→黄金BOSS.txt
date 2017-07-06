@@ -1,0 +1,10 @@
+[@MAIN]
+#if
+ISONMAP zhumayi
+equal G164 0
+#ACT
+MOV G164 1
+mov A164 <$USERNAME>
+GAMEDIAMOND + 1000
+SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【烈火魔龙→黄金BOSS】获得系统奖励1000古币!
+break

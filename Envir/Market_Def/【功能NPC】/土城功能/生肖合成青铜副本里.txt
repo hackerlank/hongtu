@@ -1,0 +1,50 @@
+[@main]
+#IF
+equal U25 0
+#Act
+MOV U25 1
+MOV U27 5
+MOV U28 5
+MOV U29 5
+
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<生肖大师/SCOLOR=154>\
+　　　<如果你给我5000元宝。我可以给随机给你十二生肖一枚/SCOLOR=87>\
+　\
+　<Img:803:0:0:4>\
+　\
+　　<使用10颗生肖原石，可随机兑换一枚十二生肖/AUTOCOLOR=31>  <点击兑换/@点击兑换>\
+　\
+　<Img:803:0:0:4>\
+
+
+
+[@点击兑换]
+#IF
+CHECKGAMEGOLD < 5000
+#ACT
+MESSAGEBOX \\兑换失败:你没有5000元宝
+break
+
+#IF
+NOT checkitem 生肖原石 10
+#ACT
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+#IF
+checkitem 生肖原石 10
+#ACT
+GAMEGOLD - 5000
+GetRandomText ..\QuestDiary\数据文件\生肖列表.txt S10
+give <$STR(S10)> 1
+take 生肖原石 10
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[生肖原石]|154:0:1}成功兑换了{[<$STR(S10)>]|250:0:1}一枚
+break
+
+
+;==================================================================================================================

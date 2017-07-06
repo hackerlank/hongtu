@@ -1,0 +1,21 @@
+[@开始切割]
+{
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\切割系统\怪物名字.txt <$CURRRTARGETNAME>
+#ACT
+GetStringPos ..\QuestDiary\切割系统\怪物名字.txt <$CURRRTARGETNAME>
+GetRandomText ..\QuestDiary\切割系统\怪物血量.txt S$怪血 <$STR(N0)>
+SENDMSG 6 <$CURRRTARGETNAME>
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\切割系统\怪物名字.txt <$CURRRTARGETNAME>
+#ACT
+MUL N$怪血 <$STR(S$怪血)> <$STR(N$切割值)>
+DIV N$怪血 <$STR(N$怪血)> 100
+M.HUMANHP - <$STR(N$怪血)>
+SENDMSG 6 切割之力触发将[<$CURRRTARGETNAME>]的血量吞噬[<$STR(N$怪血)>]点
+break
+
+
+}

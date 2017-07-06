@@ -1,0 +1,25 @@
+[@main]
+#IF
+NOT CheckHumInRange TTPK 92 133 2
+#ACT
+MESSAGEBOX \\请离我进一点才能领取奖励哦！
+break
+
+#IF
+CHECK [18] 1
+#ACT
+MESSAGEBOX \\已经领取过了！请前往下个NPC！
+break
+
+#IF
+EQUAL A431 开启
+small G461 5
+#ACT
+SET [18] 1
+GAMEGOLD + 2000
+INC G461 1
+SendCenterMsg 151 249 你获得成就奖领取了2000元宝 0 5
+SENDMSG 0 [{<$USERNAME>|254:0:1}]参与了跑酷活动，在跑酷活动中获得{成就奖|147:0:1}的奖励:{2000元宝|151:0:1}，请继续前进！
+break
+#ELSEACT
+MESSAGEBOX \\领取失败，成就奖已经被领取完了，请继续前进吧！！

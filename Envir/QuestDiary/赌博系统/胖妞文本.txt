@@ -1,0 +1,447 @@
+(@@InPutInteger)
+[@赌庄胖妞]
+{
+#If
+CheckLevelEx > 1
+#Act
+GetListString ..\QuestDiary\赌博系统\胖妞状态.txt 0 S$1
+#If
+EQUAL S$1 1
+#ACT
+goto @MAIN1
+#ELSEACT
+SetOffTimer 15
+CloseBigDialogBox
+Close
+MESSAGEBOX \\胖妞赌博系统没有开启！请联系管理员！\
+[@MAIN1]
+#if
+#act
+SetOffTimer 16
+SETONTIMER 15 1
+OPENMERCHANTBIGDLG 31 1376 1 0 1 1 1
+mov s$时间显示 <$str(G1)>
+mov n47 1
+#if
+large G1 120
+#act
+mov s$时间显示 正在结算..
+#IF
+EQUAL A2 <$USERNAME>
+#ACT
+GOTO @NPC框1
+BREAK
+#IF
+Check [001] 1
+#ACT
+GOTO @NPC框2
+BREAK
+#IF
+#ACT
+MOV S88 <$STR(G2)>
+MOV S66 <$STR(A2)>
+SetStringBlank <$STR(S88)> 14 1
+SetStringBlank <$STR(S66)> 14 1
+#SAY
+<Img:279:0:352:26/@Label><Img:1377:31:-22:3><Img:1381:31:212:241/@@InPutInteger42><Img:1381:31:113:241/@@InPutInteger41>\ \
+<Img:1379:31:130:60><Img:1380:31:179:70/@@InPutInteger40><Img:362:3:-30:135><Img:363:3:-26:135><Img:367:3:-52:148><Img:1383:31:-83:117><Img:1382:31:-103:137>\
+              庄家姓名：【<$STR(S66)>】\
+              庄家本钱：【<$STR(S88)>】         <刷新/@赌庄胖妞>\
+ 胖妞赌庄\
+                     剩余时间：{<$STR(s$时间显示)>/AUTOCOLOR=151} \ \
+押大总金额：【<$STR(G13)>】\
+押小总金额：【<$STR(G14)>】\ \ 
+                                              <↗ 抢庄按钮/AUTOCOLOR=22>\ \ \
+<说明：10点小、11点大、豹子庄家通吃、税金5%/AUTOCOLOR=151>\ \
+
+您的下注情况：您当前还未做任何下注操作！　　<押大     押小/AUTOCOLOR=93>\
+您的经济状况：您所拥有的元宝【<$GAMEGOLD>】\ \
+
+<╔┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╗/SCOLOR=243>\
+<┊友情提示：游戏只为娱乐，小赌贻情，大赌伤身，切勿贪迷赌博。┊/SCOLOR=243>\
+<╚┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╝/SCOLOR=243>\
+
+[@NPC框1]
+#IF
+EQUAL A2 <$USERNAME>
+#ACT
+MOV S88 <$STR(G2)>
+MOV S66 <$STR(A2)>
+MOV S65 <$STR(G2)>
+SetStringBlank <$STR(S88)> 14 1
+SetStringBlank <$STR(S66)> 14 1
+SetStringBlank <$STR(S65)> 6 1
+#SAY
+<Img:279:0:352:26/@Label><Img:1377:31:-22:3><Img:1381:31:212:241/@xxxxxxxxxxx42><Img:1381:31:113:241/@xxxxxxxxxxx41>\ \
+<Img:1379:31:130:60><Img:1380:31:179:70/@xxxxxxxxxxx40><Img:362:3:-30:135><Img:363:3:-26:135><Img:367:3:-52:148><Img:1383:31:-83:117><Img:1382:31:-103:137>\
+              庄家姓名：【<$STR(S66)>】\
+              庄家本钱：【<$STR(S88)>】         <刷新/@赌庄胖妞>\
+ 胖妞赌庄\
+                     剩余时间：{<$STR(s$时间显示)>/AUTOCOLOR=151} \ \
+押大总金额：【<$STR(G13)>】\
+押小总金额：【<$STR(G14)>】\ \ 
+                                              <↗ 抢庄按钮/AUTOCOLOR=22>\ \ \ \ \
+
+您的下注情况：你使用[<$STR(S65)>]元宝【坐庄】    <押大     押小/AUTOCOLOR=93>\
+您的经济状况：您所拥有的元宝【<$GAMEGOLD>】\ \
+
+<╔┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╗/SCOLOR=243>\
+<┊友情提示：游戏只为娱乐，小赌贻情，大赌伤身，切勿贪迷赌博。┊/SCOLOR=243>\
+<╚┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╝/SCOLOR=243>\
+
+[@NPC框2]
+#IF
+Check [001] 1
+#ACT
+MOV S88 <$STR(G2)>
+MOV S66 <$STR(A2)>
+MOV S65 <$HUMAN(胖妞下注元宝)>
+SetStringBlank <$STR(S88)> 14 1
+SetStringBlank <$STR(S66)> 14 1
+SetStringBlank <$STR(S65)> 6 1
+#SAY
+<Img:279:0:352:26/@Label><Img:1377:31:-22:3><Img:1381:31:212:241/@xxxxxxxxxxx42><Img:1381:31:113:241/@xxxxxxxxxxx41>\ \
+<Img:1379:31:130:60><Img:1380:31:179:70/@xxxxxxxxxxx40><Img:362:3:-30:135><Img:363:3:-26:135><Img:367:3:-52:148><Img:1383:31:-83:117><Img:1382:31:-103:137>\
+              庄家姓名：【<$STR(S66)>】\
+              庄家本钱：【<$STR(S88)>】         <刷新/@赌庄胖妞>\
+ 胖妞赌庄\
+                     剩余时间：{<$STR(s$时间显示)>/AUTOCOLOR=151} \ \
+押大总金额：【<$STR(G13)>】\
+押小总金额：【<$STR(G14)>】\ \ 
+                                              <↗ 抢庄按钮/AUTOCOLOR=22>\ \ \ \ \
+
+您的下注情况：你下注[<$STR(S65)>]元宝押【<$HUMAN(胖妞下注状态)>】    <押大     押小/AUTOCOLOR=93>\
+您的经济状况：您所拥有的元宝【<$GAMEGOLD>】\ \
+
+<╔┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╗/SCOLOR=243>\
+<┊友情提示：游戏只为娱乐，小赌贻情，大赌伤身，切勿贪迷赌博。┊/SCOLOR=243>\
+<╚┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╝/SCOLOR=243>\
+
+[@InPutInteger40]
+#If
+CheckLevelEx > 0
+#Act
+DelayGoto 1 ~InPutInteger40
+[~InPutInteger40]
+#IF
+LARGE G1 120
+#ACT
+MESSAGEBOX \\[提示]：对不起！现在不是抢庄时间！
+GOTO @赌庄胖妞
+BREAK
+#IF
+small G1 61
+#ACT
+MESSAGEBOX \\[提示]：抢庄时间已经结束。请等待开局！
+MOV N40 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+SMALL N40 10000
+#ACT
+MESSAGEBOX \\[提示]：最少10000元宝抢庄，请输入10000以上的数值！
+MOV N40 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+LARGE N40 3000000
+#ACT
+MESSAGEBOX \\[提示]：您玩的太大了、请输入3000000以下的数值！
+MOV N40 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+EQUAL A2 <$USERNAME>
+#ACT
+MOV N40 0
+MESSAGEBOX \\[提示]：你目前已经是庄家，无法重复坐庄。
+GOTO @赌庄胖妞
+BREAK
+#IF
+CHECKGAMEGOLD < <$STR(N40)>
+#ACT
+MESSAGEBOX \\[提示]：您当前帐户元宝不足！
+MOV N40 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+LARGE N40 <$STR(G2)>
+#ACT
+goto @检查庄家是否为空
+#elseact
+MESSAGEBOX \\[提示]：你必须出多于【<$STR(G2)>】个元宝才能抢庄。
+MOV N40 0
+GOTO @赌庄胖妞
+BREAK
+
+[@检查庄家是否为空]
+#if
+EQUAL A2 无人坐庄
+#act
+MOV G2 0
+GAMEGOLD - <$STR(N40)>
+SendMSG 4 %s使用<$STR(N40)>个元宝坐庄。
+MOV G2 <$STR(N40)>
+SendMSG 1 [赌庄胖妞]：玩家【%s】使用【<$STR(N40)>】个元宝坐庄。
+MOV A2 0
+MOV A2 <$USERNAME>
+MOV N43 1
+SET [001] 1
+addnamelist ..\QuestDiary\赌博系统\胖妞玩家名单.txt
+GOTO @赌庄胖妞
+MESSAGEBOX \\[提示]：您使用【<$STR(N40)>】个元宝坐庄。
+#elseact
+SET [001] 1
+addnamelist ..\QuestDiary\赌博系统\胖妞玩家名单.txt
+goto @检查庄家是否在线
+BREAK
+
+[@检查庄家是否在线]
+#if
+;CheckOnline <$STR(A2)> HERO引擎用的
+A2.CheckOnline
+#act
+GMEXECUTE 开始提问 @庄家被抢
+GAMEGOLD - <$STR(N40)>
+SendMSG 4 %s使用<$STR(N40)>个元宝坐庄。
+MOV G2 <$STR(N40)>
+SendMSG 1 [赌庄胖妞]：玩家【%s】使用【<$STR(N40)>】元宝坐庄。
+MOV A2 <$USERNAME>
+MOV N43 1
+GOTO @赌庄胖妞
+MESSAGEBOX \\[提示]：您使用【<$STR(N40)>】个元宝坐庄。
+#elseact
+AddTextList ..\QuestDiary\赌博系统\胖妞掉线庄家\掉线庄家名单.txt <$STR(A2)>
+CreateFile ..\QuestDiary\赌博系统\胖妞掉线庄家\<$STR(A2)>.txt
+AddTextListEx ..\QuestDiary\赌博系统\胖妞掉线庄家\<$STR(A2)>.txt <$STR(G2)> 0
+MOV G2 0
+GAMEGOLD - <$STR(N40)>
+SendMSG 4 %s使用<$STR(N40)>个元宝坐庄。
+MOV G2 <$STR(N40)>
+SendMSG 1 [赌庄胖妞]：玩家【%s】使用【<$STR(N40)>】元宝坐庄。
+MOV A2 0
+MOV A2 <$USERNAME>
+MOV N43 1
+GOTO @赌庄胖妞
+MESSAGEBOX \\[提示]：您使用【<$STR(N40)>】个元宝坐庄。
+
+
+[@InPutInteger41]
+#IF
+EQUAL A2 <$USERNAME>
+#ACT
+MOV N41 0
+MESSAGEBOX \\[提示]：你目前已经是庄家，无法下注。
+GOTO @赌庄胖妞
+BREAK
+#if
+Check [001] 1
+#act
+MOV N41 0
+MESSAGEBOX \\[提示]：对不起！你已经下过注了，无法再重新下注！
+GOTO @赌庄胖妞
+BREAK
+
+#IF
+#ACT
+CloseBigDialogBox
+#SAY
+<--------------------------------------------------------------/AUTOCOLOR=91>\
+<《赌庄胖妞》/FCOLOR=254>  <请再次确认您的下注数据/FCOLOR=249>       <单车可以变摩托噢！/FCOLOR=151>\ 
+<--------------------------------------------------------------/AUTOCOLOR=91>\ \
+1、本局还可以下注大【<$STR(G16)>】元宝。\
+2、您当前准备下注大【<$STR(N41)>】元宝。\ \
+<--------------------------------------------------------------/AUTOCOLOR=91>\
+<√·确定下注/@确定下注大>                                      <关闭对话×/@exit>\
+
+
+[@确定下注大]
+#If
+CheckLevelEx > 0
+#Act
+DelayGoto 1 ~InPutInteger41
+
+
+[~InPutInteger41]
+#IF
+SMALL G6 2
+#ACT
+MESSAGEBOX \\[提示]：下注时间已经结束。请等待开局！。
+MOV N41 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+LARGE G1 120
+#ACT
+MESSAGEBOX \\[提示]：现在是开奖结算时间，禁止下注！
+MOV N41 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+LARGE G1 60
+#ACT
+MESSAGEBOX \\[提示]：下注时间还没到，现在是抢庄时间。
+MOV N41 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+SMALL N41 1000
+#ACT
+MESSAGEBOX \\[提示]：最少下注1000元宝，请输入1000以上的数值！
+MOV N41 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+LARGE N41 <$STR(G16)>
+#ACT
+MOV N41 0
+MESSAGEBOX \\[提示]：对不起，庄家的本钱已达到上线不够赔了。\\目前你只可以下注【<$STR(G16)>】以下的元宝！
+GOTO @赌庄胖妞
+BREAK
+
+#IF
+CHECKGAMEGOLD < <$STR(N41)>
+#ACT
+MESSAGEBOX \\[提示]：元宝不足，你没有【<$STR(N41)>元宝】可以下注！
+MOV N41 0
+GOTO @赌庄胖妞
+BREAK
+
+#IF
+NOT LARGE N41 <$STR(G16)>
+NOT CHECKGAMEGOLD < <$STR(N41)>
+#ACT
+DEC G16 <$STR(N41)>
+GAMEGOLD - <$STR(N41)>
+MOV N43 <$STR(N41)>
+INC G13 <$STR(N43)>
+set [001] 1
+addnamelist ..\QuestDiary\赌博系统\胖妞玩家名单.txt
+SendMSG 4 %s使用<$STR(N41)>个元宝下注押大。
+AddTextListEx ..\QuestDiary\赌博系统\胖妞下注数据.txt 玩家名字：<$USERNAME>|下注情况：大|下注金额：<$STR(N41)>
+CALCVAR HUMAN 胖妞下注元宝 = <$STR(N41)>
+SAVEVAR HUMAN 胖妞下注元宝 ..\QuestDiary\赌博系统\胖妞变量数据.txt
+CALCVAR HUMAN 胖妞下注状态 = 大
+SAVEVAR HUMAN 胖妞下注状态 ..\QuestDiary\赌博系统\胖妞变量数据.txt
+GOTO @赌庄胖妞
+MESSAGEBOX \\[提示]：您使用【<$STR(N41)>】个元宝下注押大。
+MOV N41 0
+#ELSEACT
+MESSAGEBOX \\[提示]：对不起，庄家的本钱已达到上线不够赔了。\\目前你只可以下注【<$STR(G16)>】以下的元宝！
+MOV N41 0
+GOTO @赌庄胖妞
+BREAK
+
+
+[@InPutInteger42]
+#IF
+EQUAL A2 <$USERNAME>
+#ACT
+MOV N42 0
+MESSAGEBOX \\[提示]：你目前已经是庄家，无法下注。
+GOTO @赌庄胖妞
+BREAK
+#if
+Check [001] 1
+#act
+MOV N42 0
+MESSAGEBOX \\[提示]：对不起！你已经下过注了，无法再重新下注！
+GOTO @赌庄胖妞
+BREAK
+
+#IF
+#ACT
+CloseBigDialogBox
+#SAY
+<--------------------------------------------------------------/AUTOCOLOR=91>\
+<《赌庄胖妞》/FCOLOR=254>  <请再次确认您的下注数据/FCOLOR=249>       <单车可以变摩托噢！/FCOLOR=151>\ 
+<--------------------------------------------------------------/AUTOCOLOR=91>\ \
+1、本局还可以下注小【<$STR(G15)>】元宝。\
+2、您当前准备下注小【<$STR(N42)>】元宝。\ \
+<--------------------------------------------------------------/AUTOCOLOR=91>\
+<√·确定下注/@确定下注小>                                      <关闭对话×/@exit>\
+
+
+[@确定下注小]
+#If
+CheckLevelEx > 0
+#Act
+DelayGoto 1 ~InPutInteger42
+
+[~InPutInteger42]
+#IF
+SMALL G1 2
+#ACT
+MESSAGEBOX \\[提示]：下注时间已经结束。请等待开局！
+MOV N42 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+LARGE G1 120
+#ACT
+MESSAGEBOX \\[提示]：现在是开奖结算时间，禁止下注！
+MOV N42 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+LARGE G1 60
+#ACT
+MESSAGEBOX \\[提示]：下注时间还没到，现在是抢庄时间。
+MOV N42 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+SMALL N42 1000
+#ACT
+MESSAGEBOX \\[提示]：最少下注1000元宝，请输入1000以上的数值！
+MOV N42 0
+GOTO @赌庄胖妞
+BREAK
+#IF
+LARGE N42 <$STR(G15)>
+#ACT
+MOV N42 0
+MESSAGEBOX \[提示]：对不起，庄家的本钱已达到上线不够赔了。\\目前你只可以下注【<$STR(G15)>】以下的元宝！
+GOTO @赌庄胖妞
+BREAK
+
+#IF
+CHECKGAMEGOLD < <$STR(N42)>
+#ACT
+MESSAGEBOX \\[提示]：元宝不足，你没有【<$STR(N42)>元宝】可以下注！
+MOV N42 0
+GOTO @赌庄胖妞
+BREAK
+
+#IF
+NOT LARGE N42 <$STR(G15)>
+NOT CHECKGAMEGOLD < <$STR(N42)>
+#ACT
+DEC G15 <$STR(N42)>
+GAMEGOLD - <$STR(N42)>
+MOV N43 <$STR(N42)>
+INC G14 <$STR(N43)>
+set [001] 1
+addnamelist ..\QuestDiary\赌博系统\胖妞玩家名单.txt
+SendMSG 4 %s使用<$STR(N42)>个元宝下注押小。
+AddTextListEx ..\QuestDiary\赌博系统\胖妞下注数据.txt 玩家名字：<$USERNAME>|下注情况：小|下注金额：<$STR(N42)>
+CALCVAR HUMAN 胖妞下注元宝 = <$STR(N42)>
+SAVEVAR HUMAN 胖妞下注元宝 ..\QuestDiary\赌博系统\胖妞变量数据.txt
+CALCVAR HUMAN 胖妞下注状态 = 小
+SAVEVAR HUMAN 胖妞下注状态 ..\QuestDiary\赌博系统\胖妞变量数据.txt
+GOTO @赌庄胖妞
+MESSAGEBOX \\[提示]：您使用【<$STR(N42)>】个元宝下注押小。
+MOV N42 0
+#ELSEACT
+MESSAGEBOX \[提示]：对不起，庄家的本钱已达到上线不够赔了。\\目前你只可以下注【<$STR(G15)>】以下的元宝！
+MOV N42 0
+GOTO @赌庄胖妞
+BREAK
+
+[@Label]
+#IF
+#ACT
+CloseBigDialogBox
+SetOffTimer 15
+Close
+}

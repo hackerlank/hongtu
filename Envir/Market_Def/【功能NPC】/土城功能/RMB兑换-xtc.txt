@@ -1,0 +1,61 @@
+[@main]
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 1 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT>\
+　\
+<欢迎使用RMB自助兑换充值元宝系统/SCOLOR=70>\
+　\
+元宝比例   网银充值1:100  宏图霸业古币\
+　\
+等同于在官方网站元宝充值\
+<Img:803:0:0:4>\
+{当前帐户的RMB为：<$GOLDCOUNT>/SCOLOR=70}
+\
+{当前帐户的元宝数为：<$GAMEGOLD>/SCOLOR=70}\
+\
+　　　　　　　　　　　　　　　　　　　　　　　<点击兑换/@@InPutString95>
+
+[@InPutString95]
+#IF
+small S95 1
+#ACT
+MESSAGEBOX [提示]：最低兑换额度为1元\\
+BREAK
+
+#IF
+CHECKGAMEPOINT <$STR(S95)>
+#ACT
+MOV N44 <$STR(S95)>
+MUL N45 N44 2000
+MUL N46 N44 2
+#say
+<Img:801:0:360:-12/@EXIT>\
+　\
+　　您输入的金额是：<$STR(S95)>　　<重新输入/@@InPutString95>\
+　\
+　　兑换元宝：<$STR(N45)>\
+　\
+　　宝藏积分：<$STR(N46)>\
+　\
+　　累计充值：<$STR(N44)>\
+　\
+　　今日充值：<$STR(N44)>　　　　　　　　<确定兑换/@确定兑换>　　　　　<返回首页/@main>\
+
+#ELSEACT
+MESSAGEBOX [提示]：或者您的RMB不足<$STR(S95)>元
+BREAK
+
+[@确定兑换]
+#IF
+CHECKGAMEPOINT <$STR(N44)>
+#ACT
+GAMEPOINT - <$STR(N44)>
+GAMEGOLD + <$STR(N45)>
+GAMEDIAMOND + <$STR(N46)>
+GAMEGIRD + <$STR(N44)>
+INC u2 <$STR(N44)>
+SENDMSG 1  ★[%s]:★★★★★恭喜玩家<$USERNAME>使用我服推出的在线充值元宝购买功能，购买<$STR(N45)>个,如果您也需要充值元宝,请赶紧打开充值页面进行元宝充值吧★★★★★
+SENDMSG 1  ★[%s]:★★恭喜玩家<$USERNAME>使用本服在线自动冲值系统，额外获得宝藏积分<$STR(N46)>点★★
+goto @main

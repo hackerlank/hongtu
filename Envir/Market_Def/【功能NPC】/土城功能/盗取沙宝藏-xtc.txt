@@ -1,0 +1,87 @@
+[@main]
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<盗取沙宝藏/SCOLOR=154> <New/SCOLOR=249>\
+　　　<没错，你没看错，沙没拿下来没事，赶快来盗取宝藏吧！/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<每次攻沙结束后，没拿下沙不要紧，再次召集兄弟来此处可盗取沙城/SCOLOR=147>\\
+　<奖金池，盗取一次可以获得1000元宝，沙城奖金也会减少1000元宝哦/SCOLOR=147>\\
+　<所以各沙城成员们，为了你们的奖池资金不为他人所夺！请尽力保护/SCOLOR=145>\\
+　<好你们的奖池资金哦，少于100000元宝后就无法盗取、/SCOLOR=155>\\
+　<Img:803:0:0:4>\
+　<在我身边八个位置才能盗取资金/SCOLOR=249>  <当前奖池福利资金为：/SCOLOR=70>{<$STR(G450)>/SCOLOR=249}<元宝/SCOLOR=70>\
+　<我要盗取奖池资金·√/@我要盗取奖池资金>　　　　　　　　<我是城主领取全部资金·√/@我是城主领取全部资金>\
+
+
+[@我要盗取奖池资金]
+#IF
+equal <$GUILDNAME> <$OWNERGUILD>
+#ACT
+MESSAGEBOX \\我靠，你想盗取自己行会的奖励！
+break
+
+#IF
+small G450 100001
+#ACT
+MESSAGEBOX \\当前奖池福利低于100000请高抬贵手！
+break
+
+#IF
+NOT CheckHumInRange 3 649 285 1
+#ACT
+MESSAGEBOX \\只有在我周围8个位置才能盗取哦！
+break
+#IF
+small G449 2
+#ACT
+MESSAGEBOX \\都还没攻沙急什么！
+break
+
+#IF
+HOUR 22 22
+MIN  00 29
+large G450 99999
+CheckHumInRange 3 649 285 1
+#ACT
+SetIcon 1 12 371 6 -15 0 0 200
+SHOWPROGRESSBARDLG 1 @采集完成 正在盗取宝藏,进度%d%... 0 @采集中断
+#ELSEACT
+MESSAGEBOX \\请在22:00-22:29盗取奖池！
+break
+
+[@我是城主领取全部资金]
+#IF
+NOT ISCASTLEMASTER
+#ACT
+MESSAGEBOX \\你不是沙城老大！
+break
+
+#IF
+large G451 0
+#ACT
+MESSAGEBOX \\今日奖励已经领取，请不要重复领取！
+break
+
+#IF
+equal G451 0
+large G450 0
+HOUR 22 22
+MIN  30 59
+ISCASTLEMASTER
+#ACT
+GAMEGOLD + <$STR(G450)>
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+MOV G450 0
+MOV G451 1
+MOV G453 1
+break
+#ELSEACT
+MESSAGEBOX \\请在22:30-23:00来领取！
+break

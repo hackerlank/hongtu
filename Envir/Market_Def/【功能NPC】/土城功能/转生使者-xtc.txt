@@ -1,0 +1,211 @@
+[@main]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1040 1 4 0 0 1 450 10
+#say
+<Img:801:0:456:20/@EXIT>\ \ \ \ \
+　　　　<转生大师/SCOLOR=154>\
+　　　　　　　<称号完全免费获得，拥有称号可进入高级地图！让你快人一步/SCOLOR=87>\
+　\
+　　　　　<Img:803:0:0:4>\
+　\
+　　　　<使用  一星龙珠,各10枚  即可进行一转/SCOLOR=175>　　<免费/SCOLOR=175>           <1.01倍攻/SCOLOR=175>     <转生/@转生1>\　
+　　　<使用  二星龙珠,各10枚  即可进行二转/SCOLOR=167>　　<免费/SCOLOR=167>           <1.02倍攻/SCOLOR=167>     <转生/@转生2>\　
+　　　<使用  三星龙珠,各10枚  即可进行三转/SCOLOR=168>　　<免费/SCOLOR=168>           <1.03倍攻/SCOLOR=168>     <转生/@转生3>\　
+　　　<使用  四星龙珠,各10枚  即可进行四转/SCOLOR=154>　　<免费/SCOLOR=154>           <1.04倍攻/SCOLOR=154>   　<转生/@转生4>\　
+　　　<使用  五星龙珠,各10枚  即可进行五转/SCOLOR=145>　　<免费/SCOLOR=145>　         <1.05倍攻/SCOLOR=145>     <转生/@转生5>\　
+　　　<使用  六星龙珠,各10枚  即可进行六转/SCOLOR=146>   <2000宏图古币/SCOLOR=146>    <1.06倍攻/SCOLOR=146>     <转生/@转生6>\　
+　　　<使用  七星龙珠,各10枚  即可进行七转/SCOLOR=19>　 <4000宏图古币/SCOLOR=19>　  <1.07倍攻/SCOLOR=19>     <转生/@转生7>\　
+　　　<使用  八星龙珠,各10枚  即可进行八转/SCOLOR=20>　 <6000宏图古币/SCOLOR=20>　  <1.08倍攻/SCOLOR=20>     <转生/@转生8>\　
+　　　<使用  九星龙珠,各10枚  即可进行九转/SCOLOR=21>　 <8000宏图古币/SCOLOR=21>　  <1.09倍攻/SCOLOR=21>     <转生/@转生9>\　
+　　　<使用  十星龙珠,各10枚  即可进行十转/SCOLOR=22>　 <10000宏图古币/SCOLOR=22>　 <1.10倍攻/SCOLOR=22>     <转生/@转生10>\　
+
+
+
+
+[@转生1]
+#IF
+CHECKRENEWLEVEL = 0
+checkitem 一星龙珠 10
+#ACT
+take 一星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行一重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{一重转生|250:0:1}！！
+
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.01倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK
+
+
+[@转生2]
+#IF
+CHECKRENEWLEVEL = 1
+checkitem 二星龙珠 10
+#ACT
+take 二星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行二重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{二重转生|250:0:1}！！
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.02倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK
+
+
+[@转生3]
+#IF
+CHECKRENEWLEVEL = 2
+checkitem 三星龙珠 10
+#ACT
+take 三星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行三重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{三重转生|250:0:1}！！
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.03倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK
+
+
+[@转生4]
+#IF
+CHECKRENEWLEVEL = 3
+checkitem 四星龙珠 10
+#ACT
+take 四星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行四重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{四重转生|250:0:1}！！
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.04倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK
+
+[@转生5]
+#IF
+CHECKRENEWLEVEL = 4
+checkitem 五星龙珠 10
+#ACT
+take 五星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行五重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{五重转生|250:0:1}！！
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.05倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK
+
+[@转生6]
+#IF
+CHECKGAMEDIAMOND > 1999
+CHECKRENEWLEVEL = 5
+checkitem 六星龙珠 10
+#ACT
+GAMEDIAMOND - 2000
+take 六星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行六重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{六重转生|250:0:1}！！
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.06倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK
+
+
+[@转生7]
+#IF
+CHECKGAMEDIAMOND > 3999
+CHECKRENEWLEVEL = 6
+checkitem 七星龙珠 10
+#ACT
+GAMEDIAMOND - 4000
+take 七星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行七重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{七重转生|250:0:1}！！
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.07倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK
+
+
+
+[@转生8]
+#IF
+CHECKGAMEDIAMOND > 5999
+CHECKRENEWLEVEL = 7
+checkitem 八星龙珠 10
+#ACT
+GAMEDIAMOND - 6000
+take 八星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行八重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{八重转生|250:0:1}！！
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.08倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK
+
+[@转生9]
+#IF
+CHECKGAMEDIAMOND > 7999
+CHECKRENEWLEVEL = 8
+checkitem 九星龙珠 10
+#ACT
+GAMEDIAMOND - 8000
+take 九星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行九重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{九重转生|250:0:1}！！
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.09倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK
+
+[@转生10]
+#IF
+CHECKGAMEDIAMOND > 9999
+CHECKRENEWLEVEL = 9
+checkitem 十星龙珠 10
+#ACT
+GAMEDIAMOND - 10000
+take 十星龙珠 10
+RENEWLEVEL 1 0 0
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SendCenterMsg 0 254 恭喜[<$USERNAME>]在转生NPC处,成功进行十重转生！ 1 15
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}在转生NPC处,成功进行{十重转生|250:0:1}！！
+MESSAGEBOX [转生成功]：\\恭喜您已经转生！
+SendMsg 6 获得永久倍攻1.10倍
+#ELSEACT
+MESSAGEBOX [转生失败]\转生所需要材料不足
+BREAK

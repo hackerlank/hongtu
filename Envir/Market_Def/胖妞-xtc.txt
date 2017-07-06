@@ -1,0 +1,4 @@
+(@@InPutInteger )
+[@main]
+#ACT
+#CALL [\通区娱乐系统\通区娱乐.txt] @娱乐脚本

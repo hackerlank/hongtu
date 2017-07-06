@@ -1,0 +1,561 @@
+[@main]
+
+#say
+<新手/@新手>　<第一套/@第一套>　<第二套/@第二套>　<第三套/@第三套>　<第四套/@第四套>　<第五套/@第五套>　<第六套/@第六套>　 <第七套/@第七套>\
+<第八套/@第八套>　<第九套/@第九套>　<第十套/@第十套>　<第十一套/@第十一套>　<第十二套/@第十二套>　<第十三套/@第十三套>　<第十四套/@第十四套>　 <第十五套/@第十五套>\
+<清理包裹/@清理包裹>  <删除身上/@删除身上>   <全部删除/@全部清理>  <称号/@称号>   <制作坐标/@制作坐标>  <坐标偏移/@坐标偏移> \
+<充10元/@10元> <充50元/@50元> <充1000元/@1000元> <发放每日/@发放每日1> <测试行会/@测试行会>  <测试八卦/@测试八卦>  \
+<等级+1/@等级+1>  <等级-1/@等级-1>   <赞助功勋/@赞助功勋>    <转生/@转生>   \
+<生命神石/@生命神石>  <嗜血菩提/@嗜血菩提>  <死神宝玉/@死神宝玉>   <远古护佑/@远古护佑>  <生肖/@生肖>  <生肖精品/@生肖精品>  <生肖完美/@生肖完美>\
+<时装体验/@时装体验>  <时装初级/@时装初级>  <时装中级/@时装中级>  <时装高级/@时装高级>  <顶级时装/@时装顶级>  <牛B高级/@牛B时装>\
+<麻痹/@麻痹>　<复活/@复活>　<护身/@护身>　<麻+复/@麻痹+复活>　<麻+护/@麻痹+护身>　<复+护/@复活+护身>　<终极戒指/@终极戒指>\
+<测试诅咒/@测试诅咒>    <给技能/@给技能>   <商人封号/@商人>   \
+
+
+[@等级+1]
+#ACT
+  CHANGELEVEL + 1
+
+
+
+
+[@转生]
+#ACT
+RENEWLEVEL 1
+
+[@商人]
+#IF
+#ACT
+SETICON 0 15 516 -3 -80 8 0 300 0
+
+
+[@10元]
+#ACT
+GAMEGOLD + 20000
+GAMEDIAMOND + 100
+GAMEGIRD + 10
+
+[@50元]
+#ACT
+GAMEGOLD + 100000
+GAMEDIAMOND + 500
+GAMEGIRD + 50
+
+[@1000元]
+#ACT
+GAMEGOLD + 2000000
+GAMEDIAMOND + 10000
+GAMEGIRD + 1000
+
+
+[@给技能]
+#ACT
+give	逐日剑法
+give	擒龙手
+give	开天斩
+give	十步一杀
+give	烈火剑法
+give	四级烈火
+give	乾坤大挪移
+give	分身术
+give	流星火雨
+give	冰霜群雨
+give	寒冰掌
+give	灭天火
+give	龙渊气焰
+give	冰咆哮
+give	魔法盾
+give	群体施毒术
+give	飓风破
+give	死亡之眼
+give	四级灵魂火符
+give	神灵守护
+give	神武术
+
+
+[@测试诅咒]
+#ACT
+ChangeModeEx 5 60 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+
+[@终极戒指]
+#ACT
+give	亚麻亡魂指环
+give	怨灵永恒指环
+give	神圣阳鳞神指环
+give	魔物圣殿之指环
+give	怨灵保卫者之指环
+
+
+[@复活+护身]
+#ACT
+give	珠串重装之指环
+give	月冕远古之指环
+give	飓风巡护者指环
+give	织法者白骨指环
+give	黑蜘蛛之亡魂指环
+
+
+[@麻痹+护身]
+#ACT
+give	荆棘之雪指环
+give	尖刺奥秘指环
+give	冲锋者蛮兽指环
+give	步兵之酋长指环
+give	古拉天国神指环
+
+
+[@麻痹+复活]
+#ACT
+give	守护奥秘指环
+give	神圣之苍穹指环
+give	赤色久战之指环
+give	至尊亡魂长之指环
+give	黑珍珠邪恶神指环
+
+
+[@护身]
+#ACT
+give	护身指环·LV1
+give	护身指环·LV2
+give	护身指环·LV3
+give	护身指环·LV4
+give	护身指环·LV5
+
+
+[@复活]
+#ACT
+give	复活指环·LV1
+give	复活指环·LV2
+give	复活指环·LV3
+give	复活指环·LV4
+give	复活指环·LV5
+
+
+[@麻痹]
+#ACT
+give	切割指环·LV1
+give	切割指环·LV2
+give	切割指环·LV3
+give	切割指环·LV4
+give	切割指环·LV5
+
+
+[@时装体验]
+#ACT
+give 冲锋马超[时装]
+give 名将黄月英[时装]
+
+[@时装初级]
+#ACT
+give 黄金勇士[时装]
+give 爱新觉罗建宁[时装]
+
+[@时装中级]
+#ACT
+give 武状元苏乞儿[时装]
+give 贵妃杨玉环[时装]
+
+[@时装高级]
+#ACT
+give 天下无双吕布[时装]
+give 天下美人貂蝉[时装]
+
+[@时装顶级]
+#ACT
+give 常山赵子龙也[时装]
+give 绝世艳后小乔[时装]
+
+[@牛B时装]
+#ACT
+give 齐天大圣悟空[时装]
+give 天蓬公主猪妹[时装]
+
+
+[@生肖完美]
+#ACT
+give 子鼠[完美]
+give 丑牛[完美]
+give 寅虎[完美]
+give 卯兔[完美]
+give 辰龙[完美]
+give 巳蛇[完美]
+give 午马[完美]
+give 未羊[完美]
+give 申猴[完美]
+give 酉鸡[完美]
+give 戌狗[完美]
+give 亥猪[完美]
+
+
+[@生肖精品]
+#ACT
+give 子鼠[精品]
+give 丑牛[精品]
+give 寅虎[精品]
+give 卯兔[精品]
+give 辰龙[精品]
+give 巳蛇[精品]
+give 午马[精品]
+give 未羊[精品]
+give 申猴[精品]
+give 酉鸡[精品]
+give 戌狗[精品]
+give 亥猪[精品]
+
+
+[@生肖]
+#ACT
+give 子鼠
+give 丑牛
+give 寅虎
+give 卯兔
+give 辰龙
+give 巳蛇
+give 午马
+give 未羊
+give 申猴
+give 酉鸡
+give 戌狗
+give 亥猪
+
+[@远古护佑]
+#ACT
+give	一级护佑
+give	二级护佑
+give	三级护佑
+give	四级护佑
+give	五级护佑
+give	终极护佑
+
+
+[@死神宝玉]
+#ACT
+give	一级宝玉
+give	二级宝玉
+give	三级宝玉
+give	四级宝玉
+give	五级宝玉
+give	终极宝玉
+
+
+[@嗜血菩提]
+#ACT
+give	一级菩提
+give	二级菩提
+give	三级菩提
+give	四级菩提
+give	五级菩提
+give	终极菩提
+
+
+
+[@生命神石]
+#ACT
+give	新手血石
+give	一级血石
+give	二级血石
+give	三级血石
+give	四级血石
+give	五级血石
+give	终级血石
+
+
+
+
+[@特殊功勋]
+#ACT
+give 初入江湖功勋
+give 至尊会员功勋
+give 天下第一功勋
+give 最强王者功勋
+
+
+[@全部清理]
+#ACT
+TakeOffItem 0
+TakeOffItem 1
+TakeOffItem 2
+TakeOffItem 3
+TakeOffItem 4
+TakeOffItem 5
+TakeOffItem 6
+TakeOffItem 7
+TakeOffItem 8
+TakeOffItem 9
+TakeOffItem 10
+TakeOffItem 11
+TakeOffItem 12
+TakeOffItem 13
+TakeOffItem 14
+TakeOffItem 15
+TakeOffItem 16
+TakeOffItem 17
+TakeOffItem 18
+TakeOffItem 30
+TakeOffItem 31
+TakeOffItem 32
+TakeOffItem 33
+TakeOffItem 34
+TakeOffItem 35
+TakeOffItem 36
+TakeOffItem 37
+TakeOffItem 38
+TakeOffItem 39
+TakeOffItem 40
+TakeOffItem 41
+GmExeCute 清理垃圾 Self
+
+[@清理包裹]
+#ACT
+GmExeCute 清理垃圾 Self
+
+[@删除身上]
+#IF
+#ACT
+TakeOffItem 0
+TakeOffItem 1
+TakeOffItem 2
+TakeOffItem 3
+TakeOffItem 4
+TakeOffItem 5
+TakeOffItem 6
+TakeOffItem 7
+TakeOffItem 8
+TakeOffItem 9
+TakeOffItem 10
+TakeOffItem 11
+TakeOffItem 12
+TakeOffItem 13
+TakeOffItem 14
+TakeOffItem 15
+TakeOffItem 16
+
+
+[@赞助功勋]
+#IF
+#Act
+GIVE 男爵功勋
+GIVE 子爵功勋
+GIVE 伯爵功勋
+GIVE 侯爵功勋
+GIVE 公爵功勋
+GIVE 领主功勋
+GIVE 长老功勋
+GIVE 亲王功勋
+GIVE 血皇功勋
+GIVE 帝王功勋
+
+
+[@第十五套]
+#IF
+#Act
+give 霸业之刃
+give 霸业战甲
+give 霸业战衣
+give 霸业头盔
+give 霸业项链
+give 霸业手镯 2
+give 霸业戒指 2
+give 霸业腰带
+give 霸业靴子
+[@第十四套]
+#IF
+#Act
+give 惊云之刃
+give 惊云战甲
+give 惊云战衣
+give 惊云头盔
+give 惊云项链
+give 惊云手镯 2
+give 惊云戒指 2
+give 惊云腰带
+give 惊云靴子
+[@第十三套]
+#IF
+#Act
+give 英雄之刃
+give 英雄战甲
+give 英雄战衣
+give 英雄头盔
+give 英雄项链
+give 英雄手镯 2
+give 英雄戒指 2
+give 英雄腰带
+give 英雄靴子
+[@第十二套]
+#IF
+#Act
+give 天煞之刃
+give 天煞战甲
+give 天煞战衣
+give 天煞头盔
+give 天煞项链
+give 天煞手镯 2
+give 天煞戒指 2
+give 天煞腰带
+give 天煞靴子
+[@第十一套]
+#IF
+#Act
+give 湛卢之刃
+give 湛卢战甲
+give 湛卢战衣
+give 湛卢头盔
+give 湛卢项链
+give 湛卢手镯 2
+give 湛卢戒指 2
+give 湛卢腰带
+give 湛卢靴子
+[@第十套]
+#IF
+#Act
+give 巨阕之刃
+give 巨阕战甲
+give 巨阕战衣
+give 巨阕头盔
+give 巨阕项链
+give 巨阕手镯 2
+give 巨阕戒指 2
+give 巨阕腰带
+give 巨阕靴子
+[@第九套]
+#IF
+#Act
+give 干将之刃
+give 干将战甲
+give 干将战衣
+give 干将头盔
+give 干将项链
+give 干将手镯 2
+give 干将戒指 2
+give 干将腰带
+give 干将靴子
+[@第八套]
+#IF
+#Act
+give 龙焰之刃
+give 龙焰战甲
+give 龙焰战衣
+give 龙焰头盔
+give 龙焰项链
+give 龙焰手镯 2
+give 龙焰戒指 2
+give 龙焰腰带
+give 龙焰靴子
+[@第七套]
+#IF
+#Act
+give 龙渊之刃
+give 龙渊战甲
+give 龙渊战衣
+give 龙渊头盔
+give 龙渊项链
+give 龙渊手镯 2
+give 龙渊戒指 2
+give 龙渊腰带
+give 龙渊靴子
+[@第六套]
+#IF
+#Act
+give 莫邪之刃
+give 莫邪战甲
+give 莫邪战衣
+give 莫邪头盔
+give 莫邪项链
+give 莫邪手镯 2
+give 莫邪戒指 2
+give 莫邪腰带
+give 莫邪靴子
+[@第五套]
+#IF
+#Act
+give 青虹之刃
+give 青虹战甲
+give 青虹战衣
+give 青虹头盔
+give 青虹项链
+give 青虹手镯 2
+give 青虹戒指 2
+give 青虹腰带
+give 青虹靴子
+[@第四套]
+#IF
+#Act
+give 火龙之刃
+give 火龙战甲
+give 火龙战衣
+give 火龙头盔
+give 火龙项链
+give 火龙手镯 2
+give 火龙戒指 2
+give 火龙腰带
+give 火龙靴子
+[@第三套]
+#IF
+#Act
+give 狂雷之刃
+give 狂雷战甲
+give 狂雷战衣
+give 狂雷头盔
+give 狂雷项链
+give 狂雷手镯 2
+give 狂雷戒指 2
+give 狂雷腰带
+give 狂雷靴子
+[@第二套]
+#IF
+#Act
+give 战神之刃
+give 战神战甲
+give 战神战衣
+give 战神头盔
+give 战神项链
+give 战神手镯 2
+give 战神戒指 2
+give 战神腰带
+give 战神靴子
+[@第一套]
+#IF
+#Act
+give 雷霆之刃
+give 雷霆战甲
+give 雷霆战衣
+give 雷霆头盔
+give 雷霆项链
+give 雷霆手镯 2
+give 雷霆戒指 2
+give 雷霆腰带
+give 雷霆靴子
+
+
+
+
+[@新手]
+#IF
+#Act
+give 灵霄武器
+give 墨羽武器
+give 奔雷武器
+give 奔雷战甲
+give 奔雷战衣
+give 灵霄战甲
+give 灵霄战衣
+give 墨羽战甲
+give 墨羽战衣
+give 中型盔甲(女)
+give 骑士手镯 2
+give 绿色项链
+give 力量戒指 2
+give 黑铁头盔
+give 紫碧螺 2
+give 恶魔铃铛
+give 龙之手镯 2
+give 三眼手镯 2
+give 灵魂项链
+give 泰坦戒指 2

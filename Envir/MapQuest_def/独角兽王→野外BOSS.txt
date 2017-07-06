@@ -1,0 +1,10 @@
+[@MAIN]
+#if
+ISONMAP ywdb2
+equal G151 0
+#ACT
+MOV G151 1
+mov A151 <$USERNAME>
+GAMEDIAMOND + 4000
+SENDMOVEMSG 0 253 0 152 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【独角兽王→野外BOSS】获得系统奖励4000古币!
+break

@@ -1,0 +1,59 @@
+[@main]
+#IF
+#Act
+OPENMERCHANTBIGDLG 12 1211 1 4 0 9 0
+#say
+<Img:801:0:490:25/@EXIT>\
+<PlayImg:15:226:4:200:20:-100:0>\
+　\
+　　　　　　　　　　　　　　　　　　<Img:1207:12::145:9>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<雪窑冰天三层/SCOLOR=158>\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<地图特征:地图BOOS多/SCOLOR=125>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<BOSS名称:邪神傲世→巅峰BOSS/SCOLOR=249>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<刷新时间:/SCOLOR=125><鼠标移此查看|253#铂金BOSS刷新时间60分钟^253#荣耀BOSS刷新时间60分钟^253#王者BOSS刷新时间90分钟^249#巅峰BOSS刷新时间90分钟/SCOLOR=125>\
+　　　　　　　　　　　　　　 {地图爆率详情/SCOLOR=251}（移动鼠标查看）\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 <进入条件:六转/SCOLOR=70>\
+　　　　　　{白色怪爆率低/SCOLOR=255}　　{红色BOSS爆率超高/SCOLOR=249}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<消耗元宝:每秒扣10个元宝/SCOLOR=70>\
+　<ImgEx:12:1212:1213:1214:380:20/@进入A>\
+　\　
+　\
+<ItemShow:396:0:70:-10:0>\
+<ItemShow:402:0:118:-26:0>\
+<ItemShow:403:0:160:-52:0>\
+<ItemShow:395:0:209:-70:0>\
+<ItemShow:401:0:253:-84:0>\
+<ItemShow:399:0:302:-100:0>\
+
+
+[@进入A]
+#IF
+#ACT
+MESSAGEBOX \\雪窑冰天三层每秒扣10个元宝，请注意！\\请按技能“召唤宠物”来打怪 @确定A @取消
+
+[@确定A]
+#IF
+CHECKRENEWLEVEL < 6
+#ACT
+MESSAGEBOX \\你没有六转，无法进入！
+break
+
+#IF
+#ACT
+mapmove Fditu3 146 152
+SETONTIMER 30 1
+SENDMSG 0 251 70 玛法勇士{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1}！！
+break
+
+
+
+
+

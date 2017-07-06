@@ -1,0 +1,754 @@
+(@@InPutInteger)
+[@趣味赌博]
+{
+#If
+CheckLevelEx > 1
+#Act
+GetListString ..\QuestDiary\赌博系统\猜点状态.txt 0 S$1
+#If
+EQUAL S$1 1
+#ACT
+goto @MAIN1
+#ELSEACT
+CloseBigDialogBox
+Close
+MESSAGEBOX \\猜点赌博系统没有开启！请联系管理员！\
+[@MAIN1]
+#if
+#act
+SetOffTimer 15
+OPENMERCHANTBIGDLG 31 1376 1 0 1 1 1
+MOV s$猜点时间显示 <$STR(G6)>
+MOV S63 <$HUMAN(猜点下注元宝)>
+MOV S64 <$GAMEGOLD>
+SetStringBlank <$STR(S63)> 6 1
+SetStringBlank <$STR(S64)> 8 1
+#if
+large G6 60
+#act
+MOV s$猜点时间显示 正在结算..
+#IF
+Check [002] 0
+#say
+<Img:279:0:352:26/@Label><Img:1378:31:-22:3><Img:1384:31:-99:137/@@InPutInteger10><Img:1385:31:-89:137/@@InPutInteger11>\
+<Img:367:3:162:152><Img:1383:31:130:121><Img:1382:31:115:150><Img:1379:31:-6:76>\
+<Img:1386:31:9:138/@@InPutInteger7><Img:1387:31:19:138/@@InPutInteger8><Img:1388:31:29:138/@@InPutInteger9>\
+　　　　　　　　开奖记录：(<$STR(A6)>)\
+　　　　　　　　点击您要竞猜的数字后可下注金额...    <刷新/@趣味赌博>\ 
+ 猜点游戏\
+                     剩余时间：{<$STR(s$猜点时间显示)>/AUTOCOLOR=151}\ \
+　　　　　　　　　　　　　　　     <赔率六倍：押注/AUTOCOLOR=22><①②③④⑤⑥/AUTOCOLOR=151>\
+　　　　　　　　　　　　　　　     <赔率三倍：押注/AUTOCOLOR=22>< 小  中  大/AUTOCOLOR=151>\
+　　　　　　　　　　　　　　　     <赔率二倍：押注/AUTOCOLOR=22>< 单      双/AUTOCOLOR=151>\
+<Img:1389:31:9:28/@@InPutInteger1><Img:1390:31:19:28/@@InPutInteger2><Img:1391:31:29:28/@@InPutInteger3>\ \
+<Img:1392:31:114:-3/@@InPutInteger4><Img:1393:31:124:-3/@@InPutInteger5><Img:1394:31:134:-3/@@InPutInteger6>\ \
+
+　                                           <说明：/AUTOCOLOR=151>\
+您的下注情况：您当前还未做任何下注操作！   <下注金额3万封顶/AUTOCOLOR=22>\
+您的经济状况：您所拥有的元宝【<$STR(S64)>】   <中奖收取 税金5%./AUTOCOLOR=22>\ \
+<╔┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╗/SCOLOR=243>\
+<┊友情提示：游戏只为娱乐，小赌贻情，大赌伤身，切勿贪迷赌博。┊/SCOLOR=243>\
+<╚┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╝/SCOLOR=243>\
+#elsesay
+<Img:279:0:352:26/@Label><Img:1378:31:-22:3><Img:1384:31:-99:137/@xxxxxxxxxxxx10><Img:1385:31:-89:137/@xxxxxxxxxxxx11>\
+<Img:367:3:162:152><Img:1383:31:130:121><Img:1382:31:115:150><Img:1379:31:-6:76>\
+<Img:1386:31:9:138/@xxxxxxxxxxxx7><Img:1387:31:19:138/@xxxxxxxxxxxx8><Img:1388:31:29:138/@xxxxxxxxxxxx9>\
+　　　　　　　　开奖记录：(<$STR(A6)>)\
+　　　　　　　　点击您要竞猜的数字后可下注金额...    <刷新/@趣味赌博>\ 
+ 猜点游戏\
+                     剩余时间：{<$STR(s$猜点时间显示)>/AUTOCOLOR=151}\ \
+　　　　　　　　　　　　　　　     <赔率六倍：押注/AUTOCOLOR=22><⑥⑤④③②①/AUTOCOLOR=151>\
+　　　　　　　　　　　　　　　     <赔率三倍：押注/AUTOCOLOR=22>< 大  中  小/AUTOCOLOR=151>\
+　　　　　　　　　　　　　　　     <赔率二倍：押注/AUTOCOLOR=22>< 单      双/AUTOCOLOR=151>\
+<Img:1389:31:9:28/@xxxxxxxxxxxx1><Img:1390:31:19:28/@xxxxxxxxxxxx2><Img:1391:31:29:28/@xxxxxxxxxxxx3>\ \
+<Img:1392:31:114:-3/@xxxxxxxxxxxx4><Img:1393:31:124:-3/@xxxxxxxxxxxx5><Img:1394:31:134:-3/@xxxxxxxxxxxx6>\ \
+
+　                                           <说明：/AUTOCOLOR=151>\
+您的下注情况：你下注[<$STR(S63)>]元宝押【<$HUMAN(猜点下注状态)>】   <下注金额3万封顶/AUTOCOLOR=22>\
+您的经济状况：您所拥有的元宝【<$STR(S64)>】   <中奖收取 税金5%./AUTOCOLOR=22>\ \
+<╔┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╗/SCOLOR=243>\
+<┊友情提示：游戏只为娱乐，小赌贻情，大赌伤身，切勿贪迷赌博。┊/SCOLOR=243>\
+<╚┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╝/SCOLOR=243>\
+
+
+
+
+[@InPutInteger1]
+#ACT
+DelayGoto 1 ~InPutInteger1
+
+[~InPutInteger1]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N1 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N1 30001
+LARGE N1 999
+#ACT
+GOTO @押注①
+#ELSEACT
+MOV N1 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注①]
+#IF
+SMALL G6 2
+#ACT
+MESSAGEBOX \\[提示]：押注时间已结束!
+MOV N1 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+MOV N1 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N1)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N1)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N1)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = ①
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：①|下注金额：<$STR(N1)>
+sendmsg 4 [%s]押①[<$STR(N1)>元宝]，赔率6倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N1 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+[@InPutInteger2]
+#ACT
+DelayGoto 1 ~InPutInteger2
+
+
+[~InPutInteger2]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N2 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N2 30001
+LARGE N2 999
+#ACT
+GOTO @押注②
+#ELSEACT
+MOV N2 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注②]
+#IF
+SMALL G6 2
+#ACT
+MOV N2 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N2 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N2)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N2)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N2)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = ②
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：②|下注金额：<$STR(N2)>
+sendmsg 4 [%s]押②[<$STR(N2)>元宝]，赔率6倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N2 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+
+[@InPutInteger3]
+#ACT
+DelayGoto 1 ~InPutInteger3
+
+
+[~InPutInteger3]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N3 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N3 30001
+LARGE N3 999
+#ACT
+GOTO @押注③
+#ELSEACT
+MOV N3 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注③]
+#IF
+SMALL G6 2
+#ACT
+MOV N3 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N3 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+
+#IF
+CHECKGAMEGOLD > <$STR(N3)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N3)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N3)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = ③
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：③|下注金额：<$STR(N3)>
+sendmsg 4 [%s]押③[<$STR(N3)>元宝]，赔率6倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N3 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+[@InPutInteger4]
+#ACT
+DelayGoto 1 ~InPutInteger4
+
+
+[~InPutInteger4]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N4 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N4 30001
+LARGE N4 999
+#ACT
+GOTO @押注④
+#ELSEACT
+MOV N4 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注④]
+#IF
+SMALL G6 2
+#ACT
+MOV N4 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N4 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N4)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N4)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N4)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = ④
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：④|下注金额：<$STR(N4)>
+sendmsg 4 [%s]押④[<$STR(N4)>元宝]，赔率6倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N4 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+[@InPutInteger5]
+#ACT
+DelayGoto 1 ~InPutInteger5
+
+
+[~InPutInteger5]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N5 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N5 30001
+LARGE N5 999
+#ACT
+GOTO @押注⑤
+#ELSEACT
+MOV N5 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注⑤]
+#IF
+SMALL G6 2
+#ACT
+MOV N5 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N5 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N5)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N5)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N5)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = ⑤
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：⑤|下注金额：<$STR(N5)>
+sendmsg 4 [%s]押⑤[<$STR(N5)>元宝]，赔率6倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N5 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+[@InPutInteger6]
+#ACT
+DelayGoto 1 ~InPutInteger6
+
+
+[~InPutInteger6]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N6 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N6 30001
+LARGE N6 999
+#ACT
+GOTO @押注⑥
+#ELSEACT
+MOV N6 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注⑥]
+#IF
+SMALL G6 2
+#ACT
+MOV N6 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N6 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N6)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N6)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N6)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = ⑥
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：⑥|下注金额：<$STR(N6)>
+sendmsg 4 [%s]押⑥[<$STR(N6)>元宝]，赔率6倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N6 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+[@InPutInteger7]
+#ACT
+DelayGoto 1 ~InPutInteger7
+
+
+[~InPutInteger7]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N7 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N7 30001
+LARGE N7 999
+#ACT
+GOTO @押注大
+#ELSEACT
+MOV N7 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注大]
+#IF
+SMALL G6 2
+#ACT
+MOV N7 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N7 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N7)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N7)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N7)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = 大
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：大|下注金额：<$STR(N7)>
+sendmsg 4 [%s]押大[<$STR(N7)>元宝]，赔率3倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N7 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+[@InPutInteger8]
+#ACT
+DelayGoto 1 ~InPutInteger8
+
+
+[~InPutInteger8]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N8 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N8 30001
+LARGE N8 999
+#ACT
+GOTO @押注中
+#ELSEACT
+MOV N8 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注中]
+#IF
+SMALL G6 2
+#ACT
+MOV N8 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N8 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N8)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N8)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N8)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = 中
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：中|下注金额：<$STR(N8)>
+sendmsg 4 [%s]押中[<$STR(N8)>元宝]，赔率3倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N8 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+[@InPutInteger9]
+#ACT
+DelayGoto 1 ~InPutInteger9
+
+
+[~InPutInteger9]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N9 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N9 30001
+LARGE N9 999
+#ACT
+GOTO @押注小
+#ELSEACT
+MOV N9 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注小]
+#IF
+SMALL G6 2
+#ACT
+MOV N9 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N9 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N9)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N9)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N9)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = 小
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：小|下注金额：<$STR(N9)>
+sendmsg 4 [%s]押小[<$STR(N9)>元宝]，赔率3倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N9 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+[@InPutInteger10]
+#ACT
+DelayGoto 1 ~InPutInteger10
+
+
+[~InPutInteger10]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N10 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N10 30001
+LARGE N10 999
+#ACT
+GOTO @押注单
+#ELSEACT
+MOV N10 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注单]
+#IF
+SMALL G6 2
+#ACT
+MOV N10 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N10 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N10)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N10)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N10)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = 单
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：单|下注金额：<$STR(N10)>
+sendmsg 4 [%s]押单[<$STR(N10)>元宝]，赔率2倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N10 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+;====================================================================
+[@InPutInteger11]
+#ACT
+DelayGoto 1 ~InPutInteger11
+
+
+[~InPutInteger11]
+#IF
+Check [002] 1
+#ACT
+MESSAGEBOX \\[提示]：对不起,每局只能押注一次!
+MOV N11 0
+GOTO @趣味赌博
+BREAK
+
+#IF
+SMALL N11 30001
+LARGE N11 999
+#ACT
+GOTO @押注双
+#ELSEACT
+MOV N11 0
+MESSAGEBOX \\[提示]：押注失败,请输入1000-30000之间的数值！
+GOTO @趣味赌博
+BREAK
+
+[@押注双]
+#IF
+SMALL G6 2
+#ACT
+MOV N11 0
+MESSAGEBOX \\[提示]：押注时间已结束!
+GOTO @趣味赌博
+BREAK
+
+#IF
+large G6 60
+#ACT
+MOV N11 0
+MESSAGEBOX \\[提示]：现在是开奖结算时间禁止下注!
+GOTO @趣味赌博
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N11)>
+#ACT
+set [002] 1
+GAMEGOLD - <$STR(N11)>
+CALCVAR HUMAN 猜点下注元宝 = <$STR(N11)>
+SAVEVAR HUMAN 猜点下注元宝 ..\QuestDiary\赌博系统\猜点变量数据.txt
+CALCVAR HUMAN 猜点下注状态 = 双
+SAVEVAR HUMAN 猜点下注状态 ..\QuestDiary\赌博系统\猜点变量数据.txt
+AddTextListEx ..\QuestDiary\赌博系统\猜点下注数据.txt 玩家名字：<$USERNAME>|下注情况：双|下注金额：<$STR(N11)>
+sendmsg 4 [%s]押双[<$STR(N11)>元宝]，赔率2倍
+addnamelist ..\QuestDiary\赌博系统\猜点玩家名单.txt
+GOTO @趣味赌博
+#ELSEACT
+MOV N11 0
+MESSAGEBOX \\[提示]：当前帐户元宝不足下注失败！
+GOTO @趣味赌博
+BREAK
+
+
+[@Label]
+#IF
+#ACT
+CloseBigDialogBox
+Close
+}

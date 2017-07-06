@@ -1,0 +1,789 @@
+[@娱乐脚本]
+{
+
+#IF
+EQUAL G17 1
+#ELSEACT
+MESSAGEBOX \\本系统暂未开放！请联系管理员
+BREAK
+
+
+#IF
+EQUAL <$EGAME_VAR_COMMON_SERVERREADY> 1
+#ELSEACT
+CLOSE
+MESSAGEBOX \\系统异常！请联系管理员
+BREAK
+
+#IF
+CHECKLEVELEX > 0
+#ACT
+OPENMERCHANTBIGDLG 54 48 0 0 0 0 0
+
+;#if
+;EQUAL S$个人读秒状态
+;#act
+MOV  S$个人读秒状态 开启
+goto @start
+BREAK
+
+[@start]
+#IF
+#ACT	
+	egame_cmd_caidian_entergame
+	goto @ShowHH
+#ELSEACT
+EGAME_CMD_CAIDIAN_LEAVEGAME
+CLOSE
+MESSAGEBOX \\系统异常！请联系管理员
+BREAK
+
+
+[@ShowHH]
+#IF
+EQUAL <$EGAME_VAR_COMMON_SERVERREADY> 1
+#ELSEACT
+mov S$个人读秒状态
+CLOSE
+MESSAGEBOX \\系统异常！请联系管理员
+BREAK
+#IF
+ISONMAP xtc
+#ACT
+DELBUTTON 12
+DELBUTTON 13
+#ELSEACT
+mov S$个人读秒状态
+EGAME_CMD_CAIDIAN_LEAVEGAME
+CLOSE
+SENDMSG 6 你已离开[欢乐胖妞]，自动读秒关闭
+BREAK
+
+#IF
+#ACT
+#CALL [\通区娱乐系统\开奖历史记录.txt] @开奖历史记录
+
+#IF
+EQUAL S$个人读秒状态 开启
+#ACT	
+	Delaygoto 1000 @ShowHH
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 0
+#ACT
+MOV S27 <本局您还没有下注.../SCOLOR=69>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 1
+#ACT
+MOV S27 <本局您是庄家.../SCOLOR=69>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 2
+#ACT
+MOV S27 <您已下注[/SCOLOR=69><$EGAME_VAR_CAIDIAN_PRIVATEMONEY_INVESTMENT><]押[大]/SCOLOR=69>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 3
+#ACT
+MOV S27 <您已下注[/SCOLOR=69><$EGAME_VAR_CAIDIAN_PRIVATEMONEY_INVESTMENT><]押[小]/SCOLOR=69>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 4
+#ACT
+MOV S27 <您已参与本局抢庄.../SCOLOR=69>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 0
+#ACT
+MOV S26
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 1
+#ACT
+MOV S29 <现在是[/SCOLOR=245><抢庄时间/SCOLOR=254><]，你可选择/SCOLOR=245>[<我要抢庄/@@InPutInteger3>]<进行随机抢庄./SCOLOR=245>
+MOV S28 等待玩家上庄...
+MOV S26 <$GLOBAL(押注记录)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 2
+#ACT
+MOV S29 <现在是[/SCOLOR=245><抽庄时间/SCOLOR=249><]，正在抽取庄家..请等待片刻/SCOLOR=245>
+MOV S28 等待抽取庄家...
+MOV <$GLOBAL(押注记录)>
+MOV S26 <正在抽取庄家，请稍后.../SCOLOR=253>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 3
+#ACT
+MOV S29 <现在是[/SCOLOR=245><下注时间/SCOLOR=250><]请选择注码下注，买定离手了/SCOLOR=245>
+MOV S28 <$EGAME_VAR_CAIDIAN_BANKERSERVER>·<$EGAME_VAR_CAIDIAN_BANKERNAME>
+MOV S26 <$GLOBAL(押注记录)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 4
+#ACT
+MOV S29 <现在是[/SCOLOR=245><读骰时间/SCOLOR=249><]，正在读骰中..请等待片刻/SCOLOR=245>
+MOV S28 <$EGAME_VAR_CAIDIAN_BANKERSERVER>·<$EGAME_VAR_CAIDIAN_BANKERNAME>
+MOV S26 <$GLOBAL(押注记录)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 5
+#ACT
+MOV S29 <现在是[/SCOLOR=245><摇骰时间/SCOLOR=249><]，请等待摇骰结束，开庄并结算/SCOLOR=245>
+MOV S28 <$EGAME_VAR_CAIDIAN_BANKERSERVER>·<$EGAME_VAR_CAIDIAN_BANKERNAME>
+MOV S26 <$GLOBAL(押注记录)>
+
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 6
+#ACT
+MOV S29 <现在是[/SCOLOR=245><结算时间/SCOLOR=249><]，正在结算..请等待片刻/SCOLOR=245>
+MOV S28 <$EGAME_VAR_CAIDIAN_BANKERSERVER>·<$EGAME_VAR_CAIDIAN_BANKERNAME>
+CALCVAR GLOBAL 押注记录 =
+MOV A253 <$STR(A252)>
+DEC A253 60 100
+
+#IF
+#ACT
+MOV S18 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE>
+MOV S17 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL>
+MOV S16 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE_AVAIL>
+MOV S15 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL_AVAIL>
+MOV S12 <$EGAME_VAR_CAIDIAN_BANKERMONEY>
+SetStringBlank <$STR(S29)> 88 1
+SetStringBlank <$STR(S27)> 50 1
+SetStringBlank <$STR(S18)> 10 1
+SetStringBlank <$STR(S17)> 10 1
+SetStringBlank <$STR(S16)> 10 1
+SetStringBlank <$STR(S15)> 10 1
+SetStringBlank <$STR(S12)> 10 1
+#SAY
+<Img:801:0:380:-1/@EXIT>
+;<Img:33:11:-7:25>
+\ \
+<欢乐胖妞/FCOLOR=154>  <宏图霸业有你更精彩-390pk.com/FCOLOR=239>\
+<欢迎光临，这里是猜点数游戏，/FCOLOR=9><你的宏图古币:/FCOLOR=250>{<$GAMEDIAMOND>/SCOLOR=151}\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<$STR(S29)>{倒计时：<$EGAME_VAR_CAIDIAN_GAMESTATUS_COUNTDOWN>/SCOLOR=242}\
+ \
+
+<庄家姓名：/SCOLOR=69><$STR(S28)>\
+<庄家本钱：/SCOLOR=69><$STR(S12)>                             <[返回土城]/@关闭回城>\
+ <[关闭读秒]/@关闭读秒>\
+
+<[我要抢庄]/@@InPutInteger3>  <[下注押大]/@@InPutInteger1>  <[下注押小]/@@InPutInteger2>     <[自动抢庄]/@自动抢庄>\ 
+                                                 <[手机胖妞]/@手机胖妞>\
+<已押大总数：/SCOLOR=168><$STR(S18)><还可押大数：/SCOLOR=2><$STR(S16)>     <[快速押大]/@md>\
+<已押小总数：/SCOLOR=168><$STR(S17)><还可押小数：/SCOLOR=2><$STR(S15)>     <[快速押小]/@mx>\ \
+
+<$STR(S27)>  \
+<开庄记录：|<$STR(S$lskjjl_01)>/SCOLOR=245>                                       <[开奖查询]|<$STR(S$lskjjl_01)>/SCOLOR=151>\
+<$STR(A253)>\ \ \ 
+
+<$STR(S26)>
+
+
+[@手机胖妞]
+#IF
+#ACT
+MOV S$个人读秒状态
+goto @手机胖妞2
+
+[@手机胖妞2]
+#SAY
+<Img:801:0:380:-1/@EXIT>
+;<Img:33:11:-7:25>
+\ \
+<欢乐胖妞/FCOLOR=154>  <宏图霸业有你更精彩-390pk.com/FCOLOR=239>\
+<欢迎光临，这里是猜点数游戏，/FCOLOR=9><你的宏图古币:/FCOLOR=250>{<$GAMEDIAMOND>/SCOLOR=151}\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<[欢乐豆转到手机端]/FCOLOR=250><[手机端欢乐豆转回]/@手机胖妞3>\ \
+<转出欢乐豆数量:/@@InPutInteger31><$STR(n31)>\
+<输入转出手机ID:/@@InPutInteger32><$STR(n32)>\  \
+<确定转出/@zhuanchu>\ \
+<请注意检查核实转出手机ID，转出出错本服概不负责！>\
+<------------------------------------------------------------/AUTOCOLOR=90>\ \
+<手机版欢乐胖妞安装指南/@web>
+
+
+[@手机胖妞3]
+#SAY
+<Img:801:0:380:-1/@EXIT>
+;<Img:33:11:-7:25>
+\ \
+<欢乐胖妞/FCOLOR=154>  <宏图霸业有你更精彩-390pk.com/FCOLOR=239>\
+<欢迎光临，这里是猜点数游戏，/FCOLOR=9><你的宏图古币:/FCOLOR=250>{<$GAMEDIAMOND>/SCOLOR=151}\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<[手机端欢乐豆转回]/FCOLOR=250><[欢乐豆转到手机端]/@手机胖妞2>\ \
+<转入欢乐豆数量:/@@InPutInteger41><$STR(n41)>\
+<输入转入手机帐号:/@@InPutString42><$STR(s42)>\
+<输入转入手机密码:/@@InPutString43><$STR(s43)>\ \
+<确定转入/@zhuanru>\ \
+
+<------------------------------------------------------------/AUTOCOLOR=90>\ \
+<手机版欢乐胖妞安装指南/@web>
+
+[@web]
+#IF
+#ACT
+WEBBROWSER http://43.227.192.135:811/app.htm
+
+
+[@InPutInteger31]
+#IF
+CheckStringlength n31 > 8
+#Act
+Messagebox	您输入的欢乐豆数量超限，请重新输入！
+MOV N31
+Goto	@手机胖妞2
+Break
+
+#IF
+CHECKGAMEDIAMOND < n31
+#Act
+Messagebox	您是欢乐豆数量不足“<$STR(N31)>”，请重新输入！
+MOV N31
+Goto	@手机胖妞2
+#ELSEACT
+Goto	@手机胖妞2
+
+
+[@InPutInteger32]
+#IF
+Equal n32
+#ACT
+Messagebox	\\手机ID为6位纯数字，请重新输入！
+Break
+
+#IF
+CheckStringlength n32 < 7
+CheckStringlength n32 > 5
+#ACT
+Goto	@手机胖妞2
+Break
+#ELSEAct
+Messagebox	\\手机ID为6位纯数字，请重新输入！
+MOV n32
+Goto	@手机胖妞2
+
+[@InPutInteger41]
+#IF
+CheckStringlength n41 > 8
+#Act
+Messagebox	您输入的欢乐豆数量超限，请重新输入！
+MOV N41
+Goto	@手机胖妞3
+Break
+#ELSEACT
+Goto	@手机胖妞3
+
+[@InPutString42]
+#Act
+Goto	@手机胖妞3
+
+[@InPutString43]
+#Act
+Goto	@手机胖妞3
+
+[@zhuanchu]
+#IF
+EQUAL <$EGAME_VAR_COMMON_SERVERREADY> 1
+#ELSEACT
+CLOSE
+MESSAGEBOX \\系统异常！请联系管理员
+BREAK
+
+
+#IF
+CHECKGAMEDIAMOND < N31
+#Act
+Messagebox	您的欢乐豆数量不足“<$STR(N31)>”，请重新输入！
+MOV N31
+Goto	@手机胖妞2
+#ELSEACT
+Goto	@手机胖妞2
+EGAME_CMD_COMMON_ADDCHIPS_BYID N31 N32
+
+
+[@zhuanru]
+#IF
+#ACT
+EGAME_CMD_COMMON_DECCHIPS N41 S42 S43
+
+[@自动抢庄]
+#IF
+#ACT
+MOV S$个人读秒状态
+goto @自动抢庄2
+
+[@自动抢庄2]
+#IF
+EQUAL S$自动抢庄状态
+#ACT
+	MOV s38 <欢迎光临,你所拥有宏图古币:/SCOLOR=95>【<$GAMEDIAMOND>】
+	MOV s37 {<$STR(N78)>宏图古币/SCOLOR=251}
+	SetStringBlank <$STR(S37)> 34 1
+	SetStringBlank <$STR(S38)> 62 1
+
+#SAY
+<Img:801:0:380:-1/@EXIT>
+;<Img:33:11:-7:25>
+\ \
+<欢乐胖妞/FCOLOR=154>  <宏图霸业有你更精彩-390pk.com/FCOLOR=239>\
+<欢迎光临，这里是猜点数游戏，/FCOLOR=9><你的宏图古币:/FCOLOR=250>{<$GAMEDIAMOND>/SCOLOR=151}\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<欢迎使用【娱乐胖妞-自动坐庄】系统，请根据需要在下面设置、开启、/SCOLOR=239>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<关闭【自动坐庄】系统，你可以随时关闭自动坐庄功能/SCOLOR=239>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<抢庄模式中【局局抢】模式为每一局都抢庄，只要您有足够的宏图古币。/SCOLOR=168>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<当前【自动抢庄】启动状态：/SCOLOR=70><未启动自动抢庄模式/SCOLOR=249>    <启动自动坐庄/@Mir2m2排号自动坐庄状态>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<当前【自动坐庄】抢庄金额：/SCOLOR=70><$STR(S37)> <输入坐庄金额/@@InPutInteger78(请输入【自动坐庄】上庄时坐庄金额：)>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<当前【自动坐庄】抢庄模式：/SCOLOR=70><局局抢/SCOLOR=250><返回上一对话/@娱乐脚本>\
+
+#IF
+EQUAL S$自动抢庄状态 已开启
+#ACT
+MOV S$个人读秒状态
+#SAY
+<Img:801:0:380:-1/@EXIT>
+;<Img:33:11:-7:25>
+\ \
+<欢乐胖妞/FCOLOR=154>  <宏图霸业有你更精彩-390pk.com/FCOLOR=239>\
+<欢迎光临，这里是猜点数游戏，/FCOLOR=9><你的宏图古币:/FCOLOR=250>{<$GAMEDIAMOND>/SCOLOR=151}\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<欢迎使用【娱乐胖妞-自动坐庄】系统，请根据需要在下面设置、开启、/SCOLOR=239>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<关闭【自动坐庄】系统，你可以随时关闭自动坐庄功能/SCOLOR=239>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<抢庄模式中【局局抢】模式为每一局都抢庄，只要您有足够的宏图古币。/SCOLOR=168>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<当前【自动抢庄】启动状态：/SCOLOR=70><已启动自动抢庄模式/SCOLOR=250>    <关闭自动坐庄/@Mir2m2排号自动坐庄状态>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<当前【自动坐庄】抢庄金额：/SCOLOR=70><$STR(S37)> <输入坐庄金额/@@InPutInteger78(请输入【自动坐庄】上庄时坐庄金额：)>\
+<------------------------------------------------------------/AUTOCOLOR=90>\
+<当前【自动坐庄】抢庄模式：/SCOLOR=70><局局抢/SCOLOR=250><返回上一对话/@娱乐脚本>\
+
+
+
+[@Mir2m2排号自动坐庄状态]
+#IF
+SMALL N78 10
+#ACT
+MESSAGEBOX 提示：你还未设置自动抢庄金额，无法开启自动坐庄。
+BREAK
+
+#IF
+EQUAL S$自动抢庄状态 
+#ACT
+MOV S$自动抢庄状态 已开启
+SETONTIMER 15 1
+Goto @自动抢庄
+#ELSEACT
+MOV S$自动抢庄状态 
+SETOFFTIMER 15
+Goto @自动抢庄
+
+
+[@InPutInteger78]
+#IF
+EQUAL S$自动抢庄状态 已开启
+#ACT
+MESSAGEBOX 提示：请关闭自动抢庄后在进行修改。
+BREAK
+#IF
+CHECKGAMEDIAMOND < <$STR(N78)>
+#ACT
+MESSAGEBOX 对不起，你身上的宏图古币不足【<$STR(N78)>】！
+MOV N78 0
+GOTO @自动抢庄
+BREAK
+#IF
+SMALL N78 20000
+#ACT
+MESSAGEBOX 提示：自动抢庄最少需要设置20000以上。
+BREAK
+#IF
+LARGE N78 500000
+#ACT
+MOV N78 0
+MESSAGEBOX 提示：你当前自动抢庄上限超出系统所限制，最高可设置500000.
+GOTO @自动抢庄
+#ELSEACT
+GOTO @自动抢庄
+BREAK
+
+[@INPUTINTEGER1]
+#IF
+	EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 1
+#ACT
+	MessageBox [欢乐胖妞]：对比起，你是【庄家】，无法进行押注！
+	Break
+#IF
+	EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 3
+#ACT
+	MessageBox [欢乐胖妞]：对比起，你当前已经押注【小】，不能再押【大】！
+	Break
+#IF
+	Small N1 200
+#act
+	MessageBox [欢乐胖妞]：单次最小下注金额为【200宏图古币】！
+	Break
+#if
+	large N1 2000000
+#ACT
+	MessageBox [欢乐胖妞]：对不起，最多可以下注【2000000】宏图古币！
+	Break
+#IF
+	CHECKGAMEDIAMOND < <$STR(N1)>
+#ACT
+	MessageBox [欢乐胖妞]：你的宏图古币不足【<$str(N1)>】。
+	Break
+#IF
+	LARGE N1 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE_AVAIL>
+#ACT
+	MessageBox [欢乐胖妞]：对不起，<$STR(N1)>庄家的本钱已经达到上限不够赔了！\\目前你最多只能下注【<$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE_AVAIL>】押【大】！
+	Break
+#IF
+	EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 3
+#ACT
+	EGAME_CMD_CAIDIAN_YADA N1
+#ELSEACT
+	MessageBox [欢乐胖妞]：当前状态不能下注！
+	Break
+
+[@INPUTINTEGER2]
+#IF
+	EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 1
+#ACT
+	MessageBox [欢乐胖妞]：对比起，你是【庄家】，无法进行押注！
+	Break
+#IF
+	EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 2
+#ACT
+	MessageBox [欢乐胖妞]：对比起，你当前已经押注【大】，不能再押【小】！
+	Break
+#IF
+	Small N2 200
+#act
+	MessageBox [欢乐胖妞]：单次最小下注金额为【200宏图古币】！
+	Break
+#if
+	large N2 2000000
+#ACT
+	MessageBox [欢乐胖妞]：对不起，最多可以下注【2000000】宏图古币！
+	Break
+#IF
+	CHECKGAMEDIAMOND < <$STR(N2)>
+#ACT
+	MessageBox [欢乐胖妞]：你的宏图古币不足【<$str(N2)>】。
+	Break
+#IF
+	LARGE N2 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL_AVAIL>
+#ACT
+	MessageBox [欢乐胖妞]：对不起，庄家的本钱已经达到上限不够赔了！\\目前你最多只能下注【<$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL_AVAIL>】押【小】！
+	Break
+#IF
+	EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 3
+#ACT
+	EGAME_CMD_CAIDIAN_YAXIAO N2
+#ELSEACT
+	MessageBox [欢乐胖妞]：当前状态不能下注！
+	Break
+
+[@INPUTINTEGER3]
+#IF
+	EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 1
+#ACT
+	MessageBox [抢庄失败]：你本次已经抢过庄了，请勿重复操作！
+	Break
+#IF
+	Small N3 20000
+#act
+	MessageBox [抢庄失败]：对不起，抢庄最小金额【20000】宏图古币，请重新输入！
+	Break
+#if
+	large N3 500000
+#ACT
+	MessageBox [抢庄失败]：对不起，抢庄最大金额500000宏图古币，请重新输入！
+	Break
+#IF
+	CHECKGAMEDIAMOND < <$str(N3)>
+#ACT
+	MessageBox [抢庄失败]：你的宏图古币不足[<$str(N1)>]！
+	Break
+#IF
+	EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 1
+#ACT
+	EGAME_CMD_CAIDIAN_QIANGZHUANG N3
+#ELSEACT
+	MessageBox [抢庄失败]：当前状态不能抢庄！
+	Break
+[@md]
+#IF
+CHECKGAMEDIAMOND ? <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE_AVAIL>
+#ACT
+MOV N1 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE_AVAIL>
+MESSAGEBOX 当前可押大的金额为：<$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE_AVAIL>\　\是否确定下注【<$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE_AVAIL>】押【大】？\　\确定下注请点【确定】，使用其他金额下注请点【取消】 @InPutInteger1 @抢庄押注exit
+BREAK
+#ELSEACT
+MOV N1 <$GAMEDIAMOND>
+MESSAGEBOX 当前你拥有宏图古币数：<$STR(N1)>\　\是否确定下注【<$STR(N1)>】押【大】？\　\确定下注请点【确定】，使用其他金额下注请点【取消】 @InPutInteger1 @抢庄押注exit
+BREAK
+
+[@mx]
+#IF
+CHECKGAMEDIAMOND ? <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL_AVAIL>
+#ACT
+MOV N2 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL_AVAIL>
+MESSAGEBOX 当前可押小的金额为：<$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL_AVAIL>\　\是否确定下注【<$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL_AVAIL>】押【小】？\　\确定下注请点【确定】，使用其他金额下注请点【取消】 @InPutInteger2 @抢庄押注exit
+BREAK
+#ELSEACT
+MOV N2 <$GAMEDIAMOND>
+MESSAGEBOX 当前你拥有宏图古币数：<$STR(N2)>\　\是否确定下注【<$STR(N2)>】押【小】？\　\确定下注请点【确定】，使用其他金额下注请点【取消】 @InPutInteger2 @抢庄押注exit
+BREAK
+
+[@关闭回城]
+#IF
+#ACT
+MAPMOVE xtc 331 344
+MOV S$个人读秒状态
+EGAME_CMD_CAIDIAN_LEAVEGAME
+CLOSE
+
+[@关闭读秒]
+#IF
+#ACT
+MOV S$个人读秒状态
+EGAME_CMD_CAIDIAN_LEAVEGAME
+CLOSE
+
+
+[@自动抢庄开启2]
+#IF
+	Small N78 10000
+#act
+	MessageBox [抢庄失败]：对不起，抢庄最小金额地方【10000】宏图古币，请重新输入！
+	SETOFFTIMER 15
+	MOV S$自动抢庄状态 
+	Break
+#if
+	large N78 500000
+#ACT
+	MessageBox [抢庄失败]：对不起，抢庄最大金额500000宏图古币，请重新输入！
+	SETOFFTIMER 15
+	MOV S$自动抢庄状态 
+	Break
+#IF
+	CHECKGAMEDIAMOND < <$str(N78)>
+#ACT
+	MessageBox [抢庄失败]：你的宏图古币不足[<$str(N78)>]！
+	SETOFFTIMER 15
+	MOV S$自动抢庄状态 
+	Break
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 1
+#ELSEACT
+	SETOFFTIMER 15
+	MOV S$自动抢庄状态 
+	MessageBox [抢庄失败]：当前状态不能抢庄！
+	Break
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_PRIVATESTATUS> 1
+#ACT
+	SETOFFTIMER 15
+	MOV S$自动抢庄状态 
+	MessageBox [抢庄失败]：你本次已经抢过庄了，请勿重复操作！
+	Break
+#ELSEACT
+EGAME_CMD_CAIDIAN_QIANGZHUANG N78
+}
+
+[@娱乐脚本记录RM]
+{
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 1
+#ACT
+MOV <$GLOBAL(押注记录)>
+
+#IF
+EQUAL G275 1
+#ACT
+GMEXECUTE 开始提问 @娱乐脚本开奖处理
+MOV G275 0
+GOTO @开始记录数据
+
+[@开始记录数据]
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_RESULT> 2
+#ACT
+MOV A252 豹.<$STR(A252)>
+INC G271 1
+MOV A265 赢.<$STR(A265)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_RESULT> 0
+#ACT
+MOV A252 小.<$STR(A252)>
+INC G272 1
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_RESULT> 1
+#ACT
+MOV A252 大.<$STR(A252)>
+INC G273 1
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_RESULT> 0
+SMALL <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE> <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL>
+#ACT 
+MOV A265 输.<$STR(A265)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_RESULT> 0
+EQUAL <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE> <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL>
+#ACT 
+MOV A265 和.<$STR(A265)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_RESULT> 0
+LARGE <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE> <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL>
+#ACT 
+MOV A265 赢.<$STR(A265)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_RESULT> 1
+SMALL <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE> <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL>
+#ACT 
+MOV A265 赢.<$STR(A265)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_RESULT> 1
+EQUAL <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE> <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL>
+#ACT 
+MOV A265 和.<$STR(A265)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_RESULT> 1
+LARGE <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE> <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL>
+#ACT 
+MOV A265 输.<$STR(A265)>
+
+#IF
+CheckStringlength <$STR(A252)> > 68
+#ACT
+DEC A252 69 100
+
+#IF
+CheckStringlength <$STR(A265)> > 68
+#ACT
+DEC A265 69 100
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE1> 1
+#ACT
+MOV A260 １.<$STR(A260)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE1> 2
+#ACT
+MOV A260 ２.<$STR(A260)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE1> 3
+#ACT
+MOV A260 ３.<$STR(A260)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE1> 4
+#ACT
+MOV A260 ４.<$STR(A260)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE1> 5
+#ACT
+MOV A260 ５.<$STR(A260)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE1> 6
+#ACT
+MOV A260 ６.<$STR(A260)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE2> 1
+#ACT
+MOV A261 １.<$STR(A261)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE2> 2
+#ACT
+MOV A261 ２.<$STR(A261)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE2> 3
+#ACT
+MOV A261 ３.<$STR(A261)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE2> 4
+#ACT
+MOV A261 ４.<$STR(A261)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE2> 5
+#ACT
+MOV A261 ５.<$STR(A261)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE2> 6
+#ACT
+MOV A261 ６.<$STR(A261)>
+
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE3> 1
+#ACT
+MOV A262 １.<$STR(A262)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE3> 2
+#ACT
+MOV A262 ２.<$STR(A262)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE3> 3
+#ACT
+MOV A262 ３.<$STR(A262)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE3> 4
+#ACT
+MOV A262 ４.<$STR(A262)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE3> 5
+#ACT
+MOV A262 ５.<$STR(A262)>
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_DICE3> 6
+#ACT
+MOV A262 ６.<$STR(A262)>
+
+#IF
+CheckStringlength <$STR(A260)> > 68
+#ACT
+DEC A260 69 100
+
+#IF
+CheckStringlength <$STR(A261)> > 68
+#ACT
+DEC A261 69 100
+
+#IF
+CheckStringlength <$STR(A262)> > 68
+#ACT
+DEC A262 69 100
+
+#IF
+#ACT
+MOV A263 <$EGAME_VAR_CAIDIAN_BANKERSERVER>.<$EGAME_VAR_CAIDIAN_BANKERNAME>
+MOV G264 <$EGAME_VAR_CAIDIAN_BANKERMONEY>
+MOV G265 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_LARGE>
+MOV G266 <$EGAME_VAR_CAIDIAN_PUBLICMONEY_SMALL>
+INC G270 1
+
+#IF
+EQUAL G271
+#ACT
+MOV G271 0
+}

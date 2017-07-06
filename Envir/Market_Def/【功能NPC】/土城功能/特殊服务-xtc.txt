@@ -1,0 +1,1567 @@
+(@@sendmsg @storage @getback)
+[@main]
+#IF
+CheckBoxItemCount 1 1
+#ACT
+ReturnBoxItem 1
+
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\
+　<特殊服务/SCOLOR=154>\
+　　　<很多人都觉得我是万能的，也可以说我无所不能吧！/SCOLOR=87>\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><幸运装备/@幸运装备><」 → /SCOLOR=103> <功能介绍：可增加武器的准确度，项链的幸运值/AUTOCOLOR=145>\
+　\
+<「/SCOLOR=103><更名服务/@更名服务><」 → /SCOLOR=103> <功能介绍：可更换你的角色名称,怎么样是不是很厉害/AUTOCOLOR=145>\
+　\
+<「/SCOLOR=103><人物变性/@人物变性><」 → /SCOLOR=103> <功能介绍：泰国最新技术包您满意，人妖不是梦/AUTOCOLOR=145>\
+　\
+<「/SCOLOR=103><特修全装/@特修全装><」 → /SCOLOR=103> <功能介绍：一次性修复您身上所有的装备持久度/AUTOCOLOR=155>\
+　\
+<「/SCOLOR=103><仓库服务/@storage><」 → /SCOLOR=103> <功能介绍：地球人都知道，我这里安全保险快捷/AUTOCOLOR=155>\
+　<Img:803:0:0:4>\
+
+[@更名服务]
+#IF
+CHECKGAMEDIAMOND > 4999
+#say
+
+\  \  \
+
+<每次收取5000宏图古币，我这里的技术全国一流技术，你绝对不会后悔/SCOLOR=87>\  \
+
+<查询角色名是否被占用/@@InputString1(请输入查询名称：)>    <查询免费 /SCOLOR=70>\  \
+
+<我要改名/@@InputString2(请输入修改的名称：)>    <修改成功收费/SCOLOR=70>\ \
+
+  \
+
+
+<返回/@main>
+#elsesay
+
+\  \
+更名需要5000古币手续费！！
+
+
+[@InputString2]
+#IF
+Equal S2
+#ACT
+SENDMSG 6 请输入一个正确的名称
+Break
+
+#OR
+CheckStringlength S2 > 20
+CheckStringlength S2 < 4
+#ACT
+SENDMSG 6 输入名称长度不正确
+Break
+
+#IF
+#ACT
+CHANGEHUMNAME S2
+GAMEDIAMOND - 5000
+
+
+
+
+[@InputString1]
+#IF
+Equal S1
+#ACT
+SENDMSG 6 请输入一个正确的名称
+Break
+
+#OR
+CheckStringlength S1 > 20
+CheckStringlength S1 < 4
+#ACT
+SENDMSG 6 输入名称长度不正确
+Break
+
+#IF
+#ACT
+QUERYHUMNAMEEXIST S1
+break
+
+
+
+
+
+
+
+
+[@特修全装]
+#IF
+#ACT
+ACTREPAIRALL
+messagebox \\你的装备修好了. 
+;===================================================================================================================
+[@人物变性AAAA]
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+;<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+;　<转职变性/SCOLOR=154>\
+;　　　<很多人都来找我，我这里的技术全国一流技术，你绝对不会后悔/SCOLOR=87>\
+;　<Img:803:0:0:4>\
+;　<职业转换/@职业转换>　<厌倦了现在的职业？没事我可以帮你，尝尝其他职业的绚/SCOLOR=145>\
+;　　　　　　<丽技能,同时也会删除所有修炼技能，请考虑清楚！/SCOLOR=147>\
+　<Img:803:0:0:4>\
+　<性别转换/@性别转换>　<是不是现在的并别没什么意思呀，想不想尝尝其它的味道/SCOLOR=145>\\
+　　　　　　<呀我这里有泰国一流技术，让你轻松尝试变性！/SCOLOR=145>\\
+　<Img:803:0:0:4>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　<返回首页/@main>\
+
+
+[@人物变性]
+#IF
+gender woman
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<变性服务/SCOLOR=168>   \
+　 　　  <阴阳师/SCOLOR=19> <尊敬的金钻會員,您好/SCOLOR=151> <〖欢迎使用变性服务〗/SCOLOR=87>\
+　<Img:803:0:0:4>\
+<是不是做女人没什么意思呀，想不想尝尝做男人的味道呀！！/SCOLOR=156>\
+<好了，辛亏上天冥怜有我这个人来帮你，不用担心，手术一眨眼就/SCOLOR=155>\
+<好了，你丝毫感觉不到疼痛的,那我们现在就开始吧。。。/SCOLOR=145>\
+<变性手术需要收费2000元宝的哦……/SCOLOR=147>\
+　<Img:803:0:0:4>\
+<√我要变成男人/@nande>                                 <关闭对话×/@exit>\ 
+
+#IF
+gender man
+#ACT
+inc N71 1
+#SAY
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+  <变性服务/SCOLOR=168>   \
+　 　　  <阴阳师/SCOLOR=19> <尊敬的金钻會員,您好/SCOLOR=151> <〖欢迎使用变性服务〗/SCOLOR=87>\
+　<Img:803:0:0:4>\
+<是不是做男人没什么意思呀，想不想尝尝做女人的味道呀！！/SCOLOR=156>\
+<好了，辛亏上天冥怜有我这个人来帮你，不用担心，手术一眨眼就/SCOLOR=155>\
+<好了，你丝毫感觉不到疼痛的,那我们现在就开始吧。。。/SCOLOR=145>\
+<变性手术需要收费2000元宝的哦……/SCOLOR=147>\
+　<Img:803:0:0:4>\
+<√我要变成女人/@nvde>                                 <关闭对话×/@exit>\ 
+
+
+[@nvde]
+#IF
+CHECKGAMEGOLD > 1999
+#ACT
+CHANGEGENDER 1
+HAIRSTYLE 0
+GAMEGOLD - 2000
+goto @变性清空
+messagebox \\恭喜阁下，手术非常的成功，你已经变成一位女人了！
+#elseact
+messagebox \\阁下，变性手术需要准备2000元宝哦！
+break
+
+[@nande]
+#IF
+CHECKGAMEGOLD > 1999
+#ACT
+CHANGEGENDER 0
+HAIRSTYLE 2
+GAMEGOLD - 2000
+goto @变性清空
+messagebox \\恭喜阁下，手术非常的成功，你已经变成一位男人了！
+#elseact
+messagebox \\阁下，变性手术需要准备2000元宝哦！
+break
+
+[@变性清空]
+#IF
+Equal A401 <$USERNAME>
+#act
+MOV A401 暂无申请..
+MOV A402 0
+MOV A403 暂无行会..
+MOV A404 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}变性成功，本属于他的{[天下第一男战士]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+Equal A406 <$USERNAME>
+#ACT
+MOV A406 暂无申请..
+MOV A407 0
+MOV A408 暂无行会..
+MOV A409 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}变性成功，本属于他的{[天下第一女战士]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+Equal A411 <$USERNAME>
+#ACT
+MOV A411 暂无申请..
+MOV A412 0
+MOV A413 暂无行会..
+MOV A414 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}变性成功，本属于他的{[天下第一男法师]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+Equal A416 <$USERNAME>
+#ACT
+MOV A416 暂无申请..
+MOV A417 0
+MOV A418 暂无行会..
+MOV A419 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}变性成功，本属于他的{[天下第一女法师]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+Equal A421 <$USERNAME>
+#ACT
+MOV A421 暂无申请..
+MOV A422 0
+MOV A423 暂无行会..
+MOV A424 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}变性成功，本属于他的{[天下第一男道士]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+
+#IF
+Equal A416 <$USERNAME>
+#ACT
+MOV A426 暂无申请..
+MOV A427 0
+MOV A428 暂无行会..
+MOV A429 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}变性成功，本属于他的{[天下第一女道士]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+[@职业转换]
+#if
+checkjob warrior
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<厌倦了现在的职业？没事我可以帮你，尝尝其他职业的绚丽技能/SCOLOR=145>\
+　<Img:803:0:0:4>\
+作为战士您是否已经厌倦了烈火和半月呢？为了让您自由的发挥，\
+先看清楚下面的需知：\ 
+<一：转职需要100000元宝，等级大于65级/SCOLOR=156>\
+<二：转职以后需要重新练习技能哦,我们会删除您以前所有修炼的技能！/SCOLOR=155>\
+<三：请认真考虑清楚之后在转职业哦！不然失去的东西是回不来的/SCOLOR=145>\
+  <感谢您对本服的支持我们将做的更好/SCOLOR=147>\
+　<Img:803:0:0:4>\
+<√转职成法师/@法师>   <√转职成道士/@道士>                        <返回首页√/@main>\
+
+#if
+checkjob wizard
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<厌倦了现在的职业？没事我可以帮你，尝尝其他职业的绚丽技能/SCOLOR=145>\
+　<Img:803:0:0:4>\
+作为法师您是否不再喜欢闪电和冰咆哮了呢？为了让您自由的发挥，\
+先看清楚下面的需知：\ 
+<一：转职需要100000元宝，等级大于65级/SCOLOR=156>\
+<二：转职以后需要重新练习技能哦,我们会删除您以前所有修炼的技能！/SCOLOR=155>\
+<三：请认真考虑清楚之后在转职业哦！不然失去的东西是回不来的/SCOLOR=145>\
+  <感谢您对本服的支持我们将做的更好/SCOLOR=147>\
+　<Img:803:0:0:4>\
+<√转职成战士/@战士>   <√转职成道士/@道士>                        <返回首页√/@main>\
+
+#if
+checkjob taoist
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<厌倦了现在的职业？没事我可以帮你，尝尝其他职业的绚丽技能/SCOLOR=145>\
+　<Img:803:0:0:4>\
+作为道士您是否不在只想做为别人的配角只放宝宝和打防了呢？\
+先看清楚下面的需知：\ 
+<一：转职需要100000元宝，等级大于65级/SCOLOR=156>\
+<二：转职以后需要重新练习技能哦,我们会删除您以前所有修炼的技能！/SCOLOR=155>\
+<三：请认真考虑清楚之后在转职业哦！不然失去的东西是回不来的/SCOLOR=145>\
+  <感谢您对本服的支持我们将做的更好/SCOLOR=147>\
+　<Img:803:0:0:4>\
+<√转职成战士/@战士>   <√转职成法师/@法师>                        <返回首页√/@main>\
+
+[@道士]
+#IF
+checkgamegold > 99999
+#act
+GAMEGOLD - 100000
+CLEARSKILL
+CHANGEJOB Taoist
+ADDSKILL 召唤伴侣 3
+ADDSKILL 治愈术 3
+ADDSKILL 精神力战法 3
+ADDSKILL 施毒术 3
+ADDSKILL 灵魂火符 3
+ADDSKILL 幽灵盾 3
+ADDSKILL 神圣战甲术 3
+ADDSKILL 隐身术 3
+ADDSKILL 集体隐身术 3
+ADDSKILL 心灵启示 3
+ADDSKILL 困魔咒 3
+ADDSKILL 群体治愈术 3
+ADDSKILL 召唤骷髅 3
+ADDSKILL 召唤神兽 3
+GOTO @转职清空
+messagebox \\恭喜您！转职成功，您现在是：一位神圣的道士了！
+#ELSEACT
+messagebox \\[错误]：你没有100000元宝支付转职费用！
+BREAK
+
+
+[@法师]
+#IF
+checkgamegold > 99999
+#act
+GAMEGOLD - 80000
+CLEARSKILL
+CHANGEJOB Wizard
+ADDSKILL 召唤伴侣 3
+ADDSKILL 火球术 3
+ADDSKILL 大火球 3
+ADDSKILL 地狱火 3
+ADDSKILL 雷电术 3
+ADDSKILL 爆裂火焰 3
+ADDSKILL 抗拒火环 3
+ADDSKILL 疾光电影 3
+ADDSKILL 诱惑之光 3
+ADDSKILL 瞬息移动 3
+ADDSKILL 火墙 3
+ADDSKILL 地狱雷光 3
+ADDSKILL 魔法盾 3
+ADDSKILL 圣言术 3
+ADDSKILL 冰咆哮 3
+GOTO @转职清空
+messagebox \\恭喜您！转职成功，您现在是：一位神秘的魔法师了！
+#ELSEACT
+messagebox \\[错误]：你没有100000元宝支付转职费用！
+break
+
+
+[@战士]
+#IF
+checkgamegold > 99999
+#act
+GAMEGOLD - 100000
+CLEARSKILL
+CHANGEJOB Warrior
+ADDSKILL 召唤伴侣 3
+ADDSKILL 基本剑术 3
+ADDSKILL 攻杀剑术 3
+ADDSKILL 刺杀剑术 3
+ADDSKILL 半月弯刀 3
+ADDSKILL 野蛮冲撞 3
+ADDSKILL 烈火剑法 3
+GOTO @转职清空
+messagebox \\恭喜您！转职成功，您现在是：一位伟大的战士了！
+#ELSEACT
+messagebox \\[错误]：你没有100000元宝支付转职费用！
+break
+
+
+[@转职清空]
+#IF
+Equal A401 <$USERNAME>
+#act
+MOV A401 暂无申请..
+MOV A402 0
+MOV A403 暂无行会..
+MOV A404 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}转职成功，本属于他的{[天下第一男战士]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+Equal A406 <$USERNAME>
+#ACT
+MOV A406 暂无申请..
+MOV A407 0
+MOV A408 暂无行会..
+MOV A409 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}转职成功，本属于他的{[天下第一女战士]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+Equal A411 <$USERNAME>
+#ACT
+MOV A411 暂无申请..
+MOV A412 0
+MOV A413 暂无行会..
+MOV A414 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}转职成功，本属于他的{[天下第一男法师]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+Equal A416 <$USERNAME>
+#ACT
+MOV A416 暂无申请..
+MOV A417 0
+MOV A418 暂无行会..
+MOV A419 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}转职成功，本属于他的{[天下第一女法师]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+Equal A421 <$USERNAME>
+#ACT
+MOV A421 暂无申请..
+MOV A422 0
+MOV A423 暂无行会..
+MOV A424 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}转职成功，本属于他的{[天下第一男道士]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+
+#IF
+Equal A416 <$USERNAME>
+#ACT
+MOV A426 暂无申请..
+MOV A427 0
+MOV A428 暂无行会..
+MOV A429 0
+SENDMSG 0 {综合服务ぐ|151:0:1}玩家{[<$USERNAME>]|227:0:1}转职成功，本属于他的{[天下第一女道士]|254:0:1}已清空，欢迎大家再次申请！
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+;===================================================================================================================
+[@幸运装备]
+#IF
+CheckItemAddValue 3 1 = 5
+#ACT
+MOV N$元宝 0
+MOV N$元宝2 0
+MOV N$几率 0
+MOV N$几率2 0
+MOV N$可加 0
+
+#IF
+CheckItemAddValue 3 1 = 4
+#ACT
+MOV N$元宝 300000
+MOV N$元宝2 3000000
+MOV N$几率 10
+MOV N$几率2 100
+MOV N$可加 5
+
+#IF
+CheckItemAddValue 3 1 = 3
+#ACT
+MOV N$元宝 200000
+MOV N$元宝2 2000000
+MOV N$几率 20
+MOV N$几率2 100
+MOV N$可加 4
+
+#IF
+CheckItemAddValue 3 1 = 2
+#ACT
+MOV N$元宝 150000
+MOV N$元宝2 375000
+MOV N$几率 40
+MOV N$几率2 100
+MOV N$可加 3
+
+#IF
+CheckItemAddValue 3 1 = 1
+#ACT
+MOV N$元宝 100000
+MOV N$元宝2 166660
+MOV N$几率 60
+MOV N$几率2 100
+MOV N$可加 2
+
+#IF
+CheckItemAddValue 3 1 = 0
+#ACT
+MOV N$元宝 50000
+MOV N$元宝2 62500
+MOV N$几率 80
+MOV N$几率2 100
+MOV N$可加 1
+
+
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+GETITEMADDVALUE 3 1 <$STR(M10)>
+#say
+<Img:801:0:360:-12/@EXIT>\
+　\
+　<当前佩戴的项链名称：/SCOLOR=154> <$NECKLACE> <当前项链幸运:/SCOLOR=253> + <$STR(M10)>\
+　<1.项链幸运+1  /AUTOCOLOR=70>                      \
+　<2.项链幸运+2  /AUTOCOLOR=70>                      \
+　<3.项链幸运+3  /AUTOCOLOR=70> <附加项链/AUTOCOLOR=70>< 致命+1%/AUTOCOLOR=254>               \
+　<4.项链幸运+4  /AUTOCOLOR=70> <附加项链/AUTOCOLOR=70>< 致命+2%/AUTOCOLOR=254>    \
+　<5.项链幸运+5  /AUTOCOLOR=70> <附加项链/AUTOCOLOR=70>< 致命+3% /AUTOCOLOR=254>   \
+　<Img:803:0:0:4>\
+　<①使用 <$STR(N$元宝)>元宝  有 <$STR(N$几率)>%的几率   可让项链幸运+<$STR(N$可加)>/AUTOCOLOR=31>　 <点击加幸运/@开始改造项链>  \
+　<②使用 <$STR(N$元宝2)>元宝  有<$STR(N$几率2)>%的几率   可让项链幸运+<$STR(N$可加)>/AUTOCOLOR=242>　 <点击加幸运/@开始改造项链2>  \
+;　<提取当前项链幸运/@提取> <完全免费/AUTOCOLOR=250>\
+
+[@提取]
+#IF
+NOT CHECKUSEITEM 3
+#ACT
+MESSAGEBOX \\请戴上项链后操作！
+break
+
+#IF
+CheckItemAddValue 3 1 > 4
+#ACT
+give 项链幸运+5卷 1
+CHANGEITEMADDVALUE 3 1 = 0
+SetNewItemValue 3 0 = 0
+SetNewItemValue 3 1 = 0
+break
+
+#IF
+CheckItemAddValue 3 1 = 4
+#ACT
+give 项链幸运+4卷 1
+CHANGEITEMADDVALUE 3 1 = 0
+SetNewItemValue 3 0 = 0
+SetNewItemValue 3 1 = 0
+break
+
+#IF
+CheckItemAddValue 3 1 = 3
+#ACT
+give 项链幸运+3卷 1
+CHANGEITEMADDVALUE 3 1 = 0
+SetNewItemValue 3 0 = 0
+SetNewItemValue 3 1 = 0
+break
+
+#IF
+CheckItemAddValue 3 1 = 2
+#ACT
+give 项链幸运+2卷 1
+CHANGEITEMADDVALUE 3 1 = 0
+SetNewItemValue 3 0 = 0
+SetNewItemValue 3 1 = 0
+break
+
+#IF
+CheckItemAddValue 3 1 = 1
+#ACT
+give 项链幸运+1卷 1
+CHANGEITEMADDVALUE 3 1 = 0
+SetNewItemValue 3 0 = 0
+SetNewItemValue 3 1 = 0
+break
+
+
+
+[@开始改造项链2]
+#IF
+CheckItemAddValue 3 1 > 4
+#ACT
+MESSAGEBOX \\当前装备幸运已经达到+5点.无法继续提升
+break
+
+#IF
+CheckItemAddValue 3 1 = 4
+#ACT
+MOV N$元宝2 3000000
+GOTO @项链2幸运5
+break
+
+#IF
+CheckItemAddValue 3 1 = 3
+#ACT
+MOV N$元宝2 1000000
+GOTO @项链2幸运4
+break
+
+#IF
+CheckItemAddValue 3 1 = 2
+#ACT
+MOV N$元宝2 375000
+GOTO @项链2幸运3
+break
+
+#IF
+CheckItemAddValue 3 1 = 1
+#ACT
+MOV N$元宝2 166660
+GOTO @项链2幸运2
+break
+
+#IF
+CheckItemAddValue 3 1 = 0
+#ACT
+MOV N$元宝2 62500
+GOTO @项链2幸运1
+break
+
+
+
+
+[@项链2幸运5]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝2)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝2)>颗无法改造！
+break
+
+#IF
+CheckItemAddValue 3 1 = 4
+#ACT
+GAMEGOLD - <$STR(N$元宝2)>
+CHANGEITEMADDVALUE 3 1 + 1
+SetNewItemValue 3 0 = 3
+;SetNewItemValue 3 1 = 15
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+5，致命+3%
+MESSAGEBOX \\改造成功：项链幸运值+5，致命+3%
+break
+
+[@项链2幸运4]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝2)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝2)>颗无法改造！
+break
+
+#IF
+CheckItemAddValue 3 1 = 3
+#ACT
+GAMEGOLD - <$STR(N$元宝2)>
+CHANGEITEMADDVALUE 3 1 + 1
+SetNewItemValue 3 0 = 2
+;SetNewItemValue 3 1 = 5
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+4，致命+2%
+MESSAGEBOX \\改造成功：项链幸运值+4，致命+2%
+break
+
+[@项链2幸运3]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝2)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝2)>颗无法改造！
+break
+
+#IF
+CheckItemAddValue 3 1 = 2
+#ACT
+GAMEGOLD - <$STR(N$元宝2)>
+CHANGEITEMADDVALUE 3 1 + 1
+SetNewItemValue 3 0 = 1
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+3，致命+1%
+MESSAGEBOX \\改造成功：项链幸运值+3，致命+1%
+break
+
+[@项链2幸运2]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝2)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝2)>颗无法改造！
+break
+
+#IF
+CheckItemAddValue 3 1 = 1
+#ACT
+CHANGEITEMADDVALUE 3 1 + 1
+GAMEGOLD - <$STR(N$元宝2)>
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+2
+MESSAGEBOX \\改造成功：项链幸运值+2
+break
+
+[@项链2幸运1]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝2)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝2)>颗无法改造！
+break
+
+#IF
+CheckItemAddValue 3 1 = 0
+#ACT
+CHANGEITEMADDVALUE 3 1 + 1
+GAMEGOLD - <$STR(N$元宝2)>
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+1
+MESSAGEBOX \\改造成功：项链幸运值+1
+break
+
+
+
+
+
+[@开始改造项链]
+#IF
+CheckItemAddValue 3 1 > 4
+#ACT
+MESSAGEBOX \\当前装备幸运已经达到+5点.无法继续提升
+break
+
+#IF
+CheckItemAddValue 3 1 = 4
+#ACT
+MOV N$元宝 300000
+GOTO @项链幸运5
+break
+
+#IF
+CheckItemAddValue 3 1 = 3
+#ACT
+MOV N$元宝 200000
+GOTO @项链幸运4
+break
+
+#IF
+CheckItemAddValue 3 1 = 2
+#ACT
+MOV N$元宝 150000
+GOTO @项链幸运3
+break
+
+#IF
+CheckItemAddValue 3 1 = 1
+#ACT
+MOV N$元宝 100000
+GOTO @项链幸运2
+break
+
+#IF
+CheckItemAddValue 3 1 = 0
+#ACT
+MOV N$元宝 50000
+GOTO @项链幸运1
+break
+
+
+
+[@项链幸运5]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝)>颗无法改造！
+break
+
+#IF
+random 30
+CheckItemAddValue 3 1 = 4
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+CHANGEITEMADDVALUE 3 1 + 1
+SetNewItemValue 3 0 = 3
+;SetNewItemValue 3 1 = 15
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+5，致命+3%
+MESSAGEBOX \\改造成功：项链幸运值+5，致命+3%
+break
+
+#IF
+random 5
+CheckItemAddValue 3 1 = 4
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+#IF
+random 3
+CheckItemAddValue 3 1 = 4
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+#IF
+random 2
+CheckItemAddValue 3 1 = 4
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+#IF
+random 1
+CheckItemAddValue 3 1 = 4
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+[@项链幸运4]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝)>颗无法改造！
+break
+
+#IF
+random 20
+CheckItemAddValue 3 1 = 3
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+CHANGEITEMADDVALUE 3 1 + 1
+SetNewItemValue 3 0 = 2
+;SetNewItemValue 3 1 = 5
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+4，致命+2%，攻击伤害+5%
+MESSAGEBOX \\改造成功：项链幸运值+4，致命+2%，攻击伤害+5%
+break
+
+#IF
+random 3
+CheckItemAddValue 3 1 = 3
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+#IF
+random 2
+CheckItemAddValue 3 1 = 3
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+#IF
+random 1
+CheckItemAddValue 3 1 = 3
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+
+[@项链幸运3]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝)>颗无法改造！
+break
+
+#IF
+random 10
+CheckItemAddValue 3 1 = 2
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+CHANGEITEMADDVALUE 3 1 + 1
+SetNewItemValue 3 0 = 1
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+3，致命+1%
+MESSAGEBOX \\改造成功：项链幸运值+3，致命+1%
+break
+
+#IF
+random 3
+CheckItemAddValue 3 1 = 2
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+#IF
+random 2
+CheckItemAddValue 3 1 = 2
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+#IF
+random 1
+CheckItemAddValue 3 1 = 2
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+
+[@项链幸运2]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝)>颗无法改造！
+break
+
+#IF
+random 5
+CheckItemAddValue 3 1 = 1
+#ACT
+CHANGEITEMADDVALUE 3 1 + 1
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+2
+MESSAGEBOX \\改造成功：项链幸运值+2
+break
+
+#IF
+random 2
+CHECKGAMEGOLD > <$STR(N$元宝)>
+CheckItemAddValue 3 1 = 1
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+#IF
+random 1
+CHECKGAMEGOLD > <$STR(N$元宝)>
+CheckItemAddValue 3 1 = 1
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+
+[@项链幸运1]
+#IF
+CHECKGAMEGOLD < <$STR(N$元宝)>
+#ACT
+GOTO @幸运装备
+MESSAGEBOX \\您的元宝不足<$STR(N$元宝)>颗无法改造！
+break
+
+#IF
+random 1
+CheckItemAddValue 3 1 = 0
+#ACT
+CHANGEITEMADDVALUE 3 1 + 1
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 7 改造成功：项链幸运值+1
+MESSAGEBOX \\改造成功：项链幸运值+1
+break
+
+#IF
+random 1
+CHECKGAMEGOLD > <$STR(N$元宝)>
+CheckItemAddValue 3 1 = 0
+#ACT
+GAMEGOLD - <$STR(N$元宝)>
+GOTO @幸运装备
+SendMsg 5 改造失败！请再接再厉！
+break
+
+
+;===================================================================================================================
+[@装备分解]
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<装备分解/SCOLOR=154>\
+　　　<免费分解，获得材料，怎么样是不是很简单呢！想不想试试？/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<1.玩家后期可以将打到的[圣灵、羽灵、巫灵系列]装备到我这里分解/AUTOCOLOR=147>\\
+　<2.分解出来的材料可以随机获得[1-3颗→装备重生石]装备重生使用/AUTOCOLOR=145>\\
+　<3.请将装备放入下面OK中，放入以后点击确定即可！/AUTOCOLOR=155>\\
+　　　　　　　　　　　<ITEMBOX:1:12:126:-15:4:60:60:*:请先放入“圣灵、羽灵、巫灵系列装备”>\ \
+　<请将装备放入框中/SCOLOR=87> \
+　　　　　　　　　　　　　　　　　　　　　　　　　　<返回首页/@main>\
+
+[@ItemIntoBox1]
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵战刃
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵·权杖
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵道剑
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵战甲
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵战衣
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵法袍
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵法衣
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵道袍
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵道衣
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵·头盔
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵·项链
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵·手镯
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵·戒指
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵·腰带
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵·靴子
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 圣灵·勋章
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵·头盔
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵·项链
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵·手镯
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵·戒指
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵·腰带
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵·靴子
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 羽灵·勋章
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵·头盔
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵·项链
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵·手镯
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵·戒指
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵·靴子
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵·腰带
+#ACT
+GOTO @装备分解_1
+break
+#IF
+Equal <$BOXITEM[1].NAME> 巫灵·勋章
+#ACT
+GOTO @装备分解_1
+break
+#ELSEACT
+ReturnBoxItem 1
+MESSAGEBOX \\请放入“圣灵、羽灵、巫灵系列装备”，其余装备不可分解
+break
+[@装备分解_1]
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<装备分解/SCOLOR=154>\
+　　　<免费分解，获得材料，怎么样是不是很简单呢！想不想试试？/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<1.玩家后期可以将打到的[圣灵、羽灵、巫灵系列]装备到我这里分解/AUTOCOLOR=147>\\
+　<2.分解出来的材料可以随机获得[1-3颗→装备重生石]装备重生使用/AUTOCOLOR=145>\\
+　<3.请将装备放入下面OK中，放入以后点击确定即可！/AUTOCOLOR=155>\\
+　　　　　　　　　　　<ITEMBOX:1:12:126:-15:4:60:60:*:请先放入“圣灵、羽灵、巫灵系列装备”>\ \
+　<请将装备放入框中/SCOLOR=87>　　　　　　　<点击确认回收·√/@分解开始>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　<返回首页/@main>\
+[@分解开始]
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵战刃
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵·权杖
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵道剑
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵战甲
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵战衣
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵法袍
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵法衣
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵道袍
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵道衣
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵·头盔
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵·项链
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵·手镯
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵·戒指
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵·靴子
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵·腰带
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 圣灵·勋章
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵·头盔
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵·项链
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵·手镯
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵·戒指
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵·腰带
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵·靴子
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 羽灵·勋章
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵·头盔
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵·项链
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵·手镯
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵·戒指
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵·腰带
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵·靴子
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+
+#IF
+CheckBoxItemCount 1 1
+Equal <$BOXITEM[1].NAME> 巫灵·勋章
+#ACT
+MOV S10 0
+DELBOXITEM 1
+UpDateBoxItem
+GetRandomText ..\QuestDiary\数据文件\分解数量.txt S10
+GIVE 装备重生石 <$STR(S10)>
+MESSAGEBOX \\分解成功：获得[<$STR(S10)>颗]装备重生石]
+DELAYGOTO 1 @装备分解
+break
+;==================================================================================================================

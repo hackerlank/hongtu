@@ -1,0 +1,553 @@
+{
+[@管理后台之家总裁]
+#IF
+#ACT
+MOV S6 
+MOV S7 
+MOV S8 
+
+#IF
+EQUAL A351
+EQUAL A352
+CHECKITEM 管理令牌
+#ACT
+MOV A351 关闭
+MOV A352 关闭
+
+#IF
+EQUAL A352 开启
+CHECKITEM 管理令牌
+#ACT
+MOV S$开区假人状态 <正式区假人·开启>
+MOV S$测试假人状态 <测试区假人·关闭/@测试区假人开启>
+
+#IF
+EQUAL A351 关闭
+EQUAL A352 关闭
+CHECKITEM 管理令牌
+#ACT
+MOV S$开区假人状态 <正式区假人·开启/@正式开区假人开启>
+MOV S$测试假人状态 <测试区假人·开启/@测试区假人开启>
+
+#IF
+EQUAL A351 开启
+EQUAL A352 开启
+CHECKITEM 管理令牌
+#ACT
+MOV S$开区假人状态 <正式区假人·关闭/@正式开区假人开启>
+MOV S$测试假人状态 <测试区假人·开启>
+
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\
+　\
+　<服务员/SCOLOR=19> <尊敬的游戏管理员,您好/SCOLOR=151> <〖后台风险大操作需谨慎〗/SCOLOR=87>\
+　<Img:803:0:0:4>\
+<√修改人物系统变量/@变量一>                 <赌博脚本后台控制/@赌博一>\
+<√清空沙城占领状态/@整理沙巴克>                 <占领行会：/AUTOCOLOR=254>{<$OWNERGUILD>/AUTOCOLOR=70}\
+　<Img:803:0:0:4>\
+ 快速登陆假人= <$STR(G352)>\
+ 全服假人总数= <$STR(G353)>\
+ 快速假人状态= <$STR(A351)>               <$STR(S$开区假人状态)>\
+ 延缓假人状态= <$STR(A352)>               <$STR(S$测试假人状态)>\\
+　<Img:803:0:0:4>\
+
+[@变量一]
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\
+　\
+　<服务员/SCOLOR=19> <尊敬的游戏管理员,您好/SCOLOR=151> <〖后台风险大操作需谨慎〗/SCOLOR=87>\
+　<Img:803:0:0:4>\
+<√修改指定系统变量/@修改指定系统变量> \
+<√设置系统变量对象/@@InPutString6>：[<$STR(S6)>]      <√设置系统变量值/@@InPutInteger7>：[<$STR(N7)>] \
+<√修改指定人物变量/@修改指定人物变量>\
+<√设置指定人物名字/@@InPutString7>：[<$STR(S7)>]\
+<√设置人物变量对象/@@InPutString8>：[<$STR(S8)>]      <√设置人物变量值/@@InPutInteger8>：[<$STR(N8)>] \
+　<Img:803:0:0:4>\
+　　　　　　　　　　　　　　　　　　　　　　　<返回主页/@管理后台之家总裁>
+
+[@赌博一]
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\
+　\
+　<服务员/SCOLOR=19> <尊敬的游戏管理员,您好/SCOLOR=151> <〖后台风险大操作需谨慎〗/SCOLOR=87>\
+　<Img:803:0:0:4>\
+<胖妞作弊：/AUTOCOLOR=242><$STR(G3)>  <$STR(G4)>   <$STR(G5)>\
+<骰子①开:/AUTOCOLOR=155><■1■/@PN11>　<■2■/@PN12>　<■3■/@PN13>  <■4■/@PN14>　<■5■/@PN15>　<■6■/@PN16>\
+<骰子②开:/AUTOCOLOR=147><■1■/@PN21>　<■2■/@PN22>　<■3■/@PN23>  <■4■/@PN24>　<■5■/@PN25>　<■6■/@PN26>\
+<骰子③开:/AUTOCOLOR=145><■1■/@PN31>　<■2■/@PN32>　<■3■/@PN33>  <■4■/@PN34>　<■5■/@PN35>　<■6■/@PN36>\
+<猜点作弊：/AUTOCOLOR=242><$STR(G7)>\
+<骰子①开:/AUTOCOLOR=155><■1■/@CD11>　<■2■/@CD12>　<■3■/@CD13>  <■4■/@CD14>　<■5■/@CD15>　<■6■/@CD16>\
+　<Img:803:0:0:4>\ 
+<提示：不懂请勿胡乱设置，无效对象或者名字，将设置无效！>   <返回主页/@管理后台之家总裁>
+　　　　　　　　　　　　　　　　　　　　　　　
+
+
+[@PN11]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G3 1
+GOTO @赌博一
+BREAK
+[@PN12]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G3 2
+GOTO @赌博一
+BREAK
+[@PN13]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G3 3
+GOTO @赌博一
+BREAK
+[@PN14]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G3 4
+GOTO @赌博一
+BREAK
+[@PN15]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G3 5
+GOTO @赌博一
+BREAK
+[@PN16]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G3 6
+GOTO @赌博一
+BREAK
+[@PN21]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G4 1
+GOTO @赌博一
+BREAK
+[@PN22]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G4 2
+GOTO @赌博一
+BREAK
+[@PN23]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G4 3
+GOTO @赌博一
+BREAK
+[@PN24]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G4 4
+GOTO @赌博一
+BREAK
+[@PN25]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G4 5
+GOTO @赌博一
+BREAK
+[@PN26]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G4 6
+GOTO @赌博一
+BREAK
+[@PN31]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G5 1
+GOTO @赌博一
+BREAK
+[@PN32]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G5 2
+GOTO @赌博一
+BREAK
+[@PN33]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G5 3
+GOTO @赌博一
+BREAK
+[@PN34]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G5 4
+GOTO @赌博一
+BREAK
+[@PN35]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G5 5
+GOTO @赌博一
+BREAK
+[@PN36]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G5 6
+GOTO @赌博一
+BREAK
+[@CD11]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G7 1
+GOTO @赌博一
+BREAK
+[@CD12]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G7 2
+GOTO @赌博一
+BREAK
+[@CD13]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G7 3
+GOTO @赌博一
+BREAK
+[@CD14]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G7 4
+GOTO @赌博一
+BREAK
+[@CD15]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G7 5
+GOTO @赌博一
+BREAK
+[@CD16]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MOV G7 6
+GOTO @赌博一
+BREAK
+
+
+[@InPutInteger7]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,刷你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌
+#ACT
+MESSAGEBOX \\提示：设置成功，当前系统变量值为[<$STR(N7)>]
+GOTO @变量一
+BREAK
+
+[@InPutString7]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,刷你妈卖B！ 
+break
+#if
+EQUAL S7
+#act
+MESSAGEBOX \\提示：设置人物名字不能为空，如张三、李四等等！
+#ELSEACT
+MESSAGEBOX \\提示：设置成功，当前指定人物名字为[<$STR(S7)>]
+GOTO @变量一
+BREAK
+
+[@InPutString8]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,刷你妈卖B！ 
+break
+#if
+EQUAL S8
+#act
+MESSAGEBOX \\提示：设置人物变量对象不能为空，如A88、G88等等！
+#ELSEACT
+MESSAGEBOX \\提示：设置成功，当前指定人物变量对象为[<$STR(S8)>]
+GOTO @变量一
+BREAK
+
+[@InPutInteger8]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,刷你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+MESSAGEBOX \\提示：设置成功，当前指定人物变量值为[<$STR(N8)>]
+GOTO @变量一
+BREAK
+
+[@修改指定人物变量]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,刷你妈卖B！ 
+break
+#if
+EQUAL S7
+#act
+MESSAGEBOX \\提示：设置指定人物名字不能为空，如张三、李四等等！
+BREAK
+#if
+EQUAL S8
+#act
+MESSAGEBOX \\提示：设置指定人物变量对象不能为空，如A88、G88等等！
+#ELSEACT
+MOV A65 <$STR(S8)>
+MOV G65 <$STR(N8)>
+MOV S8
+MOV N8 0
+HCALL <$STR(S7)> @给予变量值
+MESSAGEBOX \\提示：修改成功，[<$STR(S7)>]人物变量[<$STR(A65)>]已经修改成[<$STR(G65)>]
+MOV S7
+GOTO @变量一
+BREAK
+
+
+[@修改指定系统变量]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,刷你妈卖B！ 
+break
+#if
+EQUAL S6
+#act
+MESSAGEBOX \\提示：设置系统变量不能为空，如A88、G88等等！
+#ELSEACT
+MOV <$STR(S6)> <$STR(N7)>
+MESSAGEBOX \\提示：修改成功，指定系统变量[<$STR(S6)>]已经修改成[<$STR(N7)>]
+MOV S6
+MOV N7 0
+GOTO @变量一
+BREAK
+
+
+[@InPutString6]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,刷你妈卖B！ 
+break
+#if
+EQUAL S6
+#act
+MESSAGEBOX \\提示：设置系统变量对象不能为空，如A88、G88等等！
+#ELSEACT
+MESSAGEBOX \\提示：设置成功，当前系统变量对象为[<$STR(S6)>]
+GOTO @变量一
+BREAK
+
+[@整理沙巴克]
+#if
+NOT CHECKITEM 管理令牌 1
+#Act
+SendMsg 5 [死逼]:送你全家上殡仪馆,控你妈卖B！ 
+break
+#IF
+CHECKITEM 管理令牌 1
+#ACT
+GMEXECUTE 更改城主jx 沙巴克 暂无行会占领
+MESSAGEBOX \\设置成功：沙巴克占领状态已经初始化！
+GOTO @管理后台之家总裁
+BREAK
+
+[@正式开区假人开启]
+#IF
+EQUAL A351 开启
+CHECKITEM 管理令牌
+#ACT
+MOV A352 关闭
+MOV A351 关闭
+MOV G352 0
+MOV G353 0
+SENDMSG 6 提示：正式开区假人状态已经[关闭]
+GOTO @管理后台之家总裁
+#ELSEACT
+MOV G352 50
+MOV G353 100
+MOV A351 开启
+MOV A352 开启
+DUMMYSTART
+SENDMSG 6 提示：正式开区假人状态已经[开启]
+GOTO @管理后台之家总裁
+
+[@测试区假人开启]
+#IF
+EQUAL A352 开启
+CHECKITEM 管理令牌
+#ACT
+MOV A352 关闭
+MOV G353 0
+SENDMSG 6 提示：测试区假人状态已经[关闭]
+GOTO @管理后台之家总裁
+#ELSEACT
+MOV A352 开启
+MOV G353 30
+DUMMYSTART
+SENDMSG 6 提示：测试区假人状态已经[开启]
+GOTO @管理后台之家总裁
+}

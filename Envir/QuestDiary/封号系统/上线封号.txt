@@ -1,0 +1,178 @@
+[@封号更改]
+{
+#IF
+#ACT
+MOV N53 0
+MOV N54 0
+MOV N55 0
+MOV N56 0
+
+#IF
+check [100] 1
+#ACT
+MOV N54 1
+MOV S$会员 特权：「天择·会员」
+SendCenterMsg 251 249 尊贵的[天择·会员]【<$USERNAME>】上线了,泡点经验提高一倍。 1 5
+CHANGENAMECOLOR 253
+
+#IF
+Equal A401 <$USERNAME>
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一男战士
+SendCenterMsg 251 249 [天下第一男战士]【<$USERNAME>】上线了,欢迎他回来。 1 5
+ChangeModeEx 5 65535 50
+CHANGENAMECOLOR 250
+
+#IF
+Equal A406 <$USERNAME>
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一女战士
+SendCenterMsg 251 249 [天下第一女战士]【<$USERNAME>】上线了,欢迎他回来。 1 5
+ChangeModeEx 5 65535 50
+CHANGENAMECOLOR 250
+
+#IF
+Equal A411 <$USERNAME>
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一男法师
+SendCenterMsg 251 249 [天下第一男法师]【<$USERNAME>】上线了,欢迎他回来。 1 5
+ChangeModeEx 6 65535 50
+CHANGENAMECOLOR 250
+
+#IF
+Equal A416 <$USERNAME>
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一女法师
+SendCenterMsg 251 249 [天下第一女法师]【<$USERNAME>】上线了,欢迎他回来。 1 5
+ChangeModeEx 6 65535 50
+CHANGENAMECOLOR 250
+
+#IF
+Equal A421 <$USERNAME>
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一男道士
+SendCenterMsg 251 249 [天下第一男道士]【<$USERNAME>】上线了,欢迎他回来。 1 5
+ChangeModeEx 7 65535 50
+CHANGENAMECOLOR 250
+#IF
+Equal A426 <$USERNAME>
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一女道士
+SendCenterMsg 251 249 [天下第一女道士]【<$USERNAME>】上线了,欢迎他回来。 1 5
+ChangeModeEx 7 65535 50
+CHANGENAMECOLOR 250
+
+#IF
+CHECKRENEWLEVEL = 0
+#ACT
+MOV N56 1
+MOV S$佣兵 【初入江湖】
+#IF
+CHECKRENEWLEVEL = 1
+#ACT
+MOV N56 1
+MOV S$佣兵 【一转】
+#IF
+CHECKRENEWLEVEL = 2
+#ACT
+MOV N56 1
+MOV S$佣兵 【二转】
+#IF
+CHECKRENEWLEVEL = 3
+#ACT
+MOV N56 1
+MOV S$佣兵 【三转】
+#IF
+CHECKRENEWLEVEL = 4
+#ACT
+MOV N56 1
+MOV S$佣兵 【四转】
+#IF
+CHECKRENEWLEVEL = 5
+#ACT
+MOV N56 1
+MOV S$佣兵 【五转】
+#IF
+CHECKRENEWLEVEL = 6
+#ACT
+MOV N56 1
+MOV S$佣兵 【六转】
+#IF
+CHECKRENEWLEVEL = 7
+#ACT
+MOV N56 1
+MOV S$佣兵 【七转】
+#IF
+CHECKRENEWLEVEL = 8
+#ACT
+MOV N56 1
+MOV S$佣兵 【八转】
+#IF
+CHECKRENEWLEVEL = 9
+#ACT
+MOV N56 1
+MOV S$佣兵 【九转】
+#IF
+CHECKRENEWLEVEL = 10
+#ACT
+MOV N56 1
+MOV S$佣兵 【十转】
+
+#IF
+large N53 0
+large N54 0
+large N55 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$赞助大使)>\<$STR(S$天下第一)>\──────────\<$STR(S$会员)>\<$STR(S$佣兵)>\
+break
+
+#IF
+large N54 0
+large N55 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$天下第一)>\──────────\<$STR(S$会员)>\<$STR(S$佣兵)>\
+break
+
+#IF
+large N53 0
+large N54 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$赞助大使)>\──────────\<$STR(S$会员)>\<$STR(S$佣兵)>\
+break
+
+#IF
+large N53 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$赞助大使)>\──────────\<$STR(S$佣兵)>\
+break
+
+#IF
+large N55 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$天下第一)>\──────────\<$STR(S$佣兵)>\
+break
+
+#IF
+large N54 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$会员)>\<$STR(S$佣兵)>\
+break
+
+#IF
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$佣兵)>\
+break
+}

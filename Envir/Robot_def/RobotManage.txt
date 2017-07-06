@@ -1,0 +1,329 @@
+;----------------------------------自动吃元宝
+[@自动吃元宝卷]
+#if
+#ACT
+Gmexecute 开始提问 @系统自动加元宝卷
+BREAK
+
+;-----------------------------------------自动拿沙
+
+[@新区检测]
+#IF
+EQUAL G66 1
+#ACT
+BREAK
+#IF
+SMALL G66 1
+#ACT
+MOV G66 120
+BREAK
+#IF
+LARGE G66 1
+#ACT
+DEC G66 1
+BREAK
+
+
+
+[@计算小时]
+#IF
+#ACT
+inc G111 1
+break
+[@沙日期更新]
+#IF
+EQUAL G439 0
+#ACT
+MOV G439 1
+
+
+[@首沙天数]
+#IF
+#ACT
+CALCVAR GLOBAL 首沙天数 + 1
+SAVEVAR GLOBAL 首沙天数 ..\QuestDiary\首沙倒计时.txt
+
+
+
+[@攻沙喊话]
+#IF
+CHECKVAR GLOBAL 首沙天数 > 2
+#ACT
+SENDMSG 1 ぐ系统：集体攻城即将开启!--请提早建会!否则参加不了集体攻城!
+SENDMSG 1 ぐ系统：集体攻城即将开启!--每天19点59分开启全服大型攻城!
+SENDMSG 1 ぐ系统：集体攻城即将开启!--每个行会都可以攻城!无需提交头像
+SENDMSG 1 ぐ系统：集体攻城即将开启!--如果您的势力不行!建议找结盟好友!
+SENDMSG 1 ぐ系统：集体攻城即将开启!--所有行会做好准备!它是不是属于你呢?
+
+
+[@攻沙设置]
+#IF
+CHECKVAR GLOBAL 首沙天数 > 2
+#ACT
+ADDATTACKSABUKALL 0
+SENDMSG 0 ┏≈☆★≈☆★≈☆★☆≈【攻城信息提示】≈☆★☆≈★☆≈★☆≈┓
+SENDMSG 0 ╔┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅╗
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→请提早建会,否则参加不了集体攻城！┇ 
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→每晚20点,自动开启全服大型攻城战！┇ 
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→每个行会都可以攻城!无需提交头像！┇ 
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→如果您的势力不行,建议找结盟好友！┇ 
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→请所有行会做好准备,倒计时10分钟！┇ 
+SENDMSG 0 ╚┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅╝
+SENDMSG 0 ┗≈☆★≈☆★≈☆★☆≈【倒计时10分钟】≈☆★☆≈★☆≈★☆≈┛
+BREAK
+
+
+
+[@统一添加攻城]
+#IF
+EQUAL G439 1
+#ACT
+ADDATTACKSABUKALL 0
+SENDMSG 0 ┏≈☆★≈☆★≈☆★☆≈【攻城信息提示】≈☆★☆≈★☆≈★☆≈┓
+SENDMSG 0 ╔┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅╗
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→请提早建会,否则参加不了集体攻城！┇ 
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→每晚20点,自动开启全服大型攻城战！┇ 
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→每个行会都可以攻城!无需提交头像！┇ 
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→如果您的势力不行,建议找结盟好友！┇ 
+SENDMSG 0 ┇ 所有行会已自动申请攻城！→请所有行会做好准备,倒计时10分钟！┇ 
+SENDMSG 0 ╚┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅╝
+SENDMSG 0 ┗≈☆★≈☆★≈☆★☆≈【倒计时10分钟】≈☆★☆≈★☆≈★☆≈┛
+BREAK
+
+
+[@攻城提示]
+#IF
+EQUAL G439 1
+#act
+SENDMSG 0 ┏≈☆★≈☆★≈☆★☆≈【攻城信息提示】≈☆★☆≈★☆≈★☆≈┓
+SENDMSG 0 ╔┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅╗
+SENDMSG 0 ┇[20:00]集体攻城即将开启！→请提早建会,否则参加不了集体攻城！┇ 
+SENDMSG 0 ┇[20:00]集体攻城即将开启！→每晚20点,自动开启全服大型攻城战！┇ 
+SENDMSG 0 ┇[20:00]集体攻城即将开启！→每个行会都可以攻城!无需提交头像！┇ 
+SENDMSG 0 ┇[20:00]集体攻城即将开启！→如果您的势力不行,建议找结盟好友！┇ 
+SENDMSG 0 ┇[20:00]集体攻城即将开启！→请所有行会做好准备,倒计时10分钟！┇ 
+SENDMSG 0 ╚┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅╝
+SENDMSG 0 ┗≈☆★≈☆★≈☆★☆≈【沙巴克攻城战】≈☆★☆≈★☆≈★☆≈┛
+BREAK
+
+
+
+
+[@清除沙奖励] 
+#ACT
+CLEARNAMELIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+
+;---------------------------------------------------------------------活动
+
+[@装备大放送]
+#IF
+#ACT
+MonGenEx hzdt3 14 21 装备携带者【活动】 3 1 0 249
+Gmexecute 开始提问 @装备放送A
+GuildNoticeMsg 251 249 ╔━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╗
+GuildNoticeMsg 251 249 ┃╔━━━━╗　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃┃装备放送┃　　　　　　　　　　　　　　★活动已经开启·√★┃
+GuildNoticeMsg 251 249 ┃╚━━━━╝　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ╚━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╝
+break
+
+[@狂欢大放送]
+#IF
+#ACT
+MonGenEx hzdt2 14 21 狂欢使者【活动】 3 1 0 249
+Gmexecute 开始提问 @狂欢放送A
+GuildNoticeMsg 251 249 ╔━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╗
+GuildNoticeMsg 251 249 ┃╔━━━━╗　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃┃狂欢放送┃　　　　　　　　　　　　　　★活动已经开启·√★┃
+GuildNoticeMsg 251 249 ┃╚━━━━╝　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ╚━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╝
+break
+
+[@元宝狂暴]
+#IF
+#ACT
+MonGenEx hzdt1 14 21 元宝携带者【活动】 3 1 0 249
+Gmexecute 开始提问 @元宝狂暴A
+GuildNoticeMsg 251 249 ╔━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╗
+GuildNoticeMsg 251 249 ┃╔━━━━╗　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃┃元宝狂暴┃　　　　　　　　　　　　　　★活动已经开启·√★┃
+GuildNoticeMsg 251 249 ┃╚━━━━╝　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ╚━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╝
+break
+
+[@沙城霸主]
+#IF
+#ACT
+MonGenEx xtc 645 295 沙城妖龙→【沙城BOSS】 1 1 0 253
+Gmexecute 开始提问 @沙城霸主A
+GuildNoticeMsg 251 249 ╔━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╗
+GuildNoticeMsg 251 249 ┃╔━━━━╗　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃┃沙城霸主┃　　　　　　　　　　　　　　★活动已经开启·√★┃
+GuildNoticeMsg 251 249 ┃╚━━━━╝　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃沙城霸主出现在沙巴克复活点：有几率爆出魔法盾，终极剑甲等　　┃
+GuildNoticeMsg 251 249 ┃沙城霸主出现在沙巴克复活点：有几率爆出魔法盾，终极剑甲等　　┃
+GuildNoticeMsg 251 249 ┃沙城霸主出现在沙巴克复活点：有几率爆出魔法盾，终极剑甲等　　┃
+GuildNoticeMsg 251 249 ╚━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╝
+break
+
+[@行会争霸]
+#IF
+#ACT
+MonGenEx hhzb 14 21 行会BOSS【活动】 3 1 0 249
+Gmexecute 开始提问 @行会争霸
+GuildNoticeMsg 251 249 ╔━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╗
+GuildNoticeMsg 251 249 ┃╔━━━━╗　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃┃行会争霸┃　　　　　　　　　　　　　　★活动已经开启·√★┃
+GuildNoticeMsg 251 249 ┃╚━━━━╝　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ╚━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╝
+break
+
+
+[@活动计时]
+#IF
+#ACT
+INC G431 1
+
+#IF
+EQUAL G431 15
+#ACT
+ThrowItem bbjx 14 16 8 １万元宝 15|5 1 1
+ThrowItem bbjx 14 16 8 ２万元宝 15|5 1 1
+ThrowItem bbjx 14 16 8 火龙头盔 3|5 1 1
+ThrowItem bbjx 14 16 8 火龙项链 3|5 1 1
+ThrowItem bbjx 14 16 8 火龙手镯 3|5 1 1
+ThrowItem bbjx 14 16 8 火龙戒指 3|5 1 1
+ThrowItem bbjx 14 16 8 火龙腰带 3|5 1 1
+ThrowItem bbjx 14 16 8 火龙靴子 3|5 1 1
+ThrowItem bbjx 14 16 8 火龙战甲 1|5 1 1
+ThrowItem bbjx 14 16 8 火龙之刃 1|5 1 1
+ThrowItem bbjx 14 16 8 火龙战衣 1|5 1 1
+ThrowItem bbjx 14 16 8 宏图古币+50 25|5 1 1
+ThrowItem bbjx 14 16 8 宏图古币+10 30|5 1 1
+ThrowItem bbjx 14 16 8 宏图古币+5 30|5 1 1
+ThrowItem bbjx 14 16 8 青虹头盔 2|5 1 1
+ThrowItem bbjx 14 16 8 青虹项链 2|5 1 1
+ThrowItem bbjx 14 16 8 青虹手镯 2|5 1 1
+ThrowItem bbjx 14 16 8 青虹戒指 2|5 1 1
+ThrowItem bbjx 14 16 8 青虹腰带 2|5 1 1
+ThrowItem bbjx 14 16 8 青虹之刃 1|5 1 1
+ThrowItem bbjx 14 16 8 青虹战甲 1|5 1 1
+ThrowItem bbjx 14 16 8 青虹战衣 1|5 1 1
+ThrowItem bbjx 14 16 8 莫邪项链 1|5 1 1
+ThrowItem bbjx 14 16 8 莫邪手镯 1|5 1 1
+ThrowItem bbjx 14 16 8 莫邪腰带 1|5 1 1
+ThrowItem bbjx 14 16 8 狂雷之刃 1|5 1 1
+ThrowItem bbjx 14 16 8 狂雷战甲 1|5 1 1
+ThrowItem bbjx 14 16 8 狂雷战衣 1|5 1 1
+ThrowItem bbjx 14 16 8 狂雷头盔 1|5 1 1
+ThrowItem bbjx 14 16 8 狂雷项链 4|5 1 1
+ThrowItem bbjx 14 16 8 狂雷手镯 4|5 1 1
+ThrowItem bbjx 14 16 8 狂雷戒指 4|5 1 1
+ThrowItem bbjx 14 16 8 狂雷腰带 4|5 1 1
+ThrowItem bbjx 14 16 8 狂雷靴子 4|5 1 1
+Gmexecute 开始提问 @步步惊心A
+GuildNoticeMsg 251 249 ╔━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╗
+GuildNoticeMsg 251 249 ┃╔━━━━╗　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃┃步步惊心┃　　　　　　　　　　　　　　★活动已经开启·√★┃
+GuildNoticeMsg 251 249 ┃╚━━━━╝　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动说明：玩家进入指定地图满图装备元宝材料，只可随机捡取!   ┃
+GuildNoticeMsg 251 249 ┃活动说明：玩家进入指定地图满图装备元宝材料，只可随机捡取!　 ┃
+GuildNoticeMsg 251 249 ┃活动说明：玩家进入指定地图满图装备元宝材料，只可随机捡取! 　┃
+GuildNoticeMsg 251 249 ╚━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╝
+break
+
+
+#IF
+EQUAL G431 30
+#ACT
+ThrowItem xtc 363 350 8 １万元宝 35|90 1 0
+ThrowItem xtc 363 350 8 ２万元宝 25|90 1 0
+Gmexecute 开始提问 @天降元宝A
+GuildNoticeMsg 251 249 ╔━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╗
+GuildNoticeMsg 251 249 ┃╔━━━━╗　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃┃天降元宝┃　　　　　　　　　　　　　　★活动已经开启·√★┃
+GuildNoticeMsg 251 249 ┃╚━━━━╝　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动奖励说明：系统爆出大量元宝90秒后可捡取　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动奖励说明：系统爆出大量元宝90秒后可捡取　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动奖励说明：系统爆出大量元宝90秒后可捡取　　　　　　　　　┃
+GuildNoticeMsg 251 249 ╚━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╝
+break
+
+
+#IF
+EQUAL G431 45
+#ACT
+ThrowItem xtc 363 350 8 １万元宝 35|90 1 0
+ThrowItem xtc 363 350 8 ２万元宝 25|90 1 0
+Gmexecute 开始提问 @天降元宝A
+GuildNoticeMsg 251 249 ╔━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╗
+GuildNoticeMsg 251 249 ┃╔━━━━╗　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃┃天降元宝┃　　　　　　　　　　　　　　★活动已经开启·√★┃
+GuildNoticeMsg 251 249 ┃╚━━━━╝　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动奖励说明：系统爆出大量元宝90秒后可捡取　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动奖励说明：系统爆出大量元宝90秒后可捡取　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动奖励说明：系统爆出大量元宝90秒后可捡取　　　　　　　　　┃
+GuildNoticeMsg 251 249 ╚━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╝
+break
+
+
+
+#IF
+EQUAL G431 90
+#ACT
+MonGenEx xtc 371 352 元宝携带者 2 30 0 255
+MonGenEx xtc 371 352 元宝携带者【BOSS】 2 8 0 249
+Gmexecute 开始提问 @怪物偷袭A
+GuildNoticeMsg 251 249 ╔━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╗
+GuildNoticeMsg 251 249 ┃╔━━━━╗　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃┃天降元宝┃　　　　　　　　　　　　　　★活动已经开启·√★┃
+GuildNoticeMsg 251 249 ┃╚━━━━╝　　　　　　　　　　　　　　　　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动奖励说明：杀死元宝携带者可获得大量元宝　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动奖励说明：杀死元宝携带者可获得大量元宝　　　　　　　　　┃
+GuildNoticeMsg 251 249 ┃活动奖励说明：杀死元宝携带者可获得大量元宝　　　　　　　　　┃
+GuildNoticeMsg 251 249 ╚━━━━━━━━━━━━━≡═≡━━━━━━━━━━━━━━╝
+break
+
+
+
+
+[@加体力]
+#if
+#ACT
+Gmexecute 开始提问 @加体力A
+
+
+[@击杀]
+#IF
+equal G144 0
+#ACT
+MOV G144 1
+MOV G140 1
+MOV G141 1
+MOV G142 1
+MOV G143 1
+MOV G149 1
+MOV G150 1
+MOV G151 1
+MOV G152 1
+MOV G153 1
+MOV G154 1
+MOV G155 1
+MOV G156 1
+MOV G157 1
+MOV G158 1
+MOV G159 1
+MOV G160 1
+MOV G161 1
+MOV G162 1
+MOV G163 1
+MOV G164 1
+MOV G165 1
+MOV G166 1
+MOV G167 1
+MOV G168 1
+MOV G169 1
+
+
+
+

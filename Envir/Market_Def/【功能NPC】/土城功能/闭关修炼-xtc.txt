@@ -1,0 +1,72 @@
+[@main]
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 1 4 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT>\<Img:1037:12:-40:-28>\
+　　　　　　<Img:803:0:0:4>\
+　　　　　　　　　<激情泡点/@激情泡点>→<完全免费/SCOLOR=249> <普通区域-/SCOLOR=19><每秒10-100万经验/SCOLOR=67>\ \
+　　　　　　　　　<双倍泡点/@双倍泡点>→<会员双倍/SCOLOR=249> <普通区域-/SCOLOR=19><每秒20-100万经验/SCOLOR=67>\ \
+　　　　　　　　　<土豪泡点/@土豪泡点>→<300元宝/SCOLOR=249>  <土豪泡点/SCOLOR=250> <每秒999万经验/SCOLOR=67>\
+　　　　　　<Img:803:0:0:4>\
+　\
+　　　　　　　　　<注：泡点经验跟赞助等级息息相关！/SCOLOR=168>\
+　　　　　　　　　　　<赞助等级越高经验越高，快人一步！/SCOLOR=168>\
+
+
+[@土豪泡点]
+#IF
+CHECKLEVELEX > 79
+#ACT
+MESSAGEBOX \\您的等级已经封顶，无法在继续升级！
+break
+
+#IF
+CHECKGAMEGOLD > 999
+#ACT
+map nA0137
+SENDMSG 0 25 255 土豪:{「<$USERNAME>」|242:0:1}进入{「土豪泡点」|251:0:1}，很快就能脱颖而出,成为盟重主宰一员！
+SETONTIMER 3 1
+break
+#elseACT
+MESSAGEBOX \\很遗憾,您的元宝不足1000无法让你进入
+break
+
+[@激情泡点]
+#IF
+CHECKLEVELEX > 79
+#ACT
+map obj66
+SENDMSG 0 25 255 勇士:{「<$USERNAME>」|251:0:1}进入激情泡点，升级嗷嗷快你还在等什么？
+break
+
+#IF
+CHECKLEVELEX < 80
+#ACT
+map obj66
+SENDMSG 0 25 255 勇士:{「<$USERNAME>」|251:0:1}进入激情泡点，升级嗷嗷快你还在等什么？
+SETONTIMER 1 1
+break
+#elseACT
+MESSAGEBOX \\很遗憾,您的等级未达到80级！请继续努力！
+break
+
+[@双倍泡点]
+#IF
+CHECKLEVELEX > 79
+#ACT
+map obj66
+SENDMSG 0 25 255 勇士:{「<$USERNAME>」|251:0:1}进入激情泡点，升级嗷嗷快你还在等什么？
+break
+
+#IF
+CHECKLEVELEX < 80
+check [100] 1
+#ACT
+map obj66
+SENDMSG 0 25 255 会员玩家:{「<$USERNAME>」|253:0:1}进入激情泡点,经验翻倍快人一步！
+SETONTIMER 1 1
+break
+#elseACT
+MESSAGEBOX \\很遗憾,你不是本服尊贵的会员玩家
+break

@@ -1,0 +1,124 @@
+{
+[@衣服鉴定传说]
+
+#IF
+#ACT
+ReturnBoxItem 5
+give <$STR(S68)>
+BAGITEMINTOBOX <$STR(S68)> 5
+SetUpgradeItem 5
+
+#or
+CheckContainsText <$STR(S68)> 雷霆
+CheckContainsText <$STR(S68)> 战神
+CheckContainsText <$STR(S68)> 狂雷
+CheckContainsText <$STR(S68)> 火龙
+CheckContainsText <$STR(S68)> 青虹
+CheckContainsText <$STR(S68)> 莫邪
+CheckContainsText <$STR(S68)> 龙渊
+#ACT
+goto @战士衣服鉴定传说
+
+#or
+CheckContainsText <$STR(S68)> 法魂
+CheckContainsText <$STR(S68)> 圣魂
+CheckContainsText <$STR(S68)> 御法
+CheckContainsText <$STR(S68)> 耀阳
+CheckContainsText <$STR(S68)> 赤焰
+CheckContainsText <$STR(S68)> 龙炎
+CheckContainsText <$STR(S68)> 魔龙
+#ACT
+goto @法师衣服鉴定传说
+
+#or
+CheckContainsText <$STR(S68)> 梦绕
+CheckContainsText <$STR(S68)> 苍灵
+CheckContainsText <$STR(S68)> 通灵
+CheckContainsText <$STR(S68)> 征程
+CheckContainsText <$STR(S68)> 神纹
+CheckContainsText <$STR(S68)> 赤霄
+CheckContainsText <$STR(S68)> 天龙
+#ACT
+goto @道士衣服鉴定传说
+
+
+[@战士衣服鉴定传说]
+#act
+mov <$STR(N$属性位置)> 2
+goto @开始鉴定传说衣服
+
+[@法师衣服鉴定传说]
+#act
+mov <$STR(N$属性位置)> 3
+goto @开始鉴定传说衣服
+
+[@道士衣服鉴定传说]
+#act
+mov <$STR(N$属性位置)> 4
+goto @开始鉴定传说衣服
+
+
+[@开始鉴定传说衣服]
+#if
+random 50
+#ACT
+CHANGEITEMADDVALUE -1 <$STR(N$属性位置)> = 16
+CHANGEITEMUPGRADECOUNT -1 = 5
+SENDUPGRADEITEM
+UpDateBoxItem 5
+ReturnBoxItem 5
+UpDateBoxItem 5
+SendMsg 0 {系统鉴定传说ぐ|151:0:1}：{%s|227:0:1}福星降临鉴定出极品{[五星]|154:0:1}的{[<$STR(S68)>]|250:0:1}
+SENDMSG 0 251 70 {[<$STR(S68)>]|250:0:1}鉴定星级为：{★★★★★|249:0:1}
+break
+
+#if
+random 18
+#ACT
+CHANGEITEMADDVALUE -1 <$STR(N$属性位置)> = 13
+CHANGEITEMUPGRADECOUNT -1 = 4
+SENDUPGRADEITEM
+UpDateBoxItem 5
+ReturnBoxItem 5
+UpDateBoxItem 5
+SendMsg 0 {系统鉴定传说ぐ|151:0:1}：{%s|227:0:1}福星降临鉴定出极品{[四星]|154:0:1}的{[<$STR(S68)>]|250:0:1}
+SENDMSG 0 251 70 {[<$STR(S68)>]|250:0:1}鉴定星级为：{★★★★|249:0:1}
+break
+
+#if
+random 6
+#ACT
+CHANGEITEMADDVALUE -1 <$STR(N$属性位置)> = 10
+CHANGEITEMUPGRADECOUNT -1 = 3
+SENDUPGRADEITEM
+UpDateBoxItem 5
+ReturnBoxItem 5
+UpDateBoxItem 5
+SendMsg 0 {系统鉴定传说ぐ|151:0:1}：{%s|227:0:1}福星降临鉴定出极品{[三星]|154:0:1}的{[<$STR(S68)>]|250:0:1}
+SENDMSG 0 251 70 {[<$STR(S68)>]|250:0:1}鉴定星级为：{★★★|249:0:1}
+break
+
+#if
+random 3
+#ACT
+CHANGEITEMADDVALUE -1 <$STR(N$属性位置)> = 8
+CHANGEITEMUPGRADECOUNT -1 = 2
+SENDUPGRADEITEM
+UpDateBoxItem 5
+ReturnBoxItem 5
+UpDateBoxItem 5
+SENDMSG 0 251 70 {[<$STR(S68)>]|250:0:1}鉴定星级为：{★★|249:0:1}
+break
+
+#if
+#ACT
+CHANGEITEMADDVALUE -1 <$STR(N$属性位置)> = 7
+CHANGEITEMUPGRADECOUNT -1 = 1
+SENDUPGRADEITEM
+UpDateBoxItem 5
+ReturnBoxItem 5
+UpDateBoxItem 5
+SENDMSG 0 251 70 {[<$STR(S68)>]|250:0:1}鉴定星级为：{★|249:0:1}
+break
+
+}

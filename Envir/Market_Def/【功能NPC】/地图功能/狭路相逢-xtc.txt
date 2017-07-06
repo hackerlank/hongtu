@@ -1,0 +1,116 @@
+[@main]
+#IF
+#act
+GOTO @狭路相逢
+
+[@狭路相逢]
+#IF
+#Act
+OPENMERCHANTBIGDLG 12 1211 1 4 0 9 0
+#say
+<Img:801:0:490:25/@EXIT>\
+<PlayImg:15:222:4:200:-50:-130:0>\
+　\
+　　　　　　　　　　　　　　　　　　<Img:1207:12::145:9/@狭路相逢>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<狭路相逢/SCOLOR=158>\
+　　　　　　　　　　　　　　　　　　<Img:1208:12::145:9/@峰回路转>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<峰回路转/SCOLOR=35>\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<地图特征:狭路相逢/SCOLOR=125>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<BOSS名称:幽冥灵尊→至尊BOSS/SCOLOR=249>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<刷新时间:/SCOLOR=125><鼠标移此查看|253#荣耀BOSS刷新时间60分钟^253#王者BOSS刷新时间90分钟^253#巅峰BOSS刷新时间90分钟^249#至尊BOSS刷新时间150分钟/SCOLOR=125>\
+　　　　　　　　　　　　　　 {地图爆率详情/SCOLOR=251}（移动鼠标查看）\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 <进入条件:七转/SCOLOR=70>\
+　　　　　　{白色怪爆率低/SCOLOR=255}　　{红色BOSS爆率超高/SCOLOR=249}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<消耗元宝:每秒扣除20元宝/SCOLOR=70>\
+　<ImgEx:12:1212:1213:1214:380:20/@进入A>\
+　\　
+　\
+<ItemShow:396:0:70:-10:0>\
+<ItemShow:402:0:118:-26:0>\
+<ItemShow:403:0:160:-52:0>\
+<ItemShow:395:0:209:-70:0>\
+<ItemShow:401:0:253:-84:0>\
+<ItemShow:399:0:302:-100:0>\
+
+
+[@峰回路转]
+#IF
+#Act
+OPENMERCHANTBIGDLG 12 1211 1 4 0 9 0
+#say
+<Img:801:0:490:25/@EXIT>\
+<PlayImg:15:222:4:200:-50:-130:0>\
+　\
+　　　　　　　　　　　　　　　　　　<Img:1208:12::145:9/@狭路相逢>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<狭路相逢/SCOLOR=35>\
+　　　　　　　　　　　　　　　　　　<Img:1207:12::145:9/@峰回路转>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<峰回路转/SCOLOR=158>\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<地图特征:峰回路转/SCOLOR=125>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<BOSS名称:幽冥灵尊→至尊BOSS/SCOLOR=249>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<刷新时间:/SCOLOR=125><鼠标移此查看|253#荣耀BOSS刷新时间60分钟^253#王者BOSS刷新时间90分钟^253#巅峰BOSS刷新时间90分钟^249#至尊BOSS刷新时间150分钟/SCOLOR=125>\
+　　　　　　　　　　　　　　 {地图爆率详情/SCOLOR=251}（移动鼠标查看）\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 <进入条件:七转/SCOLOR=70>\
+　　　　　　{白色怪爆率低/SCOLOR=255}　　{红色BOSS爆率超高/SCOLOR=249}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<消耗元宝:每秒扣除20元宝/SCOLOR=70>\
+　<ImgEx:12:1212:1213:1214:380:20/@进入b>\
+　\　
+　\
+<ItemShow:396:0:70:-10:0>\
+<ItemShow:402:0:118:-26:0>\
+<ItemShow:403:0:160:-52:0>\
+<ItemShow:395:0:209:-70:0>\
+<ItemShow:401:0:253:-84:0>\
+<ItemShow:399:0:302:-100:0>\
+
+
+[@进入b]
+#IF
+#ACT
+MESSAGEBOX \\峰回路转下二层坐标[34,95]，请注意记录！\\本地图每秒扣20个元宝 @确定b @取消
+
+[@确定b]
+#IF
+CHECKRENEWLEVEL < 7
+#ACT
+MESSAGEBOX \\你没有七转，无法进入！
+break
+
+#IF
+#ACT
+mapmove tmd1 22 145
+SETONTIMER 30 1
+SENDMSG 0 251 70 玛法勇士{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1}！！
+break
+
+
+
+[@进入A]
+#IF
+#ACT
+MESSAGEBOX \\狭路相逢下二层坐标[90,67]，请注意记录！\\本地图每秒扣20个元宝 @确定A @取消
+
+[@确定A]
+#IF
+CHECKRENEWLEVEL < 7
+#ACT
+MESSAGEBOX \\你没有七转，无法进入！
+break
+
+#IF
+#ACT
+mapmove OBJ54 17 54
+SETONTIMER 30 1
+SENDMSG 0 251 70 玛法勇士{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1}！！
+break

@@ -1,0 +1,753 @@
+[@main]
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 1 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT>\
+　\
+元宝比例   网银充值1:100  宏图古币\
+　\
+当前帐户的宏图古币数为：<$GAMEDIAMOND>\
+　　　　　　　　　　　　　　　　　　<宏图古币领取/@领取元宝>\
+
+
+
+[@领取元宝]
+#IF
+CHECKNAMELIST ..\QuestDiary\数据文件\授权商人.txt
+#ACT
+#CALL [\数据文件\商人充值.txt] @领取元宝A
+DELAYGOTO 2000 @领取封号
+BREAK
+#IF
+checklevelex > 0
+#ACT
+GOTO @领取元宝B
+BREAK
+
+
+
+[@领取封号]
+#IF
+CHECKGAMEGIRD > 999
+#ACT
+SETICON 0 15 516 -3 -80 8 0 300 0
+set    [588] 1
+
+
+
+
+
+[@领取元宝B]
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\0.1Y.txt
+#ACT
+GAMEDIAMOND + 10
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币10,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\0.1Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\0.2Y.txt
+#ACT
+GAMEDIAMOND + 20
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币20,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\0.2Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\0.3Y.txt
+#ACT
+GAMEDIAMOND + 30
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币30,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\0.3Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\0.4Y.txt
+#ACT
+GAMEDIAMOND + 40
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币40,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\0.4Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\0.5Y.txt
+#ACT
+GAMEDIAMOND + 50
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币50,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\0.5Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\0.6Y.txt
+#ACT
+GAMEDIAMOND + 60
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币60,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\0.6Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\0.7Y.txt
+#ACT
+GAMEDIAMOND + 70
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币70,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\0.7Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\0.8Y.txt
+#ACT
+GAMEDIAMOND + 80
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币80,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\0.8Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\0.9Y.txt
+#ACT
+GAMEDIAMOND + 90
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币90,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\0.9Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\1Y.txt
+#ACT
+GAMEDIAMOND + 100
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币100,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\1Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\2Y.txt
+#ACT
+GAMEDIAMOND + 200
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币200,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\2Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\3Y.txt
+#ACT
+GAMEDIAMOND + 300
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币300,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\3Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\4Y.txt
+#ACT
+GAMEDIAMOND + 400
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币400,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\4Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\5Y.txt
+#ACT
+GAMEDIAMOND + 500
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币500,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\5Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\6Y.txt
+#ACT
+GAMEDIAMOND + 600
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币600,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\6Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\7Y.txt
+#ACT
+GAMEDIAMOND + 700
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币700,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\7Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\8Y.txt
+#ACT
+GAMEDIAMOND + 800
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币800,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\8Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\9Y.txt
+#ACT
+GAMEDIAMOND + 900
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币900,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\9Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\10Y.txt
+#ACT
+GAMEDIAMOND + 1000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币1000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\10Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\20Y.txt
+#ACT
+GAMEDIAMOND + 2000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币2000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\20Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\30Y.txt
+#ACT
+GAMEDIAMOND + 3000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币3000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\30Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\40Y.txt
+#ACT
+GAMEDIAMOND + 4000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币4000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\40Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\50Y.txt
+#ACT
+GAMEDIAMOND + 5000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币5000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\50Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\60Y.txt
+#ACT
+GAMEDIAMOND + 6000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币6000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\60Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\70Y.txt
+#ACT
+GAMEDIAMOND + 7000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币7000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\70Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\80Y.txt
+#ACT
+GAMEDIAMOND + 8000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币8000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\80Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\90Y.txt
+#ACT
+GAMEDIAMOND + 9000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币9000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\90Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\100Y.txt
+#ACT
+GAMEDIAMOND + 10000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币10000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\100Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\200Y.txt
+#ACT
+GAMEDIAMOND + 20000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币20000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\200Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\300Y.txt
+#ACT
+GAMEDIAMOND + 30000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币30000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\300Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\400Y.txt
+#ACT
+GAMEDIAMOND + 40000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币40000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\400Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\500Y.txt
+#ACT
+GAMEDIAMOND + 50000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币50000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\500Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\600Y.txt
+#ACT
+GAMEDIAMOND + 60000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币60000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\600Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\700Y.txt
+#ACT
+GAMEDIAMOND + 70000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币70000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\700Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\800Y.txt
+#ACT
+GAMEDIAMOND + 80000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币80000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\800Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\900Y.txt
+#ACT
+GAMEDIAMOND + 90000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币90000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\900Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\1000Y.txt
+#ACT
+GAMEDIAMOND + 100000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币100000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\1000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\2000Y.txt
+#ACT
+GAMEDIAMOND + 200000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币200000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\2000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\3000Y.txt
+#ACT
+GAMEDIAMOND + 300000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币300000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\3000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\4000Y.txt
+#ACT
+GAMEDIAMOND + 400000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币400000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\4000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\5000Y.txt
+#ACT
+GAMEDIAMOND + 500000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币500000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\5000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\6000Y.txt
+#ACT
+GAMEDIAMOND + 600000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币600000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\6000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\7000Y.txt
+#ACT
+GAMEDIAMOND + 700000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币700000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\7000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\8000Y.txt
+#ACT
+GAMEDIAMOND + 800000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币800000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\8000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\9000Y.txt
+#ACT
+GAMEDIAMOND + 900000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币900000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\9000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\10000Y.txt
+#ACT
+GAMEDIAMOND + 1000000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币1000000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\10000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\20000Y.txt
+#ACT
+GAMEDIAMOND + 2000000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币2000000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\20000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\30000Y.txt
+#ACT
+GAMEDIAMOND + 3000000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币3000000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\30000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\40000Y.txt
+#ACT
+GAMEDIAMOND + 4000000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币4000000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\40000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\50000Y.txt
+#ACT
+GAMEDIAMOND + 5000000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币5000000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\50000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\60000Y.txt
+#ACT
+GAMEDIAMOND + 6000000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币6000000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\60000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\70000Y.txt
+#ACT
+GAMEDIAMOND + 7000000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币7000000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\70000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\80000Y.txt
+#ACT
+GAMEDIAMOND + 8000000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币8000000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\80000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\yuanbao\90000Y.txt
+#ACT
+GAMEDIAMOND + 9000000
+SENDMSG 1 ★[%s]:玩家<$USERNAME>使用充值系统购买宏图古币功能,获得宏图古币9000000,如果您也需要充值宏图古币,请赶紧打开充值页面进行宏图古币充值吧！！！
+delaccountlist ..\QuestDiary\兵者充值\yuanbao\90000Y.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\0.1l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得0充值积分,
+
+GAMEGIRD + 0 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\0.1l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\0.2l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得0充值积分,
+
+GAMEGIRD + 0 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\0.2l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\0.3l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得0充值积分,
+
+GAMEGIRD + 0 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\0.3l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\0.4l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得0充值积分,
+
+GAMEGIRD + 0 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\0.4l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\0.5l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得0充值积分,
+
+GAMEGIRD + 0 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\0.5l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\0.6l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得0充值积分,
+
+GAMEGIRD + 0 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\0.6l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\0.7l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得0充值积分,
+
+GAMEGIRD + 0 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\0.7l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\0.8l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得0充值积分,
+
+GAMEGIRD + 0 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\0.8l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\0.9l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得0充值积分,
+
+GAMEGIRD + 0 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\0.9l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\1l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得1充值积分,
+
+GAMEGIRD + 1 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\1l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\2l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得2充值积分,
+
+GAMEGIRD + 2 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\2l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\3l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得3充值积分,
+
+GAMEGIRD + 3 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\3l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\4l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得4充值积分,
+
+GAMEGIRD + 4 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\4l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\5l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得5充值积分,
+
+GAMEGIRD + 5 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\5l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\6l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得6充值积分,
+
+GAMEGIRD + 6 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\6l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\7l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得7充值积分,
+
+GAMEGIRD + 7 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\7l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\8l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得8充值积分,
+
+GAMEGIRD + 8 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\8l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\9l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得9充值积分,
+
+GAMEGIRD + 9 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\9l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\10l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得10充值积分,
+
+GAMEGIRD + 10 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\10l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\20l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得20充值积分,
+
+GAMEGIRD + 20 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\20l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\30l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得30充值积分,
+
+GAMEGIRD + 30 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\30l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\40l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得40充值积分,
+
+GAMEGIRD + 40 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\40l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\50l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得50充值积分,
+
+GAMEGIRD + 50 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\50l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\60l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得60充值积分,
+
+GAMEGIRD + 60 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\60l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\70l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得70充值积分,
+
+GAMEGIRD + 70 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\70l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\80l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得80充值积分,
+
+GAMEGIRD + 80 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\80l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\90l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得90充值积分,
+
+GAMEGIRD + 90 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\90l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\100l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得100充值积分,
+
+GAMEGIRD + 100 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\100l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\200l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得200充值积分,
+
+GAMEGIRD + 200 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\200l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\300l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得300充值积分,
+
+GAMEGIRD + 300 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\300l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\400l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得400充值积分,
+
+GAMEGIRD + 400 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\400l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\500l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得500充值积分,
+
+GAMEGIRD + 500 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\500l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\600l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得600充值积分,
+
+GAMEGIRD + 600 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\600l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\700l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得700充值积分,
+
+GAMEGIRD + 700 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\700l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\800l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得800充值积分,
+
+GAMEGIRD + 800 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\800l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\900l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得900充值积分,
+
+GAMEGIRD + 900 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\900l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\1000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得1000充值积分,
+
+GAMEGIRD + 1000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\1000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\2000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得2000充值积分,
+
+GAMEGIRD + 2000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\2000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\3000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得3000充值积分,
+
+GAMEGIRD + 3000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\3000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\4000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得4000充值积分,
+
+GAMEGIRD + 4000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\4000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\5000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得5000充值积分,
+
+GAMEGIRD + 5000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\5000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\6000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得6000充值积分,
+
+GAMEGIRD + 6000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\6000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\7000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得7000充值积分,
+
+GAMEGIRD + 7000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\7000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\8000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得8000充值积分,
+
+GAMEGIRD + 8000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\8000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\9000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得9000充值积分,
+
+GAMEGIRD + 9000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\9000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\10000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得10000充值积分,
+
+GAMEGIRD + 10000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\10000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\20000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得20000充值积分,
+
+GAMEGIRD + 20000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\20000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\30000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得30000充值积分,
+
+GAMEGIRD + 30000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\30000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\40000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得40000充值积分,
+
+GAMEGIRD + 40000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\40000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\50000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得50000充值积分,
+
+GAMEGIRD + 50000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\50000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\60000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得60000充值积分,
+
+GAMEGIRD + 60000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\60000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\70000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得70000充值积分,
+
+GAMEGIRD + 70000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\70000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\80000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得80000充值积分,
+
+GAMEGIRD + 80000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\80000l.txt
+#IF
+checkaccountlist ..\QuestDiary\兵者充值\zengpin\90000l.txt
+#ACT
+SENDMSG 2 ★[%s]:玩家<$USERNAME>使用充值系统获得90000充值积分,
+
+GAMEGIRD + 90000 
+delaccountlist ..\QuestDiary\兵者充值\zengpin\90000l.txt
+
+
+messagebox 恭喜您充值宏图古币成功，你可以换取装备或换取系统给你的高级服务！
+break
+#ELSESAY
+本服宏图古币短信冲值系统由中国移动，中国网通，中国电信。\
+建设银行，工商银行，农业银行，招商银行等提供。\
+特别声明：没有充值成功或信息发送不成功不会扣费\
+请玩家放心游戏!\ \
+<返回/@main>\

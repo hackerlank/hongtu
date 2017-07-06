@@ -1,0 +1,10 @@
+[@MAIN]
+#if
+ISONMAP OBJ38
+equal G165 0
+#ACT
+MOV G165 1
+mov A165 <$USERNAME>
+GAMEDIAMOND + 1000
+SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【蛮荒统领→黄金BOSS】获得系统奖励1000古币!
+break

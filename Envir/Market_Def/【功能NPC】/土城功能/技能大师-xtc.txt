@@ -1,0 +1,852 @@
+[@main]
+#OR
+CHECKSKILL 攻杀剑术 = 0 1
+CHECKSKILL 刺杀剑术 = 0 1
+CHECKSKILL 烈火剑法 = 0 1
+CHECKSKILL 逐日剑法 = 0 1
+CHECKSKILL 开天斩 = 0 1
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#SAY
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<技能大师/SCOLOR=154>\
+　　　<我的一生在追求无穷的力量，提升自生技能才是重要的生存法则/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<需要条件：/SCOLOR=67><技能强化至一重需要消耗2万元宝+神圣书页*10/SCOLOR=249>\
+　\
+　<温馨提醒：/SCOLOR=67><技能强化后可发挥强大的技能攻击/SCOLOR=70>\
+　<Img:803:0:0:4>\
+　\
+　<攻杀剑术/@强化攻杀剑术_1级>　　<刺杀剑术/@强化刺杀剑术_1级>　　<烈火剑法/@强化烈火剑法_1级>　　<开 天 斩/@强化开天斩_1级>　　<逐日剑法/@强化逐日剑法_1级>\
+#Act
+break
+
+#IF
+CHECKSKILL 攻杀剑术 > 3 1
+CHECKSKILL 刺杀剑术 > 3 1
+CHECKSKILL 烈火剑法 > 3 1
+CHECKSKILL 逐日剑法 > 3 1
+CHECKSKILL 开天斩 > 3 1
+CHECKSKILL 攻杀剑术 < 6 1
+CHECKSKILL 刺杀剑术 < 6 1
+CHECKSKILL 烈火剑法 < 6 1
+CHECKSKILL 逐日剑法 < 6 1
+CHECKSKILL 开天斩 < 6 1
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#SAY
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<技能大师/SCOLOR=154>\
+　　　<我的一生在追求无穷的力量，提升自生技能才是重要的生存法则/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<需要条件：/SCOLOR=67><技能强化至五重需要消耗32万元宝+神圣书页*160/SCOLOR=249>\
+　\
+　<温馨提醒：/SCOLOR=67><技能强化后可发挥强大的技能攻击/SCOLOR=70>\
+　<Img:803:0:0:4>\
+　\
+　<攻杀剑术/@强化攻杀剑术_5级>　　<刺杀剑术/@强化刺杀剑术_5级>　　<烈火剑法/@强化烈火剑法_5级>　　<开 天 斩/@强化开天斩_5级>　　<逐日剑法/@强化逐日剑法_5级>\
+#Act
+break
+
+#IF
+CHECKSKILL 攻杀剑术 > 2 1
+CHECKSKILL 刺杀剑术 > 2 1
+CHECKSKILL 烈火剑法 > 2 1
+CHECKSKILL 逐日剑法 > 2 1
+CHECKSKILL 开天斩 > 2 1
+CHECKSKILL 攻杀剑术 < 5 1
+CHECKSKILL 刺杀剑术 < 5 1
+CHECKSKILL 烈火剑法 < 5 1
+CHECKSKILL 逐日剑法 < 5 1
+CHECKSKILL 开天斩 < 5 1
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#SAY
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<技能大师/SCOLOR=154>\
+　　　<我的一生在追求无穷的力量，提升自生技能才是重要的生存法则/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<需要条件：/SCOLOR=67><技能强化至四重需要消耗16万元宝+神圣书页*80/SCOLOR=249>\
+　\
+　<温馨提醒：/SCOLOR=67><技能强化后可发挥强大的技能攻击/SCOLOR=70>\
+　<Img:803:0:0:4>\
+　\
+　<攻杀剑术/@强化攻杀剑术_4级>　　<刺杀剑术/@强化刺杀剑术_4级>　　<烈火剑法/@强化烈火剑法_4级>　　<开 天 斩/@强化开天斩_4级>　　<逐日剑法/@强化逐日剑法_4级>\
+#Act
+break
+
+#IF
+CHECKSKILL 攻杀剑术 > 1 1
+CHECKSKILL 刺杀剑术 > 1 1
+CHECKSKILL 烈火剑法 > 1 1
+CHECKSKILL 逐日剑法 > 1 1
+CHECKSKILL 开天斩 > 1 1
+CHECKSKILL 攻杀剑术 < 4 1
+CHECKSKILL 刺杀剑术 < 4 1
+CHECKSKILL 烈火剑法 < 4 1
+CHECKSKILL 逐日剑法 < 4 1
+CHECKSKILL 开天斩 < 4 1
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#SAY
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<技能大师/SCOLOR=154>\
+　　　<我的一生在追求无穷的力量，提升自生技能才是重要的生存法则/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<需要条件：/SCOLOR=67><技能强化至三重需要消耗8万元宝+神圣书页*40/SCOLOR=249>\
+　\
+　<温馨提醒：/SCOLOR=67><技能强化后可发挥强大的技能攻击/SCOLOR=70>\
+　<Img:803:0:0:4>\
+　\
+　<攻杀剑术/@强化攻杀剑术_3级>　　<刺杀剑术/@强化刺杀剑术_3级>　　<烈火剑法/@强化烈火剑法_3级>　　<开 天 斩/@强化开天斩_3级>　　<逐日剑法/@强化逐日剑法_3级>\
+#Act
+break
+
+#IF
+CHECKSKILL 攻杀剑术 > 0 1
+CHECKSKILL 刺杀剑术 > 0 1
+CHECKSKILL 烈火剑法 > 0 1
+CHECKSKILL 逐日剑法 > 0 1
+CHECKSKILL 开天斩 > 0 1
+CHECKSKILL 攻杀剑术 < 3 1
+CHECKSKILL 刺杀剑术 < 3 1
+CHECKSKILL 烈火剑法 < 3 1
+CHECKSKILL 逐日剑法 < 3 1
+CHECKSKILL 开天斩 < 3 1
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#SAY
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<技能大师/SCOLOR=154>\
+　　　<我的一生在追求无穷的力量，提升自生技能才是重要的生存法则/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<需要条件：/SCOLOR=67><技能强化至二重需要消耗4万元宝+神圣书页*20/SCOLOR=249>\
+　\
+　<温馨提醒：/SCOLOR=67><技能强化后可发挥强大的技能攻击/SCOLOR=70>\
+　<Img:803:0:0:4>\
+　\
+　<攻杀剑术/@强化攻杀剑术_2级>　　<刺杀剑术/@强化刺杀剑术_2级>　　<烈火剑法/@强化烈火剑法_2级>　　<开 天 斩/@强化开天斩_2级>　　<逐日剑法/@强化逐日剑法_2级>\
+#Act
+break
+
+
+[@强化逐日剑法_5级]
+#IF
+CHECKSKILL 逐日剑法 = 5 1
+#ACT
+MESSAGEBOX \\恭喜您。已经强化至五重满级！
+break
+
+#IF
+checkitem 神圣书页 160
+CHECKGAMEGOLD < 320000
+#ACT
+MESSAGEBOX \\你的元宝数量不足320000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 160
+checkjob warrior
+CHECKGAMEGOLD > 319999
+CHECKSKILL 逐日剑法 = 4 1
+#ACT
+take 神圣书页 160
+GAMEGOLD - 320000
+SKILLLEVEL 逐日剑法 = 5 1
+goto @main
+messagebox \\恭喜您成功将“逐日剑法”强化到[第五重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[逐日剑法]强化到[第五重]了！
+break
+
+
+
+
+[@强化逐日剑法_4级]
+#IF
+CHECKSKILL 逐日剑法 = 4 1
+#ACT
+MESSAGEBOX \\已经强化至四重\　\请将其他技能全部强化至四重即可强化至五重
+break
+
+#IF
+checkitem 神圣书页 80
+CHECKGAMEGOLD < 160000
+#ACT
+MESSAGEBOX \\你的元宝数量不足160000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 80
+CHECKGAMEGOLD > 159999
+CHECKSKILL 逐日剑法 = 3 1
+#ACT
+take 神圣书页 80
+GAMEGOLD - 160000
+SKILLLEVEL 逐日剑法 = 4 1
+goto @main
+messagebox \\恭喜您成功将“逐日剑法”强化到[第四重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[逐日剑法]强化到[第四重]了！
+break
+
+
+
+[@强化逐日剑法_3级]
+#IF
+CHECKSKILL 逐日剑法 = 3 1
+#ACT
+MESSAGEBOX \\已经强化至三重\　\请将其他技能全部强化至三重即可强化至四重
+break
+
+#IF
+checkitem 神圣书页 40
+CHECKGAMEGOLD < 80000
+#ACT
+MESSAGEBOX \\你的元宝数量不足80000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 40
+checkjob warrior
+CHECKGAMEGOLD > 79999
+CHECKSKILL 逐日剑法 = 2 1
+#ACT
+take 神圣书页 40
+GAMEGOLD - 80000
+SKILLLEVEL 逐日剑法 = 3 1
+goto @main
+messagebox \\恭喜您成功将“逐日剑法”强化到[第三重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[逐日剑法]强化到[第三重]了！
+break
+
+
+
+[@强化逐日剑法_2级]
+#IF
+CHECKSKILL 逐日剑法 = 2 1
+#ACT
+MESSAGEBOX \\已经强化至二重\　\请将其他技能全部强化至二重即可强化至三重
+break
+#IF
+checkitem 神圣书页 20
+CHECKGAMEGOLD < 40000
+#ACT
+MESSAGEBOX \\你的元宝数量不足40000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 20
+CHECKGAMEGOLD > 39999
+CHECKSKILL 逐日剑法 = 1 1
+#ACT
+take 神圣书页 20
+GAMEGOLD - 40000
+SKILLLEVEL 逐日剑法 = 2 1
+goto @main
+messagebox \\恭喜您成功将“逐日剑法”强化到[第二重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[逐日剑法]强化到[第二重]了！
+break
+
+
+
+[@强化逐日剑法_1级]
+#IF
+CHECKSKILL 逐日剑法 = 1 1
+#ACT
+MESSAGEBOX \\已经强化至一重\　\请将其他技能全部强化至一重即可强化至二重
+break
+
+#IF
+checkitem 神圣书页 10
+CHECKGAMEGOLD < 20000
+#ACT
+MESSAGEBOX \\你的元宝数量不足20000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 10
+CHECKGAMEGOLD > 19999
+CHECKSKILL 逐日剑法 = 0 1
+#ACT
+take 神圣书页 10
+GAMEGOLD - 20000
+SKILLLEVEL 逐日剑法 = 1 1
+goto @main
+messagebox \\恭喜您成功将“逐日剑法”强化到[第一重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[逐日剑法]强化到[第一重]了！
+break
+
+
+
+[@强化开天斩_5级]
+#IF
+CHECKSKILL 开天斩 = 5 1
+#ACT
+MESSAGEBOX \\恭喜您。已经强化至五重满级！
+break
+
+#IF
+checkitem 神圣书页 160
+CHECKGAMEGOLD < 320000
+#ACT
+MESSAGEBOX \\你的元宝数量不足320000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 160
+checkjob warrior
+CHECKGAMEGOLD > 319999
+CHECKSKILL 开天斩 = 4 1
+#ACT
+take 神圣书页 160
+GAMEGOLD - 320000
+SKILLLEVEL 开天斩 = 5 1
+goto @main
+messagebox \\恭喜您成功将“开天斩”强化到[第五重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[开天斩]强化到[第五重]了！
+break
+
+
+
+[@强化开天斩_4级]
+#IF
+CHECKSKILL 开天斩 = 4 1
+#ACT
+MESSAGEBOX \\已经强化至四重\　\请将其他技能全部强化至四重即可强化至五重
+break
+
+#IF
+checkitem 神圣书页 80
+CHECKGAMEGOLD < 160000
+#ACT
+MESSAGEBOX \\你的元宝数量不足160000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 80
+checkjob warrior
+CHECKGAMEGOLD > 159999
+CHECKSKILL 开天斩 = 3 1
+#ACT
+take 神圣书页 80
+GAMEGOLD - 160000
+SKILLLEVEL 开天斩 = 4 1
+goto @main
+messagebox \\恭喜您成功将“开天斩”强化到[第四重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[开天斩]强化到[第四重]了！
+break
+
+
+
+[@强化开天斩_3级]
+#IF
+CHECKSKILL 开天斩 = 3 1
+#ACT
+MESSAGEBOX \\已经强化至三重\　\请将其他技能全部强化至三重即可强化至四重
+break
+
+#IF
+checkitem 神圣书页 40
+CHECKGAMEGOLD < 80000
+#ACT
+MESSAGEBOX \\你的元宝数量不足80000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 40
+checkjob warrior
+CHECKGAMEGOLD > 79999
+CHECKSKILL 开天斩 = 2 1
+#ACT
+GAMEGOLD - 80000
+take 神圣书页 40
+SKILLLEVEL 开天斩 = 3 1
+goto @main
+messagebox \\恭喜您成功将“开天斩”强化到[第三重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[开天斩]强化到[第三重]了！
+break
+
+
+[@强化开天斩_2级]
+#IF
+CHECKSKILL 开天斩 = 2 1
+#ACT
+MESSAGEBOX \\已经强化至二重\　\请将其他技能全部强化至二重即可强化至三重
+break
+#IF
+checkitem 神圣书页 20
+CHECKGAMEGOLD < 40000
+#ACT
+MESSAGEBOX \\你的元宝数量不足40000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 20
+CHECKGAMEGOLD > 39999
+CHECKSKILL 开天斩 = 1 1
+#ACT
+take 神圣书页 20
+GAMEGOLD - 40000
+SKILLLEVEL 开天斩 = 2 1
+goto @main
+messagebox \\恭喜您成功将“开天斩”强化到[第二重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[开天斩]强化到[第二重]了！
+break
+
+
+[@强化开天斩_1级]
+#IF
+CHECKSKILL 开天斩 = 1 1
+#ACT
+MESSAGEBOX \\已经强化至一重\　\请将其他技能全部强化至一重即可强化至二重
+break
+
+#IF
+checkitem 神圣书页 10
+CHECKGAMEGOLD < 20000
+#ACT
+MESSAGEBOX \\你的元宝数量不足20000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 10
+CHECKGAMEGOLD > 19999
+CHECKSKILL 开天斩 = 0 1
+#ACT
+take 神圣书页 10
+GAMEGOLD - 20000
+SKILLLEVEL 开天斩 = 1 1
+goto @main
+messagebox \\恭喜您成功将“开天斩”强化到[第一重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[开天斩]强化到[第一重]了！
+break
+
+
+
+[@强化烈火剑法_5级]
+#IF
+CHECKSKILL 烈火剑法 = 5 1
+#ACT
+MESSAGEBOX \\恭喜您。已经强化至五重满级！
+break
+
+#IF
+checkitem 神圣书页 160
+CHECKGAMEGOLD < 320000
+#ACT
+MESSAGEBOX \\你的元宝数量不足320000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 160
+checkjob warrior
+CHECKGAMEGOLD > 319999
+CHECKSKILL 烈火剑法 = 4 1
+#ACT
+take 神圣书页 160
+GAMEGOLD - 320000
+SKILLLEVEL 烈火剑法 = 5 1
+goto @main
+messagebox \\恭喜您成功将“烈火剑法”强化到[第五重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[烈火剑法]强化到[第五重]了！
+break
+
+
+[@强化烈火剑法_4级]
+#IF
+CHECKSKILL 烈火剑法 = 4 1
+#ACT
+MESSAGEBOX \\已经强化至四重\　\请将其他技能全部强化至四重即可强化至五重
+break
+
+#IF
+CHECKGAMEGOLD < 160000
+#ACT
+MESSAGEBOX \\你的元宝数量不足160000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 80
+checkjob warrior
+CHECKGAMEGOLD > 159999
+CHECKSKILL 烈火剑法 = 3 1
+#ACT
+take 神圣书页 80
+GAMEGOLD - 160000
+SKILLLEVEL 烈火剑法 = 4 1
+goto @main
+messagebox \\恭喜您成功将“烈火剑法”强化到[第四重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[烈火剑法]强化到[第四重]了！
+break
+
+[@强化烈火剑法_3级]
+#IF
+CHECKSKILL 烈火剑法 = 3 1
+#ACT
+MESSAGEBOX \\已经强化至三重\　\请将其他技能全部强化至三重即可强化至四重
+break
+
+#IF
+checkitem 神圣书页 40
+CHECKGAMEGOLD < 80000
+#ACT
+MESSAGEBOX \\你的元宝数量不足80000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 40
+checkjob warrior
+CHECKGAMEGOLD > 79999
+CHECKSKILL 烈火剑法 = 2 1
+#ACT
+take 神圣书页 40
+GAMEGOLD - 80000
+SKILLLEVEL 烈火剑法 = 3 1
+goto @main
+messagebox \\恭喜您成功将“烈火剑法”强化到[第三重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[烈火剑法]强化到[第三重]了！
+break
+
+
+[@强化烈火剑法_2级]
+#IF
+CHECKSKILL 烈火剑法 = 2 1
+#ACT
+MESSAGEBOX \\已经强化至二重\　\请将其他技能全部强化至二重即可强化至三重
+break
+#IF
+checkitem 神圣书页 20
+CHECKGAMEGOLD < 40000
+#ACT
+MESSAGEBOX \\你的元宝数量不足40000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 20
+CHECKGAMEGOLD > 39999
+CHECKSKILL 烈火剑法 = 1 1
+#ACT
+take 神圣书页 20
+GAMEGOLD - 40000
+SKILLLEVEL 烈火剑法 = 2 1
+goto @main
+messagebox \\恭喜您成功将“烈火剑法”强化到[第二重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[烈火剑法]强化到[第二重]了！
+break
+
+
+
+[@强化烈火剑法_1级]
+#IF
+CHECKSKILL 烈火剑法 = 1 1
+#ACT
+MESSAGEBOX \\已经强化至一重\　\请将其他技能全部强化至一重即可强化至二重
+break
+
+#IF
+checkitem 神圣书页 10
+CHECKGAMEGOLD < 20000
+#ACT
+MESSAGEBOX \\你的元宝数量不足20000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 10
+CHECKGAMEGOLD > 19999
+CHECKSKILL 烈火剑法 = 0 1
+#ACT
+take 神圣书页 10
+GAMEGOLD - 20000
+SKILLLEVEL 烈火剑法 = 1 1
+goto @main
+messagebox \\恭喜您成功将“烈火剑法”强化到[第一重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[烈火剑法]强化到[第一重]了！
+break
+
+
+
+[@强化刺杀剑术_5级]
+#IF
+CHECKSKILL 刺杀剑术 = 5 1
+#ACT
+MESSAGEBOX \\恭喜您。已经强化至五重满级！
+break
+
+#IF
+checkitem 神圣书页 160
+CHECKGAMEGOLD < 320000
+#ACT
+MESSAGEBOX \\你的元宝数量不足320000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 160
+checkjob warrior
+CHECKGAMEGOLD > 319999
+CHECKSKILL 刺杀剑术 = 4 1
+#ACT
+take 神圣书页 160
+GAMEGOLD - 320000
+SKILLLEVEL 刺杀剑术 = 5 1
+goto @main
+messagebox \\恭喜您成功将“刺杀剑术”强化到[第五重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[刺杀剑术]强化到[第五重]了！
+break
+
+
+[@强化刺杀剑术_4级]
+#IF
+CHECKSKILL 刺杀剑术 = 4 1
+#ACT
+MESSAGEBOX \\已经强化至四重\　\请将其他技能全部强化至四重即可强化至五重
+break
+
+#IF
+checkitem 神圣书页 80
+CHECKGAMEGOLD < 160000
+#ACT
+MESSAGEBOX \\你的元宝数量不足160000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 80
+checkjob warrior
+CHECKGAMEGOLD > 159999
+CHECKSKILL 刺杀剑术 = 3 1
+#ACT
+take 神圣书页 80
+GAMEGOLD - 160000
+SKILLLEVEL 刺杀剑术 = 4 1
+goto @main
+messagebox \\恭喜您成功将“刺杀剑术”强化到[第四重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[刺杀剑术]强化到[第四重]了！
+break
+
+
+[@强化刺杀剑术_3级]
+#IF
+CHECKSKILL 刺杀剑术 = 3 1
+#ACT
+MESSAGEBOX \\已经强化至三重\　\请将其他技能全部强化至三重即可强化至四重
+break
+
+#IF
+checkitem 神圣书页 40
+CHECKGAMEGOLD < 80000
+#ACT
+MESSAGEBOX \\你的元宝数量不足80000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 40
+checkjob warrior
+CHECKGAMEGOLD > 79999
+CHECKSKILL 刺杀剑术 = 2 1
+#ACT
+take 神圣书页 40
+GAMEGOLD - 80000
+SKILLLEVEL 刺杀剑术 = 3 1
+goto @main
+messagebox \\恭喜您成功将“刺杀剑术”强化到[第三重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[刺杀剑术]强化到[第三重]了！
+break
+
+
+[@强化刺杀剑术_2级]
+#IF
+CHECKSKILL 刺杀剑术 = 2 1
+#ACT
+MESSAGEBOX \\已经强化至二重\　\请将其他技能全部强化至二重即可强化至三重
+break
+#IF
+checkitem 神圣书页 20
+CHECKGAMEGOLD < 40000
+#ACT
+MESSAGEBOX \\你的元宝数量不足40000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 20
+CHECKGAMEGOLD > 39999
+CHECKSKILL 刺杀剑术 = 1 1
+#ACT
+take 神圣书页 20
+GAMEGOLD - 40000
+SKILLLEVEL 刺杀剑术 = 2 1
+goto @main
+messagebox \\恭喜您成功将“刺杀剑术”强化到[第二重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[刺杀剑术]强化到[第二重]了！
+break
+
+
+
+
+
+
+[@强化刺杀剑术_1级]
+#IF
+CHECKSKILL 刺杀剑术 = 1 1
+#ACT
+MESSAGEBOX \\已经强化至一重\　\请将其他技能全部强化至一重即可强化至二重
+break
+
+#IF
+checkitem 神圣书页 10
+CHECKGAMEGOLD < 20000
+#ACT
+MESSAGEBOX \\你的元宝数量不足20000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 10
+CHECKGAMEGOLD > 19999
+CHECKSKILL 刺杀剑术 = 0 1
+#ACT
+take 神圣书页 10
+GAMEGOLD - 20000
+SKILLLEVEL 刺杀剑术 = 1 1
+goto @main
+messagebox \\恭喜您成功将“刺杀剑术”强化到[第一重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[刺杀剑术]强化到[第一重]了！
+break
+
+
+
+
+
+
+
+[@强化攻杀剑术_5级]
+#IF
+CHECKSKILL 攻杀剑术 = 5 1
+#ACT
+MESSAGEBOX \\恭喜您。已经强化至五重满级！
+break
+
+#IF
+checkitem 神圣书页 160
+CHECKGAMEGOLD < 320000
+#ACT
+MESSAGEBOX \\你的元宝数量不足320000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 160
+checkjob warrior
+CHECKGAMEGOLD > 319999
+CHECKSKILL 攻杀剑术 = 4 1
+#ACT
+take 神圣书页 160
+GAMEGOLD - 320000
+SKILLLEVEL 攻杀剑术 = 5 1
+goto @main
+messagebox \\恭喜您成功将“攻杀剑术”强化到[第五重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[攻杀剑术]强化到[第五重]了！
+break
+
+
+
+[@强化攻杀剑术_4级]
+#IF
+CHECKSKILL 攻杀剑术 = 4 1
+#ACT
+MESSAGEBOX \\已经强化至四重\　\请将其他技能全部强化至四重即可强化至五重
+break
+
+#IF
+checkitem 神圣书页 80
+CHECKGAMEGOLD < 160000
+#ACT
+MESSAGEBOX \\你的元宝数量不足160000颗，无法强化！
+break
+
+#IF
+checkitem 神圣书页 80
+checkjob warrior
+CHECKGAMEGOLD > 159999
+CHECKSKILL 攻杀剑术 = 3 1
+#ACT
+take 神圣书页 80
+GAMEGOLD - 160000
+SKILLLEVEL 攻杀剑术 = 4 1
+goto @main
+messagebox \\恭喜您成功将“攻杀剑术”强化到[第四重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[攻杀剑术]强化到[第四重]了！
+break
+
+
+[@强化攻杀剑术_3级]
+#IF
+CHECKSKILL 攻杀剑术 = 3 1
+#ACT
+MESSAGEBOX \\已经强化至三重\　\请将其他技能全部强化至三重即可强化至四重
+break
+
+#IF
+checkitem 神圣书页 40
+checkjob warrior
+CHECKGAMEGOLD > 79999
+CHECKSKILL 攻杀剑术 = 2 1
+#ACT
+take 神圣书页 40
+GAMEGOLD - 80000
+SKILLLEVEL 攻杀剑术 = 3 1
+goto @main
+messagebox \\恭喜您成功将“攻杀剑术”强化到[第三重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[攻杀剑术]强化到[第三重]了！
+#ELSEACT
+MESSAGEBOX \\晋级失败:请仔细检查晋级条件
+
+
+
+[@强化攻杀剑术_2级]
+#IF
+CHECKSKILL 攻杀剑术 = 2 1
+#ACT
+MESSAGEBOX \\已经强化至二重\　\请将其他技能全部强化至二重即可强化至三重
+break
+
+#IF
+checkitem 神圣书页 20
+CHECKGAMEGOLD > 39999
+CHECKSKILL 攻杀剑术 = 1 1
+#ACT
+take 神圣书页 20
+GAMEGOLD - 40000
+SKILLLEVEL 攻杀剑术 = 2 1
+goto @main
+messagebox \\恭喜您成功将“攻杀剑术”强化到[第二重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[攻杀剑术]强化到[第二重]了！
+
+#ELSEACT
+MESSAGEBOX \\晋级失败:请仔细检查晋级条件
+
+
+
+
+
+
+[@强化攻杀剑术_1级]
+#IF
+CHECKSKILL 攻杀剑术 = 1 1
+#ACT
+MESSAGEBOX \\已经强化至一重\　\请将其他技能全部强化至一重即可强化至二重
+
+
+#IF
+checkitem 神圣书页 10
+CHECKGAMEGOLD > 19999
+CHECKSKILL 攻杀剑术 = 0 1
+#ACT
+take 神圣书页 10
+GAMEGOLD - 20000
+SKILLLEVEL 攻杀剑术 = 1 1
+goto @main
+messagebox \\恭喜您成功将“攻杀剑术”强化到[第一重]！
+SENDMSG 0 151 58 技能大师ぐ：恭喜玩家「%s」成功将[攻杀剑术]强化到[第一重]了！
+#ELSEACT
+MESSAGEBOX \\晋级失败:请仔细检查晋级条件
+
+
+
+
+

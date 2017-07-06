@@ -1,0 +1,2814 @@
+{
+[@盾牌升级]
+#IF
+NOT CHECKUSEITEM 16
+#ACT
+MESSAGEBOX 　\　\　\　　　　　请先佩戴好您的盾牌！
+BREAK
+
+
+;mov S$盾牌展示 <PlayImg:29:60:24:150:0:-300:0>
+;mov S$盾牌展示 <PlayImg:29:150:24:150:0:-300:0>
+;mov S$盾牌展示 <PlayImg:29:240:24:150:0:-320:0>
+;mov S$盾牌展示 <PlayImg:29:270:24:150:70:-230:0>
+;mov S$盾牌展示 <PlayImg:29:300:24:150:80:-210:0>
+;mov S$盾牌展示 <PlayImg:29:330:24:150:50:-210:0>
+;mov S$盾牌展示 <PlayImg:29:360:24:150:50:-260:0>
+;mov S$盾牌展示 <PlayImg:29:390:24:150:20:-280:0>
+;mov S$盾牌展示 <PlayImg:29:420:24:150:20:-280:0>
+;mov S$盾牌展示 <PlayImg:29:450:24:150:-80:-320:0>
+
+
+#IF
+CHECKITEMW 毒零白冰盾·一星
+#Act
+MOV U9 1
+mov S$盾牌星级 1
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·一星
+mov S$盾牌下名字 毒零白冰盾·二星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 10
+mov S$盾牌本属性3 2
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 2
+mov S$盾牌下属性2 20
+mov S$盾牌下属性3 4
+mov S$盾牌下属性4 5
+MOV N$宏图古币盾牌 0
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 0 N$盾牌升级石 
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 0 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 1 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 0 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 1 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 0 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 1 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+
+#IF
+CHECKITEMW 毒零白冰盾·二星
+#Act
+MOV U9 2
+mov S$盾牌星级 2
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·二星
+mov S$盾牌下名字 毒零白冰盾·三星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 20
+mov S$盾牌本属性3 4
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 2
+mov S$盾牌下属性2 30
+mov S$盾牌下属性3 6
+mov S$盾牌下属性4 5
+MOV N$宏图古币盾牌 0
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 1 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 1 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 2 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 1 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 2 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 1 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 2 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 毒零白冰盾·三星
+#Act
+MOV U9 3
+mov S$盾牌星级 3
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·三星
+mov S$盾牌下名字 毒零白冰盾·四星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 30
+mov S$盾牌本属性3 6
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 2
+mov S$盾牌下属性2 40
+mov S$盾牌下属性3 8
+mov S$盾牌下属性4 5
+MOV N$宏图古币盾牌 0
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 2 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 2 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 3 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 2 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 3 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 2 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 3 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 毒零白冰盾·四星
+#Act
+MOV U9 4
+mov S$盾牌星级 4
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·四星
+mov S$盾牌下名字 毒零白冰盾·五星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 40
+mov S$盾牌本属性3 8
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 2
+mov S$盾牌下属性2 50
+mov S$盾牌下属性3 10
+mov S$盾牌下属性4 5
+MOV N$宏图古币盾牌 0
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 3 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 3 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 4 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 3 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 4 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 3 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 4 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 毒零白冰盾·五星
+#Act
+MOV U9 5
+mov S$盾牌星级 5
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·五星
+mov S$盾牌下名字 毒零白冰盾·六星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 50
+mov S$盾牌本属性3 10
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 2
+mov S$盾牌下属性2 60
+mov S$盾牌下属性3 12
+mov S$盾牌下属性4 5
+MOV N$宏图古币盾牌 0
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 4 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 4 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 5 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 4 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 5 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 4 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 5 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 毒零白冰盾·六星
+#Act
+MOV U9 6
+mov S$盾牌星级 6
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·六星
+mov S$盾牌下名字 毒零白冰盾·七星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 60
+mov S$盾牌本属性3 12
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 2
+mov S$盾牌下属性2 70
+mov S$盾牌下属性3 14
+mov S$盾牌下属性4 5
+MOV N$宏图古币盾牌 0
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 5 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 5 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 6 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 5 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 6 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 5 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 6 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 毒零白冰盾·七星
+#Act
+MOV U9 7
+mov S$盾牌星级 7
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·七星
+mov S$盾牌下名字 毒零白冰盾·八星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 70
+mov S$盾牌本属性3 14
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 2
+mov S$盾牌下属性2 80
+mov S$盾牌下属性3 16
+mov S$盾牌下属性4 5
+MOV N$宏图古币盾牌 0
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 6 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 6 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 7 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 6 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 7 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 6 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 7 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 毒零白冰盾·八星
+#Act
+MOV U9 8
+mov S$盾牌星级 8
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·八星
+mov S$盾牌下名字 毒零白冰盾·九星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 80
+mov S$盾牌本属性3 16
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 2
+mov S$盾牌下属性2 90
+mov S$盾牌下属性3 18
+mov S$盾牌下属性4 5
+MOV N$宏图古币盾牌 0
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 7 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 7 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 8 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 7 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 8 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 7 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 8 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 毒零白冰盾·九星
+#Act
+MOV U9 9
+mov S$盾牌星级 9
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·九星
+mov S$盾牌下名字 毒零白冰盾·十星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 90
+mov S$盾牌本属性3 18
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 2
+mov S$盾牌下属性2 100
+mov S$盾牌下属性3 20
+mov S$盾牌下属性4 5
+MOV N$宏图古币盾牌 0
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 8 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 8 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 9 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 8 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 9 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 8 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 9 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 毒零白冰盾·十星
+#Act
+MOV U9 10
+mov S$盾牌星级 10
+mov S$盾牌阶图 901
+mov S$盾牌本名字 毒零白冰盾·十星
+mov S$盾牌下名字 血金艾锌盾·一星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 100
+mov S$盾牌本属性3 20
+mov S$盾牌本属性4 5
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 120
+mov S$盾牌下属性3 22
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 9 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 9 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 10 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 9 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 10 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 9 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 10 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:60:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·一星
+#Act
+MOV U9 11
+mov S$盾牌星级 1
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·一星
+mov S$盾牌下名字 血金艾锌盾·二星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 120
+mov S$盾牌本属性3 22
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 140
+mov S$盾牌下属性3 24
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 10 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 10 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 11 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 10 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 11 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 10 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 11 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·二星
+#Act
+MOV U9 12
+mov S$盾牌星级 2
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·二星
+mov S$盾牌下名字 血金艾锌盾·三星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 140
+mov S$盾牌本属性3 24
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 160
+mov S$盾牌下属性3 26
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 11 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 11 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 12 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 11 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 12 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 11 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 12 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·三星
+#Act
+MOV U9 13
+mov S$盾牌星级 3
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·三星
+mov S$盾牌下名字 血金艾锌盾·四星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 160
+mov S$盾牌本属性3 26
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 180
+mov S$盾牌下属性3 28
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 12 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 12 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 13 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 12 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 12 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 12 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 13 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·四星
+#Act
+MOV U9 14
+mov S$盾牌星级 4
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·四星
+mov S$盾牌下名字 血金艾锌盾·五星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 180
+mov S$盾牌本属性3 28
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 200
+mov S$盾牌下属性3 30
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 13 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 13 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 14 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 13 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 14 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 13 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 14 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·五星
+#Act
+MOV U9 15
+mov S$盾牌星级 5
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·五星
+mov S$盾牌下名字 血金艾锌盾·六星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 200
+mov S$盾牌本属性3 30
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 220
+mov S$盾牌下属性3 32
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 14 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 14 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 15 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 14 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 15 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 14 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 15 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·六星
+#Act
+MOV U9 16
+mov S$盾牌星级 6
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·六星
+mov S$盾牌下名字 血金艾锌盾·七星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 220
+mov S$盾牌本属性3 32
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 240
+mov S$盾牌下属性3 34
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 15 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 15 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 16 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 15 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 16 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 15 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 16 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·七星
+#Act
+MOV U9 17
+mov S$盾牌星级 7
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·七星
+mov S$盾牌下名字 血金艾锌盾·八星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 240
+mov S$盾牌本属性3 34
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 260
+mov S$盾牌下属性3 36
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 16 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 16 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 17 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 16 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 17 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 16 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 17 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·八星
+#Act
+MOV U9 18
+mov S$盾牌星级 8
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·八星
+mov S$盾牌下名字 血金艾锌盾·九星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 260
+mov S$盾牌本属性3 36
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 280
+mov S$盾牌下属性3 38
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 17 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 17 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 18 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 17 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 18 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 17 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 18 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·九星
+#Act
+MOV U9 19
+mov S$盾牌星级 9
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·九星
+mov S$盾牌下名字 血金艾锌盾·十星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 280
+mov S$盾牌本属性3 38
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 4
+mov S$盾牌下属性2 300
+mov S$盾牌下属性3 40
+mov S$盾牌下属性4 10
+MOV N$宏图古币盾牌 100
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 18 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 18 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 19 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 18 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 19 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 18 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 19 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 血金艾锌盾·十星
+#Act
+MOV U9 20
+mov S$盾牌星级 10
+mov S$盾牌阶图 902
+mov S$盾牌本名字 血金艾锌盾·十星
+mov S$盾牌下名字 毒怖暗杀盾·一星
+mov S$盾牌本属性1 0
+mov S$盾牌本属性2 300
+mov S$盾牌本属性3 40
+mov S$盾牌本属性4 10
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 330
+mov S$盾牌下属性3 42
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 19 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 19 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 20 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 19 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 20 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 19 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 20 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:150:24:150:5:-300:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·一星
+#Act
+MOV U9 21
+mov S$盾牌星级 1
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·一星
+mov S$盾牌下名字 毒怖暗杀盾·二星
+mov S$盾牌本属性1 1
+mov S$盾牌本属性2 330
+mov S$盾牌本属性3 42
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 360
+mov S$盾牌下属性3 44
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 20 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 20 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 21 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 20 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 21 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 20 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 21 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·二星
+#Act
+MOV U9 22
+mov S$盾牌星级 2
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·二星
+mov S$盾牌下名字 毒怖暗杀盾·三星
+mov S$盾牌本属性1 1
+mov S$盾牌本属性2 360
+mov S$盾牌本属性3 44
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 390
+mov S$盾牌下属性3 46
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 21 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 21 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 22 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 21 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 22 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 21 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 22 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·三星
+#Act
+MOV U9 23
+mov S$盾牌星级 3
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·三星
+mov S$盾牌下名字 毒怖暗杀盾·四星
+mov S$盾牌本属性1 1
+mov S$盾牌本属性2 390
+mov S$盾牌本属性3 46
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 420
+mov S$盾牌下属性3 48
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 22 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 22 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 23 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 22 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 23 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 22 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 23 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·四星
+#Act
+MOV U9 24
+mov S$盾牌星级 4
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·四星
+mov S$盾牌下名字 毒怖暗杀盾·五星
+mov S$盾牌本属性1 1
+mov S$盾牌本属性2 420
+mov S$盾牌本属性3 48
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 450
+mov S$盾牌下属性3 50
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 23 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 23 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 24 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 23 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 24 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 23 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 24 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·五星
+#Act
+MOV U9 25
+mov S$盾牌星级 5
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·五星
+mov S$盾牌下名字 毒怖暗杀盾·六星
+mov S$盾牌本属性1 1
+mov S$盾牌本属性2 450
+mov S$盾牌本属性3 50
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 480
+mov S$盾牌下属性3 52
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 24 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 24 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 25 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 24 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 25 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 24 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 25 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·六星
+#Act
+MOV U9 26
+mov S$盾牌星级 6
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·六星
+mov S$盾牌下名字 毒怖暗杀盾·七星
+mov S$盾牌本属性1 6
+mov S$盾牌本属性2 480
+mov S$盾牌本属性3 52
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 510
+mov S$盾牌下属性3 54
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 25 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 25 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 26 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 25 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 26 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 25 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 26 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·七星
+#Act
+MOV U9 27
+mov S$盾牌星级 7
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·七星
+mov S$盾牌下名字 毒怖暗杀盾·八星
+mov S$盾牌本属性1 6
+mov S$盾牌本属性2 510
+mov S$盾牌本属性3 54
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 540
+mov S$盾牌下属性3 56
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 26 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 26 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 27 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 26 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 27 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 26 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 27 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·八星
+#Act
+MOV U9 28
+mov S$盾牌星级 8
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·八星
+mov S$盾牌下名字 毒怖暗杀盾·九星
+mov S$盾牌本属性1 6
+mov S$盾牌本属性2 540
+mov S$盾牌本属性3 56
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 570
+mov S$盾牌下属性3 58
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 27 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 27 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 28 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 27 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 28 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 27 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 28 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·九星
+#Act
+MOV U9 29
+mov S$盾牌星级 9
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·九星
+mov S$盾牌下名字 毒怖暗杀盾·十星
+mov S$盾牌本属性1 6
+mov S$盾牌本属性2 570
+mov S$盾牌本属性3 58
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 6
+mov S$盾牌下属性2 600
+mov S$盾牌下属性3 60
+mov S$盾牌下属性4 15
+MOV N$宏图古币盾牌 250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 28 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 28 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 29 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 28 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 29 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 28 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 29 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 毒怖暗杀盾·十星
+#Act
+MOV U9 30
+mov S$盾牌星级 10
+mov S$盾牌阶图 903
+mov S$盾牌本名字 毒怖暗杀盾·十星
+mov S$盾牌下名字 狂之咆哮盾·一星
+mov S$盾牌本属性1 6
+mov S$盾牌本属性2 600
+mov S$盾牌本属性3 60
+mov S$盾牌本属性4 15
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 640
+mov S$盾牌下属性3 62
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 29 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 29 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 30 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 29 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 30 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 29 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 30 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:240:24:150:5:-270:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·一星
+#Act
+MOV U9 31
+mov S$盾牌星级 1
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·一星
+mov S$盾牌下名字 狂之咆哮盾·二星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 640
+mov S$盾牌本属性3 62
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 680
+mov S$盾牌下属性3 64
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 30 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 30 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 31 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 30 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 31 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 30 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 31 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·二星
+#Act
+MOV U9 32
+mov S$盾牌星级 2
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·二星
+mov S$盾牌下名字 狂之咆哮盾·三星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 680
+mov S$盾牌本属性3 64
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 720
+mov S$盾牌下属性3 66
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 31 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 31 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 32 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 31 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 32 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 31 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 32 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·三星
+#Act
+MOV U9 33
+mov S$盾牌星级 3
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·三星
+mov S$盾牌下名字 狂之咆哮盾·四星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 720
+mov S$盾牌本属性3 66
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 760
+mov S$盾牌下属性3 68
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 32 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 32 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 33 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 32 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 33 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 32 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 33 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·四星
+#Act
+MOV U9 34
+mov S$盾牌星级 4
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·四星
+mov S$盾牌下名字 狂之咆哮盾·五星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 760
+mov S$盾牌本属性3 68
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 800
+mov S$盾牌下属性3 70
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 33 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 33 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 34 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 33 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 34 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 33 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 34 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·五星
+#Act
+MOV U9 35
+mov S$盾牌星级 5
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·五星
+mov S$盾牌下名字 狂之咆哮盾·六星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 800
+mov S$盾牌本属性3 70
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 840
+mov S$盾牌下属性3 72
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 34 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 34 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 35 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 34 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 35 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 34 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 35 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·六星
+#Act
+MOV U9 36
+mov S$盾牌星级 6
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·六星
+mov S$盾牌下名字 狂之咆哮盾·七星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 840
+mov S$盾牌本属性3 72
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 880
+mov S$盾牌下属性3 74
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 35 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 35 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 36 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 35 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 36 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 35 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 36 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·七星
+#Act
+MOV U9 37
+mov S$盾牌星级 7
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·七星
+mov S$盾牌下名字 狂之咆哮盾·八星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 880
+mov S$盾牌本属性3 74
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 920
+mov S$盾牌下属性3 76
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 36 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 36 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 37 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 36 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 37 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 36 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 37 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·八星
+#Act
+MOV U9 38
+mov S$盾牌星级 8
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·八星
+mov S$盾牌下名字 狂之咆哮盾·九星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 920
+mov S$盾牌本属性3 76
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 960
+mov S$盾牌下属性3 78
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 37 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 37 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 38 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 37 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 38 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 37 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 38 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·九星
+#Act
+MOV U9 39
+mov S$盾牌星级 9
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·九星
+mov S$盾牌下名字 狂之咆哮盾·十星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 960
+mov S$盾牌本属性3 78
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 8
+mov S$盾牌下属性2 1000
+mov S$盾牌下属性3 80
+mov S$盾牌下属性4 20
+MOV N$宏图古币盾牌 500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 38 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 38 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 39 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 38 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 39 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 38 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 39 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 狂之咆哮盾·十星
+#Act
+MOV U9 40
+mov S$盾牌星级 10
+mov S$盾牌阶图 904
+mov S$盾牌本名字 狂之咆哮盾·十星
+mov S$盾牌下名字 奎灵咆哮盾·一星
+mov S$盾牌本属性1 8
+mov S$盾牌本属性2 1000
+mov S$盾牌本属性3 80
+mov S$盾牌本属性4 20
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1050
+mov S$盾牌下属性3 82
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 39 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 39 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 40 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 39 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 40 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 39 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 40 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:270:24:150:70:-200:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·一星
+#Act
+MOV U9 41
+mov S$盾牌星级 1
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·一星
+mov S$盾牌下名字 奎灵咆哮盾·二星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1050
+mov S$盾牌本属性3 82
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1100
+mov S$盾牌下属性3 84
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 40 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 40 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 41 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 40 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 41 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 40 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 41 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·二星
+#Act
+MOV U9 42
+mov S$盾牌星级 2
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·二星
+mov S$盾牌下名字 奎灵咆哮盾·三星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1100
+mov S$盾牌本属性3 84
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1150
+mov S$盾牌下属性3 86
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 41 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 41 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 42 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 41 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 42 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 41 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 42 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·三星
+#Act
+MOV U9 43
+mov S$盾牌星级 3
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·三星
+mov S$盾牌下名字 奎灵咆哮盾·四星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1150
+mov S$盾牌本属性3 86
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1200
+mov S$盾牌下属性3 88
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 42 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 42 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 43 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 42 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 43 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 42 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 43 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·四星
+#Act
+MOV U9 44
+mov S$盾牌星级 4
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·四星
+mov S$盾牌下名字 奎灵咆哮盾·五星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1200
+mov S$盾牌本属性3 88
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1250
+mov S$盾牌下属性3 90
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 43 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 43 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 44 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 43 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 44 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 43 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 44 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·五星
+#Act
+MOV U9 45
+mov S$盾牌星级 5
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·五星
+mov S$盾牌下名字 奎灵咆哮盾·六星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1250
+mov S$盾牌本属性3 90
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1300
+mov S$盾牌下属性3 92
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 44 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 44 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 45 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 44 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 45 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 44 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 45 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·六星
+#Act
+MOV U9 46
+mov S$盾牌星级 6
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·六星
+mov S$盾牌下名字 奎灵咆哮盾·七星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1300
+mov S$盾牌本属性3 92
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1350
+mov S$盾牌下属性3 94
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 45 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 45 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 46 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 45 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 46 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 45 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 46 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·七星
+#Act
+MOV U9 47
+mov S$盾牌星级 7
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·七星
+mov S$盾牌下名字 奎灵咆哮盾·八星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1350
+mov S$盾牌本属性3 94
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1400
+mov S$盾牌下属性3 96
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 46 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 46 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 47 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 46 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 47 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 46 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 47 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·八星
+#Act
+MOV U9 48
+mov S$盾牌星级 8
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·八星
+mov S$盾牌下名字 奎灵咆哮盾·九星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1400
+mov S$盾牌本属性3 96
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1450
+mov S$盾牌下属性3 98
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 47 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 47 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 48 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 47 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 48 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 47 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 48 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·九星
+#Act
+MOV U9 49
+mov S$盾牌星级 9
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·九星
+mov S$盾牌下名字 奎灵咆哮盾·十星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1450
+mov S$盾牌本属性3 98
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 10
+mov S$盾牌下属性2 1500
+mov S$盾牌下属性3 100
+mov S$盾牌下属性4 25
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 48 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 48 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 49 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 48 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 49 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 48 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 49 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 奎灵咆哮盾·十星
+#Act
+MOV U9 50
+mov S$盾牌星级 10
+mov S$盾牌阶图 905
+mov S$盾牌本名字 奎灵咆哮盾·十星
+mov S$盾牌下名字 妖灵魔雷盾·一星
+mov S$盾牌本属性1 10
+mov S$盾牌本属性2 1500
+mov S$盾牌本属性3 100
+mov S$盾牌本属性4 25
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 1560
+mov S$盾牌下属性3 102
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 1250
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 49 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 49 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 50 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 49 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 50 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 49 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 50 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:300:24:150:90:-170:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·一星
+#Act
+MOV U9 51
+mov S$盾牌星级 1
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·一星
+mov S$盾牌下名字 妖灵魔雷盾·二星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 1560
+mov S$盾牌本属性3 102
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 1620
+mov S$盾牌下属性3 104
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 2500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 50 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 50 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 51 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 50 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 51 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 50 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 51 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·二星
+#Act
+MOV U9 52
+mov S$盾牌星级 2
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·二星
+mov S$盾牌下名字 妖灵魔雷盾·三星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 1620
+mov S$盾牌本属性3 104
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 1680
+mov S$盾牌下属性3 106
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 2500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 51 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 51 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 52 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 51 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 52 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 51 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 52 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·三星
+#Act
+MOV U9 53
+mov S$盾牌星级 3
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·三星
+mov S$盾牌下名字 妖灵魔雷盾·四星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 1680
+mov S$盾牌本属性3 106
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 1740
+mov S$盾牌下属性3 108
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 2500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 52 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 52 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 53 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 52 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 53 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 52 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 53 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·四星
+#Act
+MOV U9 54
+mov S$盾牌星级 4
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·四星
+mov S$盾牌下名字 妖灵魔雷盾·五星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 1740
+mov S$盾牌本属性3 108
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 1800
+mov S$盾牌下属性3 110
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 2500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 53 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 53 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 54 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 53 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 54 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 53 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 54 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·五星
+#Act
+MOV U9 55
+mov S$盾牌星级 5
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·五星
+mov S$盾牌下名字 妖灵魔雷盾·六星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 1800
+mov S$盾牌本属性3 110
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 1860
+mov S$盾牌下属性3 112
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 2500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 54 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 54 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 55 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 54 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 55 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 54 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 55 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·六星
+#Act
+MOV U9 56
+mov S$盾牌星级 6
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·六星
+mov S$盾牌下名字 妖灵魔雷盾·七星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 1860
+mov S$盾牌本属性3 112
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 1920
+mov S$盾牌下属性3 114
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 2500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 55 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 55 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 56 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 55 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 56 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 55 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 56 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·七星
+#Act
+MOV U9 57
+mov S$盾牌星级 7
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·七星
+mov S$盾牌下名字 妖灵魔雷盾·八星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 1920
+mov S$盾牌本属性3 114
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 1980
+mov S$盾牌下属性3 116
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 2500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 56 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 56 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 57 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 56 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 57 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 56 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 57 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·八星
+#Act
+MOV U9 58
+mov S$盾牌星级 8
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·八星
+mov S$盾牌下名字 妖灵魔雷盾·九星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 1980
+mov S$盾牌本属性3 116
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 2040
+mov S$盾牌下属性3 118
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 2500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 57 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 57 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 58 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 57 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 58 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 57 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 58 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·九星
+#Act
+MOV U9 59
+mov S$盾牌星级 9
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·九星
+mov S$盾牌下名字 妖灵魔雷盾·十星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 2040
+mov S$盾牌本属性3 118
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 12
+mov S$盾牌下属性2 2100
+mov S$盾牌下属性3 120
+mov S$盾牌下属性4 30
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 58 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 58 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 59 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 58 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 59 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 58 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 59 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 妖灵魔雷盾·十星
+#Act
+MOV U9 60
+mov S$盾牌星级 10
+mov S$盾牌阶图 906
+mov S$盾牌本名字 妖灵魔雷盾·十星
+mov S$盾牌下名字 崩龙圣灵盾·一星
+mov S$盾牌本属性1 12
+mov S$盾牌本属性2 2100
+mov S$盾牌本属性3 120
+mov S$盾牌本属性4 30
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2170
+mov S$盾牌下属性3 122
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 59 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 59 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 60 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 59 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 60 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 59 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 60 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:330:24:150:50:-160:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·一星
+#Act
+MOV U9 61
+mov S$盾牌星级 1
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·一星
+mov S$盾牌下名字 崩龙圣灵盾·二星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2170
+mov S$盾牌本属性3 122
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2240
+mov S$盾牌下属性3 124
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 60 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 60 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 61 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 60 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 61 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 60 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 61 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·二星
+#Act
+MOV U9 62
+mov S$盾牌星级 2
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·二星
+mov S$盾牌下名字 崩龙圣灵盾·三星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2240
+mov S$盾牌本属性3 124
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2310
+mov S$盾牌下属性3 126
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 61 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 61 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 62 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 61 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 62 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 61 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 62 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·三星
+#Act
+MOV U9 63
+mov S$盾牌星级 3
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·三星
+mov S$盾牌下名字 崩龙圣灵盾·四星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2310
+mov S$盾牌本属性3 126
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2380
+mov S$盾牌下属性3 128
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 62 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 62 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 63 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 62 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 63 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 62 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 63 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·四星
+#Act
+MOV U9 64
+mov S$盾牌星级 4
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·四星
+mov S$盾牌下名字 崩龙圣灵盾·五星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2380
+mov S$盾牌本属性3 128
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2450
+mov S$盾牌下属性3 130
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 63 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 63 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 64 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 63 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 64 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 63 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 64 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·五星
+#Act
+MOV U9 65
+mov S$盾牌星级 5
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·五星
+mov S$盾牌下名字 崩龙圣灵盾·六星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2450
+mov S$盾牌本属性3 130
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2520
+mov S$盾牌下属性3 132
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 64 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 64 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 65 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 64 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 65 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 64 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 65 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·六星
+#Act
+MOV U9 66
+mov S$盾牌星级 6
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·六星
+mov S$盾牌下名字 崩龙圣灵盾·七星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2520
+mov S$盾牌本属性3 132
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2590
+mov S$盾牌下属性3 134
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 65 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 65 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 66 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 65 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 66 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 65 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 66 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·七星
+#Act
+MOV U9 67
+mov S$盾牌星级 7
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·七星
+mov S$盾牌下名字 崩龙圣灵盾·八星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2590
+mov S$盾牌本属性3 134
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2660
+mov S$盾牌下属性3 136
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 66 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 66 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 67 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 66 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 67 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 66 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 67 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·八星
+#Act
+MOV U9 68
+mov S$盾牌星级 8
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·八星
+mov S$盾牌下名字 崩龙圣灵盾·九星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2660
+mov S$盾牌本属性3 136
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2730
+mov S$盾牌下属性3 138
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 5000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 67 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 67 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 68 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 67 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 68 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 67 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 68 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·九星
+#Act
+MOV U9 69
+mov S$盾牌星级 9
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·九星
+mov S$盾牌下名字 崩龙圣灵盾·十星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2730
+mov S$盾牌本属性3 138
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 14
+mov S$盾牌下属性2 2800
+mov S$盾牌下属性3 140
+mov S$盾牌下属性4 35
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 68 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 68 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 69 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 68 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 69 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 68 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 69 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 崩龙圣灵盾·十星
+#Act
+MOV U9 70
+mov S$盾牌星级 10
+mov S$盾牌阶图 907
+mov S$盾牌本名字 崩龙圣灵盾·十星
+mov S$盾牌下名字 青苍崩砂盾·一星
+mov S$盾牌本属性1 14
+mov S$盾牌本属性2 2800
+mov S$盾牌本属性3 140
+mov S$盾牌本属性4 35
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 2880
+mov S$盾牌下属性3 142
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 69 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 69 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 70 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 69 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 70 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 69 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 70 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:360:24:150:50:-210:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·一星
+#Act
+MOV U9 71
+mov S$盾牌星级 1
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·一星
+mov S$盾牌下名字 青苍崩砂盾·二星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 2880
+mov S$盾牌本属性3 142
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 2960
+mov S$盾牌下属性3 144
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 70 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 70 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 71 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 70 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 71 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 70 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 71 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·二星
+#Act
+MOV U9 72
+mov S$盾牌星级 2
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·二星
+mov S$盾牌下名字 青苍崩砂盾·三星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 2960
+mov S$盾牌本属性3 144
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 3040
+mov S$盾牌下属性3 146
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 71 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 71 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 72 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 71 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 72 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 71 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 72 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·三星
+#Act
+MOV U9 73
+mov S$盾牌星级 3
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·三星
+mov S$盾牌下名字 青苍崩砂盾·四星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 3040
+mov S$盾牌本属性3 146
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 3120
+mov S$盾牌下属性3 148
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 72 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 72 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 73 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 72 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 73 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 72 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 73 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·四星
+#Act
+MOV U9 74
+mov S$盾牌星级 4
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·四星
+mov S$盾牌下名字 青苍崩砂盾·五星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 3120
+mov S$盾牌本属性3 148
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 3200
+mov S$盾牌下属性3 150
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 73 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 73 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 74 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 73 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 74 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 73 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 74 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·五星
+#Act
+MOV U9 75
+mov S$盾牌星级 5
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·五星
+mov S$盾牌下名字 青苍崩砂盾·六星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 3200
+mov S$盾牌本属性3 150
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 3280
+mov S$盾牌下属性3 152
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 74 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 74 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 75 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 74 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 75 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 74 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 75 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·六星
+#Act
+MOV U9 76
+mov S$盾牌星级 6
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·六星
+mov S$盾牌下名字 青苍崩砂盾·七星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 3280
+mov S$盾牌本属性3 152
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 3360
+mov S$盾牌下属性3 154
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 75 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 75 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 76 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 75 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 76 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 75 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 76 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·七星
+#Act
+MOV U9 77
+mov S$盾牌星级 7
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·七星
+mov S$盾牌下名字 青苍崩砂盾·八星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 3360
+mov S$盾牌本属性3 154
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 3440
+mov S$盾牌下属性3 156
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 76 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 76 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 77 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 76 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 77 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 76 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 77 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·八星
+#Act
+MOV U9 78
+mov S$盾牌星级 8
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·八星
+mov S$盾牌下名字 青苍崩砂盾·九星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 3440
+mov S$盾牌本属性3 156
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 3520
+mov S$盾牌下属性3 158
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 7500
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 77 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 77 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 78 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 77 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 78 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 77 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 78 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·九星
+#Act
+MOV U9 79
+mov S$盾牌星级 9
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·九星
+mov S$盾牌下名字 青苍崩砂盾·十星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 3520
+mov S$盾牌本属性3 158
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 16
+mov S$盾牌下属性2 3600
+mov S$盾牌下属性3 160
+mov S$盾牌下属性4 40
+MOV N$宏图古币盾牌 10000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 78 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 78 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 79 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 78 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 79 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 78 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 79 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 青苍崩砂盾·十星
+#Act
+MOV U9 80
+mov S$盾牌星级 10
+mov S$盾牌阶图 908
+mov S$盾牌本名字 青苍崩砂盾·十星
+mov S$盾牌下名字 古兰幻輝杖·一星
+mov S$盾牌本属性1 16
+mov S$盾牌本属性2 3600
+mov S$盾牌本属性3 160
+mov S$盾牌本属性4 40
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 3690
+mov S$盾牌下属性3 162
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 10000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 79 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 79 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 80 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 79 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 80 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 79 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 80 S$盾牌下属性4
+mov S$盾牌展示 PlayImg:29:390:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·一星
+#Act
+MOV U9 81
+mov S$盾牌星级 1
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·一星
+mov S$盾牌下名字 古兰幻輝杖·二星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 3690
+mov S$盾牌本属性3 162
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 3780
+mov S$盾牌下属性3 164
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 10000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 80 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 80 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 81 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 80 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 81 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 80 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 81 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·二星
+#Act
+MOV U9 82
+mov S$盾牌星级 2
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·二星
+mov S$盾牌下名字 古兰幻輝杖·三星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 3780
+mov S$盾牌本属性3 164
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 3870
+mov S$盾牌下属性3 166
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 10000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 81 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 81 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 82 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 81 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 82 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 81 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 82 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·三星
+#Act
+MOV U9 83
+mov S$盾牌星级 3
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·三星
+mov S$盾牌下名字 古兰幻輝杖·四星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 3870
+mov S$盾牌本属性3 166
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 3960
+mov S$盾牌下属性3 168
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 82 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 82 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 83 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 82 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 83 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 82 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 83 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·四星
+#Act
+MOV U9 84
+mov S$盾牌星级 4
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·四星
+mov S$盾牌下名字 古兰幻輝杖·五星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 3960
+mov S$盾牌本属性3 168
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 4050
+mov S$盾牌下属性3 170
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 83 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 83 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 84 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 83 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 84 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 83 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 84 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·五星
+#Act
+MOV U9 85
+mov S$盾牌星级 5
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·五星
+mov S$盾牌下名字 古兰幻輝杖·六星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 4050
+mov S$盾牌本属性3 170
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 4140
+mov S$盾牌下属性3 172
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 84 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 84 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 85 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 84 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 85 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 84 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 85 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·六星
+#Act
+MOV U9 86
+mov S$盾牌星级 6
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·六星
+mov S$盾牌下名字 古兰幻輝杖·七星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 4140
+mov S$盾牌本属性3 172
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 4230
+mov S$盾牌下属性3 174
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 85 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 85 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 86 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 85 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 86 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 85 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 86 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·七星
+#Act
+MOV U9 87
+mov S$盾牌星级 7
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·七星
+mov S$盾牌下名字 古兰幻輝杖·八星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 4230
+mov S$盾牌本属性3 174
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 4320
+mov S$盾牌下属性3 176
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 86 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 86 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 87 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 86 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 87 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 86 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 87 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·八星
+#Act
+MOV U9 88
+mov S$盾牌星级 8
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·八星
+mov S$盾牌下名字 古兰幻輝杖·九星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 4320
+mov S$盾牌本属性3 176
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 4410
+mov S$盾牌下属性3 178
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 87 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 87 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 88 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 87 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 88 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 87 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 88 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·九星
+#Act
+MOV U9 89
+mov S$盾牌星级 9
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·九星
+mov S$盾牌下名字 古兰幻輝杖·十星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 4410
+mov S$盾牌本属性3 178
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 18
+mov S$盾牌下属性2 4500
+mov S$盾牌下属性3 180
+mov S$盾牌下属性4 45
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 88 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 88 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 89 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 88 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 89 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 88 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 89 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 古兰幻輝杖·十星
+#Act
+MOV U9 90
+mov S$盾牌星级 10
+mov S$盾牌阶图 909
+mov S$盾牌本名字 古兰幻輝杖·十星
+mov S$盾牌下名字 龙曲创世盾·一星
+mov S$盾牌本属性1 18
+mov S$盾牌本属性2 4500
+mov S$盾牌本属性3 180
+mov S$盾牌本属性4 45
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 4600
+mov S$盾牌下属性3 182
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 89 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 89 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 90 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 89 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 90 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 89 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 90 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:420:24:150:50:-230:0>
+
+#IF
+CHECKITEMW 龙曲创世盾·一星
+#Act
+MOV U9 91
+mov S$盾牌星级 1
+mov S$盾牌阶图 910
+mov S$盾牌本名字 龙曲创世盾·一星
+mov S$盾牌下名字 龙曲创世盾·二星
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 4600
+mov S$盾牌本属性3 182
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 4700
+mov S$盾牌下属性3 184
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 90 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 90 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 91 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 90 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 91 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 90 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 91 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+#IF
+CHECKITEMW 龙曲创世盾·二星
+#Act
+MOV U9 92
+mov S$盾牌星级 2
+mov S$盾牌阶图 910
+mov S$盾牌本名字 龙曲创世盾·二星
+mov S$盾牌下名字 龙曲创世盾·三星
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 4700
+mov S$盾牌本属性3 184
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 4800
+mov S$盾牌下属性3 186
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 91 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 91 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 92 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 91 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 92 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 91 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 92 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+#IF
+CHECKITEMW 龙曲创世盾·三星
+#Act
+MOV U9 93
+mov S$盾牌星级 3
+mov S$盾牌阶图 910
+mov S$盾牌本名字 龙曲创世盾·三星
+mov S$盾牌下名字 龙曲创世盾·四星
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 4800
+mov S$盾牌本属性3 186
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 4900
+mov S$盾牌下属性3 188
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 92 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 92 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 93 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 92 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 93 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 92 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 93 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+#IF
+CHECKITEMW 龙曲创世盾·四星
+#Act
+MOV U9 94
+mov S$盾牌星级 4
+mov S$盾牌阶图 910
+mov S$盾牌本名字 龙曲创世盾·四星
+mov S$盾牌下名字 龙曲创世盾·五星
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 4900
+mov S$盾牌本属性3 188
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 5000
+mov S$盾牌下属性3 190
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 93 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 93 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 94 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 93 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 94 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 93 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 94 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+#IF
+CHECKITEMW 龙曲创世盾·五星
+#Act
+MOV U9 95
+mov S$盾牌星级 5
+mov S$盾牌阶图 910
+mov S$盾牌本名字 龙曲创世盾·五星
+mov S$盾牌下名字 龙曲创世盾·六星
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 5000
+mov S$盾牌本属性3 190
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 5100
+mov S$盾牌下属性3 192
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 94 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 94 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 95 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 94 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 95 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 94 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 95 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+#IF
+CHECKITEMW 龙曲创世盾·六星
+#Act
+MOV U9 96
+mov S$盾牌星级 6
+mov S$盾牌阶图 910
+mov S$盾牌本名字 龙曲创世盾·六星
+mov S$盾牌下名字 龙曲创世盾·七星
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 5100
+mov S$盾牌本属性3 192
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 5200
+mov S$盾牌下属性3 194
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 95 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 95 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 96 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 95 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 96 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 95 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 96 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+#IF
+CHECKITEMW 龙曲创世盾·七星
+#Act
+MOV U9 97
+mov S$盾牌星级 7
+mov S$盾牌阶图 910
+mov S$盾牌本名字 龙曲创世盾·七星
+mov S$盾牌下名字 龙曲创世盾·八星
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 5200
+mov S$盾牌本属性3 194
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 5300
+mov S$盾牌下属性3 196
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 96 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 96 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 97 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 96 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 97 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 96 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 97 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+#IF
+CHECKITEMW 龙曲创世盾·八星
+#Act
+MOV U9 98
+mov S$盾牌星级 8
+mov S$盾牌阶图 910
+mov S$盾牌本名字 龙曲创世盾·八星
+mov S$盾牌下名字 龙曲创世盾·九星
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 5300
+mov S$盾牌本属性3 196
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 5400
+mov S$盾牌下属性3 198
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 20000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 97 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 97 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 98 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 97 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 98 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 97 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 98 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+#IF
+CHECKITEMW 龙曲创世盾·九星
+#Act
+MOV U9 99
+mov S$盾牌星级 9
+mov S$盾牌阶图 910
+mov S$盾牌本名字 龙曲创世盾·九星
+mov S$盾牌下名字 终极盾牌
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 5400
+mov S$盾牌本属性3 198
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 20
+mov S$盾牌下属性2 5500
+mov S$盾牌下属性3 200
+mov S$盾牌下属性4 50
+MOV N$宏图古币盾牌 25000
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 98 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 98 S$盾牌本属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌属性.txt 99 S$盾牌下属性1
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 98 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 99 S$盾牌下属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 98 S$盾牌本属性4
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 99 S$盾牌下属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+#IF
+CHECKITEMW 终极盾牌
+#Act
+MOV U9 100
+mov S$盾牌星级 10
+mov S$盾牌阶图 910
+mov S$盾牌本名字 终极盾牌
+mov S$盾牌下名字 已满级
+mov S$盾牌本属性1 20
+mov S$盾牌本属性2 5500
+mov S$盾牌本属性3 200
+mov S$盾牌本属性4 50
+mov S$盾牌下属性1 已满级
+mov S$盾牌下属性2 已满级
+mov S$盾牌下属性3 已满级
+mov S$盾牌下属性4 已满级
+GetListString ..\QuestDiary\自定义按钮\盾牌价格.txt 99 N$盾牌升级石
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收值.txt 99 S$盾牌本属性2
+GetListString ..\QuestDiary\自定义按钮\盾牌吸收百分比.txt 99 S$盾牌本属性4
+mov S$盾牌展示 <PlayImg:29:450:24:150:-50:-250:0>
+
+
+#IF
+#act
+MOV U6 <$STR(S$盾牌本属性2)>
+MOV U7 <$STR(S$盾牌本属性3)>
+MOV U8 <$STR(S$盾牌本属性4)>
+mov S$星0 1143
+mov S$星1 1143
+mov S$星2 1143
+mov S$星3 1143
+mov S$星4 1143
+mov S$星5 1143
+mov S$星6 1143
+mov S$星7 1143
+mov S$星8 1143
+mov S$星9 1143
+
+#IF
+large S$盾牌星级 0
+#act
+mov S$星0 1144
+#IF
+large S$盾牌星级 1
+#act
+mov S$星1 1144
+#IF
+large S$盾牌星级 2
+#act
+mov S$星2 1144
+#IF
+large S$盾牌星级 3
+#act
+mov S$星3 1144
+#IF
+large S$盾牌星级 4
+#act
+mov S$星4 1144
+#IF
+large S$盾牌星级 5
+#act
+mov S$星5 1144
+#IF
+large S$盾牌星级 6
+#act
+mov S$星6 1144
+#IF
+large S$盾牌星级 7
+#act
+mov S$星7 1144
+#IF
+large S$盾牌星级 8
+#act
+mov S$星8 1144
+#IF
+large S$盾牌星级 9
+#act
+mov S$星9 1144
+
+#IF
+Check [51] 0
+#act
+MOV S$打开盾牌外显 <打开盾牌外显/SCOLOR=249>　<Img:1031:12:-5:-3/@打开盾牌外显>
+MOV S$关闭盾牌外显 <关闭盾牌外显/SCOLOR=249>　<Img:1032:12:-5:-3/@关闭盾牌外显>
+
+
+#IF
+Check [51] 1
+#act
+MOV S$打开盾牌外显 <打开盾牌外显/SCOLOR=249>　<Img:1032:12:-5:-3/@打开盾牌外显>
+MOV S$关闭盾牌外显 <关闭盾牌外显/SCOLOR=249>　<Img:1031:12:-5:-3/@关闭盾牌外显>
+
+#IF
+#Act
+MOV S$盾牌升级石展示 <$STR(N$盾牌升级石)>
+SetStringBlank S$盾牌星级 2 0
+SetStringBlank S$盾牌升级石展示 8 0
+OPENMERCHANTBIGDLG 12 1140 1 4 0 0 0
+#say
+<Img:801:0:645:-8/@EXIT>\
+　\
+　\
+　　　　　　　　　　　　　　　　　{<$STR(S$盾牌本名字)>/SCOLOR=149}\
+　\
+　 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<物理伤害减少：+<$STR(S$盾牌本属性1)>%/SCOLOR=149>\
+　 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<魔法伤害减少：+<$STR(S$盾牌本属性1)>%/SCOLOR=149>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <伤害吸收上限：<$STR(S$盾牌本属性2)>/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <每秒恢复数值：<$STR(S$盾牌本属性3)>/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <每次吸收比例：<$STR(S$盾牌本属性4)>%/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 \
+　\
+<Img:<$STR(S$盾牌阶图)>:12:383:-120>\
+<$STR(S$盾牌展示)>\
+　\
+　 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<物理伤害减少：+<$STR(S$盾牌下属性1)>%/SCOLOR=149>\
+　 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<魔法伤害减少：+<$STR(S$盾牌下属性1)>%/SCOLOR=149>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <伤害吸收上限：<$STR(S$盾牌下属性2)>/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <每秒恢复数值：<$STR(S$盾牌下属性3)>/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<盾牌说明|254#盾牌级别越高伤害吸收值越大/SCOLOR=94><Img:1153:12:-70:-3|254#盾牌级别越高伤害吸收值越大>        <每次吸收比例：<$STR(S$盾牌下属性4)>%/SCOLOR=154>\
+　\
+<Img:<$STR(S$星0)>:12:140:3><Img:<$STR(S$星1)>:12:140:3><Img:<$STR(S$星2)>:12:140:3><Img:<$STR(S$星3)>:12:140:3><Img:<$STR(S$星4)>:12:140:3><Img:<$STR(S$星5)>:12:140:3><Img:<$STR(S$星6)>:12:140:3><Img:<$STR(S$星7)>:12:140:3><Img:<$STR(S$星8)>:12:140:3><Img:<$STR(S$星9)>:12:140:3><Img:1145:12:270:3>\
+　\
+　\
+　　　　　　　　　　　　{当前<$STR(S$盾牌星级)>星，升级到下级需要<$STR(S$盾牌升级石展示)>　元宝/SCOLOR=82}　　　　　　　<Img:1154:12:0:> 　<盾牌为终生绑定物品/SCOLOR=149>\
+　　　　　　　　　　　　　　　　　　　　　　　　　{宏图古币 <$STR(N$宏图古币盾牌)>颗/SCOLOR=82}\
+<ImgEx:12:1161:1162:1163:190:0/@升级>　　　　　　　　　　　　　　　　　　　　　　　　　　　　<Img:1154:12:0:> 　<终极盾牌可回收588元RMB/SCOLOR=149>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<如果卡,打开内挂,勾选"隐藏其他效果"/SCOLOR=70>\
+　\
+　\
+
+
+[@打开盾牌外显]
+#IF
+#ACT
+set [51] 1
+#CALL [..\QuestDiary\封号系统\盾牌外显.txt] @盾牌装B
+GOTO @盾牌升级
+
+[@关闭盾牌外显]
+#IF
+#ACT
+set [51] 0
+#CALL [..\QuestDiary\封号系统\盾牌外显.txt] @盾牌装B
+GOTO @盾牌升级
+
+[@升级]
+#IF
+CHECKITEMW 终极盾牌
+#act
+MESSAGEBOX \升级失败：\\您的盾牌已经顶级！！
+BREAK
+
+
+#IF
+CHECKGAMEDIAMOND < <$STR(N$宏图古币盾牌)>
+#act
+MESSAGEBOX \升级失败：\\需要<$STR(N$宏图古币盾牌)>颗宏图古币，请检查你宏图古币数量
+BREAK
+
+#IF
+CHECKUSEITEM 16
+CHECKGAMEGOLD > <$STR(N$盾牌升级石)>
+#act
+GAMEDIAMOND - <$STR(N$宏图古币盾牌)>
+GAMEGOLD - <$STR(N$盾牌升级石)>
+Give <$STR(S$盾牌下名字)> 1
+TakeOnItem <$STR(S$盾牌下名字)> 16
+MOV T9 <$STR(S$盾牌下名字)>
+take <$STR(S$盾牌本名字)> 1
+SendMsg 0 {系统提示ぐ|151:0:1}：{<$USERNAME>|227:0:1}成功把盾牌升级到<$STR(S$盾牌下名字)>！！
+goto @成功界面
+#ELSEACT
+MESSAGEBOX \升级失败：\\请仔细检查升级所需条件
+
+
+[@成功界面]
+#IF
+#Act
+goto @盾牌升级
+MOV S$盾牌升级石展示 <$STR(N$盾牌升级石)>
+SetStringBlank S$盾牌星级 2 0
+SetStringBlank S$盾牌升级石展示 8 0
+OPENMERCHANTBIGDLG 12 1140 1 4 0 0 0
+#say
+<Img:801:0:645:-8/@EXIT>\
+　\
+　\
+　　　　　　　　　　　　　　　　　{<$STR(S$盾牌本名字)>/SCOLOR=149}\
+　\
+　 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<物理伤害减少：+<$STR(S$盾牌本属性1)>%/SCOLOR=149>\
+　 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<魔法伤害减少：+<$STR(S$盾牌本属性1)>%/SCOLOR=149>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <伤害吸收上限：<$STR(S$盾牌本属性2)>/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <每秒恢复数值：<$STR(S$盾牌本属性3)>/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <每次吸收比例：<$STR(S$盾牌本属性4)>/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 \
+　\
+<Img:<$STR(S$盾牌阶图)>:12:380:-130>\
+<$STR(S$盾牌展示)>\
+<PlayImg:12:1193:6:150:120:-70:1:1>\
+　 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<物理伤害减少：+<$STR(S$盾牌下属性1)>%/SCOLOR=149>\
+　 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<魔法伤害减少：+<$STR(S$盾牌下属性1)>%/SCOLOR=149>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <伤害吸收上限：<$STR(S$盾牌下属性2)>/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 <每秒恢复数值：<$STR(S$盾牌下属性3)>/SCOLOR=154>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<盾牌说明|254#盾牌级别越高伤害吸收值越大/SCOLOR=94><Img:1153:12:-70:-3|254#盾牌级别越高伤害吸收值越大>        <每次吸收比例：<$STR(S$盾牌下属性4)>/SCOLOR=154>\
+　\
+<Img:<$STR(S$星0)>:12:140:3><Img:<$STR(S$星1)>:12:140:3><Img:<$STR(S$星2)>:12:140:3><Img:<$STR(S$星3)>:12:140:3><Img:<$STR(S$星4)>:12:140:3><Img:<$STR(S$星5)>:12:140:3><Img:<$STR(S$星6)>:12:140:3><Img:<$STR(S$星7)>:12:140:3><Img:<$STR(S$星8)>:12:140:3><Img:<$STR(S$星9)>:12:140:3><Img:1145:12:270:3>\
+　\
+　\
+　　　　　　　　　　　　{当前<$STR(S$盾牌星级)>星，升级到下级需要<$STR(S$盾牌升级石展示)>　元宝/SCOLOR=82}　　　　　　　<Img:1154:12:0:> 　<盾牌为终生绑定物品/SCOLOR=149>\
+　　　　　　　　　　　　　　　　　　　　　　　　　{宏图古币 <$STR(N$宏图古币盾牌)>颗/SCOLOR=82}\
+<ImgEx:12:1161:1162:1163:190:0/@升级>　　　　　　　　　　　　　　　　　　　　　　　　　　　　<Img:1154:12:0:> 　<终极盾牌可回收588元RMB/SCOLOR=149>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<Img:1154:12:0:> <盾牌升级石怪物可爆出，充值也送/SCOLOR=70>\
+　\
+　\
+
+}

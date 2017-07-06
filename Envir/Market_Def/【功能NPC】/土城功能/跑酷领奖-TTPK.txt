@@ -1,0 +1,55 @@
+[@main]
+#IF
+NOT CheckHumInRange TTPK 29 82 2
+#ACT
+MESSAGEBOX \\请离我进一点才能领取奖励哦！
+break
+
+#IF
+EQUAL A431 开启
+EQUAL G432 0
+#ACT
+GAMEGOLD + 10000
+INC G432 1
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+SendCenterMsg 151 249 你获得第一名领取了10000元宝 0 5
+SENDMSG 0 [{<$USERNAME>|254:0:1}]一路狂飙，在跑酷活动中获得{第一名|147:0:1}的成绩奖励:{10000元宝|151:0:1}！
+SENDMSG 0 [{<$USERNAME>|254:0:1}]一路狂飙，在跑酷活动中获得{第一名|147:0:1}的成绩奖励:{10000元宝|151:0:1}！
+SENDMSG 0 [{<$USERNAME>|254:0:1}]一路狂飙，在跑酷活动中获得{第一名|147:0:1}的成绩奖励:{10000元宝|151:0:1}！
+break
+
+#IF
+EQUAL A431 开启
+EQUAL G432 1
+#ACT
+GAMEGOLD + 6000
+INC G432 1
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+SendCenterMsg 151 249 你获得第二名领取了6000元宝 0 5
+SENDMSG 0 [{<$USERNAME>|254:0:1}]一路狂飙，在跑酷活动中获得{第二名|147:0:1}的成绩奖励:{6000元宝|151:0:1}！
+SENDMSG 0 [{<$USERNAME>|254:0:1}]一路狂飙，在跑酷活动中获得{第二名|147:0:1}的成绩奖励:{6000元宝|151:0:1}！
+SENDMSG 0 [{<$USERNAME>|254:0:1}]一路狂飙，在跑酷活动中获得{第二名|147:0:1}的成绩奖励:{6000元宝|151:0:1}！
+break
+
+#IF
+EQUAL A431 开启
+EQUAL G432 2
+#ACT
+GAMEGOLD + 3000
+INC G432 1
+mov A431 关闭
+MOV G460 0
+MOV G461 0
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+Gmexecute 开始提问 @活动结束
+SendCenterMsg 151 249 你获得第三名领取了3000元宝 0 5
+SENDMSG 0 [{<$USERNAME>|254:0:1}]一路狂飙，在跑酷活动中获得{第三名|147:0:1}的成绩奖励:{3000元宝|151:0:1}！
+SENDMSG 0 [{<$USERNAME>|254:0:1}]一路狂飙，在跑酷活动中获得{第三名|147:0:1}的成绩奖励:{3000元宝|151:0:1}！
+SENDMSG 0 [{<$USERNAME>|254:0:1}]一路狂飙，在跑酷活动中获得{第三名|147:0:1}的成绩奖励:{3000元宝|151:0:1}！
+break

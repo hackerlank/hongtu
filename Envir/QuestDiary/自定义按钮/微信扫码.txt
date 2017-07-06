@@ -1,0 +1,118 @@
+[@扫码]
+{
+#IF
+#ACT
+OPENMERCHANTBIGDLG 54 126 2 1 4 0 -200 0
+#say
+
+\
+<img:208:54:10:35>\
+\ \ 
+\                                    <-----------------------------------/SCOLOR=69>\
+\                                            <≡≡【宏图霸业】≡≡/SCOLOR=253>\
+\                                    <-----------------------------------/SCOLOR=69>\
+\                                    <扫描二维码关注微信公众号./SCOLOR=250>\
+\                                    <免费领取微信百元大礼包/SCOLOR=250>\  \
+\                                    <礼包:/SCOLOR=253><获得额外无限制泡点加成/SCOLOR=243>\ \
+\                                    <微信专属特权来啦：马上扫描二维码领取/SCOLOR=249>\
+\                                    <【点击下方输入微信兑换码】/SCOLOR=69>\ \
+\                                    <点击兑换微信大礼包/@@InPutString22>    <关闭/@exit>\
+
+[@InPutString22]
+#if
+#say
+\ \          \
+\ \          \
+\ \          \
+\                  <正在为你兑换微信大礼包.请勿关闭对话框....../AUTOCOLOR=254,251,168,191,250,70,245,249,253>\
+\            \
+\<................................................/AUTOCOLOR=254,251,168,191,250,70,245,249,253>       \
+\            \
+\                  <请稍后.../AUTOCOLOR=254,251,168,191,250,70,245,249,253>\
+#act
+DelayCall 2000 @abcdE
+
+[@abcdE]
+#if
+check [100] 1
+#act
+MESSAGEBOX 提示:开启首充后不可在领取。
+break
+#if
+check [105] 2
+#act
+MESSAGEBOX 提示:开启礼包后不可在领取。
+break
+#if
+check [106] 2
+#act
+MESSAGEBOX 提示:开启礼包后不可在领取。
+break
+#if
+check [107] 2
+#act
+MESSAGEBOX 提示:开启礼包后不可在领取。
+break
+#if
+check [108] 2
+#act
+MESSAGEBOX 提示:开启礼包后不可在领取。
+break
+#if
+check [109] 1
+#act
+MESSAGEBOX 提示:开启礼包后不可在领取。
+break
+#if
+check [105] 1
+#act
+MESSAGEBOX 提示:开启礼包后不可在领取。
+break
+#if
+check [106] 1
+#act
+MESSAGEBOX 提示:开启礼包后不可在领取。
+break
+#if
+check [107] 1
+#act
+MESSAGEBOX 提示:开启礼包后不可在领取。
+break
+#if
+check [108] 1
+#act
+MESSAGEBOX 提示:开启礼包后不可在领取。
+break
+
+#if
+check [55] 1
+#act
+MESSAGEBOX 提示:您已经领取过了无法重复领取
+break
+#IF
+CHECKBAGSIZE  10
+CHECKTEXTLIST ..\QuestDiary\微信KYE.txt <$STR(S22)>
+#ACT
+;DELTEXTLIST ..\QuestDiary\微信KYE.txt <$STR(S22)>
+goto @奖励aa
+#elseact
+MESSAGEBOX 提示:\　\1.微信兑换码错误,需要关注微信公众号获取领取码哦\　\2.你的背包没有10个空位
+goto @main
+break
+
+[@奖励aa]
+#IF
+#ACT
+set [55] 1
+SENDMOVEMSG 0 253 0 100 1 恭喜(%s)使用微信KEY码兑换(微信专署礼包).快人一步.关注宏图霸业微信公众号即可获得KEY码
+SENDMOVEMSG 0 253 0 130 1 恭喜(%s)使用微信KEY码兑换(微信专署礼包).快人一步.关注宏图霸业微信公众号即可获得KEY码
+SENDMOVEMSG 0 253 0 160 1 恭喜(%s)使用微信KEY码兑换(微信专署礼包).快人一步.关注宏图霸业微信公众号即可获得KEY码
+MESSAGEBOX 提示:获得每秒经验加成！！
+goto @main
+break
+
+
+
+}
+
+

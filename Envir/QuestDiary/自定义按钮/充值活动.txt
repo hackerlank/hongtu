@@ -1,0 +1,333 @@
+{
+[@充值活动]
+
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1040 1 4 0 0 1 450 10
+#say
+<Img:801:0:456:20/@EXIT>\ \ \ \
+　　　　<充值活动/SCOLOR=154>\
+　　　　　　　<新区大回馈，我们为了能让你快人一步特添加了如下活动/SCOLOR=87>\
+　\
+　　　　　<Img:803:0:0:4>\
+　　 <需宏图古币/SCOLOR=253>  <10000/SCOLOR=250>   <含 1.2倍泡点/SCOLOR=146> <免费四转/SCOLOR=253> <萌宠二阶★/SCOLOR=21>  <25万元宝/SCOLOR=251>    <隐身术/SCOLOR=249> \
+　\
+　　 <需宏图古币/SCOLOR=253>  <30000/SCOLOR=250>   <含 1.3倍泡点/SCOLOR=146> <免费五转/SCOLOR=253> <萌宠三阶★/SCOLOR=21>  <80万元宝/SCOLOR=251>    <施毒术/SCOLOR=249>\
+　\
+　　 <需宏图古币/SCOLOR=253>  <50000/SCOLOR=250>   <含 1.4倍泡点/SCOLOR=146> <免费六转/SCOLOR=253> <萌宠四阶★/SCOLOR=21>  <180万元宝/SCOLOR=251>\
+　\
+　　 <需宏图古币/SCOLOR=253>  <100000/SCOLOR=250>  <含 1.5倍泡点/SCOLOR=146> <免费八转/SCOLOR=253> <萌宠五阶★/SCOLOR=21>  <450万元宝/SCOLOR=251>   <一级时装/SCOLOR=249>\
+　\
+　　 <需宏图古币/SCOLOR=253>  <200000/SCOLOR=250>  <含 2.0倍泡点/SCOLOR=146> <免费十转/SCOLOR=253> <萌宠满阶★/SCOLOR=21>  <1000万元宝/SCOLOR=251>  <二级时装/SCOLOR=249>\
+　　　　　<Img:803:0:0:4>\
+　　 <开启礼包一/@礼包一>　　 <开启礼包二/@礼包二>　　 <开启礼包三/@礼包三>　　 <开启礼包四/@礼包四>　　 <开启礼包五/@礼包五>\
+　\
+<>     <礼包累计领取:/SCOLOR=253>        <只需充值2000元即可领取以上全部礼包.1=100宏图古币/SCOLOR=250>\
+<>     <礼包累计领取:/SCOLOR=253>        <如果你领取礼包四,只需再充1000元古币可领礼包五../SCOLOR=250>\
+
+[@礼包一]
+#IF
+check [100] 0
+#ACT
+messagebox 　\　\请先领取首充！
+break
+
+
+
+#IF
+check [105] 1
+#ACT
+messagebox 　\　\请勿重复领取！
+break
+
+#IF
+CHECKGAMEDIAMOND < 10000
+#ACT
+messagebox 　\　\宏图古币不足10000元！
+break
+
+#IF
+CHECKRENEWLEVEL < 5
+#ACT
+RestRenewLevel
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+
+#IF
+small U30 4
+#ACT
+MOV U30 4
+
+#IF
+#ACT
+GAMEGOLD + 250000
+GAMEDIAMOND - 10000
+set [105] 1
+ADDSKILL 隐身术 3
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SENDMSG 0 212 251  恭喜玩家[%s]成功开启了礼包一号
+break
+
+[@礼包二]
+#IF
+check [105] 0
+#ACT
+messagebox 　\　\请先领取礼包一！
+break
+
+
+#IF
+check [106] 1
+#ACT
+messagebox 　\　\请勿重复领取！
+break
+
+#IF
+CHECKGAMEDIAMOND < 20000
+#ACT
+messagebox 　\　\宏图古币不足！
+break
+
+#IF
+CHECKRENEWLEVEL < 6
+#ACT
+RestRenewLevel
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+#IF
+small U30 7
+#ACT
+MOV U30 7
+
+#IF
+#ACT
+GAMEGOLD + 800000
+GAMEDIAMOND - 20000
+set [106] 1
+set [105] 2
+ADDSKILL 施毒术 3
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SENDMSG 0 212 251  恭喜玩家[%s]成功开启了礼包二号
+break
+
+
+
+[@礼包三]
+#IF
+check [105] 0
+#ACT
+messagebox 　\　\请先领取礼包一！
+break
+
+#IF
+check [106] 0
+#ACT
+messagebox 　\　\请先领取礼包二！
+break
+
+
+
+#IF
+check [107] 1
+#ACT
+messagebox 　\　\请勿重复领取！
+break
+
+#IF
+CHECKGAMEDIAMOND < 20000
+#ACT
+messagebox 　\　\宏图古币不足！
+break
+
+#IF
+CHECKRENEWLEVEL < 7
+#ACT
+RestRenewLevel
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+
+#IF
+small U30 10
+#ACT
+MOV U30 10
+
+#IF
+#ACT
+GAMEGOLD + 1800000
+GAMEDIAMOND - 20000
+set [107] 1
+set [106] 2
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SENDMSG 0 212 251  恭喜玩家[%s]成功开启了礼包三号
+break
+
+
+
+
+[@礼包四]
+#IF
+check [105] 0
+#ACT
+messagebox 　\　\请先领取礼包一！
+break
+
+#IF
+check [106] 0
+#ACT
+messagebox 　\　\请先领取礼包二！
+break
+
+#IF
+check [107] 0
+#ACT
+messagebox 　\　\请先领取礼包三！
+break
+
+#IF
+check [108] 1
+#ACT
+messagebox 　\　\请勿重复领取！
+break
+
+#IF
+CHECKGAMEDIAMOND < 50000
+#ACT
+messagebox 　\　\宏图古币不足！
+break
+
+#IF
+CHECKRENEWLEVEL < 9
+#ACT
+RestRenewLevel
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+
+#IF
+small U30 13
+#ACT
+MOV U30 13
+
+#IF
+gender woman
+#ACT
+GAMEGOLD + 4500000
+GAMEDIAMOND - 50000
+set [108] 1
+set [107] 2
+give 一级时装[女] 1
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SENDMSG 0 212 251  恭喜玩家[%s]成功开启了礼包四号
+break
+
+#IF
+gender man
+#ACT
+GAMEGOLD + 4500000
+GAMEDIAMOND - 50000
+set [108] 1
+set [107] 2
+give 一级时装[男] 1
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SENDMSG 0 212 251  恭喜玩家[%s]成功开启了礼包四号
+break
+
+
+[@礼包五]
+#IF
+check [105] 0
+#ACT
+messagebox 　\　\请先领取礼包一！
+break
+
+#IF
+check [106] 0
+#ACT
+messagebox 　\　\请先领取礼包二！
+break
+
+#IF
+check [107] 0
+#ACT
+messagebox 　\　\请先领取礼包三！
+break
+
+#IF
+check [108] 0
+#ACT
+messagebox 　\　\请先领取礼包四！
+break
+
+
+#IF
+check [109] 1
+#ACT
+messagebox 　\　\请勿重复领取！
+break
+
+#IF
+CHECKGAMEDIAMOND < 100000
+#ACT
+messagebox 　\　\宏图古币不足！
+break
+
+#IF
+CHECKRENEWLEVEL < 10
+#ACT
+RestRenewLevel
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+RENEWLEVEL 1 0 0
+
+#IF
+small U30 15
+#ACT
+MOV U30 15
+
+#IF
+gender woman
+#ACT
+GAMEGOLD + 10000000
+GAMEDIAMOND - 100000
+set [109] 1
+set [108] 2
+give 二级时装[女] 1
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SENDMSG 0 212 251  恭喜玩家[%s]成功开启了礼包五号
+break
+
+#IF
+gender man
+#ACT
+GAMEGOLD + 10000000
+GAMEDIAMOND - 100000
+set [109] 1
+set [108] 2
+give 二级时装[男] 1
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SENDMSG 0 212 251  恭喜玩家[%s]成功开启了礼包五号
+break
+
+}

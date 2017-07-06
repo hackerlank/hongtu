@@ -1,0 +1,4180 @@
+{
+[@宝物升级]
+#IF
+CHECKUSEITEM 9
+#ACT
+mov S$选择界面 血玉
+GOTO @血玉界面
+#ELSEACT
+MESSAGEBOX 　\　\　\　　　　　请先佩戴好您的宝物！
+
+
+
+[@初始化]
+;*****************************
+#IF
+#Act
+mov S$血玉阶级 　　
+mov S$印记阶级 　　
+mov S$魂晶阶级 　　
+mov S$秘符阶级 　　
+mov N$血玉图片 1141
+mov N$印记图片 1141
+mov N$魂晶图片 1141
+mov N$秘符图片 1141
+mov N$血玉颜色 70
+mov N$印记颜色 70
+mov N$魂晶颜色 70
+mov N$秘符颜色 70
+
+#IF
+CHECKUSEITEM 9
+#Act
+mov S$血玉开关 血玉
+#ELSEACT
+mov S$血玉阶级 　　
+mov S$血玉开关 　　
+mov N$血玉图片 0
+
+#IF
+CHECKITEMW 战士血玉·Lv1
+#Act
+mov S$血玉阶级 一阶
+mov S$血玉阶图 901
+mov S$血玉本名字 战士血玉·Lv1
+mov S$血玉下名字 战士血玉·Lv2
+mov S$血玉本属性1 40
+mov S$血玉本属性2 40
+mov S$血玉下属性1 48
+mov S$血玉下属性2 48
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 1 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:640:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv2
+#Act
+mov S$血玉阶级 二阶
+mov S$血玉阶图 902
+mov S$血玉本名字 战士血玉·Lv2
+mov S$血玉下名字 战士血玉·Lv3
+mov S$血玉本属性1 48
+mov S$血玉本属性2 48
+mov S$血玉下属性1 58
+mov S$血玉下属性2 58
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 2 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:640:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv3
+#Act
+mov S$血玉阶级 三阶
+mov S$血玉阶图 903
+mov S$血玉本名字 战士血玉·Lv3
+mov S$血玉下名字 战士血玉·Lv4
+mov S$血玉本属性1 58
+mov S$血玉本属性2 58
+mov S$血玉下属性1 69
+mov S$血玉下属性2 69
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 3 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:640:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv4
+#Act
+mov S$血玉阶级 四阶
+mov S$血玉阶图 904
+mov S$血玉本名字 战士血玉·Lv4
+mov S$血玉下名字 战士血玉·Lv5
+mov S$血玉本属性1 69
+mov S$血玉本属性2 69
+mov S$血玉下属性1 83
+mov S$血玉下属性2 83
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 4 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:648:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv5
+#Act
+mov S$血玉阶级 五阶
+mov S$血玉阶图 905
+mov S$血玉本名字 战士血玉·Lv5
+mov S$血玉下名字 战士血玉·Lv6
+mov S$血玉本属性1 83
+mov S$血玉本属性2 83
+mov S$血玉下属性1 100
+mov S$血玉下属性2 100
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 5 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:648:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv6
+#Act
+mov S$血玉阶级 六阶
+mov S$血玉阶图 906
+mov S$血玉本名字 战士血玉·Lv6
+mov S$血玉下名字 战士血玉·Lv7
+mov S$血玉本属性1 100
+mov S$血玉本属性2 100
+mov S$血玉下属性1 119
+mov S$血玉下属性2 119
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 6 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:648:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv7
+#Act
+mov S$血玉阶级 七阶
+mov S$血玉阶图 907
+mov S$血玉本名字 战士血玉·Lv7
+mov S$血玉下名字 战士血玉·Lv8
+mov S$血玉本属性1 119
+mov S$血玉本属性2 119
+mov S$血玉下属性1 143
+mov S$血玉下属性2 143
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 7 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:656:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv8
+#Act
+mov S$血玉阶级 八阶
+mov S$血玉阶图 908
+mov S$血玉本名字 战士血玉·Lv8
+mov S$血玉下名字 战士血玉·Lv9
+mov S$血玉本属性1 143
+mov S$血玉本属性2 143
+mov S$血玉下属性1 172
+mov S$血玉下属性2 172
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 8 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:656:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv9
+#Act
+mov S$血玉阶级 九阶
+mov S$血玉阶图 909
+mov S$血玉本名字 战士血玉·Lv9
+mov S$血玉下名字 战士血玉·Lv10
+mov S$血玉本属性1 172
+mov S$血玉本属性2 172
+mov S$血玉下属性1 206
+mov S$血玉下属性2 206
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 9 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:656:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv10
+#Act
+mov S$血玉阶级 十阶
+mov S$血玉阶图 910
+mov S$血玉本名字 战士血玉·Lv10
+mov S$血玉下名字 战士血玉·Lv11
+mov S$血玉本属性1 206
+mov S$血玉本属性2 206
+mov S$血玉下属性1 248
+mov S$血玉下属性2 248
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 10 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:664:10:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv11
+#Act
+mov S$血玉阶级 11阶
+mov S$血玉阶图 911
+mov S$血玉本名字 战士血玉·Lv11
+mov S$血玉下名字 战士血玉·Lv12
+mov S$血玉本属性1 248
+mov S$血玉本属性2 248
+mov S$血玉下属性1 297
+mov S$血玉下属性2 297
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 11 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:664:10:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv12
+#Act
+mov S$血玉阶级 2阶
+mov S$血玉阶图 912
+mov S$血玉本名字 战士血玉·Lv12
+mov S$血玉下名字 战士血玉·Lv13
+mov S$血玉本属性1 297
+mov S$血玉本属性2 297
+mov S$血玉下属性1 357
+mov S$血玉下属性2 357
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 12 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:664:10:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv13
+#Act
+mov S$血玉阶级 13阶
+mov S$血玉阶图 913
+mov S$血玉本名字 战士血玉·Lv13
+mov S$血玉下名字 战士血玉·Lv14
+mov S$血玉本属性1 357
+mov S$血玉本属性2 357
+mov S$血玉下属性1 428
+mov S$血玉下属性2 428
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 13 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:674:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv14
+#Act
+mov S$血玉阶级 14阶
+mov S$血玉阶图 914
+mov S$血玉本名字 战士血玉·Lv14
+mov S$血玉下名字 战士血玉·Lv15
+mov S$血玉本属性1 428
+mov S$血玉本属性2 428
+mov S$血玉下属性1 514
+mov S$血玉下属性2 514
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 14 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:674:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv15
+#Act
+mov S$血玉阶级 15阶
+mov S$血玉阶图 915
+mov S$血玉本名字 战士血玉·Lv15
+mov S$血玉下名字 战士血玉·Lv16
+mov S$血玉本属性1 514
+mov S$血玉本属性2 514
+mov S$血玉下属性1 616
+mov S$血玉下属性2 616
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 15 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:674:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv16
+#Act
+mov S$血玉阶级 16阶
+mov S$血玉阶图 916
+mov S$血玉本名字 战士血玉·Lv16
+mov S$血玉下名字 战士血玉·Lv17
+mov S$血玉本属性1 616
+mov S$血玉本属性2 616
+mov S$血玉下属性1 740
+mov S$血玉下属性2 740
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 16 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:682:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv17
+#Act
+mov S$血玉阶级 17阶
+mov S$血玉阶图 917
+mov S$血玉本名字 战士血玉·Lv17
+mov S$血玉下名字 战士血玉·Lv18
+mov S$血玉本属性1 740
+mov S$血玉本属性2 740
+mov S$血玉下属性1 887
+mov S$血玉下属性2 887
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 17 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:682:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv18
+#Act
+mov S$血玉阶级 18阶
+mov S$血玉阶图 918
+mov S$血玉本名字 战士血玉·Lv18
+mov S$血玉下名字 战士血玉·Lv19
+mov S$血玉本属性1 887
+mov S$血玉本属性2 887
+mov S$血玉下属性1 1065
+mov S$血玉下属性2 1065
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 18 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:682:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv19
+#Act
+mov S$血玉阶级 19阶
+mov S$血玉阶图 919
+mov S$血玉本名字 战士血玉·Lv19
+mov S$血玉下名字 战士血玉·Lv20
+mov S$血玉本属性1 1065
+mov S$血玉本属性2 1065
+mov S$血玉下属性1 1278
+mov S$血玉下属性2 1278
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 19 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:690:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv20
+#Act
+mov S$血玉阶级 20阶
+mov S$血玉阶图 920
+mov S$血玉本名字 战士血玉·Lv20
+mov S$血玉下名字 战士血玉·Lv21
+mov S$血玉本属性1 1278
+mov S$血玉本属性2 1278
+mov S$血玉下属性1 1534
+mov S$血玉下属性2 1534
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 20 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:690:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv21
+#Act
+mov S$血玉阶级 21阶
+mov S$血玉阶图 921
+mov S$血玉本名字 战士血玉·Lv21
+mov S$血玉下名字 战士血玉·Lv22
+mov S$血玉本属性1 1534
+mov S$血玉本属性2 1534
+mov S$血玉下属性1 1840
+mov S$血玉下属性2 1840
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 21 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:690:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv22
+#Act
+mov S$血玉阶级 22阶
+mov S$血玉阶图 922
+mov S$血玉本名字 战士血玉·Lv22
+mov S$血玉下名字 战士血玉·Lv23
+mov S$血玉本属性1 1840
+mov S$血玉本属性2 1840
+mov S$血玉下属性1 2208
+mov S$血玉下属性2 2208
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 22 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:698:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv23
+#Act
+mov S$血玉阶级 23阶
+mov S$血玉阶图 923
+mov S$血玉本名字 战士血玉·Lv23
+mov S$血玉下名字 战士血玉·Lv24
+mov S$血玉本属性1 2208
+mov S$血玉本属性2 2208
+mov S$血玉下属性1 2650
+mov S$血玉下属性2 2650
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 23 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:698:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv24
+#Act
+mov S$血玉阶级 24阶
+mov S$血玉阶图 924
+mov S$血玉本名字 战士血玉·Lv24
+mov S$血玉下名字 战士血玉·Lv25
+mov S$血玉本属性1 2650
+mov S$血玉本属性2 2650
+mov S$血玉下属性1 3180
+mov S$血玉下属性2 3180
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 24 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:698:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv25
+#Act
+mov S$血玉阶级 25阶
+mov S$血玉阶图 925
+mov S$血玉本名字 战士血玉·Lv25
+mov S$血玉下名字 战士血玉·Lv26
+mov S$血玉本属性1 3180
+mov S$血玉本属性2 3180
+mov S$血玉下属性1 3816
+mov S$血玉下属性2 3816
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 25 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:706:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv26
+#Act
+mov S$血玉阶级 26阶
+mov S$血玉阶图 926
+mov S$血玉本名字 战士血玉·Lv26
+mov S$血玉下名字 战士血玉·Lv27
+mov S$血玉本属性1 3816
+mov S$血玉本属性2 3816
+mov S$血玉下属性1 4579
+mov S$血玉下属性2 4579
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 26 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:706:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv27
+#Act
+mov S$血玉阶级 27阶
+mov S$血玉阶图 927
+mov S$血玉本名字 战士血玉·Lv27
+mov S$血玉下名字 战士血玉·Lv28
+mov S$血玉本属性1 4579
+mov S$血玉本属性2 4579
+mov S$血玉下属性1 5495
+mov S$血玉下属性2 5495
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 27 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:706:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv28
+#Act
+mov S$血玉阶级 28阶
+mov S$血玉阶图 928
+mov S$血玉本名字 战士血玉·Lv28
+mov S$血玉下名字 战士血玉·Lv29
+mov S$血玉本属性1 5495
+mov S$血玉本属性2 5495
+mov S$血玉下属性1 6594
+mov S$血玉下属性2 6594
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 28 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:714:7:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv29
+#Act
+mov S$血玉阶级 29阶
+mov S$血玉阶图 929
+mov S$血玉本名字 战士血玉·Lv29
+mov S$血玉下名字 战士血玉·Lv30
+mov S$血玉本属性1 6594
+mov S$血玉本属性2 6594
+mov S$血玉下属性1 7913
+mov S$血玉下属性2 7913
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 29 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:714:7:150:-480:-184:0>
+
+#IF
+CHECKITEMW 战士血玉·Lv30
+#Act
+mov S$血玉阶级 30阶
+mov S$血玉阶图 930
+mov S$血玉本名字 战士血玉·Lv30
+mov S$血玉下名字 已满级
+mov S$血玉本属性1 7913
+mov S$血玉本属性2 7913
+mov S$血玉下属性1 ----
+mov S$血玉下属性2 ----
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 0 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:714:7:150:-480:-184:0>
+
+
+#IF
+CHECKITEMW 法师血玉·Lv1
+#Act
+mov S$血玉阶级 一阶
+mov S$血玉阶图 901
+mov S$血玉本名字 法师血玉·Lv1
+mov S$血玉下名字 法师血玉·Lv2
+mov S$血玉本属性1 20
+mov S$血玉本属性2 20
+mov S$血玉下属性1 24
+mov S$血玉下属性2 24
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 1 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:640:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv2
+#Act
+mov S$血玉阶级 二阶
+mov S$血玉阶图 902
+mov S$血玉本名字 法师血玉·Lv2
+mov S$血玉下名字 法师血玉·Lv3
+mov S$血玉本属性1 24
+mov S$血玉本属性2 24
+mov S$血玉下属性1 28
+mov S$血玉下属性2 28
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 2 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:640:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv3
+#Act
+mov S$血玉阶级 三阶
+mov S$血玉阶图 903
+mov S$血玉本名字 法师血玉·Lv3
+mov S$血玉下名字 法师血玉·Lv4
+mov S$血玉本属性1 28
+mov S$血玉本属性2 28
+mov S$血玉下属性1 34
+mov S$血玉下属性2 34
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 3 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:640:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv4
+#Act
+mov S$血玉阶级 四阶
+mov S$血玉阶图 904
+mov S$血玉本名字 法师血玉·Lv4
+mov S$血玉下名字 法师血玉·Lv5
+mov S$血玉本属性1 34
+mov S$血玉本属性2 34
+mov S$血玉下属性1 41
+mov S$血玉下属性2 41
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 4 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:648:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv5
+#Act
+mov S$血玉阶级 五阶
+mov S$血玉阶图 905
+mov S$血玉本名字 法师血玉·Lv5
+mov S$血玉下名字 法师血玉·Lv6
+mov S$血玉本属性1 41
+mov S$血玉本属性2 41
+mov S$血玉下属性1 50
+mov S$血玉下属性2 50
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 5 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:648:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv6
+#Act
+mov S$血玉阶级 六阶
+mov S$血玉阶图 906
+mov S$血玉本名字 法师血玉·Lv6
+mov S$血玉下名字 法师血玉·Lv7
+mov S$血玉本属性1 50
+mov S$血玉本属性2 50
+mov S$血玉下属性1 60
+mov S$血玉下属性2 60
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 6 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:648:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv7
+#Act
+mov S$血玉阶级 七阶
+mov S$血玉阶图 907
+mov S$血玉本名字 法师血玉·Lv7
+mov S$血玉下名字 法师血玉·Lv8
+mov S$血玉本属性1 60
+mov S$血玉本属性2 60
+mov S$血玉下属性1 72
+mov S$血玉下属性2 72
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 7 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:656:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv8
+#Act
+mov S$血玉阶级 八阶
+mov S$血玉阶图 908
+mov S$血玉本名字 法师血玉·Lv8
+mov S$血玉下名字 法师血玉·Lv9
+mov S$血玉本属性1 72
+mov S$血玉本属性2 72
+mov S$血玉下属性1 86
+mov S$血玉下属性2 86
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 8 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:656:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv9
+#Act
+mov S$血玉阶级 九阶
+mov S$血玉阶图 909
+mov S$血玉本名字 法师血玉·Lv9
+mov S$血玉下名字 法师血玉·Lv10
+mov S$血玉本属性1 86
+mov S$血玉本属性2 86
+mov S$血玉下属性1 103
+mov S$血玉下属性2 103
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 9 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:656:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv10
+#Act
+mov S$血玉阶级 十阶
+mov S$血玉阶图 910
+mov S$血玉本名字 法师血玉·Lv10
+mov S$血玉下名字 法师血玉·Lv11
+mov S$血玉本属性1 103
+mov S$血玉本属性2 103
+mov S$血玉下属性1 124
+mov S$血玉下属性2 124
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 10 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:664:10:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv11
+#Act
+mov S$血玉阶级 11阶
+mov S$血玉阶图 911
+mov S$血玉本名字 法师血玉·Lv11
+mov S$血玉下名字 法师血玉·Lv12
+mov S$血玉本属性1 124
+mov S$血玉本属性2 124
+mov S$血玉下属性1 149
+mov S$血玉下属性2 149
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 11 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:664:10:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv12
+#Act
+mov S$血玉阶级 2阶
+mov S$血玉阶图 912
+mov S$血玉本名字 法师血玉·Lv12
+mov S$血玉下名字 法师血玉·Lv13
+mov S$血玉本属性1 149
+mov S$血玉本属性2 149
+mov S$血玉下属性1 179
+mov S$血玉下属性2 179
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 12 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:664:10:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv13
+#Act
+mov S$血玉阶级 13阶
+mov S$血玉阶图 913
+mov S$血玉本名字 法师血玉·Lv13
+mov S$血玉下名字 法师血玉·Lv14
+mov S$血玉本属性1 179
+mov S$血玉本属性2 179
+mov S$血玉下属性1 215
+mov S$血玉下属性2 215
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 13 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:674:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv14
+#Act
+mov S$血玉阶级 14阶
+mov S$血玉阶图 914
+mov S$血玉本名字 法师血玉·Lv14
+mov S$血玉下名字 法师血玉·Lv15
+mov S$血玉本属性1 215
+mov S$血玉本属性2 215
+mov S$血玉下属性1 258
+mov S$血玉下属性2 258
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 14 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:674:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv15
+#Act
+mov S$血玉阶级 15阶
+mov S$血玉阶图 915
+mov S$血玉本名字 法师血玉·Lv15
+mov S$血玉下名字 法师血玉·Lv16
+mov S$血玉本属性1 258
+mov S$血玉本属性2 258
+mov S$血玉下属性1 310
+mov S$血玉下属性2 310
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 15 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:674:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv16
+#Act
+mov S$血玉阶级 16阶
+mov S$血玉阶图 916
+mov S$血玉本名字 法师血玉·Lv16
+mov S$血玉下名字 法师血玉·Lv17
+mov S$血玉本属性1 310
+mov S$血玉本属性2 310
+mov S$血玉下属性1 372
+mov S$血玉下属性2 372
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 16 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:682:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv17
+#Act
+mov S$血玉阶级 17阶
+mov S$血玉阶图 917
+mov S$血玉本名字 法师血玉·Lv17
+mov S$血玉下名字 法师血玉·Lv18
+mov S$血玉本属性1 372
+mov S$血玉本属性2 372
+mov S$血玉下属性1 446
+mov S$血玉下属性2 446
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 17 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:682:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv18
+#Act
+mov S$血玉阶级 18阶
+mov S$血玉阶图 918
+mov S$血玉本名字 法师血玉·Lv18
+mov S$血玉下名字 法师血玉·Lv19
+mov S$血玉本属性1 446
+mov S$血玉本属性2 446
+mov S$血玉下属性1 536
+mov S$血玉下属性2 536
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 18 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:682:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv19
+#Act
+mov S$血玉阶级 19阶
+mov S$血玉阶图 919
+mov S$血玉本名字 法师血玉·Lv19
+mov S$血玉下名字 法师血玉·Lv20
+mov S$血玉本属性1 536
+mov S$血玉本属性2 536
+mov S$血玉下属性1 643
+mov S$血玉下属性2 643
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 19 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:690:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv20
+#Act
+mov S$血玉阶级 20阶
+mov S$血玉阶图 920
+mov S$血玉本名字 法师血玉·Lv20
+mov S$血玉下名字 法师血玉·Lv21
+mov S$血玉本属性1 643
+mov S$血玉本属性2 643
+mov S$血玉下属性1 772
+mov S$血玉下属性2 772
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 20 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:690:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv21
+#Act
+mov S$血玉阶级 21阶
+mov S$血玉阶图 921
+mov S$血玉本名字 法师血玉·Lv21
+mov S$血玉下名字 法师血玉·Lv22
+mov S$血玉本属性1 772
+mov S$血玉本属性2 772
+mov S$血玉下属性1 926
+mov S$血玉下属性2 926
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 21 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:690:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv22
+#Act
+mov S$血玉阶级 22阶
+mov S$血玉阶图 922
+mov S$血玉本名字 法师血玉·Lv22
+mov S$血玉下名字 法师血玉·Lv23
+mov S$血玉本属性1 926
+mov S$血玉本属性2 926
+mov S$血玉下属性1 1111
+mov S$血玉下属性2 1111
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 22 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:698:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv23
+#Act
+mov S$血玉阶级 23阶
+mov S$血玉阶图 923
+mov S$血玉本名字 法师血玉·Lv23
+mov S$血玉下名字 法师血玉·Lv24
+mov S$血玉本属性1 1111
+mov S$血玉本属性2 1111
+mov S$血玉下属性1 1333
+mov S$血玉下属性2 1333
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 23 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:698:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv24
+#Act
+mov S$血玉阶级 24阶
+mov S$血玉阶图 924
+mov S$血玉本名字 法师血玉·Lv24
+mov S$血玉下名字 法师血玉·Lv25
+mov S$血玉本属性1 1333
+mov S$血玉本属性2 1333
+mov S$血玉下属性1 1600
+mov S$血玉下属性2 1600
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 24 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:698:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv25
+#Act
+mov S$血玉阶级 25阶
+mov S$血玉阶图 925
+mov S$血玉本名字 法师血玉·Lv25
+mov S$血玉下名字 法师血玉·Lv26
+mov S$血玉本属性1 1600
+mov S$血玉本属性2 1600
+mov S$血玉下属性1 1920
+mov S$血玉下属性2 1920
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 25 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:706:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv26
+#Act
+mov S$血玉阶级 26阶
+mov S$血玉阶图 926
+mov S$血玉本名字 法师血玉·Lv26
+mov S$血玉下名字 法师血玉·Lv27
+mov S$血玉本属性1 1920
+mov S$血玉本属性2 1920
+mov S$血玉下属性1 2304
+mov S$血玉下属性2 2304
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 26 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:706:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv27
+#Act
+mov S$血玉阶级 27阶
+mov S$血玉阶图 927
+mov S$血玉本名字 法师血玉·Lv27
+mov S$血玉下名字 法师血玉·Lv28
+mov S$血玉本属性1 2304
+mov S$血玉本属性2 2304
+mov S$血玉下属性1 2765
+mov S$血玉下属性2 2765
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 27 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:706:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv28
+#Act
+mov S$血玉阶级 28阶
+mov S$血玉阶图 928
+mov S$血玉本名字 法师血玉·Lv28
+mov S$血玉下名字 法师血玉·Lv29
+mov S$血玉本属性1 2765
+mov S$血玉本属性2 2765
+mov S$血玉下属性1 3318
+mov S$血玉下属性2 3318
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 28 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:714:7:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv29
+#Act
+mov S$血玉阶级 29阶
+mov S$血玉阶图 929
+mov S$血玉本名字 法师血玉·Lv29
+mov S$血玉下名字 法师血玉·Lv30
+mov S$血玉本属性1 3318
+mov S$血玉本属性2 3318
+mov S$血玉下属性1 3982
+mov S$血玉下属性2 3982
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 29 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:714:7:150:-480:-184:0>
+
+#IF
+CHECKITEMW 法师血玉·Lv30
+#Act
+mov S$血玉阶级 30阶
+mov S$血玉阶图 930
+mov S$血玉本名字 法师血玉·Lv30
+mov S$血玉下名字 已满级
+mov S$血玉本属性1 3982
+mov S$血玉本属性2 3982
+mov S$血玉下属性1 ----
+mov S$血玉下属性2 ----
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 0 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:714:7:150:-480:-184:0>
+
+
+#IF
+CHECKITEMW 道士血玉·Lv1
+#Act
+mov S$血玉阶级 一阶
+mov S$血玉阶图 901
+mov S$血玉本名字 道士血玉·Lv1
+mov S$血玉下名字 道士血玉·Lv2
+mov S$血玉本属性1 30
+mov S$血玉本属性2 30
+mov S$血玉下属性1 36
+mov S$血玉下属性2 36
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 1 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:640:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv2
+#Act
+mov S$血玉阶级 二阶
+mov S$血玉阶图 902
+mov S$血玉本名字 道士血玉·Lv2
+mov S$血玉下名字 道士血玉·Lv3
+mov S$血玉本属性1 36
+mov S$血玉本属性2 36
+mov S$血玉下属性1 43
+mov S$血玉下属性2 43
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 2 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:640:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv3
+#Act
+mov S$血玉阶级 三阶
+mov S$血玉阶图 903
+mov S$血玉本名字 道士血玉·Lv3
+mov S$血玉下名字 道士血玉·Lv4
+mov S$血玉本属性1 43
+mov S$血玉本属性2 43
+mov S$血玉下属性1 52
+mov S$血玉下属性2 52
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 3 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:640:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv4
+#Act
+mov S$血玉阶级 四阶
+mov S$血玉阶图 904
+mov S$血玉本名字 道士血玉·Lv4
+mov S$血玉下名字 道士血玉·Lv5
+mov S$血玉本属性1 52
+mov S$血玉本属性2 52
+mov S$血玉下属性1 62
+mov S$血玉下属性2 62
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 4 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:648:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv5
+#Act
+mov S$血玉阶级 五阶
+mov S$血玉阶图 905
+mov S$血玉本名字 道士血玉·Lv5
+mov S$血玉下名字 道士血玉·Lv6
+mov S$血玉本属性1 62
+mov S$血玉本属性2 62
+mov S$血玉下属性1 75
+mov S$血玉下属性2 75
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 5 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:648:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv6
+#Act
+mov S$血玉阶级 六阶
+mov S$血玉阶图 906
+mov S$血玉本名字 道士血玉·Lv6
+mov S$血玉下名字 道士血玉·Lv7
+mov S$血玉本属性1 75
+mov S$血玉本属性2 75
+mov S$血玉下属性1 90
+mov S$血玉下属性2 90
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 6 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:648:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv7
+#Act
+mov S$血玉阶级 七阶
+mov S$血玉阶图 907
+mov S$血玉本名字 道士血玉·Lv7
+mov S$血玉下名字 道士血玉·Lv8
+mov S$血玉本属性1 90
+mov S$血玉本属性2 90
+mov S$血玉下属性1 107
+mov S$血玉下属性2 107
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 7 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:656:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv8
+#Act
+mov S$血玉阶级 八阶
+mov S$血玉阶图 908
+mov S$血玉本名字 道士血玉·Lv8
+mov S$血玉下名字 道士血玉·Lv9
+mov S$血玉本属性1 107
+mov S$血玉本属性2 107
+mov S$血玉下属性1 129
+mov S$血玉下属性2 129
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 8 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:656:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv9
+#Act
+mov S$血玉阶级 九阶
+mov S$血玉阶图 909
+mov S$血玉本名字 道士血玉·Lv9
+mov S$血玉下名字 道士血玉·Lv10
+mov S$血玉本属性1 129
+mov S$血玉本属性2 129
+mov S$血玉下属性1 155
+mov S$血玉下属性2 155
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 9 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:656:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv10
+#Act
+mov S$血玉阶级 十阶
+mov S$血玉阶图 910
+mov S$血玉本名字 道士血玉·Lv10
+mov S$血玉下名字 道士血玉·Lv11
+mov S$血玉本属性1 155
+mov S$血玉本属性2 155
+mov S$血玉下属性1 186
+mov S$血玉下属性2 186
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 10 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:664:10:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv11
+#Act
+mov S$血玉阶级 11阶
+mov S$血玉阶图 911
+mov S$血玉本名字 道士血玉·Lv11
+mov S$血玉下名字 道士血玉·Lv12
+mov S$血玉本属性1 186
+mov S$血玉本属性2 186
+mov S$血玉下属性1 223
+mov S$血玉下属性2 223
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 11 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:664:10:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv12
+#Act
+mov S$血玉阶级 2阶
+mov S$血玉阶图 912
+mov S$血玉本名字 道士血玉·Lv12
+mov S$血玉下名字 道士血玉·Lv13
+mov S$血玉本属性1 223
+mov S$血玉本属性2 223
+mov S$血玉下属性1 267
+mov S$血玉下属性2 267
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 12 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:664:10:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv13
+#Act
+mov S$血玉阶级 13阶
+mov S$血玉阶图 913
+mov S$血玉本名字 道士血玉·Lv13
+mov S$血玉下名字 道士血玉·Lv14
+mov S$血玉本属性1 267
+mov S$血玉本属性2 267
+mov S$血玉下属性1 321
+mov S$血玉下属性2 321
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 13 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:674:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv14
+#Act
+mov S$血玉阶级 14阶
+mov S$血玉阶图 914
+mov S$血玉本名字 道士血玉·Lv14
+mov S$血玉下名字 道士血玉·Lv15
+mov S$血玉本属性1 321
+mov S$血玉本属性2 321
+mov S$血玉下属性1 385
+mov S$血玉下属性2 385
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 14 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:674:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv15
+#Act
+mov S$血玉阶级 15阶
+mov S$血玉阶图 915
+mov S$血玉本名字 道士血玉·Lv15
+mov S$血玉下名字 道士血玉·Lv16
+mov S$血玉本属性1 385
+mov S$血玉本属性2 385
+mov S$血玉下属性1 462
+mov S$血玉下属性2 462
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 15 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:674:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv16
+#Act
+mov S$血玉阶级 16阶
+mov S$血玉阶图 916
+mov S$血玉本名字 道士血玉·Lv16
+mov S$血玉下名字 道士血玉·Lv17
+mov S$血玉本属性1 462
+mov S$血玉本属性2 462
+mov S$血玉下属性1 555
+mov S$血玉下属性2 555
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 16 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:682:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv17
+#Act
+mov S$血玉阶级 17阶
+mov S$血玉阶图 917
+mov S$血玉本名字 道士血玉·Lv17
+mov S$血玉下名字 道士血玉·Lv18
+mov S$血玉本属性1 555
+mov S$血玉本属性2 555
+mov S$血玉下属性1 666
+mov S$血玉下属性2 666
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 17 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:682:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv18
+#Act
+mov S$血玉阶级 18阶
+mov S$血玉阶图 918
+mov S$血玉本名字 道士血玉·Lv18
+mov S$血玉下名字 道士血玉·Lv19
+mov S$血玉本属性1 666
+mov S$血玉本属性2 666
+mov S$血玉下属性1 799
+mov S$血玉下属性2 799
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 18 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:682:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv19
+#Act
+mov S$血玉阶级 19阶
+mov S$血玉阶图 919
+mov S$血玉本名字 道士血玉·Lv19
+mov S$血玉下名字 道士血玉·Lv20
+mov S$血玉本属性1 799
+mov S$血玉本属性2 799
+mov S$血玉下属性1 958
+mov S$血玉下属性2 958
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 19 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:690:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv20
+#Act
+mov S$血玉阶级 20阶
+mov S$血玉阶图 920
+mov S$血玉本名字 道士血玉·Lv20
+mov S$血玉下名字 道士血玉·Lv21
+mov S$血玉本属性1 958
+mov S$血玉本属性2 958
+mov S$血玉下属性1 1150
+mov S$血玉下属性2 1150
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 20 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:690:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv21
+#Act
+mov S$血玉阶级 21阶
+mov S$血玉阶图 921
+mov S$血玉本名字 道士血玉·Lv21
+mov S$血玉下名字 道士血玉·Lv22
+mov S$血玉本属性1 1150
+mov S$血玉本属性2 1150
+mov S$血玉下属性1 1380
+mov S$血玉下属性2 1380
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 21 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:690:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv22
+#Act
+mov S$血玉阶级 22阶
+mov S$血玉阶图 922
+mov S$血玉本名字 道士血玉·Lv22
+mov S$血玉下名字 道士血玉·Lv23
+mov S$血玉本属性1 1380
+mov S$血玉本属性2 1380
+mov S$血玉下属性1 1656
+mov S$血玉下属性2 1656
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 22 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:698:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv23
+#Act
+mov S$血玉阶级 23阶
+mov S$血玉阶图 923
+mov S$血玉本名字 道士血玉·Lv23
+mov S$血玉下名字 道士血玉·Lv24
+mov S$血玉本属性1 1656
+mov S$血玉本属性2 1656
+mov S$血玉下属性1 1987
+mov S$血玉下属性2 1987
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 23 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:698:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv24
+#Act
+mov S$血玉阶级 24阶
+mov S$血玉阶图 924
+mov S$血玉本名字 道士血玉·Lv24
+mov S$血玉下名字 道士血玉·Lv25
+mov S$血玉本属性1 1987
+mov S$血玉本属性2 1987
+mov S$血玉下属性1 2385
+mov S$血玉下属性2 2385
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 24 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:698:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv25
+#Act
+mov S$血玉阶级 25阶
+mov S$血玉阶图 925
+mov S$血玉本名字 道士血玉·Lv25
+mov S$血玉下名字 道士血玉·Lv26
+mov S$血玉本属性1 2385
+mov S$血玉本属性2 2385
+mov S$血玉下属性1 2862
+mov S$血玉下属性2 2862
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 25 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:706:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv26
+#Act
+mov S$血玉阶级 26阶
+mov S$血玉阶图 926
+mov S$血玉本名字 道士血玉·Lv26
+mov S$血玉下名字 道士血玉·Lv27
+mov S$血玉本属性1 2862
+mov S$血玉本属性2 2862
+mov S$血玉下属性1 3434
+mov S$血玉下属性2 3434
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 26 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:706:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv27
+#Act
+mov S$血玉阶级 27阶
+mov S$血玉阶图 927
+mov S$血玉本名字 道士血玉·Lv27
+mov S$血玉下名字 道士血玉·Lv28
+mov S$血玉本属性1 3434
+mov S$血玉本属性2 3434
+mov S$血玉下属性1 4121
+mov S$血玉下属性2 4121
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 27 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:706:8:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv28
+#Act
+mov S$血玉阶级 28阶
+mov S$血玉阶图 928
+mov S$血玉本名字 道士血玉·Lv28
+mov S$血玉下名字 道士血玉·Lv29
+mov S$血玉本属性1 4121
+mov S$血玉本属性2 4121
+mov S$血玉下属性1 4945
+mov S$血玉下属性2 4945
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 28 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:714:7:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv29
+#Act
+mov S$血玉阶级 29阶
+mov S$血玉阶图 929
+mov S$血玉本名字 道士血玉·Lv29
+mov S$血玉下名字 道士血玉·Lv30
+mov S$血玉本属性1 4945
+mov S$血玉本属性2 4945
+mov S$血玉下属性1 5934
+mov S$血玉下属性2 5934
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 29 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:714:7:150:-480:-184:0>
+
+#IF
+CHECKITEMW 道士血玉·Lv30
+#Act
+mov S$血玉阶级 30阶
+mov S$血玉阶图 930
+mov S$血玉本名字 道士血玉·Lv30
+mov S$血玉下名字 已满级
+mov S$血玉本属性1 5934
+mov S$血玉本属性2 5934
+mov S$血玉下属性1 ----
+mov S$血玉下属性2 ----
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 0 N$血玉碎片数量
+mov S$血玉元宝 {免费/SCOLOR=250}
+mov S$血玉展示 <PlayImg:28:714:7:150:-480:-184:0>
+
+
+
+
+;*****************************
+#IF
+CHECKUSEITEM 12
+#Act
+mov S$印记开关 印记
+#ELSEACT
+mov S$印记阶级 　　
+mov S$印记开关 　　
+mov N$印记图片 0
+
+#IF
+CHECKITEMW 印记·Lv1
+#Act
+mov S$印记阶级 一阶
+mov S$印记阶图 901
+mov S$印记本名字 印记·Lv1
+mov S$印记下名字 印记·Lv2
+mov S$印记本属性1 1
+mov S$印记本属性2 1%
+mov S$印记本属性3 　
+mov S$印记下属性1 2
+mov S$印记下属性2 2%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 1 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:801:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv2
+#Act
+mov S$印记阶级 二阶
+mov S$印记阶图 902
+mov S$印记本名字 印记·Lv2
+mov S$印记下名字 印记·Lv3
+mov S$印记本属性1 2
+mov S$印记本属性2 2%
+mov S$印记本属性3 　
+mov S$印记下属性1 3
+mov S$印记下属性2 3%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 2 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:801:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv3
+#Act
+mov S$印记阶级 三阶
+mov S$印记阶图 903
+mov S$印记本名字 印记·Lv3
+mov S$印记下名字 印记·Lv4
+mov S$印记本属性1 3
+mov S$印记本属性2 3%
+mov S$印记本属性3 　
+mov S$印记下属性1 4
+mov S$印记下属性2 4%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 3 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:801:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv4
+#Act
+mov S$印记阶级 四阶
+mov S$印记阶图 904
+mov S$印记本名字 印记·Lv4
+mov S$印记下名字 印记·Lv5
+mov S$印记本属性1 4
+mov S$印记本属性2 5%
+mov S$印记本属性3 　
+mov S$印记下属性1 5
+mov S$印记下属性2 5%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 4 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:809:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv5
+#Act
+mov S$印记阶级 五阶
+mov S$印记阶图 905
+mov S$印记本名字 印记·Lv5
+mov S$印记下名字 印记·Lv6
+mov S$印记本属性1 5
+mov S$印记本属性2 5%
+mov S$印记本属性3 　
+mov S$印记下属性1 6
+mov S$印记下属性2 6%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 5 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:809:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv6
+#Act
+mov S$印记阶级 六阶
+mov S$印记阶图 906
+mov S$印记本名字 印记·Lv6
+mov S$印记下名字 印记·Lv7
+mov S$印记本属性1 6
+mov S$印记本属性2 6%
+mov S$印记本属性3 　
+mov S$印记下属性1 7
+mov S$印记下属性2 7%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 6 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:809:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv7
+#Act
+mov S$印记阶级 七阶
+mov S$印记阶图 907
+mov S$印记本名字 印记·Lv7
+mov S$印记下名字 印记·Lv8
+mov S$印记本属性1 7
+mov S$印记本属性2 7%
+mov S$印记本属性3 　
+mov S$印记下属性1 8
+mov S$印记下属性2 8%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 7 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:817:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv8
+#Act
+mov S$印记阶级 八阶
+mov S$印记阶图 908
+mov S$印记本名字 印记·Lv8
+mov S$印记下名字 印记·Lv9
+mov S$印记本属性1 8
+mov S$印记本属性2 8%
+mov S$印记本属性3 　
+mov S$印记下属性1 9
+mov S$印记下属性2 9%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 8 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:817:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv9
+#Act
+mov S$印记阶级 九阶
+mov S$印记阶图 909
+mov S$印记本名字 印记·Lv9
+mov S$印记下名字 印记·Lv10
+mov S$印记本属性1 9
+mov S$印记本属性2 9%
+mov S$印记本属性3 　
+mov S$印记下属性1 10
+mov S$印记下属性2 10%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 9 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:817:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv10
+#Act
+mov S$印记阶级 10阶
+mov S$印记阶图 910
+mov S$印记本名字 印记·Lv10
+mov S$印记下名字 印记·Lv11
+mov S$印记本属性1 10
+mov S$印记本属性2 10%
+mov S$印记本属性3 　
+mov S$印记下属性1 11
+mov S$印记下属性2 12%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 10 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:825:12:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv11
+#Act
+mov S$印记阶级 11阶
+mov S$印记阶图 911
+mov S$印记本名字 印记·Lv11
+mov S$印记下名字 印记·Lv12
+mov S$印记本属性1 11
+mov S$印记本属性2 12%
+mov S$印记本属性3 　
+mov S$印记下属性1 12
+mov S$印记下属性2 14%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 11 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:825:12:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv12
+#Act
+mov S$印记阶级 12阶
+mov S$印记阶图 912
+mov S$印记本名字 印记·Lv12
+mov S$印记下名字 印记·Lv13
+mov S$印记本属性1 12
+mov S$印记本属性2 14%
+mov S$印记本属性3 　
+mov S$印记下属性1 13
+mov S$印记下属性2 16%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 12 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:825:12:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv13
+#Act
+mov S$印记阶级 13阶
+mov S$印记阶图 913
+mov S$印记本名字 印记·Lv13
+mov S$印记下名字 印记·Lv14
+mov S$印记本属性1 13
+mov S$印记本属性2 16%
+mov S$印记本属性3 　
+mov S$印记下属性1 14
+mov S$印记下属性2 18%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 13 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:837:12:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv14
+#Act
+mov S$印记阶级 14阶
+mov S$印记阶图 914
+mov S$印记本名字 印记·Lv14
+mov S$印记下名字 印记·Lv15
+mov S$印记本属性1 14
+mov S$印记本属性2 18%
+mov S$印记本属性3 　
+mov S$印记下属性1 15
+mov S$印记下属性2 20%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 14 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:837:12:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv15
+#Act
+mov S$印记阶级 15阶
+mov S$印记阶图 915
+mov S$印记本名字 印记·Lv15
+mov S$印记下名字 印记·Lv16
+mov S$印记本属性1 15
+mov S$印记本属性2 20%
+mov S$印记本属性3 　
+mov S$印记下属性1 16
+mov S$印记下属性2 22%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 15 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:837:12:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv16
+#Act
+mov S$印记阶级 16阶
+mov S$印记阶图 916
+mov S$印记本名字 印记·Lv16
+mov S$印记下名字 印记·Lv17
+mov S$印记本属性1 16
+mov S$印记本属性2 22%
+mov S$印记本属性3 　
+mov S$印记下属性1 17
+mov S$印记下属性2 24%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 16 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:860:24:100:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv17
+#Act
+mov S$印记阶级 17阶
+mov S$印记阶图 917
+mov S$印记本名字 印记·Lv17
+mov S$印记下名字 印记·Lv18
+mov S$印记本属性1 17
+mov S$印记本属性2 24%
+mov S$印记本属性3 　
+mov S$印记下属性1 18
+mov S$印记下属性2 26%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 17 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:860:24:100:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv18
+#Act
+mov S$印记阶级 18阶
+mov S$印记阶图 918
+mov S$印记本名字 印记·Lv18
+mov S$印记下名字 印记·Lv19
+mov S$印记本属性1 18
+mov S$印记本属性2 26%
+mov S$印记本属性3 　
+mov S$印记下属性1 19
+mov S$印记下属性2 28%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 18 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:860:24:100:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv19
+#Act
+mov S$印记阶级 19阶
+mov S$印记阶图 919
+mov S$印记本名字 印记·Lv19
+mov S$印记下名字 印记·Lv20
+mov S$印记本属性1 19
+mov S$印记本属性2 28%
+mov S$印记本属性3 　
+mov S$印记下属性1 20
+mov S$印记下属性2 30%
+mov S$印记下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 19 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:884:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv20
+#Act
+mov S$印记阶级 20阶
+mov S$印记阶图 920
+mov S$印记本名字 印记·Lv20
+mov S$印记下名字 印记·Lv21
+mov S$印记本属性1 20
+mov S$印记本属性2 30%
+mov S$印记本属性3 　
+mov S$印记下属性1 21
+mov S$印记下属性2 33%
+mov S$印记下属性3 伤害减免增加：1%　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 20 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:884:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv21
+#Act
+mov S$印记阶级 21阶
+mov S$印记阶图 921
+mov S$印记本名字 印记·Lv21
+mov S$印记下名字 印记·Lv22
+mov S$印记本属性1 21
+mov S$印记本属性2 33%
+mov S$印记本属性3 伤害减免增加：1%
+mov S$印记下属性1 22
+mov S$印记下属性2 36%
+mov S$印记下属性3 伤害减免增加：2%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 21 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:884:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv22
+#Act
+mov S$印记阶级 22阶
+mov S$印记阶图 922
+mov S$印记本名字 印记·Lv22
+mov S$印记下名字 印记·Lv23
+mov S$印记本属性1 22
+mov S$印记本属性2 36%
+mov S$印记本属性3 伤害减免增加：2%
+mov S$印记下属性1 23
+mov S$印记下属性2 39%
+mov S$印记下属性3 伤害减免增加：3%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 22 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:892:12:150:-433:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv23
+#Act
+mov S$印记阶级 23阶
+mov S$印记阶图 923
+mov S$印记本名字 印记·Lv23
+mov S$印记下名字 印记·Lv24
+mov S$印记本属性1 23
+mov S$印记本属性2 39%
+mov S$印记本属性3 伤害减免增加：3%　
+mov S$印记下属性1 24
+mov S$印记下属性2 42%
+mov S$印记下属性3 伤害减免增加：4%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 23 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:892:12:150:-433:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv24
+#Act
+mov S$印记阶级 24阶
+mov S$印记阶图 924
+mov S$印记本名字 印记·Lv24
+mov S$印记下名字 印记·Lv25
+mov S$印记本属性1 24
+mov S$印记本属性2 42%
+mov S$印记本属性3 伤害减免增加：4%
+mov S$印记下属性1 25
+mov S$印记下属性2 45%
+mov S$印记下属性3 伤害减免增加：5%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 24 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:892:12:150:-433:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv25
+#Act
+mov S$印记阶级 25阶
+mov S$印记阶图 925
+mov S$印记本名字 印记·Lv25
+mov S$印记下名字 印记·Lv26
+mov S$印记本属性1 25
+mov S$印记本属性2 45%
+mov S$印记本属性3 伤害减免增加：5%
+mov S$印记下属性1 26
+mov S$印记下属性2 48%
+mov S$印记下属性3 伤害减免增加：6%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 25 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:904:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv26
+#Act
+mov S$印记阶级 26阶
+mov S$印记阶图 926
+mov S$印记本名字 印记·Lv26
+mov S$印记下名字 印记·Lv27
+mov S$印记本属性1 26
+mov S$印记本属性2 48%
+mov S$印记本属性3 伤害减免增加：6%
+mov S$印记下属性1 27
+mov S$印记下属性2 51%
+mov S$印记下属性3 伤害减免增加：7%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 26 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:904:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv27
+#Act
+mov S$印记阶级 27阶
+mov S$印记阶图 927
+mov S$印记本名字 印记·Lv27
+mov S$印记下名字 印记·Lv28
+mov S$印记本属性1 27
+mov S$印记本属性2 51%
+mov S$印记本属性3 伤害减免增加：7%
+mov S$印记下属性1 28
+mov S$印记下属性2 54%
+mov S$印记下属性3 伤害减免增加：8%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 27 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:904:8:150:-453:-184:0>
+
+#IF
+CHECKITEMW 印记·Lv28
+#Act
+mov S$印记阶级 28阶
+mov S$印记阶图 928
+mov S$印记本名字 印记·Lv28
+mov S$印记下名字 印记·Lv29
+mov S$印记本属性1 28
+mov S$印记本属性2 54%
+mov S$印记本属性3 伤害减免增加：8%
+mov S$印记下属性1 29
+mov S$印记下属性2 57%
+mov S$印记下属性3 伤害减免增加：9%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 28 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:912:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 印记·Lv29
+#Act
+mov S$印记阶级 29阶
+mov S$印记阶图 929
+mov S$印记本名字 印记·Lv29
+mov S$印记下名字 印记·Lv30
+mov S$印记本属性1 29
+mov S$印记本属性2 57%
+mov S$印记本属性3 伤害减免增加：9%
+mov S$印记下属性1 30
+mov S$印记下属性2 60%
+mov S$印记下属性3 伤害减免增加：10%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 29 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:912:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 印记·Lv30
+#Act
+mov S$印记阶级 30阶
+mov S$印记阶图 930
+mov S$印记本名字 印记·Lv30
+mov S$印记下名字 已满级
+mov S$印记本属性1 30
+mov S$印记本属性2 60%
+mov S$印记本属性3 伤害减免增加：10%
+mov S$印记下属性1 ----
+mov S$印记下属性2 ----
+mov S$印记下属性3 伤害减免增加：----
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 0 N$印记碎片数量
+mov S$印记元宝 {免费/SCOLOR=250}
+mov S$印记展示 <PlayImg:28:912:8:150:-460:-154:0>
+
+
+;*****************************
+#IF
+CHECKUSEITEM 14
+#Act
+mov S$魂晶开关 魂晶
+#ELSEACT
+mov S$魂晶阶级 　　
+mov S$魂晶开关 　　
+mov N$魂晶图片 0
+
+#IF
+CHECKITEMW 魂晶·Lv1
+#Act
+mov S$魂晶阶级 一阶
+mov S$魂晶阶图 901
+mov S$魂晶本名字 魂晶·Lv1
+mov S$魂晶下名字 魂晶·Lv2
+mov S$魂晶本属性1 1
+mov S$魂晶本属性2 1%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 2
+mov S$魂晶下属性2 2%
+mov S$魂晶下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 1 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:721:8:150:-430:-124:0>
+
+#IF
+CHECKITEMW 魂晶·Lv2
+#Act
+mov S$魂晶阶级 二阶
+mov S$魂晶阶图 902
+mov S$魂晶本名字 魂晶·Lv2
+mov S$魂晶下名字 魂晶·Lv3
+mov S$魂晶本属性1 2
+mov S$魂晶本属性2 2%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 3
+mov S$魂晶下属性2 3%
+mov S$魂晶下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 2 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:721:8:150:-430:-124:0>
+
+#IF
+CHECKITEMW 魂晶·Lv3
+#Act
+mov S$魂晶阶级 三阶
+mov S$魂晶阶图 903
+mov S$魂晶本名字 魂晶·Lv3
+mov S$魂晶下名字 魂晶·Lv4
+mov S$魂晶本属性1 3
+mov S$魂晶本属性2 3%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 4
+mov S$魂晶下属性2 4%
+mov S$魂晶下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 3 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:721:8:150:-430:-124:0>
+
+#IF
+CHECKITEMW 魂晶·Lv4
+#Act
+mov S$魂晶阶级 四阶
+mov S$魂晶阶图 904
+mov S$魂晶本名字 魂晶·Lv4
+mov S$魂晶下名字 魂晶·Lv5
+mov S$魂晶本属性1 4
+mov S$魂晶本属性2 4%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 5
+mov S$魂晶下属性2 5%
+mov S$魂晶下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 4 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:729:8:150:-430:-124:0>
+
+#IF
+CHECKITEMW 魂晶·Lv5
+#Act
+mov S$魂晶阶级 五阶
+mov S$魂晶阶图 905
+mov S$魂晶本名字 魂晶·Lv5
+mov S$魂晶下名字 魂晶·Lv6
+mov S$魂晶本属性1 5
+mov S$魂晶本属性2 5%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 6
+mov S$魂晶下属性2 6%
+mov S$魂晶下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 5 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:729:8:150:-430:-124:0>
+
+#IF
+CHECKITEMW 魂晶·Lv6
+#Act
+mov S$魂晶阶级 六阶
+mov S$魂晶阶图 906
+mov S$魂晶本名字 魂晶·Lv6
+mov S$魂晶下名字 魂晶·Lv7
+mov S$魂晶本属性1 6
+mov S$魂晶本属性2 6%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 7
+mov S$魂晶下属性2 7%
+mov S$魂晶下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 6 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:729:8:150:-430:-124:0>
+
+#IF
+CHECKITEMW 魂晶·Lv7
+#Act
+mov S$魂晶阶级 七阶
+mov S$魂晶阶图 907
+mov S$魂晶本名字 魂晶·Lv7
+mov S$魂晶下名字 魂晶·Lv8
+mov S$魂晶本属性1 7
+mov S$魂晶本属性2 7%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 8
+mov S$魂晶下属性2 8%
+mov S$魂晶下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 7 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:737:8:150:-430:-124:0>
+
+#IF
+CHECKITEMW 魂晶·Lv8
+#Act
+mov S$魂晶阶级 八阶
+mov S$魂晶阶图 908
+mov S$魂晶本名字 魂晶·Lv8
+mov S$魂晶下名字 魂晶·Lv9
+mov S$魂晶本属性1 8
+mov S$魂晶本属性2 8%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 9
+mov S$魂晶下属性2 9%
+mov S$魂晶下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 8 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:737:8:150:-430:-124:0>
+
+#IF
+CHECKITEMW 魂晶·Lv9
+#Act
+mov S$魂晶阶级 九阶
+mov S$魂晶阶图 909
+mov S$魂晶本名字 魂晶·Lv9
+mov S$魂晶下名字 魂晶·Lv10
+mov S$魂晶本属性1 9
+mov S$魂晶本属性2 9%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 10
+mov S$魂晶下属性2 10%
+mov S$魂晶下属性3 　
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 9 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:737:8:150:-430:-124:0>
+
+#IF
+CHECKITEMW 魂晶·Lv10
+#Act
+mov S$魂晶阶级 10阶
+mov S$魂晶阶图 910
+mov S$魂晶本名字 魂晶·Lv10
+mov S$魂晶下名字 魂晶·Lv11
+mov S$魂晶本属性1 10
+mov S$魂晶本属性2 10%
+mov S$魂晶本属性3 　
+mov S$魂晶下属性1 11
+mov S$魂晶下属性2 11%
+mov S$魂晶下属性3 技能伤害减免：1%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 10 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:745:8:150:-440:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv11
+#Act
+mov S$魂晶阶级 11阶
+mov S$魂晶阶图 911
+mov S$魂晶本名字 魂晶·Lv11
+mov S$魂晶下名字 魂晶·Lv12
+mov S$魂晶本属性1 11
+mov S$魂晶本属性2 11%
+mov S$魂晶本属性3 技能伤害减免：1%
+mov S$魂晶下属性1 12
+mov S$魂晶下属性2 12%
+mov S$魂晶下属性3 技能伤害减免：2%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 11 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:745:8:150:-440:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv12
+#Act
+mov S$魂晶阶级 12阶
+mov S$魂晶阶图 912
+mov S$魂晶本名字 魂晶·Lv12
+mov S$魂晶下名字 魂晶·Lv13
+mov S$魂晶本属性1 12
+mov S$魂晶本属性2 12%
+mov S$魂晶本属性3 技能伤害减免：2%
+mov S$魂晶下属性1 13
+mov S$魂晶下属性2 13%
+mov S$魂晶下属性3 技能伤害减免：3%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 12 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:745:8:150:-440:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv13
+#Act
+mov S$魂晶阶级 13阶
+mov S$魂晶阶图 913
+mov S$魂晶本名字 魂晶·Lv13
+mov S$魂晶下名字 魂晶·Lv14
+mov S$魂晶本属性1 13
+mov S$魂晶本属性2 13%
+mov S$魂晶本属性3 技能伤害减免：3%
+mov S$魂晶下属性1 14
+mov S$魂晶下属性2 14%
+mov S$魂晶下属性3 技能伤害减免：4%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 13 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:753:8:150:-440:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv14
+#Act
+mov S$魂晶阶级 14阶
+mov S$魂晶阶图 914
+mov S$魂晶本名字 魂晶·Lv14
+mov S$魂晶下名字 魂晶·Lv15
+mov S$魂晶本属性1 14
+mov S$魂晶本属性2 14%
+mov S$魂晶本属性3 技能伤害减免：4%
+mov S$魂晶下属性1 15
+mov S$魂晶下属性2 15%
+mov S$魂晶下属性3 技能伤害减免：5%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 14 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:753:8:150:-440:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv15
+#Act
+mov S$魂晶阶级 15阶
+mov S$魂晶阶图 915
+mov S$魂晶本名字 魂晶·Lv15
+mov S$魂晶下名字 魂晶·Lv16
+mov S$魂晶本属性1 15
+mov S$魂晶本属性2 15%
+mov S$魂晶本属性3 技能伤害减免：5%
+mov S$魂晶下属性1 16
+mov S$魂晶下属性2 16%
+mov S$魂晶下属性3 技能伤害减免：6%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 15 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:753:8:150:-440:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv16
+#Act
+mov S$魂晶阶级 16阶
+mov S$魂晶阶图 916
+mov S$魂晶本名字 魂晶·Lv16
+mov S$魂晶下名字 魂晶·Lv17
+mov S$魂晶本属性1 16
+mov S$魂晶本属性2 16%
+mov S$魂晶本属性3 技能伤害减免：6%
+mov S$魂晶下属性1 17
+mov S$魂晶下属性2 17%
+mov S$魂晶下属性3 技能伤害减免：7%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 16 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:761:8:150:-440:-144:0>
+
+#IF
+CHECKITEMW 魂晶·Lv17
+#Act
+mov S$魂晶阶级 17阶
+mov S$魂晶阶图 917
+mov S$魂晶本名字 魂晶·Lv17
+mov S$魂晶下名字 魂晶·Lv18
+mov S$魂晶本属性1 17
+mov S$魂晶本属性2 17%
+mov S$魂晶本属性3 技能伤害减免：7%
+mov S$魂晶下属性1 18
+mov S$魂晶下属性2 18%
+mov S$魂晶下属性3 技能伤害减免：8%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 17 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:761:8:150:-440:-144:0>
+
+#IF
+CHECKITEMW 魂晶·Lv18
+#Act
+mov S$魂晶阶级 18阶
+mov S$魂晶阶图 918
+mov S$魂晶本名字 魂晶·Lv18
+mov S$魂晶下名字 魂晶·Lv19
+mov S$魂晶本属性1 18
+mov S$魂晶本属性2 18%
+mov S$魂晶本属性3 技能伤害减免：8%
+mov S$魂晶下属性1 19
+mov S$魂晶下属性2 19%
+mov S$魂晶下属性3 技能伤害减免：9%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 18 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:761:8:150:-440:-144:0>
+
+#IF
+CHECKITEMW 魂晶·Lv19
+#Act
+mov S$魂晶阶级 19阶
+mov S$魂晶阶图 919
+mov S$魂晶本名字 魂晶·Lv19
+mov S$魂晶下名字 魂晶·Lv20
+mov S$魂晶本属性1 19
+mov S$魂晶本属性2 19%
+mov S$魂晶本属性3 技能伤害减免：9%
+mov S$魂晶下属性1 20
+mov S$魂晶下属性2 20%
+mov S$魂晶下属性3 技能伤害减免：10%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 19 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:769:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv20
+#Act
+mov S$魂晶阶级 20阶
+mov S$魂晶阶图 920
+mov S$魂晶本名字 魂晶·Lv20
+mov S$魂晶下名字 魂晶·Lv21
+mov S$魂晶本属性1 20
+mov S$魂晶本属性2 20%
+mov S$魂晶本属性3 技能伤害减免：10%
+mov S$魂晶下属性1 21
+mov S$魂晶下属性2 21%
+mov S$魂晶下属性3 技能伤害减免：12%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 20 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:769:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv21
+#Act
+mov S$魂晶阶级 21阶
+mov S$魂晶阶图 921
+mov S$魂晶本名字 魂晶·Lv21
+mov S$魂晶下名字 魂晶·Lv22
+mov S$魂晶本属性1 21
+mov S$魂晶本属性2 21%
+mov S$魂晶本属性3 技能伤害减免：12%
+mov S$魂晶下属性1 22
+mov S$魂晶下属性2 22%
+mov S$魂晶下属性3 技能伤害减免：14%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 21 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:769:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv22
+#Act
+mov S$魂晶阶级 22阶
+mov S$魂晶阶图 922
+mov S$魂晶本名字 魂晶·Lv22
+mov S$魂晶下名字 魂晶·Lv23
+mov S$魂晶本属性1 22
+mov S$魂晶本属性2 22%
+mov S$魂晶本属性3 技能伤害减免：14%
+mov S$魂晶下属性1 23
+mov S$魂晶下属性2 23%
+mov S$魂晶下属性3 技能伤害减免：16%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 22 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:777:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv23
+#Act
+mov S$魂晶阶级 23阶
+mov S$魂晶阶图 923
+mov S$魂晶本名字 魂晶·Lv23
+mov S$魂晶下名字 魂晶·Lv24
+mov S$魂晶本属性1 23
+mov S$魂晶本属性2 23%
+mov S$魂晶本属性3 技能伤害减免：16%
+mov S$魂晶下属性1 24
+mov S$魂晶下属性2 24%
+mov S$魂晶下属性3 技能伤害减免：18%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 23 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:777:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv24
+#Act
+mov S$魂晶阶级 24阶
+mov S$魂晶阶图 924
+mov S$魂晶本名字 魂晶·Lv24
+mov S$魂晶下名字 魂晶·Lv25
+mov S$魂晶本属性1 24
+mov S$魂晶本属性2 24%
+mov S$魂晶本属性3 技能伤害减免：18%
+mov S$魂晶下属性1 25
+mov S$魂晶下属性2 25%
+mov S$魂晶下属性3 技能伤害减免：20%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 24 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:777:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv25
+#Act
+mov S$魂晶阶级 25阶
+mov S$魂晶阶图 925
+mov S$魂晶本名字 魂晶·Lv25
+mov S$魂晶下名字 魂晶·Lv26
+mov S$魂晶本属性1 25
+mov S$魂晶本属性2 25%
+mov S$魂晶本属性3 技能伤害减免：20%
+mov S$魂晶下属性1 26
+mov S$魂晶下属性2 26%
+mov S$魂晶下属性3 技能伤害减免：22%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 25 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:785:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv26
+#Act
+mov S$魂晶阶级 26阶
+mov S$魂晶阶图 926
+mov S$魂晶本名字 魂晶·Lv26
+mov S$魂晶下名字 魂晶·Lv27
+mov S$魂晶本属性1 26
+mov S$魂晶本属性2 26%
+mov S$魂晶本属性3 技能伤害减免：22%
+mov S$魂晶下属性1 27
+mov S$魂晶下属性2 27%
+mov S$魂晶下属性3 技能伤害减免：24%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 26 N$魂晶碎片数量
+mov S$魂晶元宝 {免费/SCOLOR=250}
+mov S$魂晶展示 <PlayImg:28:785:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv27
+#Act
+mov S$魂晶阶级 27阶
+mov S$魂晶阶图 927
+mov S$魂晶本名字 魂晶·Lv27
+mov S$魂晶下名字 魂晶·Lv28
+mov S$魂晶本属性1 27
+mov S$魂晶本属性2 27%
+mov S$魂晶本属性3 技能伤害减免：24%
+mov S$魂晶下属性1 28
+mov S$魂晶下属性2 28%
+mov S$魂晶下属性3 技能伤害减免：26%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 27 N$魂晶碎片数量
+mov S$魂晶展示 <PlayImg:28:785:8:150:-460:-154:0>
+
+#IF
+CHECKITEMW 魂晶·Lv28
+#Act
+mov S$魂晶阶级 28阶
+mov S$魂晶阶图 928
+mov S$魂晶本名字 魂晶·Lv28
+mov S$魂晶下名字 魂晶·Lv29
+mov S$魂晶本属性1 28
+mov S$魂晶本属性2 28%
+mov S$魂晶本属性3 技能伤害减免：26%
+mov S$魂晶下属性1 29
+mov S$魂晶下属性2 29%
+mov S$魂晶下属性3 技能伤害减免：28%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 28 N$魂晶碎片数量
+mov S$魂晶展示 <PlayImg:28:793:8:150:-480:-214:0>
+
+#IF
+CHECKITEMW 魂晶·Lv29
+#Act
+mov S$魂晶阶级 29阶
+mov S$魂晶阶图 929
+mov S$魂晶本名字 魂晶·Lv29
+mov S$魂晶下名字 魂晶·Lv30
+mov S$魂晶本属性1 29
+mov S$魂晶本属性2 29%
+mov S$魂晶本属性3 技能伤害减免：28%
+mov S$魂晶下属性1 30
+mov S$魂晶下属性2 30%
+mov S$魂晶下属性3 技能伤害减免：30%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 29 N$魂晶碎片数量
+mov S$魂晶展示 <PlayImg:28:793:8:150:-480:-214:0>
+
+#IF
+CHECKITEMW 魂晶·Lv30
+#Act
+mov S$魂晶阶级 30阶
+mov S$魂晶阶图 930
+mov S$魂晶本名字 魂晶·Lv30
+mov S$魂晶下名字 已满级
+mov S$魂晶本属性1 30
+mov S$魂晶本属性2 30%
+mov S$魂晶本属性3 技能伤害减免：30%
+mov S$魂晶下属性1 ----
+mov S$魂晶下属性2 ----
+mov S$魂晶下属性3 技能伤害减免：----
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 0 N$魂晶碎片数量
+mov S$魂晶展示 <PlayImg:28:793:8:150:-480:-214:0>
+
+;*****************************
+#IF
+CHECKUSEITEM 15
+#Act
+mov S$秘符开关 秘符
+#ELSEACT
+mov S$秘符阶级 　　
+mov S$秘符开关 　　
+mov N$秘符图片 0
+
+#IF
+CHECKITEMW 秘符·Lv1
+#Act
+mov S$秘符阶级 一阶
+mov S$秘符阶图 901
+mov S$秘符本名字 秘符·Lv1
+mov S$秘符下名字 秘符·Lv2
+mov S$秘符本属性1 1
+mov S$秘符本属性2 1%
+mov S$秘符本属性3 0%
+mov S$秘符下属性1 2
+mov S$秘符下属性2 1%
+mov S$秘符下属性3 1%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 1 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:544:12:150:-410:-144:0>
+
+#IF
+CHECKITEMW 秘符·Lv2
+#Act
+mov S$秘符阶级 二阶
+mov S$秘符阶图 902
+mov S$秘符本名字 秘符·Lv2
+mov S$秘符下名字 秘符·Lv3
+mov S$秘符本属性1 2
+mov S$秘符本属性2 1%
+mov S$秘符本属性3 1%
+mov S$秘符下属性1 3
+mov S$秘符下属性2 2%
+mov S$秘符下属性3 1%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 2 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:544:12:150:-410:-144:0>
+
+#IF
+CHECKITEMW 秘符·Lv3
+#Act
+mov S$秘符阶级 三阶
+mov S$秘符阶图 903
+mov S$秘符本名字 秘符·Lv3
+mov S$秘符下名字 秘符·Lv4
+mov S$秘符本属性1 3
+mov S$秘符本属性2 2%
+mov S$秘符本属性3 1%
+mov S$秘符下属性1 4
+mov S$秘符下属性2 2%
+mov S$秘符下属性3 2%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 3 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:544:12:150:-410:-144:0>
+
+#IF
+CHECKITEMW 秘符·Lv4
+#Act
+mov S$秘符阶级 四阶
+mov S$秘符阶图 904
+mov S$秘符本名字 秘符·Lv4
+mov S$秘符下名字 秘符·Lv5
+mov S$秘符本属性1 4
+mov S$秘符本属性2 2%
+mov S$秘符本属性3 2%
+mov S$秘符下属性1 5
+mov S$秘符下属性2 3%
+mov S$秘符下属性3 2%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 4 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:520:12:150:-400:-144:0>
+
+#IF
+CHECKITEMW 秘符·Lv5
+#Act
+mov S$秘符阶级 五阶
+mov S$秘符阶图 905
+mov S$秘符本名字 秘符·Lv5
+mov S$秘符下名字 秘符·Lv6
+mov S$秘符本属性1 5
+mov S$秘符本属性2 3%
+mov S$秘符本属性3 2%
+mov S$秘符下属性1 6
+mov S$秘符下属性2 3%
+mov S$秘符下属性3 3%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 5 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:520:12:150:-400:-144:0>
+
+#IF
+CHECKITEMW 秘符·Lv6
+#Act
+mov S$秘符阶级 六阶
+mov S$秘符阶图 906
+mov S$秘符本名字 秘符·Lv6
+mov S$秘符下名字 秘符·Lv7
+mov S$秘符本属性1 6
+mov S$秘符本属性2 3%
+mov S$秘符本属性3 3%
+mov S$秘符下属性1 7
+mov S$秘符下属性2 4%
+mov S$秘符下属性3 3%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 6 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:520:12:150:-400:-144:0>
+
+#IF
+CHECKITEMW 秘符·Lv7
+#Act
+mov S$秘符阶级 七阶
+mov S$秘符阶图 907
+mov S$秘符本名字 秘符·Lv7
+mov S$秘符下名字 秘符·Lv8
+mov S$秘符本属性1 7
+mov S$秘符本属性2 4%
+mov S$秘符本属性3 3%
+mov S$秘符下属性1 8
+mov S$秘符下属性2 4%
+mov S$秘符下属性3 4%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 7 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:532:12:150:-423:-144:0>
+
+#IF
+CHECKITEMW 秘符·Lv8
+#Act
+mov S$秘符阶级 八阶
+mov S$秘符阶图 908
+mov S$秘符本名字 秘符·Lv8
+mov S$秘符下名字 秘符·Lv9
+mov S$秘符本属性1 8
+mov S$秘符本属性2 4%
+mov S$秘符本属性3 4%
+mov S$秘符下属性1 9
+mov S$秘符下属性2 5%
+mov S$秘符下属性3 4%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 8 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:532:12:150:-423:-144:0>
+
+#IF
+CHECKITEMW 秘符·Lv9
+#Act
+mov S$秘符阶级 九阶
+mov S$秘符阶图 909
+mov S$秘符本名字 秘符·Lv9
+mov S$秘符下名字 秘符·Lv10
+mov S$秘符本属性1 9
+mov S$秘符本属性2 5%
+mov S$秘符本属性3 4%
+mov S$秘符下属性1 10
+mov S$秘符下属性2 5%
+mov S$秘符下属性3 5%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 9 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:532:12:150:-423:-144:0>
+
+#IF
+CHECKITEMW 秘符·Lv10
+#Act
+mov S$秘符阶级 10阶
+mov S$秘符阶图 910
+mov S$秘符本名字 秘符·Lv10
+mov S$秘符下名字 秘符·Lv11
+mov S$秘符本属性1 10
+mov S$秘符本属性2 5%
+mov S$秘符本属性3 5%
+mov S$秘符下属性1 11
+mov S$秘符下属性2 6%
+mov S$秘符下属性3 5%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 10 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:556:10:150:-423:-140:0>
+
+#IF
+CHECKITEMW 秘符·Lv11
+#Act
+mov S$秘符阶级 11阶
+mov S$秘符阶图 911
+mov S$秘符本名字 秘符·Lv11
+mov S$秘符下名字 秘符·Lv12
+mov S$秘符本属性1 11
+mov S$秘符本属性2 6%
+mov S$秘符本属性3 5%
+mov S$秘符下属性1 12
+mov S$秘符下属性2 6%
+mov S$秘符下属性3 6%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 11 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:556:10:150:-423:-140:0>
+
+#IF
+CHECKITEMW 秘符·Lv12
+#Act
+mov S$秘符阶级 12阶
+mov S$秘符阶图 912
+mov S$秘符本名字 秘符·Lv12
+mov S$秘符下名字 秘符·Lv13
+mov S$秘符本属性1 12
+mov S$秘符本属性2 6%
+mov S$秘符本属性3 6%
+mov S$秘符下属性1 13
+mov S$秘符下属性2 7%
+mov S$秘符下属性3 6%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 12 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:556:10:150:-423:-140:0>
+
+#IF
+CHECKITEMW 秘符·Lv13
+#Act
+mov S$秘符阶级 13阶
+mov S$秘符阶图 913
+mov S$秘符本名字 秘符·Lv13
+mov S$秘符下名字 秘符·Lv14
+mov S$秘符本属性1 13
+mov S$秘符本属性2 7%
+mov S$秘符本属性3 6%
+mov S$秘符下属性1 14
+mov S$秘符下属性2 7%
+mov S$秘符下属性3 7%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 13 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:566:11:150:-450:-180:0>
+
+#IF
+CHECKITEMW 秘符·Lv14
+#Act
+mov S$秘符阶级 14阶
+mov S$秘符阶图 914
+mov S$秘符本名字 秘符·Lv14
+mov S$秘符下名字 秘符·Lv15
+mov S$秘符本属性1 14
+mov S$秘符本属性2 7%
+mov S$秘符本属性3 7%
+mov S$秘符下属性1 15
+mov S$秘符下属性2 8%
+mov S$秘符下属性3 7%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 14 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:566:11:150:-450:-180:0>
+
+#IF
+CHECKITEMW 秘符·Lv15
+#Act
+mov S$秘符阶级 15阶
+mov S$秘符阶图 915
+mov S$秘符本名字 秘符·Lv15
+mov S$秘符下名字 秘符·Lv16
+mov S$秘符本属性1 15
+mov S$秘符本属性2 8%
+mov S$秘符本属性3 7%
+mov S$秘符下属性1 16
+mov S$秘符下属性2 8%
+mov S$秘符下属性3 8%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 15 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:566:11:150:-450:-180:0>
+
+#IF
+CHECKITEMW 秘符·Lv16
+#Act
+mov S$秘符阶级 16阶
+mov S$秘符阶图 916
+mov S$秘符本名字 秘符·Lv16
+mov S$秘符下名字 秘符·Lv17
+mov S$秘符本属性1 16
+mov S$秘符本属性2 8%
+mov S$秘符本属性3 8%
+mov S$秘符下属性1 17
+mov S$秘符下属性2 9%
+mov S$秘符下属性3 8%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 16 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:577:12:150:-470:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv17
+#Act
+mov S$秘符阶级 17阶
+mov S$秘符阶图 917
+mov S$秘符本名字 秘符·Lv17
+mov S$秘符下名字 秘符·Lv18
+mov S$秘符本属性1 17
+mov S$秘符本属性2 9%
+mov S$秘符本属性3 8%
+mov S$秘符下属性1 18
+mov S$秘符下属性2 9%
+mov S$秘符下属性3 9%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 17 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:577:12:150:-470:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv18
+#Act
+mov S$秘符阶级 18阶
+mov S$秘符阶图 918
+mov S$秘符本名字 秘符·Lv18
+mov S$秘符下名字 秘符·Lv19
+mov S$秘符本属性1 18
+mov S$秘符本属性2 9%
+mov S$秘符本属性3 9%
+mov S$秘符下属性1 19
+mov S$秘符下属性2 10%
+mov S$秘符下属性3 9%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 18 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:577:12:150:-470:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv19
+#Act
+mov S$秘符阶级 19阶
+mov S$秘符阶图 919
+mov S$秘符本名字 秘符·Lv19
+mov S$秘符下名字 秘符·Lv20
+mov S$秘符本属性1 19
+mov S$秘符本属性2 10%
+mov S$秘符本属性3 9%
+mov S$秘符下属性1 20
+mov S$秘符下属性2 10%
+mov S$秘符下属性3 10%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 19 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:589:12:150:-450:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv20
+#Act
+mov S$秘符阶级 20阶
+mov S$秘符阶图 920
+mov S$秘符本名字 秘符·Lv20
+mov S$秘符下名字 秘符·Lv21
+mov S$秘符本属性1 20
+mov S$秘符本属性2 10%
+mov S$秘符本属性3 10%
+mov S$秘符下属性1 21
+mov S$秘符下属性2 11%
+mov S$秘符下属性3 10%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 20 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:589:12:150:-450:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv21
+#Act
+mov S$秘符阶级 21阶
+mov S$秘符阶图 921
+mov S$秘符本名字 秘符·Lv21
+mov S$秘符下名字 秘符·Lv22
+mov S$秘符本属性1 21
+mov S$秘符本属性2 11%
+mov S$秘符本属性3 10%
+mov S$秘符下属性1 22
+mov S$秘符下属性2 11%
+mov S$秘符下属性3 11%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 21 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:589:12:150:-450:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv22
+#Act
+mov S$秘符阶级 22阶
+mov S$秘符阶图 922
+mov S$秘符本名字 秘符·Lv22
+mov S$秘符下名字 秘符·Lv23
+mov S$秘符本属性1 22
+mov S$秘符本属性2 11%
+mov S$秘符本属性3 11%
+mov S$秘符下属性1 23
+mov S$秘符下属性2 12%
+mov S$秘符下属性3 11%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 22 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:601:12:150:-465:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv23
+#Act
+mov S$秘符阶级 23阶
+mov S$秘符阶图 923
+mov S$秘符本名字 秘符·Lv23
+mov S$秘符下名字 秘符·Lv24
+mov S$秘符本属性1 23
+mov S$秘符本属性2 12%
+mov S$秘符本属性3 11%
+mov S$秘符下属性1 24
+mov S$秘符下属性2 12%
+mov S$秘符下属性3 12%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 23 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:601:12:150:-465:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv24
+#Act
+mov S$秘符阶级 24阶
+mov S$秘符阶图 924
+mov S$秘符本名字 秘符·Lv24
+mov S$秘符下名字 秘符·Lv25
+mov S$秘符本属性1 24
+mov S$秘符本属性2 12%
+mov S$秘符本属性3 12%
+mov S$秘符下属性1 25
+mov S$秘符下属性2 13%
+mov S$秘符下属性3 12%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 24 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:601:12:150:-465:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv25
+#Act
+mov S$秘符阶级 25阶
+mov S$秘符阶图 925
+mov S$秘符本名字 秘符·Lv25
+mov S$秘符下名字 秘符·Lv26
+mov S$秘符本属性1 25
+mov S$秘符本属性2 13%
+mov S$秘符本属性3 12%
+mov S$秘符下属性1 26
+mov S$秘符下属性2 13%
+mov S$秘符下属性3 13%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 25 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:613:12:150:-470:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv26
+#Act
+mov S$秘符阶级 26阶
+mov S$秘符阶图 926
+mov S$秘符本名字 秘符·Lv26
+mov S$秘符下名字 秘符·Lv27
+mov S$秘符本属性1 26
+mov S$秘符本属性2 13%
+mov S$秘符本属性3 13%
+mov S$秘符下属性1 27
+mov S$秘符下属性2 14%
+mov S$秘符下属性3 13%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 26 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:613:12:150:-470:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv27
+#Act
+mov S$秘符阶级 27阶
+mov S$秘符阶图 92
+mov S$秘符本名字 秘符·Lv27
+mov S$秘符下名字 秘符·Lv28
+mov S$秘符本属性1 27
+mov S$秘符本属性2 14%
+mov S$秘符本属性3 13%
+mov S$秘符下属性1 28
+mov S$秘符下属性2 14%
+mov S$秘符下属性3 14%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 27 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:613:12:150:-470:-160:0>
+
+#IF
+CHECKITEMW 秘符·Lv28
+#Act
+mov S$秘符阶级 28阶
+mov S$秘符阶图 928
+mov S$秘符本名字 秘符·Lv28
+mov S$秘符下名字 秘符·Lv29
+mov S$秘符本属性1 28
+mov S$秘符本属性2 14%
+mov S$秘符本属性3 14%
+mov S$秘符下属性1 29
+mov S$秘符下属性2 15%
+mov S$秘符下属性3 14%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 28 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:625:11:150:-530:-200:0>
+
+#IF
+CHECKITEMW 秘符·Lv29
+#Act
+mov S$秘符阶级 29阶
+mov S$秘符阶图 929
+mov S$秘符本名字 秘符·Lv29
+mov S$秘符下名字 秘符·Lv30
+mov S$秘符本属性1 29
+mov S$秘符本属性2 15%
+mov S$秘符本属性3 14%
+mov S$秘符下属性1 30
+mov S$秘符下属性2 15%
+mov S$秘符下属性3 15%
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 29 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:625:11:150:-530:-200:0>
+
+#IF
+CHECKITEMW 秘符·Lv30
+#Act
+mov S$秘符阶级 30阶
+mov S$秘符阶图 930
+mov S$秘符本名字 秘符·Lv30
+mov S$秘符下名字 已满级
+mov S$秘符本属性1 30
+mov S$秘符本属性2 15%
+mov S$秘符本属性3 15%
+mov S$秘符下属性1 ----
+mov S$秘符下属性2 ----
+mov S$秘符下属性3 ----
+GetListString ..\QuestDiary\自定义按钮\碎片值.txt 0 N$秘符碎片数量
+mov S$秘符元宝 {免费/SCOLOR=250}
+mov S$秘符展示 <PlayImg:28:625:11:150:-530:-200:0>
+
+
+;*****************************
+
+#if
+equal S$选择界面 血玉
+NOT small U35 N$血玉碎片数量
+#act
+mov p13 100
+mov p14 591
+
+#if
+equal S$选择界面 印记
+NOT small U36 N$印记碎片数量
+#act
+mov p13 100
+mov p14 591
+
+#if
+equal S$选择界面 魂晶
+NOT small U37 N$魂晶碎片数量
+#act
+mov p13 100
+mov p14 591
+#if
+equal S$选择界面 秘符
+NOT small U38 N$秘符碎片数量
+#act
+mov p13 100
+mov p14 591
+
+#if
+equal S$选择界面 血玉
+small U35 N$血玉碎片数量
+#act
+mov p10 0
+mov p11 0
+mov p12 0
+mov p13 0
+mov p14 0
+mov p11 <$STR(N$血玉碎片数量)>
+mov p10 <$STR(U35)>
+mul p12 p10 100
+div p13 p12 p11
+mov p14 <$STR(p13)>
+INC p14 600
+
+#if
+equal S$选择界面 印记
+small U36 N$印记碎片数量
+#act
+mov p10 0
+mov p11 0
+mov p12 0
+mov p13 0
+mov p14 0
+mov p11 <$STR(N$印记碎片数量)>
+mov p10 <$STR(U36)>
+mul p12 p10 100
+div p13 p12 p11
+mov p14 <$STR(p13)>
+INC p14 600
+
+#if
+equal S$选择界面 魂晶
+small U37 N$魂晶碎片数量
+#act
+mov p10 0
+mov p11 0
+mov p12 0
+mov p13 0
+mov p14 0
+mov p11 <$STR(N$魂晶碎片数量)>
+mov p10 <$STR(U37)>
+mul p12 p10 100
+div p13 p12 p11
+mov p14 <$STR(p13)>
+INC p14 600
+
+#if
+equal S$选择界面 秘符
+small U38 N$秘符碎片数量
+#act
+mov p10 0
+mov p11 0
+mov p12 0
+mov p13 0
+mov p14 0
+mov p11 <$STR(N$秘符碎片数量)>
+mov p10 <$STR(U38)>
+mul p12 p10 100
+div p13 p12 p11
+mov p14 <$STR(p13)>
+INC p14 600
+;*****************************
+
+#if
+equal S$选择界面 秘符
+#act
+mov N$秘符颜色 149
+mov N$秘符图片 1142
+mov S$秘符当前 <$STR(U38)>
+SetStringBlank S$秘符当前 6 1
+
+#if
+equal S$选择界面 魂晶
+#act
+mov N$魂晶颜色 149
+mov N$魂晶图片 1142
+mov S$魂晶当前 <$STR(U37)>
+SetStringBlank S$魂晶当前 6 1
+
+#if
+equal S$选择界面 印记
+#act
+mov N$印记颜色 149
+mov N$印记图片 1142
+mov S$印记当前 <$STR(U36)>
+SetStringBlank S$印记当前 6 1
+
+#if
+equal S$选择界面 血玉
+#act
+mov N$血玉颜色 149
+mov N$血玉图片 1142
+mov S$血玉当前 <$STR(U35)>
+SetStringBlank S$血玉当前 6 1
+
+
+[@秘符界面]
+#IF
+#Act
+mov S$选择界面 秘符
+GOTO @初始化
+SetStringBlank S$秘符本属性1 6 1
+SetStringBlank S$秘符本属性2 6 1
+SetStringBlank S$秘符本属性3 6 1
+SetStringBlank S$秘符本名字 26 1
+SetStringBlank S$秘符人级 4 0
+OPENMERCHANTBIGDLG 12 1160 1 4 30 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$秘符阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　{<$STR(S$秘符本名字)>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}\
+　\
+　\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <$STR(S$秘符展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<购买秘符碎片/@秘符购买><Img:1153:12:-92:-3>\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}\
+　　　　　　　　{<$STR(S$秘符本名字)>　　　　　　　　 <$STR(S$秘符下名字)>/SCOLOR=82}\
+　\
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{攻击魔法道术：<$STR(S$秘符本属性1)> 　　　　　　　　　　攻击魔法道术：<$STR(S$秘符下属性1)>/SCOLOR=116}\
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}\
+　　　　　　　{暴击几率增加：<$STR(S$秘符本属性2)> 　　　　　　　　　　暴击几率增加：<$STR(S$秘符下属性2)>/SCOLOR=146}\
+　　　　　　　{目标爆率增加：<$STR(S$秘符本属性3)> 　　　　　　　　　　目标爆率增加：<$STR(S$秘符下属性3)>/SCOLOR=146}\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有秘符值:/SCOLOR=82}　<$STR(S$秘符当前)>　　　　　　　　　{需要秘符值:/SCOLOR=82}　<$STR(N$秘符碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@秘符升级>\
+　\
+　\
+　\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+
+
+[@魂晶界面]
+#IF
+#Act
+mov S$选择界面 魂晶
+GOTO @初始化
+SetStringBlank S$魂晶本属性1 6 1
+SetStringBlank S$魂晶本属性2 6 1
+SetStringBlank S$魂晶本属性3 20 1
+SetStringBlank S$魂晶本名字 26 1
+SetStringBlank S$魂晶人级 4 0
+OPENMERCHANTBIGDLG 12 1160 1 4 30 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$魂晶阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　{<$STR(S$魂晶本名字)>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}\
+　\
+　\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <$STR(S$魂晶展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<购买魂晶碎片/@魂晶购买><Img:1153:12:-92:-3>\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}\
+　　　　　　　　{<$STR(S$魂晶本名字)>　　　　　　　　 <$STR(S$魂晶下名字)>/SCOLOR=82}\
+　\
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{攻击魔法道术：<$STR(S$魂晶本属性1)> 　　　　　　　　　　攻击魔法道术：<$STR(S$魂晶下属性1)>/SCOLOR=116}\
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}\
+　　　　　　　{伤害减免增加：<$STR(S$魂晶本属性2)> 　　　　　　　　　　伤害减免增加：<$STR(S$魂晶下属性2)>/SCOLOR=146}\
+　　　　　　　{<$STR(S$魂晶本属性3)> 　　　　　　　　　　<$STR(S$魂晶下属性3)>/SCOLOR=146}\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有魂晶值:/SCOLOR=82}　<$STR(S$魂晶当前)>　　　　　　　　　{需要魂晶值:/SCOLOR=82}　<$STR(N$魂晶碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@魂晶升级>\
+　\
+　\
+　\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+[@印记界面]
+#IF
+#Act
+mov S$选择界面 印记
+GOTO @初始化
+SetStringBlank S$印记本属性1 6 1
+SetStringBlank S$印记本属性2 6 1
+SetStringBlank S$印记本属性3 20 1
+SetStringBlank S$印记本名字 26 1
+SetStringBlank S$印记人级 4 0
+OPENMERCHANTBIGDLG 12 1160 1 4 30 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$印记阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　{<$STR(S$印记本名字)>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}\
+　\
+　\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <$STR(S$印记展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<购买印记碎片/@印记购买><Img:1153:12:-92:-3>\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}\
+　　　　　　　　{<$STR(S$印记本名字)>　　　　　　　　 <$STR(S$印记下名字)>/SCOLOR=82}\
+　\
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{攻击魔法道术：<$STR(S$印记本属性1)> 　　　　　　　　　　攻击魔法道术：<$STR(S$印记下属性1)>/SCOLOR=116}\
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}\
+　　　　　　　{攻击伤害增加：<$STR(S$印记本属性2)> 　　　　　　　　　　攻击伤害增加：<$STR(S$印记下属性2)>/SCOLOR=146}\
+　　　　　　　{<$STR(S$印记本属性3)> 　　　　　　　　　　<$STR(S$印记下属性3)>/SCOLOR=146}\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有印记值:/SCOLOR=82}　<$STR(S$印记当前)>　　　　　　　　　{需要印记值:/SCOLOR=82}　<$STR(N$印记碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@印记升级>\
+　\
+　\
+　\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+
+[@血玉界面]
+#IF
+#Act
+mov S$选择界面 血玉
+GOTO @初始化
+SetStringBlank S$血玉本属性1 6 1
+SetStringBlank S$血玉本属性2 6 1
+SetStringBlank S$血玉本名字 26 1
+SetStringBlank S$血玉人级 4 0
+OPENMERCHANTBIGDLG 12 1160 1 4 30 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$血玉阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　{<$BUJUK>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}\
+　\
+　\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <$STR(S$血玉展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<购买血玉碎片/@血玉购买><Img:1153:12:-92:-3>\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}\
+　　　　　　　　{<$STR(S$血玉本名字)>　　　　　　　　 <$STR(S$血玉下名字)>/SCOLOR=82}\
+　\
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{人物生命上限：<$STR(S$血玉本属性1)> 　　　　　　　　　　人物生命上限：<$STR(S$血玉下属性1)>/SCOLOR=116}\
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}\
+　　　　　　　{人物魔法上限：<$STR(S$血玉本属性2)> 　　　　　　　　　　人物魔法上限：<$STR(S$血玉下属性1)>/SCOLOR=116}\
+　\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有血玉值:/SCOLOR=82}　<$STR(S$血玉当前)>　　　　　　　　　{需要血玉值:/SCOLOR=82}　<$STR(N$血玉碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@血玉升级>\
+　\
+　\
+　\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+
+
+
+
+
+
+
+
+
+[@秘符购买]
+#IF
+#Act
+mov S$选择界面 秘符
+GOTO @初始化
+SetStringBlank S$秘符本属性1 6 1
+SetStringBlank S$秘符本属性2 6 1
+SetStringBlank S$秘符本属性3 6 1
+SetStringBlank S$秘符下属性1 6 1
+SetStringBlank S$秘符下属性2 6 1
+SetStringBlank S$秘符本名字 26 1
+SetStringBlank S$秘符人级 4 0
+OPENMERCHANTBIGDLG 12 1165 1 4 0 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$秘符阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　{<$STR(S$秘符本名字)>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{秘符碎片/SCOLOR=154}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{用途：450点/SCOLOR=94}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{价格：800元宝/SCOLOR=94}\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<点击购买/@购买秘符碎片>\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 {秘符碎片(中)/SCOLOR=154}  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 {用途：4800点/SCOLOR=94}  <$STR(S$秘符展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<返回升级界面/@秘符界面><Img:1153:12:-92:-3>　 {价格：8000元宝/SCOLOR=94}\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<点击购买/@购买秘符碎片中>\
+　　　　　　　　{<$STR(S$秘符本名字)>　　　　　　　　 <$STR(S$秘符下名字)>/SCOLOR=82}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{秘符碎片(大)/SCOLOR=154}  \
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{攻击魔法道术：<$STR(S$秘符本属性1)> 　　　　　　　　　　攻击魔法道术：<$STR(S$秘符下属性1)>/SCOLOR=116}　　　 　　{用途：50000点/SCOLOR=94}  \
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{价格：80000元宝/SCOLOR=94}\
+　　　　　　　{暴击几率增加：<$STR(S$秘符本属性2)> 　　　　　　　　　　暴击几率增加：<$STR(S$秘符下属性2)>/SCOLOR=146}　　　　　 <点击购买/@购买秘符碎片大>\
+　　　　　　　{目标爆率增加：<$STR(S$秘符本属性3)> 　　　　　　　　　　目标爆率增加：<$STR(S$秘符下属性3)>/SCOLOR=146}\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有秘符值:/SCOLOR=82}　<$STR(S$秘符当前)>　　　　　　　　　{需要秘符值:/SCOLOR=82}　<$STR(N$秘符碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@秘符升级>\
+　\
+　\
+　\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+[@魂晶购买]
+#IF
+#Act
+mov S$选择界面 魂晶
+GOTO @初始化
+SetStringBlank S$魂晶本属性1 6 1
+SetStringBlank S$魂晶本属性2 6 1
+SetStringBlank S$魂晶本属性3 20 1
+SetStringBlank S$魂晶下属性1 6 1
+SetStringBlank S$魂晶下属性2 6 1
+SetStringBlank S$魂晶本名字 26 1
+SetStringBlank S$魂晶人级 4 0
+OPENMERCHANTBIGDLG 12 1165 1 4 0 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$魂晶阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　{<$STR(S$魂晶本名字)>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{魂晶碎片/SCOLOR=154}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{用途：450点/SCOLOR=94}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{价格：800元宝/SCOLOR=94}\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<点击购买/@购买魂晶碎片>\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 {魂晶碎片(中)/SCOLOR=154}  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 {用途：4800点/SCOLOR=94}  <$STR(S$魂晶展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<返回升级界面/@魂晶界面><Img:1153:12:-92:-3>　 {价格：8000元宝/SCOLOR=94}\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<点击购买/@购买魂晶碎片中>\
+　　　　　　　　{<$STR(S$魂晶本名字)>　　　　　　　　 <$STR(S$魂晶下名字)>/SCOLOR=82}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{魂晶碎片(大)/SCOLOR=154}  \
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{攻击魔法道术：<$STR(S$魂晶本属性1)> 　　　　　　　　　　攻击魔法道术：<$STR(S$魂晶下属性1)>/SCOLOR=116}　　　 　　{用途：50000点/SCOLOR=94}  \
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{价格：80000元宝/SCOLOR=94}\
+　　　　　　　{伤害减免增加：<$STR(S$魂晶本属性2)> 　　　　　　　　　　伤害减免增加：<$STR(S$魂晶下属性2)>/SCOLOR=146}　　　　　 <点击购买/@购买魂晶碎片大>\
+　　　　　　　{<$STR(S$魂晶本属性3)> 　　　　　　　　　　<$STR(S$魂晶下属性3)>/SCOLOR=146}\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有魂晶值:/SCOLOR=82}　<$STR(S$魂晶当前)>　　　　　　　　　{需要魂晶值:/SCOLOR=82}　<$STR(N$魂晶碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@魂晶升级>\
+　\
+　\
+　\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+[@印记购买]
+#IF
+#Act
+mov S$选择界面 印记
+GOTO @初始化
+SetStringBlank S$印记本属性1 6 1
+SetStringBlank S$印记本属性2 6 1
+SetStringBlank S$印记本属性3 20 1
+SetStringBlank S$印记下属性1 6 1
+SetStringBlank S$印记下属性2 6 1
+SetStringBlank S$印记本名字 26 1
+SetStringBlank S$印记人级 4 0
+OPENMERCHANTBIGDLG 12 1165 1 4 0 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$印记阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　{<$STR(S$印记本名字)>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{印记碎片/SCOLOR=154}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{用途：450点/SCOLOR=94}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{价格：800元宝/SCOLOR=94}\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<点击购买/@购买印记碎片>\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 {印记碎片(中)/SCOLOR=154}  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 {用途：4800点/SCOLOR=94}  <$STR(S$印记展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<返回升级界面/@印记界面><Img:1153:12:-92:-3>　 {价格：8000元宝/SCOLOR=94}\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<点击购买/@购买印记碎片中>\
+　　　　　　　　{<$STR(S$印记本名字)>　　　　　　　　 <$STR(S$印记下名字)>/SCOLOR=82}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{印记碎片(大)/SCOLOR=154}  \
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{攻击魔法道术：<$STR(S$印记本属性1)> 　　　　　　　　　　攻击魔法道术：<$STR(S$印记下属性1)>/SCOLOR=116}　　　 　　{用途：50000点/SCOLOR=94}  \
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{价格：80000元宝/SCOLOR=94}\
+　　　　　　　{攻击伤害增加：<$STR(S$印记本属性2)> 　　　　　　　　　　攻击伤害增加：<$STR(S$印记下属性2)>/SCOLOR=146}　　　　　 <点击购买/@购买印记碎片大>\
+　　　　　　　{<$STR(S$印记本属性3)> 　　　　　　　　　　<$STR(S$印记下属性3)>/SCOLOR=146}\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有印记值:/SCOLOR=82}　<$STR(S$印记当前)>　　　　　　　　　{需要印记值:/SCOLOR=82}　<$STR(N$印记碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@印记升级>\
+　\
+　\
+　\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+[@血玉购买]
+#IF
+#Act
+mov S$选择界面 血玉
+GOTO @初始化
+SetStringBlank S$血玉本属性1 6 1
+SetStringBlank S$血玉本属性2 6 1
+SetStringBlank S$血玉本名字 26 1
+SetStringBlank S$血玉下属性1 6 1
+SetStringBlank S$血玉下属性2 6 1
+SetStringBlank S$血玉人级 4 0
+OPENMERCHANTBIGDLG 12 1165 1 4 0 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$血玉阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　{<$BUJUK>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{血玉碎片/SCOLOR=154}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{用途：450点/SCOLOR=94}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{价格：800元宝/SCOLOR=94}\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<点击购买/@购买血玉碎片>\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 {血玉碎片(中)/SCOLOR=154}  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 {用途：4800点/SCOLOR=94}  <$STR(S$血玉展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<返回升级界面/@血玉界面><Img:1153:12:-92:-3>　 {价格：8000元宝/SCOLOR=94}\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<点击购买/@购买血玉碎片中>\
+　　　　　　　　{<$STR(S$血玉本名字)>　　　　　　　　 <$STR(S$血玉下名字)>/SCOLOR=82}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{血玉碎片(大)/SCOLOR=154}  \
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{人物生命上限：<$STR(S$血玉本属性1)> 　　　　　　　　　　人物生命上限：<$STR(S$血玉下属性1)>/SCOLOR=116}　　　 　　{用途：50000点/SCOLOR=94}  \
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{价格：80000元宝/SCOLOR=94}\
+　　　　　　　{人物魔法上限：<$STR(S$血玉本属性2)> 　　　　　　　　　　人物魔法上限：<$STR(S$血玉下属性1)>/SCOLOR=116}　　　　　 <点击购买/@购买血玉碎片大>\
+　\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有血玉值:/SCOLOR=82}　<$STR(S$血玉当前)>　　　　　　　　　{需要血玉值:/SCOLOR=82}　<$STR(N$血玉碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@血玉升级>\
+　\
+　\
+　\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+
+
+
+
+
+
+
+[@购买血玉碎片]
+#IF
+CHECKGAMEGOLD < 800
+#ACT
+MESSAGEBOX \\你的元宝数量不足800颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 800
+give 血玉碎片 1
+SENDMSG 6 购买成功
+break
+[@购买印记碎片]
+#IF
+CHECKGAMEGOLD < 800
+#ACT
+MESSAGEBOX \\你的元宝数量不足800颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 800
+give 印记碎片 1
+SENDMSG 6 购买成功
+break
+[@购买魂晶碎片]
+#IF
+CHECKGAMEGOLD < 800
+#ACT
+MESSAGEBOX \\你的元宝数量不足800颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 800
+give 魂晶碎片 1
+SENDMSG 6 购买成功
+break
+[@购买秘符碎片]
+#IF
+CHECKGAMEGOLD < 800
+#ACT
+MESSAGEBOX \\你的元宝数量不足800颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 800
+give 秘符碎片 1
+SENDMSG 6 购买成功
+break
+
+
+[@购买血玉碎片中]
+#IF
+CHECKGAMEGOLD < 8000
+#ACT
+MESSAGEBOX \\你的元宝数量不足8000颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 8000
+give 血玉碎片(中) 1
+SENDMSG 6 购买成功
+break
+[@购买印记碎片中]
+#IF
+CHECKGAMEGOLD < 8000
+#ACT
+MESSAGEBOX \\你的元宝数量不足8000颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 8000
+give 印记碎片(中) 1
+SENDMSG 6 购买成功
+break
+[@购买魂晶碎片中]
+#IF
+CHECKGAMEGOLD < 8000
+#ACT
+MESSAGEBOX \\你的元宝数量不足8000颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 8000
+give 魂晶碎片(中) 1
+SENDMSG 6 购买成功
+break
+[@购买秘符碎片中]
+#IF
+CHECKGAMEGOLD < 8000
+#ACT
+MESSAGEBOX \\你的元宝数量不足8000颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 8000
+give 秘符碎片(中) 1
+SENDMSG 6 购买成功
+break
+
+
+[@购买血玉碎片大]
+#IF
+CHECKGAMEGOLD < 80000
+#ACT
+MESSAGEBOX \\你的元宝数量不足80000颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 80000
+give 血玉碎片(大) 1
+SENDMSG 6 购买成功
+break
+[@购买印记碎片大]
+#IF
+CHECKGAMEGOLD < 80000
+#ACT
+MESSAGEBOX \\你的元宝数量不足80000颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 80000
+give 印记碎片(大) 1
+SENDMSG 6 购买成功
+break
+[@购买魂晶碎片大]
+#IF
+CHECKGAMEGOLD < 80000
+#ACT
+MESSAGEBOX \\你的元宝数量不足80000颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 80000
+give 魂晶碎片(大) 1
+SENDMSG 6 购买成功
+break
+[@购买秘符碎片大]
+#IF
+CHECKGAMEGOLD < 80000
+#ACT
+MESSAGEBOX \\你的元宝数量不足80000颗，购买失败！
+break
+#IF
+NOT CHECKBAGSIZE 1
+#ACT
+MESSAGEBOX \\你的背包不足1个空位！
+break
+#IF
+#ACT
+GAMEGOLD - 80000
+give 秘符碎片(大) 1
+SENDMSG 6 购买成功
+break
+
+
+
+[@血玉升级]
+#IF
+CheckContainsText <$STR(T5)> 血玉·Lv30
+#act
+MESSAGEBOX \升级失败：\\请的血玉已经满级
+BREAK
+
+#IF
+small <$STR(U35)> <$STR(N$血玉碎片数量)>
+#act
+MESSAGEBOX \升级失败：\\您的血玉值不足<$STR(N$血玉碎片数量)>点
+BREAK
+
+#IF
+CHECKUSEITEM 9
+NOT CheckContainsText <$STR(T5)> 血玉·Lv30
+NOT small <$STR(U35)> <$STR(N$血玉碎片数量)>
+#act
+DEC U35 <$STR(N$血玉碎片数量)>
+GiveStateItem <$STR(S$血玉下名字)> 1 1 1 0 1 1 1 1
+TakeOnItem <$STR(S$血玉下名字)> 9
+take 战士血玉·Lv1 42
+take 战士血玉·Lv2 42
+take 战士血玉·Lv3 42
+take 战士血玉·Lv4 42
+take 战士血玉·Lv5 42
+take 战士血玉·Lv6 42
+take 战士血玉·Lv7 42
+take 战士血玉·Lv8 42
+take 战士血玉·Lv9 42
+take 战士血玉·Lv10 42
+take 战士血玉·Lv11 42
+take 战士血玉·Lv12 42
+take 战士血玉·Lv13 42
+take 战士血玉·Lv14 42
+take 战士血玉·Lv15 42
+take 战士血玉·Lv16 42
+take 战士血玉·Lv17 42
+take 战士血玉·Lv18 42
+take 战士血玉·Lv19 42
+take 战士血玉·Lv20 42
+take 战士血玉·Lv21 42
+take 战士血玉·Lv22 42
+take 战士血玉·Lv23 42
+take 战士血玉·Lv24 42
+take 战士血玉·Lv25 42
+take 战士血玉·Lv26 42
+take 战士血玉·Lv27 42
+take 战士血玉·Lv28 42
+take 战士血玉·Lv29 42
+take 战士血玉·Lv30 42
+take 法师血玉·Lv1 42
+take 法师血玉·Lv2 42
+take 法师血玉·Lv3 42
+take 法师血玉·Lv4 42
+take 法师血玉·Lv5 42
+take 法师血玉·Lv6 42
+take 法师血玉·Lv7 42
+take 法师血玉·Lv8 42
+take 法师血玉·Lv9 42
+take 法师血玉·Lv10 42
+take 法师血玉·Lv11 42
+take 法师血玉·Lv12 42
+take 法师血玉·Lv13 42
+take 法师血玉·Lv14 42
+take 法师血玉·Lv15 42
+take 法师血玉·Lv16 42
+take 法师血玉·Lv17 42
+take 法师血玉·Lv18 42
+take 法师血玉·Lv19 42
+take 法师血玉·Lv20 42
+take 法师血玉·Lv21 42
+take 法师血玉·Lv22 42
+take 法师血玉·Lv23 42
+take 法师血玉·Lv24 42
+take 法师血玉·Lv25 42
+take 法师血玉·Lv26 42
+take 法师血玉·Lv27 42
+take 法师血玉·Lv28 42
+take 法师血玉·Lv29 42
+take 法师血玉·Lv30 42
+take 道士血玉·Lv1 42
+take 道士血玉·Lv2 42
+take 道士血玉·Lv3 42
+take 道士血玉·Lv4 42
+take 道士血玉·Lv5 42
+take 道士血玉·Lv6 42
+take 道士血玉·Lv7 42
+take 道士血玉·Lv8 42
+take 道士血玉·Lv9 42
+take 道士血玉·Lv10 42
+take 道士血玉·Lv11 42
+take 道士血玉·Lv12 42
+take 道士血玉·Lv13 42
+take 道士血玉·Lv14 42
+take 道士血玉·Lv15 42
+take 道士血玉·Lv16 42
+take 道士血玉·Lv17 42
+take 道士血玉·Lv18 42
+take 道士血玉·Lv19 42
+take 道士血玉·Lv20 42
+take 道士血玉·Lv21 42
+take 道士血玉·Lv22 42
+take 道士血玉·Lv23 42
+take 道士血玉·Lv24 42
+take 道士血玉·Lv25 42
+take 道士血玉·Lv26 42
+take 道士血玉·Lv27 42
+take 道士血玉·Lv28 42
+take 道士血玉·Lv29 42
+take 道士血玉·Lv30 42
+DEC S$血玉下名字 战士
+DEC S$血玉下名字 法师
+DEC S$血玉下名字 道士
+MOV T5 <$STR(S$血玉下名字)>
+SendMsg 0 {系统提示ぐ|151:0:1}：{%s|227:0:1}成功把血玉升级到<$STR(S$血玉下名字)>，请大家恭喜他！！
+GOTO @血玉成功界面
+BREAK
+
+[@印记升级]
+#IF
+Equal T6 印记·Lv30
+#act
+MESSAGEBOX \升级失败：\\请的印记已经满级
+BREAK
+
+#IF
+small <$STR(U36)> <$STR(N$印记碎片数量)>
+#act
+MESSAGEBOX \升级失败：\\您的印记值不足<$STR(N$印记碎片数量)>点
+BREAK
+
+#IF
+NOT Equal T6 印记·Lv30
+NOT small <$STR(U36)> <$STR(N$印记碎片数量)>
+#act
+DEC U36 <$STR(N$印记碎片数量)>
+GiveStateItem <$STR(S$印记下名字)> 1 1 1 0 1 1 1 1
+TakeOnItem <$STR(S$印记下名字)> 12
+MOV T6 <$STR(S$印记下名字)>
+take 印记·Lv1 42
+take 印记·Lv2 42
+take 印记·Lv3 42
+take 印记·Lv4 42
+take 印记·Lv5 42
+take 印记·Lv6 42
+take 印记·Lv7 42
+take 印记·Lv8 42
+take 印记·Lv9 42
+take 印记·Lv10 42
+take 印记·Lv11 42
+take 印记·Lv12 42
+take 印记·Lv13 42
+take 印记·Lv14 42
+take 印记·Lv15 42
+take 印记·Lv16 42
+take 印记·Lv17 42
+take 印记·Lv18 42
+take 印记·Lv19 42
+take 印记·Lv20 42
+take 印记·Lv21 42
+take 印记·Lv22 42
+take 印记·Lv23 42
+take 印记·Lv24 42
+take 印记·Lv25 42
+take 印记·Lv26 42
+take 印记·Lv27 42
+take 印记·Lv28 42
+take 印记·Lv29 42
+take 印记·Lv30 42
+SendMsg 0 {系统提示ぐ|151:0:1}：{%s|227:0:1}成功把印记升级到<$STR(S$印记下名字)>，请大家恭喜他！！
+goto @印记成功界面
+break
+
+[@魂晶升级]
+#IF
+Equal T7 魂晶·Lv30
+#act
+MESSAGEBOX \升级失败：\\请的魂晶已经满级
+BREAK
+
+#IF
+small <$STR(U37)> <$STR(N$魂晶碎片数量)>
+#act
+MESSAGEBOX \升级失败：\\您的魂晶值不足<$STR(N$魂晶碎片数量)>点
+BREAK
+
+#IF
+NOT Equal T7 魂晶·Lv30
+NOT small <$STR(U37)> <$STR(N$魂晶碎片数量)>
+#act
+DEC U37 <$STR(N$魂晶碎片数量)>
+GiveStateItem <$STR(S$魂晶下名字)> 1 1 1 0 1 1 1 1
+TakeOnItem <$STR(S$魂晶下名字)> 14
+MOV T7 <$STR(S$魂晶下名字)>
+take 魂晶·Lv1 42
+take 魂晶·Lv2 42
+take 魂晶·Lv3 42
+take 魂晶·Lv4 42
+take 魂晶·Lv5 42
+take 魂晶·Lv6 42
+take 魂晶·Lv7 42
+take 魂晶·Lv8 42
+take 魂晶·Lv9 42
+take 魂晶·Lv10 42
+take 魂晶·Lv11 42
+take 魂晶·Lv12 42
+take 魂晶·Lv13 42
+take 魂晶·Lv14 42
+take 魂晶·Lv15 42
+take 魂晶·Lv16 42
+take 魂晶·Lv17 42
+take 魂晶·Lv18 42
+take 魂晶·Lv19 42
+take 魂晶·Lv20 42
+take 魂晶·Lv21 42
+take 魂晶·Lv22 42
+take 魂晶·Lv23 42
+take 魂晶·Lv24 42
+take 魂晶·Lv25 42
+take 魂晶·Lv26 42
+take 魂晶·Lv27 42
+take 魂晶·Lv28 42
+take 魂晶·Lv29 42
+take 魂晶·Lv30 42
+SendMsg 0 {系统提示ぐ|151:0:1}：{%s|227:0:1}成功把魂晶升级到<$STR(S$魂晶下名字)>，请大家恭喜他！！
+goto @魂晶成功界面
+break
+
+
+[@秘符升级]
+#IF
+Equal T8 秘符·Lv30
+#act
+MESSAGEBOX \升级失败：\\请的秘符已经满级
+BREAK
+
+#IF
+small <$STR(U38)> <$STR(N$秘符碎片数量)>
+#act
+MESSAGEBOX \升级失败：\\您的秘符值不足<$STR(N$秘符碎片数量)>点
+BREAK
+
+#IF
+NOT Equal T8 秘符·Lv30
+NOT small <$STR(U38)> <$STR(N$秘符碎片数量)>
+#act
+DEC U38 <$STR(N$秘符碎片数量)>
+GiveStateItem <$STR(S$秘符下名字)> 1 1 1 0 1 1 1 1
+TakeOnItem <$STR(S$秘符下名字)> 15
+MOV T8 <$STR(S$秘符下名字)>
+take 秘符·Lv1 42
+take 秘符·Lv2 42
+take 秘符·Lv3 42
+take 秘符·Lv4 42
+take 秘符·Lv5 42
+take 秘符·Lv6 42
+take 秘符·Lv7 42
+take 秘符·Lv8 42
+take 秘符·Lv9 42
+take 秘符·Lv10 42
+take 秘符·Lv11 42
+take 秘符·Lv12 42
+take 秘符·Lv13 42
+take 秘符·Lv14 42
+take 秘符·Lv15 42
+take 秘符·Lv16 42
+take 秘符·Lv17 42
+take 秘符·Lv18 42
+take 秘符·Lv19 42
+take 秘符·Lv20 42
+take 秘符·Lv21 42
+take 秘符·Lv22 42
+take 秘符·Lv23 42
+take 秘符·Lv24 42
+take 秘符·Lv25 42
+take 秘符·Lv26 42
+take 秘符·Lv27 42
+take 秘符·Lv28 42
+take 秘符·Lv29 42
+take 秘符·Lv30 42
+SendMsg 0 {系统提示ぐ|151:0:1}：{%s|227:0:1}成功把秘符升级到<$STR(S$秘符下名字)>，请大家恭喜他！！
+goto @秘符成功界面
+break
+
+[@秘符成功界面]
+#IF
+#Act
+mov S$选择界面 秘符
+GOTO @初始化
+SetStringBlank S$秘符本属性1 6 1
+SetStringBlank S$秘符本属性2 6 1
+SetStringBlank S$秘符本属性3 6 1
+SetStringBlank S$秘符本名字 26 1
+SetStringBlank S$秘符人级 4 0
+OPENMERCHANTBIGDLG 12 1160 1 4 30 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$秘符阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　{<$STR(S$秘符本名字)>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}\
+　\
+　\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <$STR(S$秘符展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<购买秘符碎片/@秘符购买><Img:1153:12:-92:-3>\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}\
+　　　　　　　　{<$STR(S$秘符本名字)>　　　　　　　　 <$STR(S$秘符下名字)>/SCOLOR=82}\
+　\
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{攻击魔法道术：<$STR(S$秘符本属性1)> 　　　　　　　　　　攻击魔法道术：<$STR(S$秘符下属性1)>/SCOLOR=116}\
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}\
+　　　　　　　{暴击几率增加：<$STR(S$秘符本属性2)> 　　　　　　　　　　暴击几率增加：<$STR(S$秘符下属性2)>/SCOLOR=146}\
+　　　　　　　{目标爆率增加：<$STR(S$秘符本属性3)> 　　　　　　　　　　目标爆率增加：<$STR(S$秘符下属性3)>/SCOLOR=146}\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有秘符值:/SCOLOR=82}　<$STR(S$秘符当前)>　　　　　　　　　{需要秘符值:/SCOLOR=82}　<$STR(N$秘符碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@秘符升级>\
+　\
+　\
+<PlayImg:12:1193:6:150:150:-300:1:1>\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+
+
+[@魂晶成功界面]
+#IF
+#Act
+mov S$选择界面 魂晶
+GOTO @初始化
+SetStringBlank S$魂晶本属性1 6 1
+SetStringBlank S$魂晶本属性2 6 1
+SetStringBlank S$魂晶本属性3 20 1
+SetStringBlank S$魂晶本名字 26 1
+SetStringBlank S$魂晶人级 4 0
+OPENMERCHANTBIGDLG 12 1160 1 4 30 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$魂晶阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　{<$STR(S$魂晶本名字)>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}\
+　\
+　\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <$STR(S$魂晶展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<购买魂晶碎片/@魂晶购买><Img:1153:12:-92:-3>\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}\
+　　　　　　　　{<$STR(S$魂晶本名字)>　　　　　　　　 <$STR(S$魂晶下名字)>/SCOLOR=82}\
+　\
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{攻击魔法道术：<$STR(S$魂晶本属性1)> 　　　　　　　　　　攻击魔法道术：<$STR(S$魂晶下属性1)>/SCOLOR=116}\
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}\
+　　　　　　　{伤害减免增加：<$STR(S$魂晶本属性2)> 　　　　　　　　　　伤害减免增加：<$STR(S$魂晶下属性2)>/SCOLOR=146}\
+　　　　　　　{<$STR(S$魂晶本属性3)> 　　　　　　　　　　<$STR(S$魂晶下属性3)>/SCOLOR=146}\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有魂晶值:/SCOLOR=82}　<$STR(S$魂晶当前)>　　　　　　　　　{需要魂晶值:/SCOLOR=82}　<$STR(N$魂晶碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@魂晶升级>\
+　\
+　\
+<PlayImg:12:1193:6:150:150:-300:1:1>\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+
+
+[@印记成功界面]
+#IF
+#Act
+mov S$选择界面 印记
+GOTO @初始化
+SetStringBlank S$印记本属性1 6 1
+SetStringBlank S$印记本属性2 6 1
+SetStringBlank S$印记本属性3 20 1
+SetStringBlank S$印记本名字 26 1
+SetStringBlank S$印记人级 4 0
+OPENMERCHANTBIGDLG 12 1160 1 4 30 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$印记阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　　{<$STR(S$印记本名字)>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}\
+　\
+　\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <$STR(S$印记展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<购买印记碎片/@印记购买><Img:1153:12:-92:-3>\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}\
+　　　　　　　　{<$STR(S$印记本名字)>　　　　　　　　 <$STR(S$印记下名字)>/SCOLOR=82}\
+　\
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{攻击魔法道术：<$STR(S$印记本属性1)> 　　　　　　　　　　攻击魔法道术：<$STR(S$印记下属性1)>/SCOLOR=116}\
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}\
+　　　　　　　{攻击伤害增加：<$STR(S$印记本属性2)> 　　　　　　　　　　攻击伤害增加：<$STR(S$印记下属性2)>/SCOLOR=146}\
+　　　　　　　{<$STR(S$印记本属性3)> 　　　　　　　　　　<$STR(S$印记下属性3)>/SCOLOR=146}\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有印记值:/SCOLOR=82}　<$STR(S$印记当前)>　　　　　　　　　{需要印记值:/SCOLOR=82}　<$STR(N$印记碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@印记升级>\
+　\
+　\
+<PlayImg:12:1193:6:150:150:-300:1:1>\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+
+
+
+[@血玉成功界面]
+#IF
+#Act
+mov S$选择界面 血玉
+GOTO @初始化
+SetStringBlank S$血玉本属性1 6 1
+SetStringBlank S$血玉本属性2 6 1
+SetStringBlank S$血玉本名字 26 1
+SetStringBlank S$血玉人级 4 0
+OPENMERCHANTBIGDLG 12 1160 1 4 30 -30 0
+#say
+<Img:801:0:470:-8/@EXIT>\
+　\
+<Img:<$STR(S$血玉阶图)>:12:430:30>\
+　{<$STR(S$血玉开关)>/SCOLOR=<$STR(N$血玉颜色)>}　　　　　　　　　　　　　　　　{<$BUJUK>/SCOLOR=149}\
+　{<$STR(S$血玉阶级)>/SCOLOR=<$STR(N$血玉颜色)>}\
+　\
+　\
+　{<$STR(S$印记开关)>/SCOLOR=<$STR(N$印记颜色)>}\
+　{<$STR(S$印记阶级)>/SCOLOR=<$STR(N$印记颜色)>}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <PlayImg:12:1170:10:100:-378:-64:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　　　　　　 　　　　　　  <$STR(S$血玉展示)>\
+　{<$STR(S$魂晶开关)>/SCOLOR=<$STR(N$魂晶颜色)>}　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<购买血玉碎片/@血玉购买><Img:1153:12:-92:-3>\
+　{<$STR(S$魂晶阶级)>/SCOLOR=<$STR(N$魂晶颜色)>}\
+　　　　　　　　{<$STR(S$血玉本名字)>　　　　　　　　 <$STR(S$血玉下名字)>/SCOLOR=82}\
+　\
+　{<$STR(S$秘符开关)>/SCOLOR=<$STR(N$秘符颜色)>}　　　　{人物生命上限：<$STR(S$血玉本属性1)> 　　　　　　　　　　人物生命上限：<$STR(S$血玉下属性1)>/SCOLOR=116}\
+　{<$STR(S$秘符阶级)>/SCOLOR=<$STR(N$秘符颜色)>}\
+　　　　　　　{人物魔法上限：<$STR(S$血玉本属性2)> 　　　　　　　　　　人物魔法上限：<$STR(S$血玉下属性1)>/SCOLOR=116}\
+　\
+　\
+　<Img:590:12:55:5><Img:<$STR(p14)>:12:-367:5>\
+　　　　　　　　　　　　　　　　　　　　　  {<$STR(p13)>％/SCOLOR=255}\
+　\
+　　　　　{拥有血玉值:/SCOLOR=82}　<$STR(S$血玉当前)>　　　　　　　　　{需要血玉值:/SCOLOR=82}　<$STR(N$血玉碎片数量)>\
+　\
+<ImgEx:12:1161:1162:1163:210:0/@血玉升级>\
+　\
+　\
+<PlayImg:12:1193:6:150:150:-300:1:1>\
+　\
+　\
+<Img:<$STR(N$血玉图片)>:12:-7:-460/@血玉界面>\
+<Img:<$STR(N$印记图片)>:12:-7:-412/@印记界面>\
+<Img:<$STR(N$魂晶图片)>:12:-7:-364/@魂晶界面>\
+<Img:<$STR(N$秘符图片)>:12:-7:-316/@秘符界面>\
+}

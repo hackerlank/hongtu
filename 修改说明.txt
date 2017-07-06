@@ -1,0 +1,8 @@
+内容都是Envir下
+其中MonItems目录下是基础爆率
+Market_Def目录是基础脚本
+其中QFunction-0.txt是启动会加载的入口脚本文件
+MapQuest_def/QManage.txt 登陆脚本入口文件
+
+Robot.txt下决定的定时器脚本
+Robot_def/AutoRunRobot.txt	任务执行列表脚本（定时器）

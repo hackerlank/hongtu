@@ -1,0 +1,2237 @@
+{
+
+[@RMB]
+#IF
+small G70 3
+#ACT
+MOV S$限时按钮 <ImgEx:25:251:252:253:5:10/@限时奖励>
+MOV S$商城按钮 
+#ELSEACT
+MOV S$限时按钮 
+MOV S$商城按钮 
+
+#IF
+#ACT
+GOTO @古币回收
+
+[@现金提现界面]
+#IF
+EQUAL T29 
+#ACT
+MOV T27 ←点击设置您的收款账号.如果账号包括@字符,请替换为#
+MOV T28 ←点击设置您的收款姓名.请认真设置,以免出款出错.
+MOV T29 ←点击设置您的联系ＱＱ.请认真设置,出现特殊情况方便管理联系您
+
+#IF
+EQUAL T25 
+#ACT
+MOV S$财付通 <Img:1031:12:-5:-3/@财付通><财付通/SCOLOR=249>
+MOV S$支付宝 <Img:1031:12:-5:-3/@支付宝><支付宝/SCOLOR=249>
+
+#IF
+EQUAL T25 支付宝
+#ACT
+MOV S$财付通 <Img:1031:12:-5:-3/@财付通><财付通/SCOLOR=249>
+MOV S$支付宝 <Img:1032:12:-5:-3/@支付宝><支付宝/SCOLOR=250>
+
+#IF
+EQUAL T25 财付通
+#ACT
+MOV S$财付通 <Img:1032:12:-5:-3/@财付通><财付通/SCOLOR=250>
+MOV S$支付宝 <Img:1031:12:-5:-3/@支付宝><支付宝/SCOLOR=249>
+
+#IF
+#ACT
+ReturnBoxItem 2
+MOV N$回收价格 0
+UpDateBoxItem 2
+ReturnBoxItem 3
+MOV N$限时价格 0
+UpDateBoxItem 3
+MOV N31 0
+MOV N32 1
+MOV N33 2
+MOV N34 3
+MOV N35 4
+MOV N36 0
+MOV N37 1
+MOV N38 2
+MOV N39 3
+MOV N30 4
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名五 <$STR(N35)>
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额五 <$STR(N35)>
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间五 <$STR(N35)>
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态五 <$STR(N35)>
+
+MOV S$提现排序一 <$STR(N36)>
+MOV S$提现排序二 <$STR(N37)>
+MOV S$提现排序三 <$STR(N38)>
+MOV S$提现排序四 <$STR(N39)>
+MOV S$提现排序五 <$STR(N30)>
+
+;============提现排序加空格=========
+SetStringBlank <$STR(S$提现排序一)> 8 1
+SetStringBlank <$STR(S$提现排序二)> 8 1
+SetStringBlank <$STR(S$提现排序三)> 8 1
+SetStringBlank <$STR(S$提现排序四)> 8 1
+SetStringBlank <$STR(S$提现排序五)> 8 1
+;============提现姓名加空格=========
+SetStringBlank <$STR(S$提现姓名一)> 17 1
+SetStringBlank <$STR(S$提现姓名二)> 17 1
+SetStringBlank <$STR(S$提现姓名三)> 17 1
+SetStringBlank <$STR(S$提现姓名四)> 17 1
+SetStringBlank <$STR(S$提现姓名五)> 17 1
+;============提现金额加空格=========
+SetStringBlank <$STR(S$提现金额一)> 14 1
+SetStringBlank <$STR(S$提现金额二)> 14 1
+SetStringBlank <$STR(S$提现金额三)> 14 1
+SetStringBlank <$STR(S$提现金额四)> 14 1
+SetStringBlank <$STR(S$提现金额五)> 14 1
+;============提现时间加空格=========
+SetStringBlank <$STR(S$提现时间一)> 34 1
+SetStringBlank <$STR(S$提现时间二)> 34 1
+SetStringBlank <$STR(S$提现时间三)> 34 1
+SetStringBlank <$STR(S$提现时间四)> 34 1
+SetStringBlank <$STR(S$提现时间五)> 34 1
+
+;============状态绿色=========
+MOV S$状态一颜色 249
+MOV S$状态二颜色 249
+MOV S$状态三颜色 249
+MOV S$状态四颜色 249
+MOV S$状态五颜色 249
+
+
+#IF
+EQUAL S$提现状态一 等待打款
+#act
+MOV S$状态一颜色 250
+#IF
+EQUAL S$提现状态二 等待打款
+#act
+MOV S$状态二颜色 250
+#IF
+EQUAL S$提现状态三 等待打款
+#act
+MOV S$状态三颜色 250
+#IF
+EQUAL S$提现状态四 等待打款
+#act
+MOV S$状态四颜色 250
+#IF
+EQUAL S$提现状态五 等待打款
+#act
+MOV S$状态五颜色 250
+
+
+#IF
+#act
+ReturnBoxItem 2
+MOV N$回收价格 0
+UpDateBoxItem 2
+ReturnBoxItem 3
+MOV N$限时价格 0
+UpDateBoxItem 3
+OPENMERCHANTBIGDLG 25 191 1 4 0 -30 0
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:248:249:250:0:10/@古币回收><$STR(S$限时按钮)><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$提现排序一)>{<$STR(S$提现姓名一)>/SCOLOR=145}{<$STR(S$提现金额一)>/SCOLOR=70}{<$STR(S$提现时间一)>/SCOLOR=239}{<$STR(S$提现状态一)>/SCOLOR=<$STR(S$状态一颜色)>} \
+　\
+　      <$STR(S$提现排序二)>{<$STR(S$提现姓名二)>/SCOLOR=145}{<$STR(S$提现金额二)>/SCOLOR=70}{<$STR(S$提现时间二)>/SCOLOR=239}{<$STR(S$提现状态二)>/SCOLOR=<$STR(S$状态二颜色)>} \
+<ImgEx:25:200:201:202:0:-10|250#上一页/@计算变量上><ImgEx:25:203:204:205:545:-10|250#下一页/@计算变量下>\
+　      <$STR(S$提现排序三)>{<$STR(S$提现姓名三)>/SCOLOR=145}{<$STR(S$提现金额三)>/SCOLOR=70}{<$STR(S$提现时间三)>/SCOLOR=239}{<$STR(S$提现状态三)>/SCOLOR=<$STR(S$状态三颜色)>} \
+　\
+　      <$STR(S$提现排序四)>{<$STR(S$提现姓名四)>/SCOLOR=145}{<$STR(S$提现金额四)>/SCOLOR=70}{<$STR(S$提现时间四)>/SCOLOR=239}{<$STR(S$提现状态四)>/SCOLOR=<$STR(S$状态四颜色)>} \
+　\
+　      <$STR(S$提现排序五)>{<$STR(S$提现姓名五)>/SCOLOR=145}{<$STR(S$提现金额五)>/SCOLOR=70}{<$STR(S$提现时间五)>/SCOLOR=239}{<$STR(S$提现状态五)>/SCOLOR=<$STR(S$状态五颜色)>} \
+　\
+　\
+                <古币提现必须大于100古币,提现手续费为15%.提现结算时间为每日00:00整./SCOLOR=9>\
+　\
+<提现的金额/@@InPutString96>：<$STR(U9)><古币/SCOLOR=242>        <您当前古币余额：/SCOLOR=243><$GOLDCOUNT>\
+<收款人的QQ/@@InPutString99>：{<$STR(T29)>/SCOLOR=253}\
+<收款人姓名/@@InPutString98>：{<$STR(T28)>/SCOLOR=253}\
+<收款人账号/@@InPutString97>：{<$STR(T27)>/SCOLOR=253}\
+<收款的方式/SCOLOR=151>：<$STR(S$支付宝)>    <$STR(S$财付通)>\
+　\
+   <请认真填写收款信息,请核对是否设置正确,如不正确造成打款错误,本服概不负责!/scolor=249>\
+
+　\
+　\
+　\
+<ImgEx:25:213:214:215:450:-157/@确认提现>\
+　\
+<PlayImg:25:216:12:20:430:-205:1>\
+
+
+
+[@计算变量下]
+#IF
+#ACT
+GetStringPos ..\QuestDiary\提现系统\提现记录\待审核名单.txt 　
+DELAYGOTO 20 @下一页
+BREAK
+
+
+[@下一页]
+#IF
+LARGE N0 <$STR(N30)>
+#ACT
+INC N36 5
+INC N37 5
+INC N38 5
+INC N39 5
+INC N30 5
+INC N31 5
+INC N32 5
+INC N33 5
+INC N34 5
+INC N35 5
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名五 <$STR(N35)>
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额五 <$STR(N35)>
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间五 <$STR(N35)>
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态五 <$STR(N35)>
+
+
+MOV S$提现排序一 <$STR(N36)>
+MOV S$提现排序二 <$STR(N37)>
+MOV S$提现排序三 <$STR(N38)>
+MOV S$提现排序四 <$STR(N39)>
+MOV S$提现排序五 <$STR(N30)>
+
+;============提现排序加空格=========
+SetStringBlank <$STR(S$提现排序一)> 8 1
+SetStringBlank <$STR(S$提现排序二)> 8 1
+SetStringBlank <$STR(S$提现排序三)> 8 1
+SetStringBlank <$STR(S$提现排序四)> 8 1
+SetStringBlank <$STR(S$提现排序五)> 8 1
+
+
+;============提现姓名加空格=========
+SetStringBlank <$STR(S$提现姓名一)> 17 1
+SetStringBlank <$STR(S$提现姓名二)> 17 1
+SetStringBlank <$STR(S$提现姓名三)> 17 1
+SetStringBlank <$STR(S$提现姓名四)> 17 1
+SetStringBlank <$STR(S$提现姓名五)> 17 1
+
+;============提现金额加空格=========
+SetStringBlank <$STR(S$提现金额一)> 14 1
+SetStringBlank <$STR(S$提现金额二)> 14 1
+SetStringBlank <$STR(S$提现金额三)> 14 1
+SetStringBlank <$STR(S$提现金额四)> 14 1
+SetStringBlank <$STR(S$提现金额五)> 14 1
+
+;============提现时间加空格=========
+SetStringBlank <$STR(S$提现时间一)> 34 1
+SetStringBlank <$STR(S$提现时间二)> 34 1
+SetStringBlank <$STR(S$提现时间三)> 34 1
+SetStringBlank <$STR(S$提现时间四)> 34 1
+SetStringBlank <$STR(S$提现时间五)> 34 1
+
+;============状态绿色=========
+MOV S$状态一颜色 249
+MOV S$状态二颜色 249
+MOV S$状态三颜色 249
+MOV S$状态四颜色 249
+MOV S$状态五颜色 249
+
+#IF
+EQUAL S$提现状态一 等待打款
+#act
+MOV S$状态一颜色 250
+#IF
+EQUAL S$提现状态二 等待打款
+#act
+MOV S$状态二颜色 250
+#IF
+EQUAL S$提现状态三 等待打款
+#act
+MOV S$状态三颜色 250
+#IF
+EQUAL S$提现状态四 等待打款
+#act
+MOV S$状态四颜色 250
+#IF
+EQUAL S$提现状态五 等待打款
+#act
+MOV S$状态五颜色 250
+
+
+#IF
+#act
+OPENMERCHANTBIGDLG 25 191 1 4 0 -30 0
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:248:249:250:0:10/@古币回收><$STR(S$限时按钮)><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$提现排序一)>{<$STR(S$提现姓名一)>/SCOLOR=145}{<$STR(S$提现金额一)>/SCOLOR=70}{<$STR(S$提现时间一)>/SCOLOR=239}{<$STR(S$提现状态一)>/SCOLOR=<$STR(S$状态一颜色)>} \
+　\
+　      <$STR(S$提现排序二)>{<$STR(S$提现姓名二)>/SCOLOR=145}{<$STR(S$提现金额二)>/SCOLOR=70}{<$STR(S$提现时间二)>/SCOLOR=239}{<$STR(S$提现状态二)>/SCOLOR=<$STR(S$状态二颜色)>} \
+<ImgEx:25:200:201:202:0:-10|250#上一页/@计算变量上><ImgEx:25:203:204:205:545:-10|250#下一页/@计算变量下>\
+　      <$STR(S$提现排序三)>{<$STR(S$提现姓名三)>/SCOLOR=145}{<$STR(S$提现金额三)>/SCOLOR=70}{<$STR(S$提现时间三)>/SCOLOR=239}{<$STR(S$提现状态三)>/SCOLOR=<$STR(S$状态三颜色)>} \
+　\
+　      <$STR(S$提现排序四)>{<$STR(S$提现姓名四)>/SCOLOR=145}{<$STR(S$提现金额四)>/SCOLOR=70}{<$STR(S$提现时间四)>/SCOLOR=239}{<$STR(S$提现状态四)>/SCOLOR=<$STR(S$状态四颜色)>} \
+　\
+　      <$STR(S$提现排序五)>{<$STR(S$提现姓名五)>/SCOLOR=145}{<$STR(S$提现金额五)>/SCOLOR=70}{<$STR(S$提现时间五)>/SCOLOR=239}{<$STR(S$提现状态五)>/SCOLOR=<$STR(S$状态五颜色)>} \
+　\
+　\
+                <古币提现必须大于100古币,提现手续费为15%.提现结算时间为每日00:00整./SCOLOR=9>\
+　\
+<提现的金额/@@InPutString96>：<$STR(U9)><古币/SCOLOR=242>        <您当前古币余额：/SCOLOR=243><$GOLDCOUNT>\
+<收款人的QQ/@@InPutString99>：{<$STR(T29)>/SCOLOR=253}\
+<收款人姓名/@@InPutString98>：{<$STR(T28)>/SCOLOR=253}\
+<收款人账号/@@InPutString97>：{<$STR(T27)>/SCOLOR=253}\
+<收款的方式/SCOLOR=151>：<$STR(S$支付宝)>    <$STR(S$财付通)>\
+　\
+   <请认真填写收款信息,请核对是否设置正确,如不正确造成打款错误,本服概不负责!/scolor=249>\
+
+　\
+　\
+　\
+<ImgEx:25:213:214:215:450:-157/@确认提现>\
+　\
+<PlayImg:25:216:12:20:430:-205:1>\
+
+
+
+[@计算变量上]
+#IF
+#ACT
+GetStringPos ..\QuestDiary\提现系统\提现记录\待审核名单.txt 　
+DELAYGOTO 20 @上一页
+BREAK
+
+
+[@上一页]
+#IF
+LARGE N31 0
+#ACT
+DEC N31 5
+DEC N32 5
+DEC N33 5
+DEC N34 5
+DEC N35 5
+DEC N36 5
+DEC N37 5
+DEC N38 5
+DEC N39 5
+DEC N30 5
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核名单.txt S$提现姓名五 <$STR(N35)>
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核金额.txt S$提现金额五 <$STR(N35)>
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核时间.txt S$提现时间五 <$STR(N35)>
+
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态一 <$STR(N31)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态二 <$STR(N32)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态三 <$STR(N33)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态四 <$STR(N34)>
+GetRandomText ..\QuestDiary\提现系统\提现记录\待审核状态.txt S$提现状态五 <$STR(N35)>
+
+
+MOV S$提现排序一 <$STR(N36)>
+MOV S$提现排序二 <$STR(N37)>
+MOV S$提现排序三 <$STR(N38)>
+MOV S$提现排序四 <$STR(N39)>
+MOV S$提现排序五 <$STR(N30)>
+
+;============提现排序加空格=========
+SetStringBlank <$STR(S$提现排序一)> 8 1
+SetStringBlank <$STR(S$提现排序二)> 8 1
+SetStringBlank <$STR(S$提现排序三)> 8 1
+SetStringBlank <$STR(S$提现排序四)> 8 1
+SetStringBlank <$STR(S$提现排序五)> 8 1
+
+
+;============提现姓名加空格=========
+SetStringBlank <$STR(S$提现姓名一)> 17 1
+SetStringBlank <$STR(S$提现姓名二)> 17 1
+SetStringBlank <$STR(S$提现姓名三)> 17 1
+SetStringBlank <$STR(S$提现姓名四)> 17 1
+SetStringBlank <$STR(S$提现姓名五)> 17 1
+
+;============提现金额加空格=========
+SetStringBlank <$STR(S$提现金额一)> 14 1
+SetStringBlank <$STR(S$提现金额二)> 14 1
+SetStringBlank <$STR(S$提现金额三)> 14 1
+SetStringBlank <$STR(S$提现金额四)> 14 1
+SetStringBlank <$STR(S$提现金额五)> 14 1
+
+;============提现时间加空格=========
+SetStringBlank <$STR(S$提现时间一)> 34 1
+SetStringBlank <$STR(S$提现时间二)> 34 1
+SetStringBlank <$STR(S$提现时间三)> 34 1
+SetStringBlank <$STR(S$提现时间四)> 34 1
+SetStringBlank <$STR(S$提现时间五)> 34 1
+
+;============状态绿色=========
+MOV S$状态一颜色 249
+MOV S$状态二颜色 249
+MOV S$状态三颜色 249
+MOV S$状态四颜色 249
+MOV S$状态五颜色 249
+
+#IF
+EQUAL S$提现状态一 等待打款
+#act
+MOV S$状态一颜色 250
+#IF
+EQUAL S$提现状态二 等待打款
+#act
+MOV S$状态二颜色 250
+#IF
+EQUAL S$提现状态三 等待打款
+#act
+MOV S$状态三颜色 250
+#IF
+EQUAL S$提现状态四 等待打款
+#act
+MOV S$状态四颜色 250
+#IF
+EQUAL S$提现状态五 等待打款
+#act
+MOV S$状态五颜色 250
+
+
+#IF
+#act
+OPENMERCHANTBIGDLG 25 191 1 4 0 -30 0
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:248:249:250:0:10/@古币回收><$STR(S$限时按钮)><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$提现排序一)>{<$STR(S$提现姓名一)>/SCOLOR=145}{<$STR(S$提现金额一)>/SCOLOR=70}{<$STR(S$提现时间一)>/SCOLOR=239}{<$STR(S$提现状态一)>/SCOLOR=<$STR(S$状态一颜色)>} \
+　\
+　      <$STR(S$提现排序二)>{<$STR(S$提现姓名二)>/SCOLOR=145}{<$STR(S$提现金额二)>/SCOLOR=70}{<$STR(S$提现时间二)>/SCOLOR=239}{<$STR(S$提现状态二)>/SCOLOR=<$STR(S$状态二颜色)>} \
+<ImgEx:25:200:201:202:0:-10|250#上一页/@计算变量上><ImgEx:25:203:204:205:545:-10|250#下一页/@计算变量下>\
+　      <$STR(S$提现排序三)>{<$STR(S$提现姓名三)>/SCOLOR=145}{<$STR(S$提现金额三)>/SCOLOR=70}{<$STR(S$提现时间三)>/SCOLOR=239}{<$STR(S$提现状态三)>/SCOLOR=<$STR(S$状态三颜色)>} \
+　\
+　      <$STR(S$提现排序四)>{<$STR(S$提现姓名四)>/SCOLOR=145}{<$STR(S$提现金额四)>/SCOLOR=70}{<$STR(S$提现时间四)>/SCOLOR=239}{<$STR(S$提现状态四)>/SCOLOR=<$STR(S$状态四颜色)>} \
+　\
+　      <$STR(S$提现排序五)>{<$STR(S$提现姓名五)>/SCOLOR=145}{<$STR(S$提现金额五)>/SCOLOR=70}{<$STR(S$提现时间五)>/SCOLOR=239}{<$STR(S$提现状态五)>/SCOLOR=<$STR(S$状态五颜色)>} \
+　\
+　\
+                <古币提现必须大于100古币,提现手续费为15%.提现结算时间为每日00:00整./SCOLOR=9>\
+　\
+<提现的金额/@@InPutString96>：<$STR(U9)><古币/SCOLOR=242>        <您当前古币余额：/SCOLOR=243><$GOLDCOUNT>\
+<收款人的QQ/@@InPutString99>：{<$STR(T29)>/SCOLOR=253}\
+<收款人姓名/@@InPutString98>：{<$STR(T28)>/SCOLOR=253}\
+<收款人账号/@@InPutString97>：{<$STR(T27)>/SCOLOR=253}\
+<收款的方式/SCOLOR=151>：<$STR(S$支付宝)>    <$STR(S$财付通)>\
+　\
+   <请认真填写收款信息,请核对是否设置正确,如不正确造成打款错误,本服概不负责!/scolor=249>\
+
+　\
+　\
+　\
+<ImgEx:25:213:214:215:450:-157/@确认提现>\
+　\
+<PlayImg:25:216:12:20:430:-205:1>\
+
+
+[@古币回收]
+#IF
+EQUAL N16 1
+#ACT
+goto @古币回收不刷新
+#ELSEACT
+MOV N16 1
+goto @古币回收有刷新
+
+
+[@古币回收有刷新]
+#IF
+#ACT
+ReturnBoxItem 3
+MOV N$回收价格 0
+UpDateBoxItem 3
+MOV N20 0 
+GetListString ..\QuestDiary\提现系统\装备回收\回收列表.txt N20 A20
+GetListString ..\QuestDiary\提现系统\装备回收\价格.txt N20 N18
+MOV S$回收物品<$STR(N20)> <$STR(A20)>
+MOV S$回收价格<$STR(N20)> <$STR(N18)>
+goto @重复获取
+
+[@重复获取]
+#IF
+EQUAL S$回收物品<$STR(N20)> 
+#ACT
+MOV S$回收价格<$STR(N20)> 
+#ELSEACT
+INC N20 1
+GetListString ..\QuestDiary\提现系统\装备回收\回收列表.txt N20 A20
+GetListString ..\QuestDiary\提现系统\装备回收\价格.txt N20 N18
+MOV S$回收物品<$STR(N20)> <$STR(A20)>
+MOV S$回收价格<$STR(N20)> <$STR(N18)>
+goto @重复获取
+
+#IF
+#ACT
+CLOSEMERCHANTBIGDLG
+OPENMERCHANTBIGDLG 25 194 1 4 0 -30 0
+
+MOV N$回收第0 0
+MOV N$回收第1 1
+MOV N$回收第2 2
+MOV N$回收第3 3
+MOV N$回收第4 4
+MOV N$回收第5 5
+MOV N$回收第6 6
+MOV N$回收第7 7
+MOV S$回收价格A <$STR(S$回收价格<$STR(N$回收第0)>)>
+MOV S$回收价格B <$STR(S$回收价格<$STR(N$回收第1)>)>
+MOV S$回收价格C <$STR(S$回收价格<$STR(N$回收第2)>)>
+MOV S$回收价格D <$STR(S$回收价格<$STR(N$回收第3)>)>
+MOV S$回收价格E <$STR(S$回收价格<$STR(N$回收第4)>)>
+MOV S$回收价格F <$STR(S$回收价格<$STR(N$回收第5)>)>
+MOV S$回收价格G <$STR(S$回收价格<$STR(N$回收第6)>)>
+MOV S$回收价格H <$STR(S$回收价格<$STR(N$回收第7)>)>
+SetStringBlank <$STR(S$回收价格A)> 3 0
+SetStringBlank <$STR(S$回收价格B)> 3 0
+SetStringBlank <$STR(S$回收价格C)> 3 0
+SetStringBlank <$STR(S$回收价格D)> 3 0
+SetStringBlank <$STR(S$回收价格E)> 3 0
+SetStringBlank <$STR(S$回收价格F)> 3 0
+SetStringBlank <$STR(S$回收价格G)> 3 0
+SetStringBlank <$STR(S$回收价格H)> 3 0
+
+
+MOV S$回收物品A <$STR(S$回收物品<$STR(N$回收第0)>)>
+MOV S$回收物品B <$STR(S$回收物品<$STR(N$回收第1)>)>
+MOV S$回收物品C <$STR(S$回收物品<$STR(N$回收第2)>)>
+MOV S$回收物品D <$STR(S$回收物品<$STR(N$回收第3)>)>
+MOV S$回收物品E <$STR(S$回收物品<$STR(N$回收第4)>)>
+MOV S$回收物品F <$STR(S$回收物品<$STR(N$回收第5)>)>
+MOV S$回收物品G <$STR(S$回收物品<$STR(N$回收第6)>)>
+MOV S$回收物品H <$STR(S$回收物品<$STR(N$回收第7)>)>
+SetStringBlank <$STR(S$回收物品A)> 10 1
+SetStringBlank <$STR(S$回收物品B)> 10 1
+SetStringBlank <$STR(S$回收物品C)> 10 1
+SetStringBlank <$STR(S$回收物品D)> 10 1
+SetStringBlank <$STR(S$回收物品E)> 10 1
+SetStringBlank <$STR(S$回收物品F)> 10 1
+SetStringBlank <$STR(S$回收物品G)> 10 1
+SetStringBlank <$STR(S$回收物品H)> 10 1
+
+MOV S$回收排序A <$STR(N$回收第0)>
+MOV S$回收排序B <$STR(N$回收第1)>
+MOV S$回收排序C <$STR(N$回收第2)>
+MOV S$回收排序D <$STR(N$回收第3)>
+MOV S$回收排序E <$STR(N$回收第4)>
+MOV S$回收排序F <$STR(N$回收第5)>
+MOV S$回收排序G <$STR(N$回收第6)>
+MOV S$回收排序H <$STR(N$回收第7)>
+SetStringBlank <$STR(S$回收排序A)> 3 1
+SetStringBlank <$STR(S$回收排序B)> 3 1
+SetStringBlank <$STR(S$回收排序C)> 3 1
+SetStringBlank <$STR(S$回收排序D)> 3 1
+SetStringBlank <$STR(S$回收排序E)> 3 1
+SetStringBlank <$STR(S$回收排序F)> 3 1
+SetStringBlank <$STR(S$回收排序G)> 3 1
+SetStringBlank <$STR(S$回收排序H)> 3 1
+
+
+MOV S$回收状态A 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态B 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态C 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态D 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态E 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态F 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态G 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态H 古币　　　　　　<可回收/SCOLOR=250>
+
+#IF
+not small N$回收第0 <$STR(N20)>
+#act
+MOV S$回收状态A 
+MOV S$回收排序A 
+#IF
+not small N$回收第1 <$STR(N20)>
+#act
+MOV S$回收状态B 
+MOV S$回收排序B 
+#IF
+not small N$回收第2 <$STR(N20)>
+#act
+MOV S$回收状态C 
+MOV S$回收排序C 
+#IF
+not small N$回收第3 <$STR(N20)>
+#act
+MOV S$回收状态D 
+MOV S$回收排序D 
+#IF
+not small N$回收第4 <$STR(N20)>
+#act
+MOV S$回收状态E 
+MOV S$回收排序E 
+#IF
+not small N$回收第5 <$STR(N20)>
+#act
+MOV S$回收状态F 
+MOV S$回收排序F 
+#IF
+not small N$回收第6 <$STR(N20)>
+#act
+MOV S$回收状态G 
+MOV S$回收排序G 
+#IF
+not small N$回收第7 <$STR(N20)>
+#act
+MOV S$回收状态H 
+MOV S$回收排序H 
+
+
+#IF
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:249:249:250:0:10/@古币回收><$STR(S$限时按钮)><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$回收排序A)>                    <$STR(S$回收物品A)>                     <$STR(S$回收价格A)><$STR(S$回收状态A)>\
+　\
+　      <$STR(S$回收排序B)>                    <$STR(S$回收物品B)>                     <$STR(S$回收价格B)><$STR(S$回收状态B)>\
+　\
+　      <$STR(S$回收排序C)>                    <$STR(S$回收物品C)>                     <$STR(S$回收价格C)><$STR(S$回收状态C)>\
+<ImgEx:25:200:201:202:0:-10|250#上一页/@古币回收上><ImgEx:25:203:204:205:545:-10|250#下一页/@古币回收下>\
+　      <$STR(S$回收排序D)>                    <$STR(S$回收物品D)>                     <$STR(S$回收价格D)><$STR(S$回收状态D)>\
+　\
+　      <$STR(S$回收排序E)>                    <$STR(S$回收物品E)>                     <$STR(S$回收价格E)><$STR(S$回收状态E)>\
+　\
+　      <$STR(S$回收排序F)>                    <$STR(S$回收物品F)>                     <$STR(S$回收价格F)><$STR(S$回收状态F)>\
+　\
+　      <$STR(S$回收排序G)>                    <$STR(S$回收物品G)>                     <$STR(S$回收价格G)><$STR(S$回收状态G)>\
+　\
+　      <$STR(S$回收排序H)>                    <$STR(S$回收物品H)>                     <$STR(S$回收价格H)><$STR(S$回收状态H)>\
+　\
+　　　　　　　　　<装备名称:/SCOLOR=94><$BOXITEM[2].NAME>\
+　\
+　　　　　　　　　<回收价格:/SCOLOR=94><$STR(N$回收价格)>古币\
+　\
+　<请把装备放入此框/SCOLOR=70>\
+<ImgEx:25:206:207:208:470:-57/@确认回收>\
+　\
+<PlayImg:25:216:12:20:450:-105:1>\
+　<Img:126:12:16:-130>\
+　<ITEMBOX:2:12:129:28:-132:36:36:*:请先放入“带星级的装备”>\
+
+
+
+
+
+[@古币回收不刷新]
+#IF
+#ACT
+CLOSEMERCHANTBIGDLG
+OPENMERCHANTBIGDLG 25 194 1 4 0 -30 0
+
+MOV N$回收第0 0
+MOV N$回收第1 1
+MOV N$回收第2 2
+MOV N$回收第3 3
+MOV N$回收第4 4
+MOV N$回收第5 5
+MOV N$回收第6 6
+MOV N$回收第7 7
+MOV S$回收价格A <$STR(S$回收价格<$STR(N$回收第0)>)>
+MOV S$回收价格B <$STR(S$回收价格<$STR(N$回收第1)>)>
+MOV S$回收价格C <$STR(S$回收价格<$STR(N$回收第2)>)>
+MOV S$回收价格D <$STR(S$回收价格<$STR(N$回收第3)>)>
+MOV S$回收价格E <$STR(S$回收价格<$STR(N$回收第4)>)>
+MOV S$回收价格F <$STR(S$回收价格<$STR(N$回收第5)>)>
+MOV S$回收价格G <$STR(S$回收价格<$STR(N$回收第6)>)>
+MOV S$回收价格H <$STR(S$回收价格<$STR(N$回收第7)>)>
+SetStringBlank <$STR(S$回收价格A)> 3 0
+SetStringBlank <$STR(S$回收价格B)> 3 0
+SetStringBlank <$STR(S$回收价格C)> 3 0
+SetStringBlank <$STR(S$回收价格D)> 3 0
+SetStringBlank <$STR(S$回收价格E)> 3 0
+SetStringBlank <$STR(S$回收价格F)> 3 0
+SetStringBlank <$STR(S$回收价格G)> 3 0
+SetStringBlank <$STR(S$回收价格H)> 3 0
+
+
+MOV S$回收物品A <$STR(S$回收物品<$STR(N$回收第0)>)>
+MOV S$回收物品B <$STR(S$回收物品<$STR(N$回收第1)>)>
+MOV S$回收物品C <$STR(S$回收物品<$STR(N$回收第2)>)>
+MOV S$回收物品D <$STR(S$回收物品<$STR(N$回收第3)>)>
+MOV S$回收物品E <$STR(S$回收物品<$STR(N$回收第4)>)>
+MOV S$回收物品F <$STR(S$回收物品<$STR(N$回收第5)>)>
+MOV S$回收物品G <$STR(S$回收物品<$STR(N$回收第6)>)>
+MOV S$回收物品H <$STR(S$回收物品<$STR(N$回收第7)>)>
+SetStringBlank <$STR(S$回收物品A)> 10 1
+SetStringBlank <$STR(S$回收物品B)> 10 1
+SetStringBlank <$STR(S$回收物品C)> 10 1
+SetStringBlank <$STR(S$回收物品D)> 10 1
+SetStringBlank <$STR(S$回收物品E)> 10 1
+SetStringBlank <$STR(S$回收物品F)> 10 1
+SetStringBlank <$STR(S$回收物品G)> 5 1
+SetStringBlank <$STR(S$回收物品H)> 5 1
+
+MOV S$回收排序A <$STR(N$回收第0)>
+MOV S$回收排序B <$STR(N$回收第1)>
+MOV S$回收排序C <$STR(N$回收第2)>
+MOV S$回收排序D <$STR(N$回收第3)>
+MOV S$回收排序E <$STR(N$回收第4)>
+MOV S$回收排序F <$STR(N$回收第5)>
+MOV S$回收排序G <$STR(N$回收第6)>
+MOV S$回收排序H <$STR(N$回收第7)>
+SetStringBlank <$STR(S$回收排序A)> 3 1
+SetStringBlank <$STR(S$回收排序B)> 3 1
+SetStringBlank <$STR(S$回收排序C)> 3 1
+SetStringBlank <$STR(S$回收排序D)> 3 1
+SetStringBlank <$STR(S$回收排序E)> 3 1
+SetStringBlank <$STR(S$回收排序F)> 3 1
+SetStringBlank <$STR(S$回收排序G)> 1 1
+SetStringBlank <$STR(S$回收排序H)> 1 1
+
+
+MOV S$回收状态A 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态B 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态C 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态D 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态E 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态F 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态G 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态H 古币　　　　　　<可回收/SCOLOR=250>
+
+#IF
+not small N$回收第0 <$STR(N20)>
+#act
+MOV S$回收状态A 
+MOV S$回收排序A 
+#IF
+not small N$回收第1 <$STR(N20)>
+#act
+MOV S$回收状态B 
+MOV S$回收排序B 
+#IF
+not small N$回收第2 <$STR(N20)>
+#act
+MOV S$回收状态C 
+MOV S$回收排序C 
+#IF
+not small N$回收第3 <$STR(N20)>
+#act
+MOV S$回收状态D 
+MOV S$回收排序D 
+#IF
+not small N$回收第4 <$STR(N20)>
+#act
+MOV S$回收状态E 
+MOV S$回收排序E 
+#IF
+not small N$回收第5 <$STR(N20)>
+#act
+MOV S$回收状态F 
+MOV S$回收排序F 
+#IF
+not small N$回收第6 <$STR(N20)>
+#act
+MOV S$回收状态G 
+MOV S$回收排序G 
+#IF
+not small N$回收第7 <$STR(N20)>
+#act
+MOV S$回收状态H 
+MOV S$回收排序H 
+
+
+#IF
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:249:249:250:0:10/@古币回收><$STR(S$限时按钮)><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$回收排序A)>                    <$STR(S$回收物品A)>                     <$STR(S$回收价格A)><$STR(S$回收状态A)>\
+　\
+　      <$STR(S$回收排序B)>                    <$STR(S$回收物品B)>                     <$STR(S$回收价格B)><$STR(S$回收状态B)>\
+　\
+　      <$STR(S$回收排序C)>                    <$STR(S$回收物品C)>                     <$STR(S$回收价格C)><$STR(S$回收状态C)>\
+<ImgEx:25:200:201:202:0:-10|250#上一页/@古币回收上><ImgEx:25:203:204:205:545:-10|250#下一页/@古币回收下>\
+　      <$STR(S$回收排序D)>                    <$STR(S$回收物品D)>                     <$STR(S$回收价格D)><$STR(S$回收状态D)>\
+　\
+　      <$STR(S$回收排序E)>                    <$STR(S$回收物品E)>                     <$STR(S$回收价格E)><$STR(S$回收状态E)>\
+　\
+　      <$STR(S$回收排序F)>                    <$STR(S$回收物品F)>                     <$STR(S$回收价格F)><$STR(S$回收状态F)>\
+　\
+　      <$STR(S$回收排序G)>                    <$STR(S$回收物品G)>                     <$STR(S$回收价格G)><$STR(S$回收状态G)>\
+　\
+　      <$STR(S$回收排序H)>                    <$STR(S$回收物品H)>                     <$STR(S$回收价格H)><$STR(S$回收状态H)>\
+　\
+　　　　　　　　　<装备名称:/SCOLOR=94><$BOXITEM[2].NAME>\
+　\
+　　　　　　　　　<回收价格:/SCOLOR=94><$STR(N$回收价格)>古币\
+　\
+　<请把装备放入此框/SCOLOR=70>\
+<ImgEx:25:206:207:208:470:-57/@确认回收>\
+　\
+<PlayImg:25:216:12:20:450:-105:1>\
+　<Img:126:12:16:-130>\
+　<ITEMBOX:2:12:129:28:-132:36:36:*:请先放入“带星级的装备”>\
+
+
+
+[@古币回收下]
+
+#OR
+equal N$回收第0 <$STR(N20)>
+equal N$回收第1 <$STR(N20)>
+equal N$回收第2 <$STR(N20)>
+equal N$回收第3 <$STR(N20)>
+equal N$回收第4 <$STR(N20)>
+equal N$回收第5 <$STR(N20)>
+equal N$回收第6 <$STR(N20)>
+equal N$回收第7 <$STR(N20)>
+#ACT
+MESSAGEBOX [错误]：已经是最后一页了！
+break
+
+
+#IF
+#ACT
+CLOSEMERCHANTBIGDLG
+OPENMERCHANTBIGDLG 25 194 1 4 0 -30 0
+
+INC N$回收第0 8
+INC N$回收第1 8
+INC N$回收第2 8
+INC N$回收第3 8
+INC N$回收第4 8
+INC N$回收第5 8
+INC N$回收第6 8
+INC N$回收第7 8
+
+MOV S$回收价格A <$STR(S$回收价格<$STR(N$回收第0)>)>
+MOV S$回收价格B <$STR(S$回收价格<$STR(N$回收第1)>)>
+MOV S$回收价格C <$STR(S$回收价格<$STR(N$回收第2)>)>
+MOV S$回收价格D <$STR(S$回收价格<$STR(N$回收第3)>)>
+MOV S$回收价格E <$STR(S$回收价格<$STR(N$回收第4)>)>
+MOV S$回收价格F <$STR(S$回收价格<$STR(N$回收第5)>)>
+MOV S$回收价格G <$STR(S$回收价格<$STR(N$回收第6)>)>
+MOV S$回收价格H <$STR(S$回收价格<$STR(N$回收第7)>)>
+SetStringBlank <$STR(S$回收价格A)> 3 0
+SetStringBlank <$STR(S$回收价格B)> 3 0
+SetStringBlank <$STR(S$回收价格C)> 3 0
+SetStringBlank <$STR(S$回收价格D)> 3 0
+SetStringBlank <$STR(S$回收价格E)> 3 0
+SetStringBlank <$STR(S$回收价格F)> 3 0
+SetStringBlank <$STR(S$回收价格G)> 3 0
+SetStringBlank <$STR(S$回收价格H)> 3 0
+
+
+MOV S$回收物品A <$STR(S$回收物品<$STR(N$回收第0)>)>
+MOV S$回收物品B <$STR(S$回收物品<$STR(N$回收第1)>)>
+MOV S$回收物品C <$STR(S$回收物品<$STR(N$回收第2)>)>
+MOV S$回收物品D <$STR(S$回收物品<$STR(N$回收第3)>)>
+MOV S$回收物品E <$STR(S$回收物品<$STR(N$回收第4)>)>
+MOV S$回收物品F <$STR(S$回收物品<$STR(N$回收第5)>)>
+MOV S$回收物品G <$STR(S$回收物品<$STR(N$回收第6)>)>
+MOV S$回收物品H <$STR(S$回收物品<$STR(N$回收第7)>)>
+SetStringBlank <$STR(S$回收物品A)> 10 1
+SetStringBlank <$STR(S$回收物品B)> 10 1
+SetStringBlank <$STR(S$回收物品C)> 10 1
+SetStringBlank <$STR(S$回收物品D)> 10 1
+SetStringBlank <$STR(S$回收物品E)> 10 1
+SetStringBlank <$STR(S$回收物品F)> 10 1
+SetStringBlank <$STR(S$回收物品G)> 10 1
+SetStringBlank <$STR(S$回收物品H)> 10 1
+
+
+MOV S$回收排序A <$STR(N$回收第0)>
+MOV S$回收排序B <$STR(N$回收第1)>
+MOV S$回收排序C <$STR(N$回收第2)>
+MOV S$回收排序D <$STR(N$回收第3)>
+MOV S$回收排序E <$STR(N$回收第4)>
+MOV S$回收排序F <$STR(N$回收第5)>
+MOV S$回收排序G <$STR(N$回收第6)>
+MOV S$回收排序H <$STR(N$回收第7)>
+SetStringBlank <$STR(S$回收排序A)> 3 1
+SetStringBlank <$STR(S$回收排序B)> 3 1
+SetStringBlank <$STR(S$回收排序C)> 3 1
+SetStringBlank <$STR(S$回收排序D)> 3 1
+SetStringBlank <$STR(S$回收排序E)> 3 1
+SetStringBlank <$STR(S$回收排序F)> 3 1
+SetStringBlank <$STR(S$回收排序G)> 3 1
+SetStringBlank <$STR(S$回收排序H)> 3 1
+
+MOV S$回收状态A 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态B 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态C 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态D 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态E 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态F 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态G 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态H 古币　　　　　　<可回收/SCOLOR=250>
+
+#IF
+not small N$回收第0 <$STR(N20)>
+#act
+MOV S$回收状态A 
+MOV S$回收排序A 
+#IF
+not small N$回收第1 <$STR(N20)>
+#act
+MOV S$回收状态B 
+MOV S$回收排序B 
+#IF
+not small N$回收第2 <$STR(N20)>
+#act
+MOV S$回收状态C 
+MOV S$回收排序C 
+#IF
+not small N$回收第3 <$STR(N20)>
+#act
+MOV S$回收状态D 
+MOV S$回收排序D 
+#IF
+not small N$回收第4 <$STR(N20)>
+#act
+MOV S$回收状态E 
+MOV S$回收排序E 
+#IF
+not small N$回收第5 <$STR(N20)>
+#act
+MOV S$回收状态F 
+MOV S$回收排序F 
+#IF
+not small N$回收第6 <$STR(N20)>
+#act
+MOV S$回收状态G 
+MOV S$回收排序G 
+#IF
+not small N$回收第7 <$STR(N20)>
+#act
+MOV S$回收状态H 
+MOV S$回收排序H 
+
+
+#IF
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:249:249:250:0:10/@古币回收><$STR(S$限时按钮)><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$回收排序A)>                    <$STR(S$回收物品A)>                     <$STR(S$回收价格A)><$STR(S$回收状态A)>\
+　\
+　      <$STR(S$回收排序B)>                    <$STR(S$回收物品B)>                     <$STR(S$回收价格B)><$STR(S$回收状态B)>\
+　\
+　      <$STR(S$回收排序C)>                    <$STR(S$回收物品C)>                     <$STR(S$回收价格C)><$STR(S$回收状态C)>\
+<ImgEx:25:200:201:202:0:-10|250#上一页/@古币回收上><ImgEx:25:203:204:205:545:-10|250#下一页/@古币回收下>\
+　      <$STR(S$回收排序D)>                    <$STR(S$回收物品D)>                     <$STR(S$回收价格D)><$STR(S$回收状态D)>\
+　\
+　      <$STR(S$回收排序E)>                    <$STR(S$回收物品E)>                     <$STR(S$回收价格E)><$STR(S$回收状态E)>\
+　\
+　      <$STR(S$回收排序F)>                    <$STR(S$回收物品F)>                     <$STR(S$回收价格F)><$STR(S$回收状态F)>\
+　\
+　      <$STR(S$回收排序G)>                    <$STR(S$回收物品G)>                     <$STR(S$回收价格G)><$STR(S$回收状态G)>\
+　\
+　      <$STR(S$回收排序H)>                    <$STR(S$回收物品H)>                     <$STR(S$回收价格H)><$STR(S$回收状态H)>\
+　\
+　　　　　　　　　<装备名称:/SCOLOR=94><$BOXITEM[2].NAME>\
+　\
+　　　　　　　　　<回收价格:/SCOLOR=94><$STR(N$回收价格)>古币\
+　\
+　<请把装备放入此框/SCOLOR=70>\
+<ImgEx:25:206:207:208:470:-57/@确认回收>\
+　\
+<PlayImg:25:216:12:20:450:-105:1>\
+　<Img:126:12:16:-130>\
+　<ITEMBOX:2:12:129:28:-132:36:36:*:请先放入“带星级的装备”>\
+
+
+[@古币回收上]
+#IF
+EQUAL N$回收第0 0
+#ACT
+MESSAGEBOX [错误]：已经是第一页了！
+BREAK
+
+#IF
+#ACT
+CLOSEMERCHANTBIGDLG
+OPENMERCHANTBIGDLG 25 194 1 4 0 -30 0
+dec N$回收第0 8
+dec N$回收第1 8
+dec N$回收第2 8
+dec N$回收第3 8
+dec N$回收第4 8
+dec N$回收第5 8
+dec N$回收第6 8
+dec N$回收第7 8
+MOV S$回收价格A <$STR(S$回收价格<$STR(N$回收第0)>)>
+MOV S$回收价格B <$STR(S$回收价格<$STR(N$回收第1)>)>
+MOV S$回收价格C <$STR(S$回收价格<$STR(N$回收第2)>)>
+MOV S$回收价格D <$STR(S$回收价格<$STR(N$回收第3)>)>
+MOV S$回收价格E <$STR(S$回收价格<$STR(N$回收第4)>)>
+MOV S$回收价格F <$STR(S$回收价格<$STR(N$回收第5)>)>
+MOV S$回收价格G <$STR(S$回收价格<$STR(N$回收第6)>)>
+MOV S$回收价格H <$STR(S$回收价格<$STR(N$回收第7)>)>
+SetStringBlank <$STR(S$回收价格A)> 3 0
+SetStringBlank <$STR(S$回收价格B)> 3 0
+SetStringBlank <$STR(S$回收价格C)> 3 0
+SetStringBlank <$STR(S$回收价格D)> 3 0
+SetStringBlank <$STR(S$回收价格E)> 3 0
+SetStringBlank <$STR(S$回收价格F)> 3 0
+SetStringBlank <$STR(S$回收价格G)> 3 0
+SetStringBlank <$STR(S$回收价格H)> 3 0
+
+
+MOV S$回收物品A <$STR(S$回收物品<$STR(N$回收第0)>)>
+MOV S$回收物品B <$STR(S$回收物品<$STR(N$回收第1)>)>
+MOV S$回收物品C <$STR(S$回收物品<$STR(N$回收第2)>)>
+MOV S$回收物品D <$STR(S$回收物品<$STR(N$回收第3)>)>
+MOV S$回收物品E <$STR(S$回收物品<$STR(N$回收第4)>)>
+MOV S$回收物品F <$STR(S$回收物品<$STR(N$回收第5)>)>
+MOV S$回收物品G <$STR(S$回收物品<$STR(N$回收第6)>)>
+MOV S$回收物品H <$STR(S$回收物品<$STR(N$回收第7)>)>
+SetStringBlank <$STR(S$回收物品A)> 10 1
+SetStringBlank <$STR(S$回收物品B)> 10 1
+SetStringBlank <$STR(S$回收物品C)> 10 1
+SetStringBlank <$STR(S$回收物品D)> 10 1
+SetStringBlank <$STR(S$回收物品E)> 10 1
+SetStringBlank <$STR(S$回收物品F)> 10 1
+SetStringBlank <$STR(S$回收物品G)> 10 1
+SetStringBlank <$STR(S$回收物品H)> 10 1
+
+MOV S$回收排序A <$STR(N$回收第0)>
+MOV S$回收排序B <$STR(N$回收第1)>
+MOV S$回收排序C <$STR(N$回收第2)>
+MOV S$回收排序D <$STR(N$回收第3)>
+MOV S$回收排序E <$STR(N$回收第4)>
+MOV S$回收排序F <$STR(N$回收第5)>
+MOV S$回收排序G <$STR(N$回收第6)>
+MOV S$回收排序H <$STR(N$回收第7)>
+SetStringBlank <$STR(S$回收排序A)> 3 1
+SetStringBlank <$STR(S$回收排序B)> 3 1
+SetStringBlank <$STR(S$回收排序C)> 3 1
+SetStringBlank <$STR(S$回收排序D)> 3 1
+SetStringBlank <$STR(S$回收排序E)> 3 1
+SetStringBlank <$STR(S$回收排序F)> 3 1
+SetStringBlank <$STR(S$回收排序G)> 3 1
+SetStringBlank <$STR(S$回收排序H)> 3 1
+
+MOV S$回收状态A 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态B 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态C 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态D 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态E 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态F 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态G 古币　　　　　　<可回收/SCOLOR=250>
+MOV S$回收状态H 古币　　　　　　<可回收/SCOLOR=250>
+
+#IF
+not small N$回收第0 <$STR(N20)>
+#act
+MOV S$回收状态A 
+MOV S$回收排序A 
+#IF
+not small N$回收第1 <$STR(N20)>
+#act
+MOV S$回收状态B 
+MOV S$回收排序B 
+#IF
+not small N$回收第2 <$STR(N20)>
+#act
+MOV S$回收状态C 
+MOV S$回收排序C 
+#IF
+not small N$回收第3 <$STR(N20)>
+#act
+MOV S$回收状态D 
+MOV S$回收排序D 
+#IF
+not small N$回收第4 <$STR(N20)>
+#act
+MOV S$回收状态E 
+MOV S$回收排序E 
+#IF
+not small N$回收第5 <$STR(N20)>
+#act
+MOV S$回收状态F 
+MOV S$回收排序F 
+#IF
+not small N$回收第6 <$STR(N20)>
+#act
+MOV S$回收状态G 
+MOV S$回收排序G 
+#IF
+not small N$回收第7 <$STR(N20)>
+#act
+MOV S$回收状态H 
+MOV S$回收排序H 
+
+
+#IF
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:249:249:250:0:10/@古币回收><$STR(S$限时按钮)><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$回收排序A)>                    <$STR(S$回收物品A)>                     <$STR(S$回收价格A)><$STR(S$回收状态A)>\
+　\
+　      <$STR(S$回收排序B)>                    <$STR(S$回收物品B)>                     <$STR(S$回收价格B)><$STR(S$回收状态B)>\
+　\
+　      <$STR(S$回收排序C)>                    <$STR(S$回收物品C)>                     <$STR(S$回收价格C)><$STR(S$回收状态C)>\
+<ImgEx:25:200:201:202:0:-10|250#上一页/@古币回收上><ImgEx:25:203:204:205:545:-10|250#下一页/@古币回收下>\
+　      <$STR(S$回收排序D)>                    <$STR(S$回收物品D)>                     <$STR(S$回收价格D)><$STR(S$回收状态D)>\
+　\
+　      <$STR(S$回收排序E)>                    <$STR(S$回收物品E)>                     <$STR(S$回收价格E)><$STR(S$回收状态E)>\
+　\
+　      <$STR(S$回收排序F)>                    <$STR(S$回收物品F)>                     <$STR(S$回收价格F)><$STR(S$回收状态F)>\
+　\
+　      <$STR(S$回收排序G)>                    <$STR(S$回收物品G)>                     <$STR(S$回收价格G)><$STR(S$回收状态G)>\
+　\
+　      <$STR(S$回收排序H)>                    <$STR(S$回收物品H)>                     <$STR(S$回收价格H)><$STR(S$回收状态H)>\
+　\
+　　　　　　　　　<装备名称:/SCOLOR=94><$BOXITEM[2].NAME>\
+　\
+　　　　　　　　　<回收价格:/SCOLOR=94><$STR(N$回收价格)>古币\
+　\
+　<请把装备放入此框/SCOLOR=70>\
+<ImgEx:25:206:207:208:470:-57/@确认回收>\
+　\
+<PlayImg:25:216:12:20:450:-105:1>\
+　<Img:126:12:16:-130>\
+　<ITEMBOX:2:12:129:28:-132:36:36:*:请先放入“带星级的装备”>\
+
+
+[@ItemOutBox2]
+#IF
+#ACT
+ReturnBoxItem 2
+MOV N$回收价格 0
+UpDateBoxItem 2
+goto @古币回收不刷新
+
+[@ItemIntoBox2]
+#IF
+#ACT
+GetStringPos ..\QuestDiary\提现系统\装备回收\回收列表.txt <$BOXITEM[2].NAME>
+
+#IF
+EQUAL N0 9999999
+#ACT
+MOV N$回收价格 0
+goto @古币回收不刷新
+break
+
+#IF
+small N0 9999999
+EQUAL <$BOXITEM[2].UPGRADECOUNT> 0
+#ACT
+GetListString ..\QuestDiary\提现系统\装备回收\价格.txt <$STR(N0)> N$回收价格
+goto @古币回收不刷新
+break
+
+#IF
+#ACT
+MOV N$回收价格 0
+goto @古币回收不刷新
+BREAK
+
+
+[@确认回收]
+#IF
+CheckBoxItemCount 2 1
+#ACT
+#ELSEACT
+MESSAGEBOX [回收错误]：请先将装备放入框中
+BREAK
+
+#IF
+NOT EQUAL <$BOXITEM[2].UPGRADECOUNT> 0
+#ACT
+MESSAGEBOX [回收错误]：【<$BOXITEM[2].NAME>】没有五星！无法回收
+BREAK
+
+
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\装备回收\回收列表.txt <$BOXITEM[2].NAME>
+EQUAL <$BOXITEM[2].UPGRADECOUNT> 0
+#ACT
+GAMEDIAMOND + <$STR(N$回收价格)>
+AddTextListEX ..\QuestDiary\提现系统\装备回收\回收记录.txt 物品名称：<$BOXITEM[2].NAME>‖价格：<$STR(N$回收价格)>‖名字：<$username> 0 0
+GuildNoticeMsg 255 253 {公告:|249:255:0}{玩家|251:0:1}{[<$username>]|70:0:1}{回收|251:0:1}{[<$BOXITEM[2].NAME>]|253:0:1}{获得<$STR(N$回收价格)>古币!找游戏商人兑换现金!|251:0:1}
+MESSAGEBOX 回收【<$BOXITEM[2].NAME>】获得古币<$STR(N$回收价格)>,您可进行古币提现获取现金。
+DELBOXITEM 2
+UpDateBoxItem 2
+MOV N$回收价格 0
+goto @古币回收
+BREAK
+#elseact
+messagebox \\你的装备不在永久回收装备列表里!
+break
+
+
+[@限时奖励]
+#IF
+EQUAL N17 1
+#ACT
+goto @限时奖励不刷新
+#ELSEACT
+MOV N17 1
+goto @限时奖励有刷新
+
+
+[@限时奖励有刷新]
+#IF
+#ACT
+ReturnBoxItem 2
+MOV N$回收价格 0
+UpDateBoxItem 2
+MOV N15 0 
+GetListString ..\QuestDiary\提现系统\限时奖励\限时列表.txt N15 A20
+GetListString ..\QuestDiary\提现系统\限时奖励\价格.txt N15 N18
+MOV S$限时物品<$STR(N15)> <$STR(A20)>
+MOV S$限时价格<$STR(N15)> <$STR(N18)>
+goto @重复限时获取
+
+[@重复限时获取]
+#IF
+EQUAL S$限时物品<$STR(N15)> 
+#ACT
+MOV S$限时价格<$STR(N15)> 
+#ELSEACT
+INC N15 1
+GetListString ..\QuestDiary\提现系统\限时奖励\限时列表.txt N15 A20
+GetListString ..\QuestDiary\提现系统\限时奖励\价格.txt N15 N18
+MOV S$限时物品<$STR(N15)> <$STR(A20)>
+MOV S$限时价格<$STR(N15)> <$STR(N18)>
+goto @重复限时获取
+
+
+#IF
+#ACT
+CLOSEMERCHANTBIGDLG
+OPENMERCHANTBIGDLG 25 192 1 4 0 -30 0
+
+MOV N$限时第0 0
+MOV N$限时第1 1
+MOV N$限时第2 2
+MOV N$限时第3 3
+MOV N$限时第4 4
+MOV N$限时第5 5
+MOV N$限时第6 6
+MOV S$限时价格A <$STR(S$限时价格<$STR(N$限时第0)>)>
+MOV S$限时价格B <$STR(S$限时价格<$STR(N$限时第1)>)>
+MOV S$限时价格C <$STR(S$限时价格<$STR(N$限时第2)>)>
+MOV S$限时价格D <$STR(S$限时价格<$STR(N$限时第3)>)>
+MOV S$限时价格E <$STR(S$限时价格<$STR(N$限时第4)>)>
+MOV S$限时价格F <$STR(S$限时价格<$STR(N$限时第5)>)>
+MOV S$限时价格G <$STR(S$限时价格<$STR(N$限时第6)>)>
+SetStringBlank <$STR(S$限时价格A)> 3 0
+SetStringBlank <$STR(S$限时价格B)> 3 0
+SetStringBlank <$STR(S$限时价格C)> 3 0
+SetStringBlank <$STR(S$限时价格D)> 3 0
+SetStringBlank <$STR(S$限时价格E)> 3 0
+SetStringBlank <$STR(S$限时价格F)> 3 0
+SetStringBlank <$STR(S$限时价格G)> 3 0
+
+
+MOV S$限时物品A <$STR(S$限时物品<$STR(N$限时第0)>)>
+MOV S$限时物品B <$STR(S$限时物品<$STR(N$限时第1)>)>
+MOV S$限时物品C <$STR(S$限时物品<$STR(N$限时第2)>)>
+MOV S$限时物品D <$STR(S$限时物品<$STR(N$限时第3)>)>
+MOV S$限时物品E <$STR(S$限时物品<$STR(N$限时第4)>)>
+MOV S$限时物品F <$STR(S$限时物品<$STR(N$限时第5)>)>
+MOV S$限时物品G <$STR(S$限时物品<$STR(N$限时第6)>)>
+SetStringBlank <$STR(S$限时物品A)> 6 1
+SetStringBlank <$STR(S$限时物品B)> 6 1
+SetStringBlank <$STR(S$限时物品C)> 6 1
+SetStringBlank <$STR(S$限时物品D)> 6 1
+SetStringBlank <$STR(S$限时物品E)> 6 1
+SetStringBlank <$STR(S$限时物品F)> 6 1
+SetStringBlank <$STR(S$限时物品G)> 6 1
+
+MOV S$限时排序A <$STR(N$限时第0)>
+MOV S$限时排序B <$STR(N$限时第1)>
+MOV S$限时排序C <$STR(N$限时第2)>
+MOV S$限时排序D <$STR(N$限时第3)>
+MOV S$限时排序E <$STR(N$限时第4)>
+MOV S$限时排序F <$STR(N$限时第5)>
+MOV S$限时排序G <$STR(N$限时第6)>
+SetStringBlank <$STR(S$限时排序A)> 3 1
+SetStringBlank <$STR(S$限时排序B)> 3 1
+SetStringBlank <$STR(S$限时排序C)> 3 1
+SetStringBlank <$STR(S$限时排序D)> 3 1
+SetStringBlank <$STR(S$限时排序E)> 3 1
+SetStringBlank <$STR(S$限时排序F)> 3 1
+SetStringBlank <$STR(S$限时排序G)> 3 1
+
+MOV S$限时状态A 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态B 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态C 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态D 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态E 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态F 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态G 古币　　　　　　<可领取/SCOLOR=250>
+
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品A)>
+#act
+MOV S$限时状态A 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品B)>
+#act
+MOV S$限时状态B 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品C)>
+#act
+MOV S$限时状态C 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品D)>
+#act
+MOV S$限时状态D 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品E)>
+#act
+MOV S$限时状态E 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品F)>
+#act
+MOV S$限时状态F 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品G)>
+#act
+MOV S$限时状态G 古币　　　　　　<已领取/SCOLOR=249>
+
+
+#IF
+not small N$限时第0 <$STR(N15)>
+#act
+MOV S$限时状态A 
+MOV S$限时排序A 
+#IF
+not small N$限时第1 <$STR(N15)>
+#act
+MOV S$限时状态B 
+MOV S$限时排序B 
+#IF
+not small N$限时第2 <$STR(N15)>
+#act
+MOV S$限时状态C 
+MOV S$限时排序C 
+#IF
+not small N$限时第3 <$STR(N15)>
+#act
+MOV S$限时状态D 
+MOV S$限时排序D 
+#IF
+not small N$限时第4 <$STR(N15)>
+#act
+MOV S$限时状态E 
+MOV S$限时排序E 
+#IF
+not small N$限时第5 <$STR(N15)>
+#act
+MOV S$限时状态F 
+MOV S$限时排序F 
+#IF
+not small N$限时第6 <$STR(N15)>
+#act
+MOV S$限时状态G 
+MOV S$限时排序G 
+
+#IF
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:248:249:250:0:10/@古币回收><ImgEx:25:252:252:253:5:10/@限时奖励><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$限时排序A)>                    <$STR(S$限时物品A)>                     <$STR(S$限时价格A)><$STR(S$限时状态A)>\
+　\
+　      <$STR(S$限时排序B)>                    <$STR(S$限时物品B)>                     <$STR(S$限时价格B)><$STR(S$限时状态B)>\
+　\
+　      <$STR(S$限时排序C)>                    <$STR(S$限时物品C)>                     <$STR(S$限时价格C)><$STR(S$限时状态C)>\
+<ImgEx:25:200:201:202:0:-10|250#上一页/@限时上><ImgEx:25:203:204:205:545:-10|250#下一页/@限时下>\
+　      <$STR(S$限时排序D)>                    <$STR(S$限时物品D)>                     <$STR(S$限时价格D)><$STR(S$限时状态D)>\
+　\
+　      <$STR(S$限时排序E)>                    <$STR(S$限时物品E)>                     <$STR(S$限时价格E)><$STR(S$限时状态E)>\
+　\
+　      <$STR(S$限时排序F)>                    <$STR(S$限时物品F)>                     <$STR(S$限时价格F)><$STR(S$限时状态F)>\
+　\
+　      <$STR(S$限时排序G)>                    <$STR(S$限时物品G)>                     <$STR(S$限时价格G)><$STR(S$限时状态G)>\
+　\
+　\
+　　　　　　　　　<装备名称:/SCOLOR=94><$BOXITEM[3].NAME>\
+<>                       　　　　　　　　　　　　　　　　　　            　　　<限时奖励装备系统不回收/SCOLOR=250>\
+　　　　　　　　　<领取奖励:/SCOLOR=94><$STR(N$限时价格)>古币\
+　\
+　<请把装备放入此框/SCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<首次拿沙后限时奖励结束/SCOLOR=253>\
+<ImgEx:25:196:197:198:270:-57/@领取限时奖励>\
+　\
+<PlayImg:25:216:12:20:250:-105:1>\
+　<Img:126:12:16:-130>\
+　<ITEMBOX:3:12:129:28:-132:36:36:*:请先放入“带星级的装备”>\
+　     \
+[@限时奖励不刷新]
+
+#IF
+#ACT
+CLOSEMERCHANTBIGDLG
+OPENMERCHANTBIGDLG 25 192 1 4 0 -30 0
+
+MOV N$限时第0 0
+MOV N$限时第1 1
+MOV N$限时第2 2
+MOV N$限时第3 3
+MOV N$限时第4 4
+MOV N$限时第5 5
+MOV N$限时第6 6
+MOV S$限时价格A <$STR(S$限时价格<$STR(N$限时第0)>)>
+MOV S$限时价格B <$STR(S$限时价格<$STR(N$限时第1)>)>
+MOV S$限时价格C <$STR(S$限时价格<$STR(N$限时第2)>)>
+MOV S$限时价格D <$STR(S$限时价格<$STR(N$限时第3)>)>
+MOV S$限时价格E <$STR(S$限时价格<$STR(N$限时第4)>)>
+MOV S$限时价格F <$STR(S$限时价格<$STR(N$限时第5)>)>
+MOV S$限时价格G <$STR(S$限时价格<$STR(N$限时第6)>)>
+SetStringBlank <$STR(S$限时价格A)> 3 0
+SetStringBlank <$STR(S$限时价格B)> 3 0
+SetStringBlank <$STR(S$限时价格C)> 3 0
+SetStringBlank <$STR(S$限时价格D)> 3 0
+SetStringBlank <$STR(S$限时价格E)> 3 0
+SetStringBlank <$STR(S$限时价格F)> 3 0
+SetStringBlank <$STR(S$限时价格G)> 3 0
+
+
+MOV S$限时物品A <$STR(S$限时物品<$STR(N$限时第0)>)>
+MOV S$限时物品B <$STR(S$限时物品<$STR(N$限时第1)>)>
+MOV S$限时物品C <$STR(S$限时物品<$STR(N$限时第2)>)>
+MOV S$限时物品D <$STR(S$限时物品<$STR(N$限时第3)>)>
+MOV S$限时物品E <$STR(S$限时物品<$STR(N$限时第4)>)>
+MOV S$限时物品F <$STR(S$限时物品<$STR(N$限时第5)>)>
+MOV S$限时物品G <$STR(S$限时物品<$STR(N$限时第6)>)>
+SetStringBlank <$STR(S$限时物品A)> 6 1
+SetStringBlank <$STR(S$限时物品B)> 6 1
+SetStringBlank <$STR(S$限时物品C)> 6 1
+SetStringBlank <$STR(S$限时物品D)> 6 1
+SetStringBlank <$STR(S$限时物品E)> 6 1
+SetStringBlank <$STR(S$限时物品F)> 6 1
+SetStringBlank <$STR(S$限时物品G)> 6 1
+
+MOV S$限时排序A <$STR(N$限时第0)>
+MOV S$限时排序B <$STR(N$限时第1)>
+MOV S$限时排序C <$STR(N$限时第2)>
+MOV S$限时排序D <$STR(N$限时第3)>
+MOV S$限时排序E <$STR(N$限时第4)>
+MOV S$限时排序F <$STR(N$限时第5)>
+MOV S$限时排序G <$STR(N$限时第6)>
+SetStringBlank <$STR(S$限时排序A)> 3 1
+SetStringBlank <$STR(S$限时排序B)> 3 1
+SetStringBlank <$STR(S$限时排序C)> 3 1
+SetStringBlank <$STR(S$限时排序D)> 3 1
+SetStringBlank <$STR(S$限时排序E)> 3 1
+SetStringBlank <$STR(S$限时排序F)> 3 1
+SetStringBlank <$STR(S$限时排序G)> 3 1
+
+MOV S$限时状态A 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态B 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态C 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态D 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态E 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态F 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态G 古币　　　　　　<可领取/SCOLOR=250>
+
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品A)>
+#act
+MOV S$限时状态A 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品B)>
+#act
+MOV S$限时状态B 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品C)>
+#act
+MOV S$限时状态C 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品D)>
+#act
+MOV S$限时状态D 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品E)>
+#act
+MOV S$限时状态E 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品F)>
+#act
+MOV S$限时状态F 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品G)>
+#act
+MOV S$限时状态G 古币　　　　　　<已领取/SCOLOR=249>
+
+
+#IF
+not small N$限时第0 <$STR(N15)>
+#act
+MOV S$限时状态A 
+MOV S$限时排序A 
+#IF
+not small N$限时第1 <$STR(N15)>
+#act
+MOV S$限时状态B 
+MOV S$限时排序B 
+#IF
+not small N$限时第2 <$STR(N15)>
+#act
+MOV S$限时状态C 
+MOV S$限时排序C 
+#IF
+not small N$限时第3 <$STR(N15)>
+#act
+MOV S$限时状态D 
+MOV S$限时排序D 
+#IF
+not small N$限时第4 <$STR(N15)>
+#act
+MOV S$限时状态E 
+MOV S$限时排序E 
+#IF
+not small N$限时第5 <$STR(N15)>
+#act
+MOV S$限时状态F 
+MOV S$限时排序F 
+#IF
+not small N$限时第6 <$STR(N15)>
+#act
+MOV S$限时状态G 
+MOV S$限时排序G 
+
+#IF
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:248:249:250:0:10/@古币回收><ImgEx:25:252:252:253:5:10/@限时奖励><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$限时排序A)>                    <$STR(S$限时物品A)>                     <$STR(S$限时价格A)><$STR(S$限时状态A)>\
+　\
+　      <$STR(S$限时排序B)>                    <$STR(S$限时物品B)>                     <$STR(S$限时价格B)><$STR(S$限时状态B)>\
+　\
+　      <$STR(S$限时排序C)>                    <$STR(S$限时物品C)>                     <$STR(S$限时价格C)><$STR(S$限时状态C)>\
+<ImgEx:25:200:201:202:0:-10|250#上一页/@限时上><ImgEx:25:203:204:205:545:-10|250#下一页/@限时下>\
+　      <$STR(S$限时排序D)>                    <$STR(S$限时物品D)>                     <$STR(S$限时价格D)><$STR(S$限时状态D)>\
+　\
+　      <$STR(S$限时排序E)>                    <$STR(S$限时物品E)>                     <$STR(S$限时价格E)><$STR(S$限时状态E)>\
+　\
+　      <$STR(S$限时排序F)>                    <$STR(S$限时物品F)>                     <$STR(S$限时价格F)><$STR(S$限时状态F)>\
+　\
+　      <$STR(S$限时排序G)>                    <$STR(S$限时物品G)>                     <$STR(S$限时价格G)><$STR(S$限时状态G)>\
+　\
+　\
+　　　　　　　　　<装备名称:/SCOLOR=94><$BOXITEM[3].NAME>\
+<>                       　　　　　　　　　　　　　　　　　　            　　　<限时奖励装备系统不回收/SCOLOR=250>\
+　　　　　　　　　<领取奖励:/SCOLOR=94><$STR(N$限时价格)>古币\
+　\
+　<请把装备放入此框/SCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<首次拿沙后限时奖励结束/SCOLOR=253>\
+<ImgEx:25:196:197:198:270:-57/@领取限时奖励>\
+　\
+<PlayImg:25:216:12:20:250:-105:1>\
+　<Img:126:12:16:-130>\
+　<ITEMBOX:3:12:129:28:-132:36:36:*:请先放入“带星级的装备”>\
+　     \
+
+
+[@限时下]
+#OR
+equal N$限时第0 <$STR(N15)>
+equal N$限时第1 <$STR(N15)>
+equal N$限时第2 <$STR(N15)>
+equal N$限时第3 <$STR(N15)>
+equal N$限时第4 <$STR(N15)>
+equal N$限时第5 <$STR(N15)>
+equal N$限时第6 <$STR(N15)>
+#ACT
+MESSAGEBOX [错误]：已经是最后一页了！
+break
+
+#IF
+#ACT
+CLOSEMERCHANTBIGDLG
+OPENMERCHANTBIGDLG 25 192 1 4 0 -30 0
+
+INC N$限时第0 7
+INC N$限时第1 7
+INC N$限时第2 7
+INC N$限时第3 7
+INC N$限时第4 7
+INC N$限时第5 7
+INC N$限时第6 7
+MOV S$限时价格A <$STR(S$限时价格<$STR(N$限时第0)>)>
+MOV S$限时价格B <$STR(S$限时价格<$STR(N$限时第1)>)>
+MOV S$限时价格C <$STR(S$限时价格<$STR(N$限时第2)>)>
+MOV S$限时价格D <$STR(S$限时价格<$STR(N$限时第3)>)>
+MOV S$限时价格E <$STR(S$限时价格<$STR(N$限时第4)>)>
+MOV S$限时价格F <$STR(S$限时价格<$STR(N$限时第5)>)>
+MOV S$限时价格G <$STR(S$限时价格<$STR(N$限时第6)>)>
+SetStringBlank <$STR(S$限时价格A)> 3 0
+SetStringBlank <$STR(S$限时价格B)> 3 0
+SetStringBlank <$STR(S$限时价格C)> 3 0
+SetStringBlank <$STR(S$限时价格D)> 3 0
+SetStringBlank <$STR(S$限时价格E)> 3 0
+SetStringBlank <$STR(S$限时价格F)> 3 0
+SetStringBlank <$STR(S$限时价格G)> 3 0
+
+
+MOV S$限时物品A <$STR(S$限时物品<$STR(N$限时第0)>)>
+MOV S$限时物品B <$STR(S$限时物品<$STR(N$限时第1)>)>
+MOV S$限时物品C <$STR(S$限时物品<$STR(N$限时第2)>)>
+MOV S$限时物品D <$STR(S$限时物品<$STR(N$限时第3)>)>
+MOV S$限时物品E <$STR(S$限时物品<$STR(N$限时第4)>)>
+MOV S$限时物品F <$STR(S$限时物品<$STR(N$限时第5)>)>
+MOV S$限时物品G <$STR(S$限时物品<$STR(N$限时第6)>)>
+SetStringBlank <$STR(S$限时物品A)> 6 1
+SetStringBlank <$STR(S$限时物品B)> 6 1
+SetStringBlank <$STR(S$限时物品C)> 6 1
+SetStringBlank <$STR(S$限时物品D)> 6 1
+SetStringBlank <$STR(S$限时物品E)> 6 1
+SetStringBlank <$STR(S$限时物品F)> 6 1
+SetStringBlank <$STR(S$限时物品G)> 6 1
+
+MOV S$限时排序A <$STR(N$限时第0)>
+MOV S$限时排序B <$STR(N$限时第1)>
+MOV S$限时排序C <$STR(N$限时第2)>
+MOV S$限时排序D <$STR(N$限时第3)>
+MOV S$限时排序E <$STR(N$限时第4)>
+MOV S$限时排序F <$STR(N$限时第5)>
+MOV S$限时排序G <$STR(N$限时第6)>
+SetStringBlank <$STR(S$限时排序A)> 3 1
+SetStringBlank <$STR(S$限时排序B)> 3 1
+SetStringBlank <$STR(S$限时排序C)> 3 1
+SetStringBlank <$STR(S$限时排序D)> 3 1
+SetStringBlank <$STR(S$限时排序E)> 3 1
+SetStringBlank <$STR(S$限时排序F)> 3 1
+SetStringBlank <$STR(S$限时排序G)> 3 1
+
+MOV S$限时状态A 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态B 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态C 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态D 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态E 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态F 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态G 古币　　　　　　<可领取/SCOLOR=250>
+
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品A)>
+#act
+MOV S$限时状态A 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品B)>
+#act
+MOV S$限时状态B 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品C)>
+#act
+MOV S$限时状态C 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品D)>
+#act
+MOV S$限时状态D 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品E)>
+#act
+MOV S$限时状态E 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品F)>
+#act
+MOV S$限时状态F 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品G)>
+#act
+MOV S$限时状态G 古币　　　　　　<已领取/SCOLOR=249>
+
+
+#IF
+not small N$限时第0 <$STR(N15)>
+#act
+MOV S$限时状态A 
+MOV S$限时排序A 
+#IF
+not small N$限时第1 <$STR(N15)>
+#act
+MOV S$限时状态B 
+MOV S$限时排序B 
+#IF
+not small N$限时第2 <$STR(N15)>
+#act
+MOV S$限时状态C 
+MOV S$限时排序C 
+#IF
+not small N$限时第3 <$STR(N15)>
+#act
+MOV S$限时状态D 
+MOV S$限时排序D 
+#IF
+not small N$限时第4 <$STR(N15)>
+#act
+MOV S$限时状态E 
+MOV S$限时排序E 
+#IF
+not small N$限时第5 <$STR(N15)>
+#act
+MOV S$限时状态F 
+MOV S$限时排序F 
+#IF
+not small N$限时第6 <$STR(N15)>
+#act
+MOV S$限时状态G 
+MOV S$限时排序G 
+
+#IF
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:248:249:250:0:10/@古币回收><ImgEx:25:252:252:253:5:10/@限时奖励><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$限时排序A)>                    <$STR(S$限时物品A)>                     <$STR(S$限时价格A)><$STR(S$限时状态A)>\
+　\
+　      <$STR(S$限时排序B)>                    <$STR(S$限时物品B)>                     <$STR(S$限时价格B)><$STR(S$限时状态B)>\
+　\
+　      <$STR(S$限时排序C)>                    <$STR(S$限时物品C)>                     <$STR(S$限时价格C)><$STR(S$限时状态C)>\
+<ImgEx:25:200:201:202:0:-10|250#上一页/@限时上><ImgEx:25:203:204:205:545:-10|250#下一页/@限时下>\
+　      <$STR(S$限时排序D)>                    <$STR(S$限时物品D)>                     <$STR(S$限时价格D)><$STR(S$限时状态D)>\
+　\
+　      <$STR(S$限时排序E)>                    <$STR(S$限时物品E)>                     <$STR(S$限时价格E)><$STR(S$限时状态E)>\
+　\
+　      <$STR(S$限时排序F)>                    <$STR(S$限时物品F)>                     <$STR(S$限时价格F)><$STR(S$限时状态F)>\
+　\
+　      <$STR(S$限时排序G)>                    <$STR(S$限时物品G)>                     <$STR(S$限时价格G)><$STR(S$限时状态G)>\
+　\
+　\
+　　　　　　　　　<装备名称:/SCOLOR=94><$BOXITEM[3].NAME>\
+<>                       　　　　　　　　　　　　　　　　　　            　　　<限时奖励装备系统不回收/SCOLOR=250>\
+　　　　　　　　　<领取奖励:/SCOLOR=94><$STR(N$限时价格)>古币\
+　\
+　<请把装备放入此框/SCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<首次拿沙后限时奖励结束/SCOLOR=253>\
+<ImgEx:25:196:197:198:270:-57/@领取限时奖励>\
+　\
+<PlayImg:25:216:12:20:250:-105:1>\
+　<Img:126:12:16:-130>\
+　<ITEMBOX:3:12:129:28:-132:36:36:*:请先放入“带星级的装备”>\
+　     \
+
+
+[@限时上]
+#IF
+EQUAL N$限时第0 0
+#ACT
+MESSAGEBOX [错误]：已经是第一页了！
+BREAK
+
+
+#IF
+#ACT
+CLOSEMERCHANTBIGDLG
+OPENMERCHANTBIGDLG 25 192 1 4 0 -30 0
+dec N$限时第0 7
+dec N$限时第1 7
+dec N$限时第2 7
+dec N$限时第3 7
+dec N$限时第4 7
+dec N$限时第5 7
+dec N$限时第6 7
+MOV S$限时价格A <$STR(S$限时价格<$STR(N$限时第0)>)>
+MOV S$限时价格B <$STR(S$限时价格<$STR(N$限时第1)>)>
+MOV S$限时价格C <$STR(S$限时价格<$STR(N$限时第2)>)>
+MOV S$限时价格D <$STR(S$限时价格<$STR(N$限时第3)>)>
+MOV S$限时价格E <$STR(S$限时价格<$STR(N$限时第4)>)>
+MOV S$限时价格F <$STR(S$限时价格<$STR(N$限时第5)>)>
+MOV S$限时价格G <$STR(S$限时价格<$STR(N$限时第6)>)>
+SetStringBlank <$STR(S$限时价格A)> 3 0
+SetStringBlank <$STR(S$限时价格B)> 3 0
+SetStringBlank <$STR(S$限时价格C)> 3 0
+SetStringBlank <$STR(S$限时价格D)> 3 0
+SetStringBlank <$STR(S$限时价格E)> 3 0
+SetStringBlank <$STR(S$限时价格F)> 3 0
+SetStringBlank <$STR(S$限时价格G)> 3 0
+
+
+MOV S$限时物品A <$STR(S$限时物品<$STR(N$限时第0)>)>
+MOV S$限时物品B <$STR(S$限时物品<$STR(N$限时第1)>)>
+MOV S$限时物品C <$STR(S$限时物品<$STR(N$限时第2)>)>
+MOV S$限时物品D <$STR(S$限时物品<$STR(N$限时第3)>)>
+MOV S$限时物品E <$STR(S$限时物品<$STR(N$限时第4)>)>
+MOV S$限时物品F <$STR(S$限时物品<$STR(N$限时第5)>)>
+MOV S$限时物品G <$STR(S$限时物品<$STR(N$限时第6)>)>
+SetStringBlank <$STR(S$限时物品A)> 6 1
+SetStringBlank <$STR(S$限时物品B)> 6 1
+SetStringBlank <$STR(S$限时物品C)> 6 1
+SetStringBlank <$STR(S$限时物品D)> 6 1
+SetStringBlank <$STR(S$限时物品E)> 6 1
+SetStringBlank <$STR(S$限时物品F)> 6 1
+SetStringBlank <$STR(S$限时物品G)> 6 1
+
+MOV S$限时排序A <$STR(N$限时第0)>
+MOV S$限时排序B <$STR(N$限时第1)>
+MOV S$限时排序C <$STR(N$限时第2)>
+MOV S$限时排序D <$STR(N$限时第3)>
+MOV S$限时排序E <$STR(N$限时第4)>
+MOV S$限时排序F <$STR(N$限时第5)>
+MOV S$限时排序G <$STR(N$限时第6)>
+SetStringBlank <$STR(S$限时排序A)> 3 1
+SetStringBlank <$STR(S$限时排序B)> 3 1
+SetStringBlank <$STR(S$限时排序C)> 3 1
+SetStringBlank <$STR(S$限时排序D)> 3 1
+SetStringBlank <$STR(S$限时排序E)> 3 1
+SetStringBlank <$STR(S$限时排序F)> 3 1
+SetStringBlank <$STR(S$限时排序G)> 3 1
+
+MOV S$限时状态A 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态B 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态C 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态D 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态E 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态F 古币　　　　　　<可领取/SCOLOR=250>
+MOV S$限时状态G 古币　　　　　　<可领取/SCOLOR=250>
+
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品A)>
+#act
+MOV S$限时状态A 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品B)>
+#act
+MOV S$限时状态B 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品C)>
+#act
+MOV S$限时状态C 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品D)>
+#act
+MOV S$限时状态D 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品E)>
+#act
+MOV S$限时状态E 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品F)>
+#act
+MOV S$限时状态F 古币　　　　　　<已领取/SCOLOR=249>
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$STR(S$限时物品G)>
+#act
+MOV S$限时状态G 古币　　　　　　<已领取/SCOLOR=249>
+
+
+#IF
+not small N$限时第0 <$STR(N15)>
+#act
+MOV S$限时状态A 
+MOV S$限时排序A 
+#IF
+not small N$限时第1 <$STR(N15)>
+#act
+MOV S$限时状态B 
+MOV S$限时排序B 
+#IF
+not small N$限时第2 <$STR(N15)>
+#act
+MOV S$限时状态C 
+MOV S$限时排序C 
+#IF
+not small N$限时第3 <$STR(N15)>
+#act
+MOV S$限时状态D 
+MOV S$限时排序D 
+#IF
+not small N$限时第4 <$STR(N15)>
+#act
+MOV S$限时状态E 
+MOV S$限时排序E 
+#IF
+not small N$限时第5 <$STR(N15)>
+#act
+MOV S$限时状态F 
+MOV S$限时排序F 
+#IF
+not small N$限时第6 <$STR(N15)>
+#act
+MOV S$限时状态G 
+MOV S$限时排序G 
+
+#IF
+#SAY
+<Img:801:0:600:-10/@EXIT>\
+<ImgEx:25:248:249:250:0:10/@古币回收><ImgEx:25:252:252:253:5:10/@限时奖励><ImgEx:25:262:261:263:5:10/@首杀BOSS>\
+　\
+　\
+　\
+　\
+　      <$STR(S$限时排序A)>                    <$STR(S$限时物品A)>                     <$STR(S$限时价格A)><$STR(S$限时状态A)>\
+　\
+　      <$STR(S$限时排序B)>                    <$STR(S$限时物品B)>                     <$STR(S$限时价格B)><$STR(S$限时状态B)>\
+　\
+　      <$STR(S$限时排序C)>                    <$STR(S$限时物品C)>                     <$STR(S$限时价格C)><$STR(S$限时状态C)>\
+<ImgEx:25:200:201:202:0:-10|250#上一页/@限时上><ImgEx:25:203:204:205:545:-10|250#下一页/@限时下>\
+　      <$STR(S$限时排序D)>                    <$STR(S$限时物品D)>                     <$STR(S$限时价格D)><$STR(S$限时状态D)>\
+　\
+　      <$STR(S$限时排序E)>                    <$STR(S$限时物品E)>                     <$STR(S$限时价格E)><$STR(S$限时状态E)>\
+　\
+　      <$STR(S$限时排序F)>                    <$STR(S$限时物品F)>                     <$STR(S$限时价格F)><$STR(S$限时状态F)>\
+　\
+　      <$STR(S$限时排序G)>                    <$STR(S$限时物品G)>                     <$STR(S$限时价格G)><$STR(S$限时状态G)>\
+　\
+　\
+　　　　　　　　　<装备名称:/SCOLOR=94><$BOXITEM[3].NAME>\
+<>                       　　　　　　　　　　　　　　　　　　            　　　<限时奖励装备系统不回收/SCOLOR=250>\
+　　　　　　　　　<领取奖励:/SCOLOR=94><$STR(N$限时价格)>古币\
+　\
+　<请把装备放入此框/SCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<首次拿沙后限时奖励结束/SCOLOR=253>\
+<ImgEx:25:196:197:198:270:-57/@领取限时奖励>\
+　\
+<PlayImg:25:216:12:20:250:-105:1>\
+　<Img:126:12:16:-130>\
+　<ITEMBOX:3:12:129:28:-132:36:36:*:请先放入“带星级的装备”>\
+　     \
+
+
+[@ItemOutBox3]
+#IF
+#ACT
+ReturnBoxItem 3
+MOV N$限时价格 0
+UpDateBoxItem 3
+goto @限时奖励不刷新
+
+[@ItemIntoBox3]
+#IF
+#ACT
+GetStringPos ..\QuestDiary\提现系统\限时奖励\限时列表.txt <$BOXITEM[3].NAME>
+
+#IF
+EQUAL N0 9999999
+#ACT
+MOV N$限时价格 0
+goto @限时奖励不刷新
+break
+
+#IF
+small N0 9999999
+EQUAL <$BOXITEM[3].UPGRADECOUNT> 0
+#ACT
+GetListString ..\QuestDiary\提现系统\限时奖励\价格.txt <$STR(N0)> N$限时价格
+goto @限时奖励不刷新
+break
+
+#IF
+#ACT
+MOV N$限时价格 0
+goto @限时奖励不刷新
+BREAK
+
+
+[@领取限时奖励]
+
+#IF
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$BOXITEM[3].NAME>
+#ACT
+MESSAGEBOX [领取错误]：【<$BOXITEM[3].NAME>】限时奖励已经被其他玩家领取了.
+BREAK
+
+
+
+
+#IF
+CheckBoxItemCount 3 1
+#ACT
+#ELSEACT
+MESSAGEBOX [回收错误]：请先将装备放入框中
+BREAK
+
+#IF
+NOT EQUAL <$BOXITEM[3].UPGRADECOUNT> 0
+#ACT
+MESSAGEBOX [回收错误]：【<$BOXITEM[3].NAME>】没有五星！无法回收
+BREAK
+
+
+#IF
+;EQUAL <$BOXITEM[3].UPGRADECOUNT> 0
+CheckContainsTextList ..\QuestDiary\提现系统\限时奖励\限时列表.txt <$BOXITEM[3].NAME>
+#ACT
+GAMEDIAMOND + <$STR(N$限时价格)>
+AddTextListEX ..\QuestDiary\提现系统\限时奖励\已领取物品.txt <$BOXITEM[3].NAME> 0
+AddTextListEX ..\QuestDiary\提现系统\限时奖励\限时记录.txt 物品名称：<$BOXITEM[3].NAME>‖价格：<$STR(N$限时价格)>‖名字：<$username> 0
+GuildNoticeMsg 255 253 {公告:|249:255:0}{玩家|251:0:1}{[<$username>]|70:0:1}{领取了|251:0:1}{[<$BOXITEM[3].NAME>]|253:0:1}限时奖励{获得<$STR(N$限时价格)>古币!找游戏商人兑换现金!|251:0:1}
+MESSAGEBOX 回收【<$BOXITEM[3].NAME>】获得古币<$STR(N$限时价格)>,您可进行古币提现获取现金。
+ReturnBoxItem 3
+MOV N$限时价格 0
+goto @限时奖励
+goto @限时奖励有刷新
+BREAK
+#elseact
+messagebox \\你的装备不在限时回收装备列表里!
+break
+
+
+
+
+
+[@确认提现]
+#IF
+small U9 99
+#ACT
+MESSAGEBOX [提示]：请输入提现金额
+break
+#IF
+EQUAL T25 
+#ACT
+MESSAGEBOX [提示]：请选择您账户是支付宝或财付通
+break
+#IF
+EQUAL T27 
+#ACT
+MESSAGEBOX [提示]：请确定您的收款账号不能为空
+break
+#IF
+EQUAL T28 
+#ACT
+MESSAGEBOX [提示]：请确定您的收款姓名不能为空
+break
+#IF
+EQUAL T29 
+#ACT
+MESSAGEBOX [提示]：请确定您的联系ＱＱ不能为空
+break
+#IF
+LARGE U9 99
+CHECKGAMEPOINT <$STR(S96)>
+NOT EQUAL T27 ←点击设置您的收款账号.如果账号包括@字符,请替换为#
+NOT EQUAL T28 ←点击设置您的收款姓名.请认真设置,以免出款出错.
+NOT EQUAL T29 ←点击设置您的联系ＱＱ.请认真设置,出现特殊情况方便管理联系您
+#ACT
+GAMEPOINT - <$STR(U9)>
+AddTextListEX ..\QuestDiary\提现系统\提现记录\待审核名单.txt <$USERNAME> 0
+AddTextListEX ..\QuestDiary\提现系统\提现记录\待审核金额.txt <$STR(U9)> 0
+AddTextListEX ..\QuestDiary\提现系统\提现记录\待审核时间.txt <$DATETIME> 0
+AddTextListEX ..\QuestDiary\提现系统\提现记录\待审核状态.txt 等待打款 0
+AddTextListEX ..\QuestDiary\提现系统\提现记录\提现总记录.txt 回收时间：<$DATETIME>‖玩家角色名：<$USERNAME>‖回收金额：<$STR(U9)>‖收款账号：<$STR(T27)>‖收款信息：<$STR(T25)>‖收款姓名：<$STR(T28)>‖联系方式：<$STR(T29)>‖待打款 0
+MESSAGEBOX [提示]：提现成功,请耐心等待打款......
+GuildNoticeMsg 255 253 {公告:|249:255:0}玩家{[<$username>]|70:0:1}成功提现{<$STR(U9)>|251:0:1}{元古币|251:0:1}，本服真实提现系统！欢迎商人入驻！
+GuildNoticeMsg 255 253 {公告:|249:255:0}玩家{[<$username>]|70:0:1}成功提现{<$STR(U9)>|251:0:1}{元古币|251:0:1}，本服真实提现系统！欢迎商人入驻！
+GuildNoticeMsg 255 253 {公告:|249:255:0}玩家{[<$username>]|70:0:1}成功提现{<$STR(U9)>|251:0:1}{元古币|251:0:1}，本服真实提现系统！欢迎商人入驻！
+GuildNoticeMsg 255 253 {公告:|249:255:0}玩家{[<$username>]|70:0:1}成功提现{<$STR(U9)>|251:0:1}{元古币|251:0:1}，本服真实提现系统！欢迎商人入驻！
+GuildNoticeMsg 255 253 {公告:|249:255:0}玩家{[<$username>]|70:0:1}成功提现{<$STR(U9)>|251:0:1}{元古币|251:0:1}，本服真实提现系统！欢迎商人入驻！
+MOV U9 0
+GOTO @现金提现界面
+#ELSEACT
+MESSAGEBOX [提示]：请认真填写一下内容\\　　　　1：请设置您的提现金额\\　　　　2：请设置您的收款账户\\　　　　3：请设置您的收款姓名\\　　　　4：请设置您的联系QQ
+
+[@InPutString97]
+#IF
+#ACT
+MOV T27 <$STR(S97)>
+MESSAGEBOX 您的收款账号是:<$STR(S97)>
+DELAYGOTO 20 @现金提现界面
+BREAK
+
+[@InPutString98]
+#IF
+#ACT
+MOV T28 <$STR(S98)>
+MESSAGEBOX 您的收款姓名是:<$STR(S98)>
+DELAYGOTO 20 @现金提现界面
+BREAK
+
+[@InPutString99]
+#IF
+LARGE S99 9999
+#ACT
+MOV T29 <$STR(S99)>
+MESSAGEBOX 您的联系QQ是:<$STR(S99)>
+DELAYGOTO 20 @现金提现界面
+#ELSEACT
+MESSAGEBOX 好好设置您的QQ
+BREAK
+
+[@InPutString96]
+#IF
+small S96 100
+#ACT
+MESSAGEBOX [提示]：最低提现金额：100古币\\
+BREAK
+
+#IF
+CHECKGAMEPOINT <$STR(S96)>
+#ACT
+MOV U9 <$STR(S96)>
+MESSAGEBOX 您提现的金额是:<$STR(S96)>
+DELAYGOTO 20 @现金提现界面
+#ELSEACT
+MESSAGEBOX [提示]：您的古币不足<$STR(S96)>元
+BREAK
+
+
+[@支付宝]
+#IF
+#ACT
+MOV S$支付宝 <Img:1032:12:-5:-3/@支付宝><支付宝/SCOLOR=250>
+MOV S$财付通 <Img:1031:12:-5:-3/@财付通><财付通/SCOLOR=249>
+MOV T25 支付宝
+GOTO @现金提现界面
+
+[@财付通]
+#IF
+#ACT
+MOV S$支付宝 <Img:1031:12:-5:-3/@支付宝><支付宝/SCOLOR=249>
+MOV S$财付通 <Img:1032:12:-5:-3/@财付通><财付通/SCOLOR=250>
+MOV T25 财付通
+GOTO @现金提现界面
+
+[@首杀BOSS]
+#IF
+EQUAL G170 0
+#act
+mov G170 1
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 25 260 1 4 0 0 1 450 10
+#say
+<Img:801:0:600:20/@EXIT>\ \ 
+　　　　　　　　　　　　           　　　<新区福利，首杀BOSS奖励/SCOLOR=253>\
+　\
+
+　\ \
+<>        　1　  <恶灵战将→白银BOSS/SCOLOR=254>　   <500古币/SCOLOR=250>　   　<$STR(G169)>　　         <自动领取/SCOLOR=249>     <$STR(A169)>\ \
+<>        　2　　<骷髅领主→白银BOSS/SCOLOR=254>　   <500古币/SCOLOR=250>　   　<$STR(G168)>　　         <自动领取/SCOLOR=249>     <$STR(A168)>\ \
+<>        　3　　<战狂统领→白银BOSS/SCOLOR=254>　   <500古币/SCOLOR=250>　   　<$STR(G167)>　　         <自动领取/SCOLOR=249>     <$STR(A167)>\ \
+<>        　4　　<石墓教主→白银BOSS/SCOLOR=254>　   <500古币/SCOLOR=250>　   　<$STR(G166)>　　         <自动领取/SCOLOR=249>     <$STR(A166)>\ 
+<ImgEx:25:200:201:202:0:-10|250#上一页/@首杀BOSS><ImgEx:25:203:204:205:545:-10|250#下一页/@第二页>\
+<>        　5　　<蛮荒统领→黄金BOSS/SCOLOR=254>　   <1000古币/SCOLOR=250>　    <$STR(G165)>　　         <自动领取/SCOLOR=249>     <$STR(A165)>\ \
+<>        　6　　<烈火魔龙→黄金BOSS/SCOLOR=254>　   <1000古币/SCOLOR=250>　    <$STR(G164)>　　         <自动领取/SCOLOR=249>     <$STR(A164)>\ \
+<>        　7　　<上古统领→黄金BOSS/SCOLOR=254>　   <1000古币/SCOLOR=250>　    <$STR(G163)>　　         <自动领取/SCOLOR=249>     <$STR(A163)>\ \
+<>        　8　　<吞噬魔王→铂金BOSS/SCOLOR=254>　   <1500古币/SCOLOR=250>　  　<$STR(G161)>　　         <自动领取/SCOLOR=249>     <$STR(A161)>\ \
+                 <注意事项：/SCOLOR=250><首次击杀BOSS以地图展示的BOSS名字为准,在别的地图击杀无效,奖励系统发放，无须领取!/SCOLOR=253>\
+                 <注意事项：/SCOLOR=250><首次击杀BOSS以地图展示的BOSS名字为准,在别的地图击杀无效,奖励系统发放，无须领取!/SCOLOR=253>\
+
+　\
+
+[@第二页]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 25 260 1 4 0 0 1 450 10
+#say
+<Img:801:0:600:20/@EXIT>\ \ 
+　　　　　　　　　　　　           　　　<新区福利，首杀BOSS奖励/SCOLOR=253>\
+　\
+
+　\ \
+<>        　9　 <阴阳魔王→铂金BOSS/SCOLOR=254>　    <1500古币/SCOLOR=250>　  　<$STR(G160)>　　         <自动领取/SCOLOR=249>     <$STR(A160)>\ \
+<>        　10　 <恶魔鬼魂→荣耀BOSS/SCOLOR=254>　   <2000古币/SCOLOR=250>　  　<$STR(G158)>　　         <自动领取/SCOLOR=249>     <$STR(A158)>\ 
+<ImgEx:25:200:201:202:0:-10|250#上一页/@首杀BOSS><ImgEx:25:203:204:205:545:-10|250#下一页/@第三页>\
+<>        　11　 <蓝色妖兽→王者BOSS/SCOLOR=254>　   <2500古币/SCOLOR=250>　  　<$STR(G157)>　　         <自动领取/SCOLOR=249>     <$STR(A157)>\ \
+<>        　12　 <赤焰魔王→巅峰BOSS/SCOLOR=254>　   <3000古币/SCOLOR=250>　 　 <$STR(G156)>　　         <自动领取/SCOLOR=249>     <$STR(A156)>\ \
+<>        　13　 <邪神傲世→巅峰BOSS/SCOLOR=254>　   <3000古币/SCOLOR=250>　 　 <$STR(G155)>　　         <自动领取/SCOLOR=249>     <$STR(A155)>\ \
+<>        　14　 <永恒魔王→至尊BOSS/SCOLOR=254>　   <4000古币/SCOLOR=250>　    <$STR(G154)>　　         <自动领取/SCOLOR=249>     <$STR(A154)>\ \
+<>        　15　 <幽冥灵尊→至尊BOSS/SCOLOR=254>　   <4000古币/SCOLOR=250>　  　<$STR(G153)>　　         <自动领取/SCOLOR=249>     <$STR(A153)>\ \
+<>        　16　 <王者魔王→野外BOSS/SCOLOR=254>　   <4000古币/SCOLOR=250>　  　<$STR(G152)>　　         <自动领取/SCOLOR=249>     <$STR(A152)>\ \
+                 <注意事项：/SCOLOR=250><首次击杀BOSS以地图展示的BOSS名字为准,在别的地图击杀无效,奖励系统发放，无须领取!/SCOLOR=253>\
+                 <注意事项：/SCOLOR=250><首次击杀BOSS以地图展示的BOSS名字为准,在别的地图击杀无效,奖励系统发放，无须领取!/SCOLOR=253>\
+
+　\
+
+[@第三页]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 25 260 1 4 0 0 1 450 10
+#say
+<Img:801:0:600:20/@EXIT>\ \ 
+　　　　　　　　　　　　           　　　<新区福利，首杀BOSS奖励/SCOLOR=253>\
+　\
+
+　\ \
+<>        　17　 <独角兽王→野外BOSS/SCOLOR=254>　 <4000古币/SCOLOR=250>　  　<$STR(G151)>　　         <自动领取/SCOLOR=249>     <$STR(A151)>\ 
+<ImgEx:25:200:201:202:0:-10|250#上一页/@第二页><ImgEx:25:203:204:205:545:-10|250#下一页/@首杀BOSS>\
+<>        　18　 <毒龙蚀天→史诗BOSS/SCOLOR=254>　 <6000古币/SCOLOR=250>　  　<$STR(G150)>　　         <自动领取/SCOLOR=249>     <$STR(A150)>\ \
+<>        　19　 <修罗魔龙→史诗BOSS/SCOLOR=254>　 <6000古币/SCOLOR=250>　  　<$STR(G149)>　　         <自动领取/SCOLOR=249>     <$STR(A149)>\ \
+<>          20　 <冰宫天神→回馈BOSS/SCOLOR=254>　 <2000古币/SCOLOR=250>　  　<$STR(G140)>　　         <自动领取/SCOLOR=249>     <$STR(A140)>\ \
+<>          21　 <神异领主→回馈BOSS/SCOLOR=254>　 <2500古币/SCOLOR=250>　  　<$STR(G141)>　　         <自动领取/SCOLOR=249>     <$STR(A141)>\ \
+<>          22　 <麒麟角兽→回馈BOSS/SCOLOR=254>　 <3500古币/SCOLOR=250>　  　<$STR(G142)>　　         <自动领取/SCOLOR=249>     <$STR(A142)>\ \
+<>          23　 <死亡之翼→回馈BOSS/SCOLOR=254>　 <4500古币/SCOLOR=250>　  　<$STR(G143)>　　         <自动领取/SCOLOR=249>     <$STR(A143)>\ \
+\ \ \  
+                 <注意事项：/SCOLOR=250><首次击杀BOSS以地图展示的BOSS名字为准,在别的地图击杀无效,奖励系统发放，无须领取!/SCOLOR=253>\
+                 <注意事项：/SCOLOR=250><首次击杀BOSS以地图展示的BOSS名字为准,在别的地图击杀无效,奖励系统发放，无须领取!/SCOLOR=253>\
+
+
+}
+ 

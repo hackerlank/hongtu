@@ -1,0 +1,97 @@
+[@登陆设置]
+{
+#IF
+checkjob warrior
+ISNEWHUMAN
+#ACT
+ADDSKILL 召唤伴侣 3
+ADDSKILL 基本剑术 3
+ADDSKILL 攻杀剑术 3
+ADDSKILL 刺杀剑术 3
+ADDSKILL 半月弯刀 3
+ADDSKILL 野蛮冲撞 3
+ADDSKILL 烈火剑法 3
+ADDSKILL 逐日剑法 3
+ADDSKILL 开天斩 3
+
+#IF
+ISCASTLEMASTER
+#ACT
+SENDMSG 0 最伟大的沙巴克头头『<$USERNAME>』闪亮登场!大家有仇的报仇,有冤的报冤!!
+CHANGENAMECOLOR 253
+SENDMSG 7 您现在的身份是『沙巴克城主』——祝贺你!自豪一下吧!
+
+#IF
+ISADMIN
+#ACT
+;CHANGEMODE 1 1
+;CHANGEMODE 2 1
+;CHANGEMODE 3 1
+CHANGEPERMISSION 10
+SENDMSG 6 当前人数:<$USERCOUNT>人!!!
+
+#IF
+ISNEWHUMAN
+gender man
+#ACT
+HumanHP + 2000
+HUMANMP + 2000
+SetSndaItemBox 1 2 8888 4 5 6 7 8 6666 9 10
+take 蜡烛
+take 金创药(小量)
+give 新手血石 1
+give 首充礼包50元 1
+TakeOnItem 布衣(男) 0
+TakeOnItem 铁剑 1
+TakeOnItem 新手血石 9
+give 金币 10000
+SENDMSG 0 251 249  ★★欢迎勇士[<$USERNAME>]加入游戏,[<$SERVERNAME>]又多了一份力量★★
+SENDMSG 0 251 249  ★★欢迎勇士[<$USERNAME>]加入游戏,[<$SERVERNAME>]又多了一份力量★★
+
+
+#IF
+ISNEWHUMAN
+gender Woman
+#ACT
+HumanHP + 2000
+HUMANMP + 2000
+SetSndaItemBox 1 2 8888 4 5 6 7 8 6666 9 10
+take 蜡烛
+take 金创药(小量)
+give 新手血石 1
+give 首充礼包50元 1
+TakeOnItem 布衣(女) 0
+TakeOnItem 铁剑 1
+TakeOnItem 新手血石 9
+give 金币 10000
+SENDMSG 0 251 249  ★★欢迎勇士[<$USERNAME>]加入游戏,[<$SERVERNAME>]又多了一份力量★★
+SENDMSG 0 251 249  ★★欢迎勇士[<$USERNAME>]加入游戏,[<$SERVERNAME>]又多了一份力量★★
+
+
+#IF
+CHECKLEVELEX < 34
+#ACT
+MOVR P0 20 22
+MOVR P9 18 24
+mapmove xrdt <$STR(P0)> <$STR(P9)>
+CLOSE
+
+#if
+Equal T9 
+#act
+GiveStateItem 毒零白冰盾·一星 1 1 1 0 1 1 1 1
+TakeOnItem 毒零白冰盾·一星 16
+MOV T9 毒零白冰盾·一星
+
+#if
+CHECKLEVELEX > 0
+#act
+SETONTIMER 1 1
+
+
+#if
+check  [588] 1
+#act
+SETICON 0 15 516 -3 -80 8 0 300 0
+
+}

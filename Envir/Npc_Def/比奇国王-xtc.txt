@@ -1,0 +1,4110 @@
+(@@InPutString @@sendmsg)
+[@main]
+#if
+large <$GUILDFLOURISHPOINT> 9999
+CHECKGUILDFLOURISHPOINT < 50000
+NOT CHECKGUILDBUILDPOINT = 1
+#Act
+GUILDBUILDPOINT = 1
+
+#if
+large <$GUILDFLOURISHPOINT> 49999
+CHECKGUILDFLOURISHPOINT < 100000
+NOT CHECKGUILDBUILDPOINT = 2
+#Act
+GUILDBUILDPOINT = 2
+
+#if
+large <$GUILDFLOURISHPOINT> 99999
+CHECKGUILDFLOURISHPOINT < 200000
+NOT CHECKGUILDBUILDPOINT = 3
+#Act
+GUILDBUILDPOINT = 3
+
+#if
+large <$GUILDFLOURISHPOINT> 199999
+CHECKGUILDFLOURISHPOINT < 500000
+NOT CHECKGUILDBUILDPOINT = 4
+#Act
+GUILDBUILDPOINT = 4
+
+#if
+large <$GUILDFLOURISHPOINT> 499999
+NOT CHECKGUILDBUILDPOINT = 5
+#Act
+GUILDBUILDPOINT = 5
+
+
+#if
+#Act
+goto @提取数据
+goto @更新文本
+goto @提取数据
+goto @界面
+
+
+
+[@捐献1]
+#if
+NOT checkitem 木材
+#ACT
+MESSAGEBOX \\捐献失败:原因如下\\　　　　你没有木材
+BREAK
+
+#if
+HAVEGUILD
+#ACT
+TakeBagItem 木材 500 0 0 0 0 N1 0
+#if
+large N1 > 0
+#ACT
+GOTO @提取数据
+MUL N4 N1 10
+GOTO @更新文本
+GUILDFLOURISHPOINT + <$STR(N4)>
+GuildNoticeMsg 255 70 【<$USERNAME>】在国王NPC处为行会【<$GUILDNAME>】捐献了<$STR(N4)>点繁荣度,请大家掌声鼓励！
+MOV N1 0
+MOV N4 0
+GOTO @捐献刷新
+GOTO @更新文本
+GOTO @main
+#ELSEACT
+MESSAGEBOX \\捐献失败:原因如下\\　　　　你还没有行会\\
+BREAK
+
+
+
+[@捐献]
+#if
+CHECKGAMEGOLD < 1999
+#ACT
+MESSAGEBOX \\捐献失败:原因如下\\　　　　你没有2000元宝
+BREAK
+
+#if
+HAVEGUILD
+#act
+GOTO @提取数据
+GAMEGOLD - 2000
+GOTO @更新文本
+GUILDFLOURISHPOINT + 1000
+GuildNoticeMsg 255 70 【<$USERNAME>】在国王NPC处为行会【<$GUILDNAME>】捐献了1000点繁荣度,请大家掌声鼓励！
+GOTO @捐献刷新
+GOTO @更新文本
+GOTO @main
+#ELSEACT
+MESSAGEBOX \\捐献失败:原因如下\\　　　　你还没有行会
+BREAK
+
+
+[@取修改后繁荣]
+#ACT
+MOV N$繁荣度0 <$STR(G200)>
+MOV N$繁荣度1 <$STR(G201)>
+MOV N$繁荣度2 <$STR(G202)>
+MOV N$繁荣度3 <$STR(G203)>
+MOV N$繁荣度4 <$STR(G204)>
+MOV N$繁荣度5 <$STR(G205)>
+MOV N$繁荣度6 <$STR(G206)>
+MOV N$繁荣度7 <$STR(G207)>
+MOV N$繁荣度8 <$STR(G208)>
+MOV N$繁荣度9 <$STR(G209)>
+
+MOV S$行数据0 <$STR(A200)>
+MOV S$行数据1 <$STR(A201)>
+MOV S$行数据2 <$STR(A202)>
+MOV S$行数据3 <$STR(A203)>
+MOV S$行数据4 <$STR(A204)>
+MOV S$行数据5 <$STR(A205)>
+MOV S$行数据6 <$STR(A206)>
+MOV S$行数据7 <$STR(A207)>
+MOV S$行数据8 <$STR(A208)>
+MOV S$行数据9 <$STR(A209)>
+
+
+[@捐献刷新]
+#IF
+CheckContainsText 无 <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+#ACT
+MOV G200 <$GUILDFLOURISHPOINT>
+MOV A200 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+#ACT
+MOV G201 <$GUILDFLOURISHPOINT>
+MOV A201 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+#ACT
+MOV G202 <$GUILDFLOURISHPOINT>
+MOV A202 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+#ACT
+MOV G203 <$GUILDFLOURISHPOINT>
+MOV A203 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+#ACT
+MOV G204 <$GUILDFLOURISHPOINT>
+MOV A204 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+#ACT
+MOV G205 <$GUILDFLOURISHPOINT>
+MOV A205 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+#ACT
+MOV G206 <$GUILDFLOURISHPOINT>
+MOV A206 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+#ACT
+MOV G207 <$GUILDFLOURISHPOINT>
+MOV A207 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+#ACT
+MOV G208 <$GUILDFLOURISHPOINT>
+MOV A208 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+#IF
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+#ACT
+MOV G209 <$GUILDFLOURISHPOINT>
+MOV A209 <$STR(S85)><$GUILDNAME>
+goto @取修改后繁荣
+BREAK
+
+
+[@更新文本]
+#IF
+HAVEGUILD
+#ACT
+#ELSEACT
+BREAK
+
+
+#IF
+#ACT
+CLEARNAMELIST ..\QuestDiary\行会排行\所有行会.txt
+MOV N$繁荣度0 <$STR(G200)>
+MOV N$繁荣度1 <$STR(G201)>
+MOV N$繁荣度2 <$STR(G202)>
+MOV N$繁荣度3 <$STR(G203)>
+MOV N$繁荣度4 <$STR(G204)>
+MOV N$繁荣度5 <$STR(G205)>
+MOV N$繁荣度6 <$STR(G206)>
+MOV N$繁荣度7 <$STR(G207)>
+MOV N$繁荣度8 <$STR(G208)>
+MOV N$繁荣度9 <$STR(G209)>
+
+MOV S$行数据0 <$STR(A200)>
+MOV S$行数据1 <$STR(A201)>
+MOV S$行数据2 <$STR(A202)>
+MOV S$行数据3 <$STR(A203)>
+MOV S$行数据4 <$STR(A204)>
+MOV S$行数据5 <$STR(A205)>
+MOV S$行数据6 <$STR(A206)>
+MOV S$行数据7 <$STR(A207)>
+MOV S$行数据8 <$STR(A208)>
+MOV S$行数据9 <$STR(A209)>
+
+mov S$11 <$STR(S$行数据0)>
+DEC S$11 17 100
+mov S$21 <$STR(S$行数据1)>
+DEC S$21 17 100
+mov S$31 <$STR(S$行数据2)>
+DEC S$31 17 100
+mov S$41 <$STR(S$行数据3)>
+DEC S$41 17 100
+mov S$51 <$STR(S$行数据4)>
+DEC S$51 17 100
+mov S$61 <$STR(S$行数据5)>
+DEC S$61 17 100
+mov S$71 <$STR(S$行数据6)>
+DEC S$71 17 100
+mov S$81 <$STR(S$行数据7)>
+DEC S$81 17 100
+mov S$91 <$STR(S$行数据8)>
+DEC S$91 17 100
+mov S$101 <$STR(S$行数据9)>
+DEC S$101 17 100
+
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$11 0
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$21 1
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$31 2
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$41 3
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$51 4
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$61 5
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$71 6
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$81 7
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$91 8
+AddTextListEx ..\QuestDiary\行会排行\所有行会.txt S$101 9
+
+
+
+#IF
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$17)>
+MOV N$设置充值 <$STR(N$18)>
+
+#IF
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$27)>
+MOV N$设置充值 <$STR(N$28)>
+
+#IF
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$37)>
+MOV N$设置充值 <$STR(N$38)>
+#IF
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$47)>
+MOV N$设置充值 <$STR(N$48)>
+#IF
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$57)>
+MOV N$设置充值 <$STR(N$58)>
+#IF
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$67)>
+MOV N$设置充值 <$STR(N$68)>
+#IF
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$77)>
+MOV N$设置充值 <$STR(N$78)>
+#IF
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$87)>
+MOV N$设置充值 <$STR(N$88)>
+#IF
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$97)>
+MOV N$设置充值 <$STR(N$98)>
+#IF
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+#ACT
+MOV N$设置等级 <$STR(N$107)>
+MOV N$设置充值 <$STR(N$108)>
+
+
+
+#IF
+#ACT
+MOV S80 <$GUILDNAME>
+MOV S81 <$GUILDBUILDPOINT>
+MOV S82 <$STR(N$设置等级)>
+MOV S83 <$STR(N$设置充值)>
+SetStringBlank <$STR(S80)> 16 0
+SetStringBlank <$STR(S81)> 8 0
+SetStringBlank <$STR(S82)> 8 0
+SetStringBlank <$STR(S83)> 8 0
+mov S85 <$STR(S80)><$STR(S81)><$STR(S82)><$STR(S83)>
+
+
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度0)>
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度0)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV A209 <$STR(A208)>
+MOV G209 <$STR(G208)>
+MOV A208 <$STR(A207)>
+MOV G208 <$STR(G207)>
+MOV A207 <$STR(A206)>
+MOV G207 <$STR(G206)>
+MOV A206 <$STR(A205)>
+MOV G206 <$STR(G205)>
+MOV A205 <$STR(A204)>
+MOV G205 <$STR(G204)>
+MOV A204 <$STR(A203)>
+MOV G204 <$STR(G203)>
+MOV A203 <$STR(A202)>
+MOV G203 <$STR(G202)>
+MOV A202 <$STR(A201)>
+MOV G202 <$STR(G201)>
+MOV A201 <$STR(A200)>
+MOV G201 <$STR(G200)>
+MOV G200 <$GUILDFLOURISHPOINT>
+MOV A200 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度0)>
+#ACT
+MOV A50 <$STR(A200)>
+MOV G50 <$STR(G200)>
+MOV A51 <$STR(A201)>
+MOV G51 <$STR(G201)>
+MOV A200 <$STR(A51)>
+MOV G200 <$STR(G51)>
+MOV A201 <$STR(A50)>
+MOV G201 <$STR(G50)>
+BREAK
+
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度1)>
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度1)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV A209 <$STR(A208)>
+MOV G209 <$STR(G208)>
+MOV A208 <$STR(A207)>
+MOV G208 <$STR(G207)>
+MOV A207 <$STR(A206)>
+MOV G207 <$STR(G206)>
+MOV A206 <$STR(A205)>
+MOV G206 <$STR(G205)>
+MOV A205 <$STR(A204)>
+MOV G205 <$STR(G204)>
+MOV A204 <$STR(A203)>
+MOV G204 <$STR(G203)>
+MOV A203 <$STR(A202)>
+MOV G203 <$STR(G202)>
+MOV A202 <$STR(A201)>
+MOV G202 <$STR(G201)>
+MOV G201 <$GUILDFLOURISHPOINT>
+MOV A201 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度1)>
+#ACT
+MOV A50 <$STR(A201)>
+MOV G50 <$STR(G201)>
+MOV A51 <$STR(A202)>
+MOV G51 <$STR(G202)>
+MOV A201 <$STR(A51)>
+MOV G201 <$STR(G51)>
+MOV A202 <$STR(A50)>
+MOV G202 <$STR(G50)>
+BREAK
+
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度2)>
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度2)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV A209 <$STR(A208)>
+MOV G209 <$STR(G208)>
+MOV A208 <$STR(A207)>
+MOV G208 <$STR(G207)>
+MOV A207 <$STR(A206)>
+MOV G207 <$STR(G206)>
+MOV A206 <$STR(A205)>
+MOV G206 <$STR(G205)>
+MOV A205 <$STR(A204)>
+MOV G205 <$STR(G204)>
+MOV A204 <$STR(A203)>
+MOV G204 <$STR(G203)>
+MOV A203 <$STR(A202)>
+MOV G203 <$STR(G202)>
+MOV G202 <$GUILDFLOURISHPOINT>
+MOV A202 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度2)>
+#ACT
+MOV A50 <$STR(A202)>
+MOV G50 <$STR(G202)>
+MOV A51 <$STR(A203)>
+MOV G51 <$STR(G203)>
+MOV A202 <$STR(A51)>
+MOV G202 <$STR(G51)>
+MOV A203 <$STR(A50)>
+MOV G203 <$STR(G50)>
+BREAK
+
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度3)>
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度3)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV A209 <$STR(A208)>
+MOV G209 <$STR(G208)>
+MOV A208 <$STR(A207)>
+MOV G208 <$STR(G207)>
+MOV A207 <$STR(A206)>
+MOV G207 <$STR(G206)>
+MOV A206 <$STR(A205)>
+MOV G206 <$STR(G205)>
+MOV A205 <$STR(A204)>
+MOV G205 <$STR(G204)>
+MOV A204 <$STR(A203)>
+MOV G204 <$STR(G203)>
+MOV G203 <$GUILDFLOURISHPOINT>
+MOV A203 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度3)>
+#ACT
+MOV A50 <$STR(A203)>
+MOV G50 <$STR(G203)>
+MOV A51 <$STR(A204)>
+MOV G51 <$STR(G204)>
+MOV A203 <$STR(A51)>
+MOV G203 <$STR(G51)>
+MOV A204 <$STR(A50)>
+MOV G204 <$STR(G50)>
+BREAK
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度4)>
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度4)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV A209 <$STR(A208)>
+MOV G209 <$STR(G208)>
+MOV A208 <$STR(A207)>
+MOV G208 <$STR(G207)>
+MOV A207 <$STR(A206)>
+MOV G207 <$STR(G206)>
+MOV A206 <$STR(A205)>
+MOV G206 <$STR(G205)>
+MOV A205 <$STR(A204)>
+MOV G205 <$STR(G204)>
+MOV G204 <$GUILDFLOURISHPOINT>
+MOV A204 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度4)>
+#ACT
+MOV A50 <$STR(A204)>
+MOV G50 <$STR(G204)>
+MOV A51 <$STR(A205)>
+MOV G51 <$STR(G205)>
+MOV A204 <$STR(A51)>
+MOV G204 <$STR(G51)>
+MOV A205 <$STR(A50)>
+MOV G205 <$STR(G50)>
+BREAK
+
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度5)>
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度5)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV A209 <$STR(A208)>
+MOV G209 <$STR(G208)>
+MOV A208 <$STR(A207)>
+MOV G208 <$STR(G207)>
+MOV A207 <$STR(A206)>
+MOV G207 <$STR(G206)>
+MOV A206 <$STR(A205)>
+MOV G206 <$STR(G205)>
+MOV G205 <$GUILDFLOURISHPOINT>
+MOV A205 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度5)>
+#ACT
+MOV A50 <$STR(A205)>
+MOV G50 <$STR(G205)>
+MOV A51 <$STR(A206)>
+MOV G51 <$STR(G206)>
+MOV A205 <$STR(A51)>
+MOV G205 <$STR(G51)>
+MOV A206 <$STR(A50)>
+MOV G206 <$STR(G50)>
+BREAK
+
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度6)>
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度6)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV A209 <$STR(A208)>
+MOV G209 <$STR(G208)>
+MOV A208 <$STR(A207)>
+MOV G208 <$STR(G207)>
+MOV A207 <$STR(A206)>
+MOV G207 <$STR(G206)>
+MOV G206 <$GUILDFLOURISHPOINT>
+MOV A206 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度6)>
+#ACT
+MOV A50 <$STR(A206)>
+MOV G50 <$STR(G206)>
+MOV A51 <$STR(A207)>
+MOV G51 <$STR(G207)>
+MOV A206 <$STR(A51)>
+MOV G206 <$STR(G51)>
+MOV A207 <$STR(A50)>
+MOV G207 <$STR(G50)>
+BREAK
+
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度7)>
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度7)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV A209 <$STR(A208)>
+MOV G209 <$STR(G208)>
+MOV A208 <$STR(A207)>
+MOV G208 <$STR(G207)>
+MOV G207 <$GUILDFLOURISHPOINT>
+MOV A207 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度7)>
+#ACT
+MOV A50 <$STR(A207)>
+MOV G50 <$STR(G207)>
+MOV A51 <$STR(A208)>
+MOV G51 <$STR(G208)>
+MOV A207 <$STR(A51)>
+MOV G207 <$STR(G51)>
+MOV A208 <$STR(A50)>
+MOV G208 <$STR(G50)>
+BREAK
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度8)>
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+#ACT
+BREAK
+
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度8)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV A209 <$STR(A208)>
+MOV G209 <$STR(G208)>
+MOV G208 <$GUILDFLOURISHPOINT>
+MOV A208 <$STR(S85)><$GUILDNAME>
+BREAK
+
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度8)>
+#ACT
+MOV A50 <$STR(A208)>
+MOV G50 <$STR(G208)>
+MOV A51 <$STR(A209)>
+MOV G51 <$STR(G209)>
+MOV A208 <$STR(A51)>
+MOV G208 <$STR(G51)>
+MOV A209 <$STR(A50)>
+MOV G209 <$STR(G50)>
+BREAK
+
+#IF
+NOT small <$GUILDFLOURISHPOINT> <$STR(N$繁荣度9)>
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+#ACT
+BREAK
+
+#IF
+NOT CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度9)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV G209 <$GUILDFLOURISHPOINT>
+MOV A209 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+CHECKTEXTLIST ..\QuestDiary\行会排行\所有行会.txt <$GUILDNAME>
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度9)>
+#ACT
+MOV A50 <$STR(A209)>
+MOV G50 <$STR(G209)>
+MOV A51 <$STR(A210)>
+MOV G51 <$STR(G210)>
+MOV A209 <$STR(A51)>
+MOV G209 <$STR(G51)>
+MOV A210 <$STR(A50)>
+MOV G210 <$STR(G50)>
+BREAK
+
+
+
+#IF
+large <$GUILDFLOURISHPOINT> <$STR(N$繁荣度9)>
+#ACT
+MOV A210 <$STR(A209)>
+MOV G210 <$STR(G209)>
+MOV G209 <$GUILDFLOURISHPOINT>
+MOV A209 <$STR(S85)><$GUILDNAME>
+BREAK
+
+
+#IF
+equal <$STR(A200)> 
+#ACT
+MOV G200 <$GUILDFLOURISHPOINT>
+MOV A200 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+equal <$STR(A201)> 
+#ACT
+MOV G201 <$GUILDFLOURISHPOINT>
+MOV A201 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+equal <$STR(A202)> 
+#ACT
+MOV G202 <$GUILDFLOURISHPOINT>
+MOV A202 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+equal <$STR(A203)> 
+#ACT
+MOV G203 <$GUILDFLOURISHPOINT>
+MOV A203 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+equal <$STR(A204)> 
+#ACT
+MOV G204 <$GUILDFLOURISHPOINT>
+MOV A204 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+equal <$STR(A205)> 
+#ACT
+MOV G205 <$GUILDFLOURISHPOINT>
+MOV A205 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+equal <$STR(A206)> 
+#ACT
+MOV G206 <$GUILDFLOURISHPOINT>
+MOV A206 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+equal <$STR(A207)> 
+#ACT
+MOV G207 <$GUILDFLOURISHPOINT>
+MOV A207 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+equal <$STR(A208)> 
+#ACT
+MOV G208 <$GUILDFLOURISHPOINT>
+MOV A208 <$STR(S85)><$GUILDNAME>
+BREAK
+
+#IF
+equal <$STR(A209)> 
+#ACT
+MOV G209 <$GUILDFLOURISHPOINT>
+MOV A209 <$STR(S85)><$GUILDNAME>
+BREAK
+
+
+[@提取数据]
+#if
+#ACT
+
+MOV N$繁荣度0 <$STR(G200)>
+MOV N$繁荣度1 <$STR(G201)>
+MOV N$繁荣度2 <$STR(G202)>
+MOV N$繁荣度3 <$STR(G203)>
+MOV N$繁荣度4 <$STR(G204)>
+MOV N$繁荣度5 <$STR(G205)>
+MOV N$繁荣度6 <$STR(G206)>
+MOV N$繁荣度7 <$STR(G207)>
+MOV N$繁荣度8 <$STR(G208)>
+MOV N$繁荣度9 <$STR(G209)>
+
+MOV S$行数据0 <$STR(A200)>
+MOV S$行数据1 <$STR(A201)>
+MOV S$行数据2 <$STR(A202)>
+MOV S$行数据3 <$STR(A203)>
+MOV S$行数据4 <$STR(A204)>
+MOV S$行数据5 <$STR(A205)>
+MOV S$行数据6 <$STR(A206)>
+MOV S$行数据7 <$STR(A207)>
+MOV S$行数据8 <$STR(A208)>
+MOV S$行数据9 <$STR(A209)>
+
+MOV N19 <$GUILDFLOURISHPOINT>
+mov S$19 <$STR(S$行数据0)>
+DEC S$19 1 40
+mov S$29 <$STR(S$行数据1)>
+DEC S$29 1 40
+mov S$39 <$STR(S$行数据2)>
+DEC S$39 1 40
+mov S$49 <$STR(S$行数据3)>
+DEC S$49 1 40
+mov S$59 <$STR(S$行数据4)>
+DEC S$59 1 40
+mov S$69 <$STR(S$行数据5)>
+DEC S$69 1 40
+mov S$79 <$STR(S$行数据6)>
+DEC S$79 1 40
+mov S$89 <$STR(S$行数据7)>
+DEC S$89 1 40
+mov S$99 <$STR(S$行数据8)>
+DEC S$99 1 40
+mov S$109 <$STR(S$行数据9)>
+DEC S$109 1 40
+
+
+mov S$11 <$STR(S$行数据0)>
+DEC S$11 17 100
+mov S$12 <$STR(S$行数据0)>
+DEC S$12 1 16
+DEC S$12 9 100
+mov S$13 <$STR(S$行数据0)>
+DEC S$13 1 24
+DEC S$13 9 100
+mov N$17 <$STR(S$13)>
+mov S$14 <$STR(S$行数据0)>
+DEC S$14 1 32
+DEC S$14 9 100
+mov N$18 <$STR(S$14)>
+mov S$15 N$繁荣度0
+SetStringBlank <$STR(S$15)> 8 0
+
+mov S$21 <$STR(S$行数据1)>
+DEC S$21 17 100
+mov S$22 <$STR(S$行数据1)>
+DEC S$22 1 16
+DEC S$22 9 100
+mov S$23 <$STR(S$行数据1)>
+DEC S$23 1 24
+DEC S$23 9 100
+mov N$27 <$STR(S$23)>
+mov S$24 <$STR(S$行数据1)>
+DEC S$24 1 32
+DEC S$24 9 100
+mov N$28 <$STR(S$24)>
+mov S$25 N$繁荣度1
+SetStringBlank <$STR(S$25)> 8 0
+
+mov S$31 <$STR(S$行数据2)>
+DEC S$31 17 100
+mov S$32 <$STR(S$行数据2)>
+DEC S$32 1 16
+DEC S$32 9 100
+mov S$33 <$STR(S$行数据2)>
+DEC S$33 1 24
+DEC S$33 9 100
+mov N$37 <$STR(S$33)>
+mov S$34 <$STR(S$行数据2)>
+DEC S$34 1 32
+DEC S$34 9 100
+mov N$38 <$STR(S$34)>
+mov S$35 N$繁荣度2
+SetStringBlank <$STR(S$35)> 8 0
+
+mov S$41 <$STR(S$行数据3)>
+DEC S$41 17 100
+mov S$42 <$STR(S$行数据3)>
+DEC S$42 1 16
+DEC S$42 9 100
+mov S$43 <$STR(S$行数据3)>
+DEC S$43 1 24
+DEC S$43 9 100
+mov N$47 <$STR(S$43)>
+mov S$44 <$STR(S$行数据3)>
+DEC S$44 1 32
+DEC S$44 9 100
+mov N$48 <$STR(S$44)>
+mov S$45 N$繁荣度3
+SetStringBlank <$STR(S$45)> 8 0
+
+mov S$51 <$STR(S$行数据4)>
+DEC S$51 17 100
+mov S$52 <$STR(S$行数据4)>
+DEC S$52 1 16
+DEC S$52 9 100
+mov S$53 <$STR(S$行数据4)>
+DEC S$53 1 24
+DEC S$53 9 100
+mov N$57 <$STR(S$53)>
+mov S$54 <$STR(S$行数据4)>
+DEC S$54 1 32
+DEC S$54 9 100
+mov N$58 <$STR(S$54)>
+mov S$55 N$繁荣度4
+SetStringBlank <$STR(S$55)> 8 0
+
+mov S$61 <$STR(S$行数据5)>
+DEC S$61 17 100
+mov S$62 <$STR(S$行数据5)>
+DEC S$62 1 16
+DEC S$62 9 100
+mov S$63 <$STR(S$行数据5)>
+DEC S$63 1 24
+DEC S$63 9 100
+mov N$67 <$STR(S$63)>
+mov S$64 <$STR(S$行数据5)>
+DEC S$64 1 32
+DEC S$64 9 100
+mov N$68 <$STR(S$64)>
+mov S$65 N$繁荣度5
+SetStringBlank <$STR(S$65)> 8 0
+
+mov S$71 <$STR(S$行数据6)>
+DEC S$71 17 100
+mov S$72 <$STR(S$行数据6)>
+DEC S$72 1 16
+DEC S$72 9 100
+mov S$73 <$STR(S$行数据6)>
+DEC S$73 1 24
+DEC S$73 9 100
+mov N$77 <$STR(S$73)>
+mov S$74 <$STR(S$行数据6)>
+DEC S$74 1 32
+DEC S$74 9 100
+mov N$78 <$STR(S$74)>
+mov S$75 N$繁荣度6
+SetStringBlank <$STR(S$75)> 8 0
+
+mov S$81 <$STR(S$行数据7)>
+DEC S$81 17 100
+mov S$82 <$STR(S$行数据7)>
+DEC S$82 1 16
+DEC S$82 9 100
+mov S$83 <$STR(S$行数据7)>
+DEC S$83 1 24
+DEC S$83 9 100
+mov N$87 <$STR(S$83)>
+mov S$84 <$STR(S$行数据7)>
+DEC S$84 1 32
+DEC S$84 9 100
+mov N$88 <$STR(S$84)>
+mov S$85 N$繁荣度7
+SetStringBlank <$STR(S$85)> 8 0
+
+mov S$91 <$STR(S$行数据8)>
+DEC S$91 17 100
+mov S$92 <$STR(S$行数据8)>
+DEC S$92 1 16
+DEC S$92 9 100
+mov S$93 <$STR(S$行数据8)>
+DEC S$93 1 24
+DEC S$93 9 100
+mov N$97 <$STR(S$93)>
+mov S$94 <$STR(S$行数据8)>
+DEC S$94 1 32
+DEC S$94 9 100
+mov N$98 <$STR(S$94)>
+mov S$95 N$繁荣度8
+SetStringBlank <$STR(S$95)> 8 0
+
+
+mov S$101 <$STR(S$行数据9)>
+DEC S$101 17 100
+mov S$102 <$STR(S$行数据9)>
+DEC S$102 1 16
+DEC S$102 9 100
+mov S$103 <$STR(S$行数据9)>
+DEC S$103 1 24
+DEC S$103 9 100
+mov N$107 <$STR(S$103)>
+mov S$104 <$STR(S$行数据9)>
+DEC S$104 1 32
+DEC S$104 9 100
+mov N$108 <$STR(S$104)>
+mov S$105 N$繁荣度9
+SetStringBlank <$STR(S$105)> 8 0
+
+MOV S80 <$GUILDNAME>
+MOV S81 <$GUILDBUILDPOINT>
+SetStringBlank <$STR(S80)> 16 0
+SetStringBlank <$STR(S81)> 8 0
+
+#IF
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$13)><$STR(S$14)>
+
+#IF
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$23)><$STR(S$24)>
+
+#IF
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$33)><$STR(S$34)>
+
+#IF
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$43)><$STR(S$44)>
+
+#IF
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$53)><$STR(S$54)>
+
+#IF
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$63)><$STR(S$64)>
+
+#IF
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$73)><$STR(S$74)>
+
+#IF
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$83)><$STR(S$84)>
+
+#IF
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$93)><$STR(S$94)>
+
+#IF
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+#ACT
+mov S85 <$STR(S80)><$STR(S81)><$STR(S$103)><$STR(S$104)>
+
+
+#IF
+equal G110 0
+#ACT
+mov S$16 <开启/SCOLOR=250>
+#IF
+equal G110 1
+#ACT
+mov S$16 <关闭/SCOLOR=249>
+#IF
+equal G111 0
+#ACT
+mov S$26 <开启/SCOLOR=250>
+#IF
+equal G111 1
+#ACT
+mov S$26 <关闭/SCOLOR=249>
+#IF
+equal G112 0
+#ACT
+mov S$36 <开启/SCOLOR=250>
+#IF
+equal G112 1
+#ACT
+mov S$36 <关闭/SCOLOR=249>
+#IF
+equal G113 0
+#ACT
+mov S$46 <开启/SCOLOR=250>
+#IF
+equal G113 1
+#ACT
+mov S$46 <关闭/SCOLOR=249>
+#IF
+equal G114 0
+#ACT
+mov S$56 <开启/SCOLOR=250>
+#IF
+equal G114 1
+#ACT
+mov S$56 <关闭/SCOLOR=249>
+#IF
+equal G115 0
+#ACT
+mov S$66 <开启/SCOLOR=250>
+#IF
+equal G115 1
+#ACT
+mov S$66 <关闭/SCOLOR=249>
+#IF
+equal G116 0
+#ACT
+mov S$76 <开启/SCOLOR=250>
+#IF
+equal G116 1
+#ACT
+mov S$76 <关闭/SCOLOR=249>
+#IF
+equal G117 0
+#ACT
+mov S$86 <开启/SCOLOR=250>
+#IF
+equal G117 1
+#ACT
+mov S$86 <关闭/SCOLOR=249>
+#IF
+equal G118 0
+#ACT
+mov S$96 <开启/SCOLOR=250>
+#IF
+equal G118 1
+#ACT
+mov S$96 <关闭/SCOLOR=249>
+#IF
+equal G119 0
+#ACT
+mov S$106 <开启/SCOLOR=250>
+#IF
+equal G119 1
+#ACT
+mov S$106 <关闭/SCOLOR=249>
+
+
+
+
+
+
+[@界面]
+#ACT
+mov S$10 　
+mov S$20 　
+mov S$30 　
+mov S$40 　
+mov S$50 　
+mov S$60 　
+mov S$70 　
+mov S$80 　
+mov S$90 　
+mov S$100 　
+SetStringBlank <$STR(S$10)> 50 0
+SetStringBlank <$STR(S$20)> 50 0
+SetStringBlank <$STR(S$30)> 50 0
+SetStringBlank <$STR(S$40)> 50 0
+SetStringBlank <$STR(S$50)> 50 0
+SetStringBlank <$STR(S$60)> 50 0
+SetStringBlank <$STR(S$70)> 50 0
+SetStringBlank <$STR(S$80)> 50 0
+SetStringBlank <$STR(S$90)> 50 0
+SetStringBlank <$STR(S$100)> 50 0
+
+
+#IF
+NOT equal <$STR(S$行数据0)>  
+#ACT
+mov S$10 {<$STR(S$11)>|繁荣度:<$STR(N$繁荣度0)>/SCOLOR=245}<$STR(S$12)>级　　　<$STR(S$16)>　　　<申请加入|加入【<$STR(S$19)>】行会^需要等级大于:<$STR(N$17)>^需要充值大于:<$STR(N$18)>元/@加入0>
+
+#IF
+NOT equal <$STR(S$行数据1)>  
+#ACT
+mov S$20 {<$STR(S$21)>|繁荣度:<$STR(N$繁荣度1)>/SCOLOR=242}<$STR(S$22)>级　　　<$STR(S$26)>　　　<申请加入|加入【<$STR(S$29)>】行会^需要等级大于:<$STR(N$27)>级^需要充值大于:<$STR(N$28)>元/@加入1>
+
+#IF
+NOT equal <$STR(S$行数据2)>  
+#ACT
+mov S$30 {<$STR(S$31)>|繁荣度:<$STR(N$繁荣度2)>/SCOLOR=242}<$STR(S$32)>级　　　<$STR(S$36)>　　　<申请加入|加入【<$STR(S$39)>】行会^需要等级大于:<$STR(N$37)>级^需要充值大于:<$STR(N$38)>元/@加入2>
+
+#IF
+NOT equal <$STR(S$行数据3)>  
+#ACT
+mov S$40 {<$STR(S$41)>|繁荣度:<$STR(N$繁荣度3)>/SCOLOR=242}<$STR(S$42)>级　　　<$STR(S$46)>　　　<申请加入|加入【<$STR(S$49)>】行会^需要等级大于:<$STR(N$47)>级^需要充值大于:<$STR(N$48)>元/@加入3>
+
+#IF
+NOT equal <$STR(S$行数据4)>  
+#ACT
+mov S$50 {<$STR(S$51)>|繁荣度:<$STR(N$繁荣度4)>/SCOLOR=242}<$STR(S$52)>级　　　<$STR(S$56)>　　　<申请加入|加入【<$STR(S$59)>】行会^需要等级大于:<$STR(N$57)>级^需要充值大于:<$STR(N$58)>元/@加入4>
+
+#IF
+NOT equal <$STR(S$行数据5)>  
+#ACT
+mov S$60 {<$STR(S$61)>|繁荣度:<$STR(N$繁荣度5)>/SCOLOR=242}<$STR(S$62)>级　　　<$STR(S$66)>　　　<申请加入|加入【<$STR(S$69)>】行会^需要等级大于:<$STR(N$67)>级^需要充值大于:<$STR(N$68)>元/@加入5>
+
+#IF
+NOT equal <$STR(S$行数据6)>  
+#ACT
+mov S$70 {<$STR(S$71)>|繁荣度:<$STR(N$繁荣度6)>/SCOLOR=242}<$STR(S$72)>级　　　<$STR(S$76)>　　　<申请加入|加入【<$STR(S$79)>】行会^需要等级大于:<$STR(N$77)>级^需要充值大于:<$STR(N$78)>元/@加入6>
+
+#IF
+NOT equal <$STR(S$行数据7)>  
+#ACT
+mov S$80 {<$STR(S$81)>|繁荣度:<$STR(N$繁荣度7)>/SCOLOR=242}<$STR(S$82)>级　　　<$STR(S$86)>　　　<申请加入|加入【<$STR(S$89)>】行会^需要等级大于:<$STR(N$87)>级^需要充值大于:<$STR(N$88)>元/@加入7>
+
+#IF
+NOT equal <$STR(S$行数据8)>  
+#ACT
+mov S$90 {<$STR(S$91)>|繁荣度:<$STR(N$繁荣度8)>/SCOLOR=242}<$STR(S$92)>级　　　<$STR(S$96)>　　　<申请加入|加入【<$STR(S$99)>】行会^需要等级大于:<$STR(N$97)>级^需要充值大于:<$STR(N$98)>元/@加入8>
+
+#IF
+NOT equal <$STR(S$行数据9)>  
+#ACT
+mov S$100 {<$STR(S$101)>|繁荣度:<$STR(N$繁荣度9)>/SCOLOR=242}<$STR(S$102)>级　　　<$STR(S$106)>　　　<申请加入|加入【<$STR(S$109)>】行会^需要等级大于:<$STR(N$107)>级^需要充值大于:<$STR(N$108)>元/@加入9>
+
+
+#if
+#Act
+MOV S$繁荣度 <$GUILDFLOURISHPOINT>
+OPENMERCHANTBIGDLG 12 1690 1 4 0 0 0
+SetStringBlank <$STR(S$繁荣度)> 10 1
+#say
+<Img:801:0:540:12/@EXIT>\
+　\
+　\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$GUILDNAME>\
+　\
+　　　　<$STR(S$10)> 　　　　　<个人行会信息/SCOLOR=70>\
+　　　　 　　　　　　　　　　　　　　　　　　　　　　　　　　 \
+　　　　<$STR(S$20)> 　 {当前行会：<$GUILDNAME>/SCOLOR=35}\
+　　　　 　　　　　　　　　　　　　　　　　　　　　　　　　　 <繁 荣 度：<$GUILDFLOURISHPOINT>/SCOLOR=70>\
+　　　　<$STR(S$30)> 　 <行会等级：<$GUILDBUILDPOINT>级/SCOLOR=70>　　<领取行会功勋|^　^1.行会达到一定级别，所有成员均可免费领取行会功勋！^　^2.行会级别越高，领取的功勋越好！^　^3.离开行会,系统自动回收功勋！/@功勋>\
+　\
+　　　　<$STR(S$40)> 　 <元宝捐献繁荣度|^消耗2000元宝^提高1000点繁荣度/@捐献>\
+　\
+　　　　<$STR(S$50)> 　 <木材捐献繁荣度|^消耗1颗木材^提高10点繁荣度/@捐献1>    <繁荣说明/@繁荣说明>\
+　\
+　　　　<$STR(S$60)> 　\
+　\
+　　　　<$STR(S$70)> 　\
+　　　 　　　　　　　　　　　 　　　　　　　　　　　　　　　　<请求创建行会./@@buildguildnow>\
+　　　　<$STR(S$80)> 　 <申请行会战争./@@guildwar>\
+　\
+　　　  <$STR(S$90)> 　 <开启收人/@开启收人>\
+　　　 　　　　　　　　　　　　　　　　　　　 　　　　　　　　<关闭收人/@关闭收人>\
+　　　　<$STR(S$100)> 　 <设置收人条件/@收人>\
+
+
+
+
+
+[@收人]
+#if
+NOT ISGUILDMASTER
+#act
+MESSAGEBOX \\操作失败！你不是行会掌门人
+BREAK
+
+
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$17)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$17)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$17)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$17)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$17)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$17)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$17)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$17)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$27)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$27)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$27)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$27)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$27)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$27)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$27)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$27)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$37)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$37)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$37)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$37)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$37)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$37)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$37)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$37)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$47)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$47)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$47)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$47)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$47)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$47)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$47)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$47)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$57)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$57)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$57)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$57)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$57)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$57)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$57)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$57)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$67)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$67)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$67)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$67)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$67)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$67)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$67)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$67)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$77)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$77)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$77)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$77)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$77)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$77)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$77)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$77)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+equal <$STR(N$87)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+equal <$STR(N$87)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+equal <$STR(N$87)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+equal <$STR(N$87)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+equal <$STR(N$87)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+equal <$STR(N$87)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+equal <$STR(N$87)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+equal <$STR(N$87)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$97)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$97)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$97)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$97)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$97)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$97)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$97)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$97)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$107)> 0
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$107)> 50
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$107)> 55
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$107)> 60
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$107)> 65
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$107)> 70
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$107)> 75
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$107)> 80
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+
+
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$18)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$18)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$18)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$18)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$18)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$18)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+equal <$STR(N$18)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$28)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$28)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$28)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$28)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$28)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$28)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+equal <$STR(N$28)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$38)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$38)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$38)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$38)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$38)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$38)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+equal <$STR(N$38)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$48)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$48)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$48)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$48)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$48)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$48)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+equal <$STR(N$48)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$58)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$58)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$58)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$58)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$58)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$58)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+equal <$STR(N$58)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$68)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$68)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$68)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$68)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$68)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$68)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+equal <$STR(N$68)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$78)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$78)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$78)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$78)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$78)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$78)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+equal <$STR(N$78)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$88)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$88)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$88)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$88)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$88)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$88)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$88)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$98)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$98)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$98)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$98)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$98)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$98)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+equal <$STR(N$98)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$108)> 0
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$108)> 10 
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$108)> 50
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$108)> 100
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$108)> 200
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$108)> 300
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+equal <$STR(N$108)> 500
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+
+#if
+equal <$STR(S$充值0)> <Img:1032:12:-5:-3/@0充值>
+#act
+mov N$设置充值 0
+#if
+equal <$STR(S$充值10)> <Img:1032:12:-5:-3/@10充值>
+#act
+mov N$设置充值 10
+#if
+equal <$STR(S$充值50)> <Img:1032:12:-5:-3/@50充值>
+#act
+mov N$设置充值 50
+#if
+equal <$STR(S$充值100)> <Img:1032:12:-5:-3/@100充值>
+#act
+mov N$设置充值 100
+#if
+equal <$STR(S$充值200)> <Img:1032:12:-5:-3/@200充值>
+#act
+mov N$设置充值 200
+#if
+equal <$STR(S$充值300)> <Img:1032:12:-5:-3/@300充值>
+#act
+mov N$设置充值 300
+#if
+equal <$STR(S$充值500)> <Img:1032:12:-5:-3/@500充值>
+#act
+mov N$设置充值 500
+
+
+
+#if
+equal <$STR(S$等级0)> <Img:1032:12:-5:-3/@0级>
+#act
+mov N$设置等级 0
+#if
+equal <$STR(S$等级50)> <Img:1032:12:-5:-3/@50级>
+#act
+mov N$设置等级 50
+#if
+equal <$STR(S$等级55)> <Img:1032:12:-5:-3/@55级>
+#act
+mov N$设置等级 55
+#if
+equal <$STR(S$等级60)> <Img:1032:12:-5:-3/@60级>
+#act
+mov N$设置等级 60
+#if
+equal <$STR(S$等级65)> <Img:1032:12:-5:-3/@65级>
+#act
+mov N$设置等级 65
+#if
+equal <$STR(S$等级70)> <Img:1032:12:-5:-3/@70级>
+#act
+mov N$设置等级 70
+#if
+equal <$STR(S$等级75)> <Img:1032:12:-5:-3/@75级>
+#act
+mov N$设置等级 75
+#if
+equal <$STR(S$等级80)> <Img:1032:12:-5:-3/@80级>
+#act
+mov N$设置等级 80
+
+
+#if
+#act
+goto @设置界面
+
+[@设置界面]
+#IF
+#act
+OPENMERCHANTBIGDLG 0 1492 1 4 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT>\　\
+　请为您的行会：<$GUILDNAME>\　\
+　设置收人条件：\　\
+　等级  <$STR(S$等级0)>0　<$STR(S$等级50)>50　<$STR(S$等级55)>55　<$STR(S$等级60)>60　<$STR(S$等级65)>65　<$STR(S$等级70)>70　<$STR(S$等级75)>75　<$STR(S$等级80)>80　\　\
+　充值  <$STR(S$充值0)>0　<$STR(S$充值10)>10　<$STR(S$充值50)>50　<$STR(S$充值100)>100　<$STR(S$充值200)>200　<$STR(S$充值300)>300　<$STR(S$充值500)>500　\
+　\
+　　　　　　　　　　　　 <保存设置/@完成>
+
+
+[@0级]
+#if
+#act
+mov S$等级0 <Img:1032:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+mov N$设置等级 0
+goto @设置界面
+[@50级]
+#if
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1032:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+mov N$设置等级 50
+goto @设置界面
+[@55级]
+#if
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1032:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+mov N$设置等级 55
+goto @设置界面
+[@60级]
+#if
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1032:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+mov N$设置等级 60
+goto @设置界面
+[@65级]
+#if
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1032:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+mov N$设置等级 65
+goto @设置界面
+[@70级]
+#if
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1032:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+mov N$设置等级 70
+goto @设置界面
+[@75级]
+#if
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1032:12:-5:-3/@75级>
+mov S$等级80 <Img:1031:12:-5:-3/@80级>
+mov N$设置等级 75
+goto @设置界面
+[@80级]
+#if
+#act
+mov S$等级0 <Img:1031:12:-5:-3/@0级>
+mov S$等级50 <Img:1031:12:-5:-3/@50级>
+mov S$等级55 <Img:1031:12:-5:-3/@55级>
+mov S$等级60 <Img:1031:12:-5:-3/@60级>
+mov S$等级65 <Img:1031:12:-5:-3/@65级>
+mov S$等级70 <Img:1031:12:-5:-3/@70级>
+mov S$等级75 <Img:1031:12:-5:-3/@75级>
+mov S$等级80 <Img:1032:12:-5:-3/@80级>
+mov N$设置等级 80
+goto @设置界面
+
+
+[@0充值]
+#if
+#act
+mov S$充值0 <Img:1032:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+mov N$设置充值 0
+goto @设置界面
+[@10充值]
+#if
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1032:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+mov N$设置充值 10
+goto @设置界面
+[@50充值]
+#if
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1032:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+mov N$设置充值 50
+goto @设置界面
+[@100充值]
+#if
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1032:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+mov N$设置充值 100
+goto @设置界面
+[@200充值]
+#if
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1032:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+mov N$设置充值 200
+goto @设置界面
+[@300充值]
+#if
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1032:12:-5:-3/@300充值>
+mov S$充值500 <Img:1031:12:-5:-3/@500充值>
+mov N$设置充值 300
+goto @设置界面
+[@500充值]
+#if
+#act
+mov S$充值0 <Img:1031:12:-5:-3/@0充值>
+mov S$充值10 <Img:1031:12:-5:-3/@10充值>
+mov S$充值50 <Img:1031:12:-5:-3/@50充值>
+mov S$充值100 <Img:1031:12:-5:-3/@100充值>
+mov S$充值200 <Img:1031:12:-5:-3/@200充值>
+mov S$充值300 <Img:1031:12:-5:-3/@300充值>
+mov S$充值500 <Img:1032:12:-5:-3/@500充值>
+mov N$设置充值 500
+goto @设置界面
+
+
+
+[@完成]
+#if
+#act
+MOV S80 <$GUILDNAME>
+MOV S81 <$GUILDBUILDPOINT>
+MOV S82 <$STR(N$设置等级)>
+MOV S83 <$STR(N$设置充值)>
+SetStringBlank <$STR(S80)> 16 0
+SetStringBlank <$STR(S81)> 8 0
+SetStringBlank <$STR(S82)> 8 0
+SetStringBlank <$STR(S83)> 8 0
+mov S85 <$STR(S80)><$STR(S81)><$STR(S82)><$STR(S83)>
+
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+#act
+mov G200 <$GUILDFLOURISHPOINT>
+mov A200 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+#act
+mov G201 <$GUILDFLOURISHPOINT>
+mov A201 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+#act
+mov G202 <$GUILDFLOURISHPOINT>
+mov A202 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+#act
+mov G203 <$GUILDFLOURISHPOINT>
+mov A203 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+#act
+mov G204 <$GUILDFLOURISHPOINT>
+mov A204 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+#act
+mov G205 <$GUILDFLOURISHPOINT>
+mov A205 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+#act
+mov G206 <$GUILDFLOURISHPOINT>
+mov A206 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+#act
+mov G207 <$GUILDFLOURISHPOINT>
+mov A207 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+
+
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+#act
+mov G208 <$GUILDFLOURISHPOINT>
+mov A208 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+#act
+mov G209 <$GUILDFLOURISHPOINT>
+mov A209 <$STR(S85)><$GUILDNAME>
+goto @main
+BREAK
+
+
+[@开启收人]
+#if
+NOT ISGUILDMASTER
+#act
+MESSAGEBOX \\操作失败！你不是行会掌门人
+BREAK
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+#act
+MOV G110 0
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+#act
+MOV G111 0
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+#act
+MOV G112 0
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+#act
+MOV G113 0
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+#act
+MOV G114 0
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+#act
+MOV G115 0
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+#act
+MOV G116 0
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+#act
+MOV G117 0
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+#act
+MOV G118 0
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+#act
+MOV G119 0
+GOTO @MAIN
+BREAK
+
+#if
+#act
+MESSAGEBOX \\操作失败！你所在的行会没有在排行榜内无法设置！
+BREAK
+
+[@关闭收人]
+#if
+NOT ISGUILDMASTER
+#act
+MESSAGEBOX \\操作失败！你不是行会掌门人
+BREAK
+#if
+CheckContainsText <$STR(S$行数据0)> <$GUILDNAME>
+#act
+MOV G110 1
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据1)> <$GUILDNAME>
+#act
+MOV G111 1
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据2)> <$GUILDNAME>
+#act
+MOV G112 1
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据3)> <$GUILDNAME>
+#act
+MOV G113 1
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据4)> <$GUILDNAME>
+#act
+MOV G114 1
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据5)> <$GUILDNAME>
+#act
+MOV G115 1
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据6)> <$GUILDNAME>
+#act
+MOV G116 1
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据7)> <$GUILDNAME>
+#act
+MOV G117 1
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据8)> <$GUILDNAME>
+#act
+MOV G118 1
+GOTO @MAIN
+BREAK
+#if
+CheckContainsText <$STR(S$行数据9)> <$GUILDNAME>
+#act
+MOV G119 1
+GOTO @MAIN
+BREAK
+
+#if
+#act
+MESSAGEBOX \\操作失败！你所在的行会没有在排行榜内无法设置！
+BREAK
+
+[@加入9]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G119 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$107)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$107)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$108)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$97)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$109)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$109)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$109)>行会！
+break
+
+[@加入8]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G118 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$97)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$97)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$98)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$97)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$99)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$99)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$99)>行会！
+break
+
+[@加入7]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G117 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$87)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$87)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$88)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$87)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$89)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$89)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$89)>行会！
+break
+
+[@加入6]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G116 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$77)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$77)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$78)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$77)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$79)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$79)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$79)>行会！
+break
+
+[@加入5]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G115 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$67)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$67)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$68)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$67)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$69)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$69)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$69)>行会！
+break
+
+[@加入4]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G114 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$57)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$57)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$58)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$57)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$59)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$59)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$59)>行会！
+break
+
+[@加入3]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G113 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$47)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$47)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$48)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$47)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$49)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$49)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$49)>行会！
+break
+
+[@加入2]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G112 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$37)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$37)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$38)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$37)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$39)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$39)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$39)>行会！
+break
+
+[@加入1]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G111 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$27)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$27)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$28)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$27)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$29)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$29)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$29)>行会！
+break
+
+[@加入0]
+#if
+HAVEGUILD
+#act
+MESSAGEBOX \\加入失败：失败原因，您已经有行会了！
+break
+
+#IF
+equal G110 1
+#ACT
+MESSAGEBOX \\加入失败：失败原因，行会收人状态关闭！
+break
+
+#if
+CHECKLEVELEX < <$STR(N$17)>
+#act
+MESSAGEBOX \\加入失败：失败原因，您等级不满<$STR(N$17)>级！
+break
+
+#if
+CHECKGAMEGIRD < <$STR(N$18)>
+#act
+MESSAGEBOX \\加入失败：失败原因，充值金额不足<$STR(N$17)>元！
+break
+
+#if
+#act
+ADDGUILDMEMBER <$STR(S$19)>
+SENDMSG 0 {比奇国王ぐ|151:0:1}恭喜玩家{[<$USERNAME>]|227:0:1}成功加入了{[<$STR(S$19)>]|254:0:1}行会，希望行会老大不要欺负他哦！
+MESSAGEBOX \\恭喜您！成功加入<$STR(S$19)>行会！
+break
+
+
+[@功勋说明]
+#act
+MESSAGEBOX \\1.行会达到一定级别，所有成员均可免费领取行会功勋！\\2.行会级别越高，领取的功勋越好！\\3.离开行会,系统自动回收功勋！
+[@繁荣说明]
+#act
+MESSAGEBOX \\1级行会，需繁荣度达到.10000点，　2级行会，需繁荣度达到.50000点\\3级行会，需繁荣度达到100000点，　4级行会，需繁荣度达到200000点\\5级行会，需繁荣度达到500000点\\
+
+
+
+[@功勋]
+#if
+CHECKGUILDBUILDPOINT = 1
+CHECKITEMW 行会功勋·Lv1
+#act
+MESSAGEBOX \\你已经拥有了行会功勋·Lv1请勿重复领取！　\　\"F10"人物界面》功勋按钮》即可查看
+BREAK
+#if
+CHECKGUILDBUILDPOINT = 2
+CHECKITEMW 行会功勋·Lv2
+#act
+MESSAGEBOX \\你已经拥有了行会功勋·Lv2请勿重复领取！　\　\"F10"人物界面》功勋按钮》即可查看
+BREAK
+#if
+CHECKGUILDBUILDPOINT = 3
+CHECKITEMW 行会功勋·Lv3
+#act
+MESSAGEBOX \\你已经拥有了行会功勋·Lv3请勿重复领取！　\　\"F10"人物界面》功勋按钮》即可查看
+BREAK
+#if
+CHECKGUILDBUILDPOINT = 4
+CHECKITEMW 行会功勋·Lv4
+#act
+MESSAGEBOX \\你已经拥有了行会功勋·Lv4请勿重复领取！　\　\"F10"人物界面》功勋按钮》即可查看
+BREAK
+#if
+CHECKGUILDBUILDPOINT = 5
+CHECKITEMW 行会功勋·Lv5
+#act
+MESSAGEBOX \\你已经拥有了行会功勋·Lv5请勿重复领取！　\　\"F10"人物界面》功勋按钮》即可查看
+BREAK
+
+#if
+CHECKGUILDBUILDPOINT = 1
+#act
+GiveStateItem 行会功勋·Lv1 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv1 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+#if
+CHECKGUILDBUILDPOINT = 2
+#act
+GiveStateItem 行会功勋·Lv2 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv2 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+#if
+CHECKGUILDBUILDPOINT = 3
+#act
+GiveStateItem 行会功勋·Lv3 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv3 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+#if
+CHECKGUILDBUILDPOINT = 4
+#act
+GiveStateItem 行会功勋·Lv4 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv4 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+#if
+CHECKGUILDBUILDPOINT = 5
+#act
+GiveStateItem 行会功勋·Lv5 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv5 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+
+
+
+[@buildguildexp]
+建立行会你应该证明你有资格。\
+要取得位于沃玛寺庙底部深处的沃玛教主所拥有的号角!\ \
+<返回/@main>
+
+[@guildwar]
+填写与你交战的敌对行会的名字，申请行会战争免费\ \
+ <立即申请行会战争/@@guildwar>\
+<返回/@main>\
+
+[@guildwarexp]
+<行会战/@guildwar2>是一种合法的战争，因为目前有许多行会和\
+玩家都同意，这是<合法的/@warrule>的行会间战争。\
+你是否<请求/@guildwar>行会战争?战争将进行3小时,\完全免费.\ \
+<返回/@main>
+
+[@guildwar2]
+当你请求行会战争的时候,相同行会成员的名字将会出现在蓝色的。\
+ 在另一方面,敌人的行会成员名字将会变成橘色的.开战中的行会\
+成员在此期间登录,信息窗口会有[××在与你行会进行行会战]\
+的信息出现，在这个时候，如果你杀敌了人的行会某一个成员,\
+系统对你的行为将不会被视为 PK 。 \ \
+<返回/@guildwarexp>
+
+[@warrule]
+行会战争在城市中不能发生,它在城市某范围外或内部竞赛区\
+域(一些建筑物之内)被启动.否则你 PK 你的身份将会是红色\
+的!甚至在战争期间。\ \
+<返回/@guildwarexp>
+
+[@requestcastlewar]
+请求对沙巴克作战你应该有祖玛教主的头像,你有它吗?战争将会在\ 
+申请日期的第 三 天内开始。\ \
+<给祖玛头像/@requestcastlewarnow>\
+<返回./@main>\
+
+[~@request_ok]
+你的请求被许可, <$CASTLEWARDATE> 战争将会发生在这个值得回忆\
+的日子...剩下的时间不多了，祝你好运!\ \
+<关闭./@exit>\
+
+[@@donate]
+已经记下了你提出的建议，请等待管理员回复，谢谢.\
+<关闭./@exit>\
+
+

@@ -1,0 +1,10 @@
+[@MAIN]
+#if
+ISONMAP XC1
+equal G160 0
+#ACT
+MOV G160 1
+mov A160 <$USERNAME>
+GAMEDIAMOND + 1500
+SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【阴阳魔王→铂金BOSS】获得系统奖励1500古币!
+break

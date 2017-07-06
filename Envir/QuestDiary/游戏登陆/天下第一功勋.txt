@@ -1,0 +1,67 @@
+[@天下第一功勋]
+{
+#IF
+NOT CHECKBAGSIZE 2
+#act
+break
+#IF
+#ACT
+MOV N55 0
+
+#IF
+Equal A401 <$USERNAME>
+#act
+MOV N55 1
+#IF
+Equal A406 <$USERNAME>
+#act
+MOV N55 1
+
+#IF
+Equal A411 <$USERNAME>
+#act
+MOV N55 1
+
+#IF
+Equal A416 <$USERNAME>
+#act
+MOV N55 1
+
+#IF
+Equal A421 <$USERNAME>
+#act
+MOV N55 1
+
+#IF
+Equal A426 <$USERNAME>
+#act
+MOV N55 1
+
+#IF
+Equal N55 0
+CHECKITEMW 天下第一功勋
+#ACT
+TakeOffItem 36
+TAKE 天下第一功勋 42
+
+#IF
+Equal N55 0
+checkitem 天下第一功勋
+#ACT
+TAKE 天下第一功勋 42
+
+#IF
+Equal N55 1
+#OR
+CHECKITEMW 天下第一功勋
+checkitem 天下第一功勋
+#ACT
+
+#IF
+Equal N55 1
+NOT CHECKITEMW 天下第一功勋
+NOT checkitem 天下第一功勋
+#ACT
+GIVE 天下第一功勋
+
+}

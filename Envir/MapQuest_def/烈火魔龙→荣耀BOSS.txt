@@ -1,0 +1,10 @@
+[@MAIN]
+#if
+ISONMAP XC1
+equal G159 0
+#ACT
+MOV G159 1
+mov A159 <$USERNAME>
+GAMEDIAMOND + 600
+SENDMOVEMSG 0 253 0 159 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【烈火魔龙→荣耀BOSS】获得系统奖励600古币!
+break

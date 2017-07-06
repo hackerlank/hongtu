@@ -1,0 +1,4 @@
+(@@sendmsg @storage @getback)
+[@main]
+#ACT
+#CALL [\数据文件\装备回收\装备回收.txt] @开始回收

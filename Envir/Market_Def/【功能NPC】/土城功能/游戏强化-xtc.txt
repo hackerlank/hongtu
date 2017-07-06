@@ -1,0 +1,3092 @@
+[@MAIN]
+#IF
+#Act
+MOV N25 <$SCREENWIDTH>
+MOV N26 <$SCREENHEIGHT>
+DIV N25 N25 2
+DIV N26 N26 2
+dec N25 42
+INC N26 16
+MOV S$成功动画 <PlayImg:12:1480:13:300:<$STR(N25)>:<$STR(N26)>:1:1>
+MOV S$失败动画 <PlayImg:12:1493:13:300:<$STR(N25)>:<$STR(N26)>:1:1>
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\　\
+　<强化大师/SCOLOR=154>\
+　　　<在我这里强化的装备可永久强化/SCOLOR=87> <1888元宝购买装备强化石/@@InPutString58>\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><强化武器位置/@强化武器界面><」/SCOLOR=103>  <「/SCOLOR=103><强化头盔位置/@强化头盔界面><」/SCOLOR=103>\ 
+<「/SCOLOR=103><强化衣服位置/@强化衣服界面><」/SCOLOR=103>  <「/SCOLOR=103><强化项链位置/@强化项链界面><」/SCOLOR=103>\
+<「/SCOLOR=103><强化左手位置/@强化左手界面><」/SCOLOR=103>  <「/SCOLOR=103><强化右手位置/@强化右手界面><」/SCOLOR=103>\
+<「/SCOLOR=103><强化左戒位置/@强化左戒界面><」/SCOLOR=103>  <「/SCOLOR=103><强化右戒位置/@强化右戒界面><」/SCOLOR=103>\
+<「/SCOLOR=103><强化腰带位置/@强化腰带界面><」/SCOLOR=103>  <「/SCOLOR=103><强化靴子位置/@强化靴子界面><」/SCOLOR=103>\
+　<Img:803:0:0:4>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+
+[@InPutString58]
+#IF
+small S58 1
+#ACT
+MESSAGEBOX [提示]：最少购买一颗\\
+BREAK
+
+#IF
+#ACT
+MOV N$数量 <$STR(S58)>
+MUL N$总价 N$数量 1888
+
+#IF
+CHECKGAMEGOLD < <$STR(N$总价)>
+#ACT
+MESSAGEBOX [错误]：元宝不足\\
+BREAK
+
+#IF
+CHECKGAMEGOLD > <$STR(N$总价)>
+#ACT
+GAMEGOLD - <$STR(N$总价)>
+give 装备强化石 <$STR(N$数量)>
+SendMsg 6 [提示]:购买成功！
+BREAK
+
+[@强化左手界面]
+#if
+equal U16 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 生命值，魔法值
+#if
+equal U16 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 生命值，魔法值
+#if
+equal U16 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 生命值，魔法值
+#if
+equal U16 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 生命值，魔法值
+#if
+equal U16 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 生命值，魔法值
+#if
+equal U16 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 生命值，魔法值
+#if
+equal U16 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 生命值，魔法值
+#if
+equal U16 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 生命值，魔法值
+#if
+equal U16 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 生命值，魔法值
+
+#if
+not equal U16 9
+#act
+MOV N$数量 <$STR(U16)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<左手强化级别：/SCOLOR=87>{<$STR(U16)>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功/FCOLOR=95}　{<$STR(S$几率)>/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左手/@强化左手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<左手强化级别：/SCOLOR=87>{<$STR(U16)>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左手/@强化左手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@强化左戒界面]
+#if
+equal U18 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U18 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U18 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U18 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U18 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U18 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U18 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U18 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U18 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U18 9
+#act
+MOV N$数量 <$STR(U18)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<左戒强化级别：/SCOLOR=87>{<$G_RING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T18)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左戒/@强化左戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<左戒强化级别：/SCOLOR=87>{<$G_RING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T18)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左戒/@强化左戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@强化右手界面]
+#if
+equal U15 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U15 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U15 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U15 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U15 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U15 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U15 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U15 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U15 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U15 9
+#act
+MOV N$数量 <$STR(U15)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<右手强化级别：/SCOLOR=87>{<$G_ARMRING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T15)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右手/@强化右手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<右手强化级别：/SCOLOR=87>{<$G_ARMRING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T15)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右手/@强化右手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@强化右戒界面]
+#if
+equal U17 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U17 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U17 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U17 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U17 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U17 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U17 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U17 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U17 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U17 9
+#act
+MOV N$数量 <$STR(U17)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<右戒强化级别：/SCOLOR=87>{<$G_RING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T17)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右戒/@强化右戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<右戒强化级别：/SCOLOR=87>{<$G_RING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T17)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右戒/@强化右戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@强化腰带界面]
+#if
+equal U20 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U20 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U20 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U20 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U20 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U20 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U20 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U20 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U20 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U20 9
+#act
+MOV N$数量 <$STR(U20)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<腰带强化级别：/SCOLOR=87>{<$G_BELT>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T20)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化腰带/@强化腰带><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示腰带><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<腰带强化级别：/SCOLOR=87>{<$G_BELT>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T20)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化腰带/@强化腰带><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示腰带><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@强化靴子界面]
+#if
+equal U21 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U21 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U21 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U21 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U21 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U21 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U21 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U21 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U21 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U21 9
+#act
+MOV N$数量 <$STR(U21)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<靴子强化级别：/SCOLOR=87>{<$G_BOOTS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T21)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化靴子/@强化靴子><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示靴子><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<靴子强化级别：/SCOLOR=87>{<$G_BOOTS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T21)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化靴子/@强化靴子><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示靴子><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@强化项链界面]
+#if
+equal U13 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U13 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U13 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U13 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U13 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U13 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U13 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U13 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U13 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U13 9
+#act
+MOV N$数量 <$STR(U13)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<项链强化级别：/SCOLOR=87>{<$G_NECKLACE>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T13)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化项链/@强化项链><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示项链><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<项链强化级别：/SCOLOR=87>{<$G_NECKLACE>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T13)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化项链/@强化项链><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示项链><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@强化头盔界面]
+#if
+equal U14 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U14 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U14 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U14 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U14 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U14 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U14 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U14 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U14 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U14 9
+#act
+MOV N$数量 <$STR(U14)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<头盔强化级别：/SCOLOR=87>{<$G_HELMET>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T14)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化头盔/@强化头盔><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示头盔><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<头盔强化级别：/SCOLOR=87>{<$G_HELMET>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T14)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化头盔/@强化头盔><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示头盔><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@强化盾牌界面]
+#if
+equal U26 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U26 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U26 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U26 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U26 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U26 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U26 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U26 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U26 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U26 9
+#act
+MOV N$数量 <$STR(U26)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<盾牌强化级别：/SCOLOR=87>{+<$STR(U26)>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T26)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化盾牌/@强化盾牌><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示盾牌><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<盾牌强化级别：/SCOLOR=87>{+<$STR(U26)>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T26)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化盾牌/@强化盾牌><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示盾牌><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@强化衣服界面]
+#if
+equal U10 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U10 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U10 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U10 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U10 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U10 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U10 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U10 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U10 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U10 9
+#act
+MOV N$数量 <$STR(U10)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<衣服强化级别：/SCOLOR=87>{<$G_DRESS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T10)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化衣服/@强化衣服><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示衣服><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<衣服强化级别：/SCOLOR=87>{<$G_DRESS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T10)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化衣服/@强化衣服><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示衣服><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@强化武器界面]
+#if
+equal U11 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U11 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U11 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U11 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U11 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U11 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U11 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U11 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U11 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U11 9
+#act
+MOV N$数量 <$STR(U11)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\　\
+<武器强化级别：/SCOLOR=87>{<$G_WEAPON>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T11)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化武器/@强化武器><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示武器><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\　\
+<武器强化级别：/SCOLOR=87>{<$G_WEAPON>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T11)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化武器/@强化武器><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示武器><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[@成功左手界面]
+#if
+equal U16 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U16 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U16 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U16 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U16 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U16 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U16 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U16 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U16 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U16 9
+#act
+MOV N$数量 <$STR(U16)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<左手强化级别：/SCOLOR=87>{<$G_ARMRING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T16)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左手/@强化左手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<左手强化级别：/SCOLOR=87>{<$G_ARMRING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T16)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左手/@强化左手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@成功左戒界面]
+#if
+equal U18 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U18 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U18 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U18 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U18 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U18 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U18 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U18 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U18 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U18 9
+#act
+MOV N$数量 <$STR(U18)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<左戒强化级别：/SCOLOR=87>{<$G_RING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T18)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左戒/@强化左戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<左戒强化级别：/SCOLOR=87>{<$G_RING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T18)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左戒/@强化左戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@成功右手界面]
+#if
+equal U15 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U15 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U15 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U15 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U15 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U15 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U15 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U15 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U15 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U15 9
+#act
+MOV N$数量 <$STR(U15)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<右手强化级别：/SCOLOR=87>{<$G_ARMRING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T15)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右手/@强化右手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<右手强化级别：/SCOLOR=87>{<$G_ARMRING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T15)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右手/@强化右手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@成功右戒界面]
+#if
+equal U17 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U17 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U17 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U17 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U17 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U17 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U17 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U17 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U17 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U17 9
+#act
+MOV N$数量 <$STR(U17)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<右戒强化级别：/SCOLOR=87>{<$G_RING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T17)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右戒/@强化右戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<右戒强化级别：/SCOLOR=87>{<$G_RING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T17)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右戒/@强化右戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@成功腰带界面]
+#if
+equal U20 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U20 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U20 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U20 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U20 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U20 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U20 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U20 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U20 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U20 9
+#act
+MOV N$数量 <$STR(U20)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<腰带强化级别：/SCOLOR=87>{<$G_BELT>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T20)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化腰带/@强化腰带><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示腰带><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<腰带强化级别：/SCOLOR=87>{<$G_BELT>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T20)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化腰带/@强化腰带><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示腰带><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@成功靴子界面]
+#if
+equal U21 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U21 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U21 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U21 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U21 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U21 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U21 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U21 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U21 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U21 9
+#act
+MOV N$数量 <$STR(U21)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<靴子强化级别：/SCOLOR=87>{<$G_BOOTS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T21)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化靴子/@强化靴子><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示靴子><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<靴子强化级别：/SCOLOR=87>{<$G_BOOTS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T21)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化靴子/@强化靴子><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示靴子><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@成功项链界面]
+#if
+equal U13 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U13 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U13 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U13 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U13 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U13 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U13 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U13 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U13 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U13 9
+#act
+MOV N$数量 <$STR(U13)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<项链强化级别：/SCOLOR=87>{<$G_NECKLACE>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T13)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化项链/@强化项链><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示项链><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<项链强化级别：/SCOLOR=87>{<$G_NECKLACE>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T13)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化项链/@强化项链><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示项链><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@成功头盔界面]
+#if
+equal U14 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U14 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U14 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U14 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U14 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U14 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U14 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U14 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U14 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U14 9
+#act
+MOV N$数量 <$STR(U14)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<头盔强化级别：/SCOLOR=87>{<$G_HELMET>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T14)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化头盔/@强化头盔><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示头盔><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<头盔强化级别：/SCOLOR=87>{<$G_HELMET>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T14)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化头盔/@强化头盔><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示头盔><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@成功盾牌界面]
+#if
+equal U26 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U26 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U26 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U26 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U26 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U26 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U26 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U26 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U26 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U26 9
+#act
+MOV N$数量 <$STR(U26)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<盾牌强化级别：/SCOLOR=87>{+<$STR(U26)>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T26)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化盾牌/@强化盾牌><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示盾牌><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<盾牌强化级别：/SCOLOR=87>{+<$STR(U26)>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T26)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化盾牌/@强化盾牌><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示盾牌><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@成功衣服界面]
+#if
+equal U10 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U10 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U10 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U10 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U10 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U10 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U10 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U10 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U10 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U10 9
+#act
+MOV N$数量 <$STR(U10)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<衣服强化级别：/SCOLOR=87>{<$G_DRESS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T10)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化衣服/@强化衣服><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示衣服><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$成功动画)>\
+<衣服强化级别：/SCOLOR=87>{<$G_DRESS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T10)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化衣服/@强化衣服><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示衣服><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@成功武器界面]
+#if
+equal U11 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U11 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U11 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U11 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U11 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U11 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U11 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U11 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U11 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U11 9
+#act
+MOV N$数量 <$STR(U11)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\\
+<武器强化级别：/SCOLOR=87>{<$G_WEAPON>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T11)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化武器/@强化武器><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示武器><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\\
+<武器强化级别：/SCOLOR=87>{<$G_WEAPON>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T11)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化武器/@强化武器><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示武器><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[@失败左手界面]
+#if
+equal U16 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U16 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U16 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U16 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U16 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U16 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U16 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U16 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U16 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U16 9
+#act
+MOV N$数量 <$STR(U16)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<左手强化级别：/SCOLOR=87>{<$G_ARMRING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T16)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左手/@强化左手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<左手强化级别：/SCOLOR=87>{<$G_ARMRING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T16)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左手/@强化左手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@失败左戒界面]
+#if
+equal U18 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U18 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U18 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U18 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U18 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U18 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U18 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U18 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U18 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U18 9
+#act
+MOV N$数量 <$STR(U18)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<左戒强化级别：/SCOLOR=87>{<$G_RING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T18)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左戒/@强化左戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<左戒强化级别：/SCOLOR=87>{<$G_RING_R>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T18)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化左戒/@强化左戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示左戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@失败右手界面]
+#if
+equal U15 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U15 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U15 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U15 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U15 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U15 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U15 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U15 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U15 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U15 9
+#act
+MOV N$数量 <$STR(U15)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<右手强化级别：/SCOLOR=87>{<$G_ARMRING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T15)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右手/@强化右手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<右手强化级别：/SCOLOR=87>{<$G_ARMRING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T15)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右手/@强化右手><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右手><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@失败右戒界面]
+#if
+equal U17 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U17 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U17 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U17 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U17 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U17 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U17 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U17 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U17 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U17 9
+#act
+MOV N$数量 <$STR(U17)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<右戒强化级别：/SCOLOR=87>{<$G_RING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T17)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右戒/@强化右戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<右戒强化级别：/SCOLOR=87>{<$G_RING_L>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T17)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化右戒/@强化右戒><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示右戒><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@失败腰带界面]
+#if
+equal U20 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U20 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U20 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U20 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U20 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U20 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U20 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U20 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U20 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U20 9
+#act
+MOV N$数量 <$STR(U20)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<腰带强化级别：/SCOLOR=87>{<$G_BELT>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T20)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化腰带/@强化腰带><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示腰带><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<腰带强化级别：/SCOLOR=87>{<$G_BELT>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T20)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化腰带/@强化腰带><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示腰带><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@失败靴子界面]
+#if
+equal U21 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U21 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U21 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U21 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U21 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U21 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U21 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U21 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U21 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U21 9
+#act
+MOV N$数量 <$STR(U21)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<靴子强化级别：/SCOLOR=87>{<$G_BOOTS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T21)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化靴子/@强化靴子><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示靴子><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<靴子强化级别：/SCOLOR=87>{<$G_BOOTS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T21)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化靴子/@强化靴子><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示靴子><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@失败项链界面]
+#if
+equal U13 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U13 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U13 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U13 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U13 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U13 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U13 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U13 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U13 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U13 9
+#act
+MOV N$数量 <$STR(U13)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<项链强化级别：/SCOLOR=87>{<$G_NECKLACE>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T13)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化项链/@强化项链><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示项链><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<项链强化级别：/SCOLOR=87>{<$G_NECKLACE>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T13)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化项链/@强化项链><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示项链><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@失败头盔界面]
+#if
+equal U14 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U14 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U14 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U14 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U14 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U14 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U14 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U14 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U14 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U14 9
+#act
+MOV N$数量 <$STR(U14)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<头盔强化级别：/SCOLOR=87>{<$G_HELMET>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T14)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化头盔/@强化头盔><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示头盔><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<头盔强化级别：/SCOLOR=87>{<$G_HELMET>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T14)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化头盔/@强化头盔><」/SCOLOR=103>        <「/SCOLOR=103><回退强化/@回退提示头盔><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+[@失败衣服界面]
+#if
+equal U10 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U10 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U10 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U10 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U10 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U10 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U10 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U10 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U10 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U10 9
+#act
+MOV N$数量 <$STR(U10)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<衣服强化级别：/SCOLOR=87>{<$G_DRESS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T10)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化衣服/@强化衣服><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT>\<$STR(S$失败动画)>\
+<衣服强化级别：/SCOLOR=87>{<$G_DRESS>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T10)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化衣服/@强化衣服><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+[@失败武器界面]
+#if
+equal U11 0
+#act
+MOV N$元宝 100
+MOV S$成功 90%
+MOV S$几率 1
+#if
+equal U11 1
+#act
+MOV N$元宝 200
+MOV S$成功 80%
+MOV S$几率 1
+#if
+equal U11 2
+#act
+MOV N$元宝 500
+MOV S$成功 70%
+MOV S$几率 1
+#if
+equal U11 3
+#act
+MOV N$元宝 1500
+MOV S$成功 60%
+MOV S$几率 1-2
+#if
+equal U11 4
+#act
+MOV N$元宝 3000
+MOV S$成功 50%
+MOV S$几率 1-2
+#if
+equal U11 5
+#act
+MOV N$元宝 8000
+MOV S$成功 40%
+MOV S$几率 1-2
+#if
+equal U11 6
+#act
+MOV N$元宝 10000
+MOV S$成功 30%
+MOV S$几率 2-3
+#if
+equal U11 7
+#act
+MOV N$元宝 15000
+MOV S$成功 20%
+MOV S$几率 2-3
+#if
+equal U11 8
+#act
+MOV N$元宝 30000
+MOV S$成功 10%
+MOV S$几率 2-3
+
+#if
+not equal U11 9
+#act
+MOV N$数量 <$STR(U11)>
+INC N$数量 1
+MOV S$条件1 装备强化石<$STR(N$数量)>颗
+MOV S$条件2 　　元宝<$STR(N$元宝)>颗
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\\
+<武器强化级别：/SCOLOR=87>{<$G_WEAPON>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T11)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{【<$STR(S$条件1)>】<$STR(S$条件2)>/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{<$STR(S$成功)>几率成功　本次可加<$STR(S$几率)>%属性/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化武器/@强化武器><」/SCOLOR=103>            <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+#ELSESAY
+
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\\
+<武器强化级别：/SCOLOR=87>{<$G_WEAPON>/FCOLOR=254}\
+　<Img:803:0:0:4>\
+<强化属性记录：/SCOLOR=87>{<$STR(T11)>　/FCOLOR=243}\
+　<Img:803:0:0:4>\
+<强化所需条件：/SCOLOR=87>{已强化至最高级别/FCOLOR=31}\
+　<Img:803:0:0:4>\
+<强化具体说明：/SCOLOR=87>{已强化至最高级别/FCOLOR=95}\
+　<Img:803:0:0:4>\
+<「/SCOLOR=103><开始强化武器/@强化武器><」/SCOLOR=103>             <返回首页/@main>\
+　<重要提示:穿新装备后,强化属性自动转移到新装备，永久有效/SCOLOR=70>\
+
+
+
+
+
+
+
+[@强化靴子]
+#if
+CHECKUSEITEM 11
+#ACT
+#CALL [\强化功能\强化靴子.txt] @开始强化靴子
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@强化腰带]
+#if
+CHECKUSEITEM 10
+#ACT
+#CALL [\强化功能\强化腰带.txt] @开始强化腰带
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@强化左戒]
+#if
+CHECKUSEITEM 8
+#ACT
+#CALL [\强化功能\强化左戒.txt] @开始强化左戒
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@强化右戒]
+#if
+CHECKUSEITEM 7
+#ACT
+#CALL [\强化功能\强化右戒.txt] @开始强化右戒
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@强化左手]
+#if
+CHECKUSEITEM 6
+#ACT
+#CALL [\强化功能\强化左手.txt] @开始强化左手
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@强化右手]
+#if
+CHECKUSEITEM 5
+#ACT
+#CALL [\强化功能\强化右手.txt] @开始强化右手
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@强化头盔]
+#if
+CHECKUSEITEM 4
+#ACT
+#CALL [\强化功能\强化头盔.txt] @开始强化头盔
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@强化项链]
+#if
+CHECKUSEITEM 3
+#ACT
+#CALL [\强化功能\强化项链.txt] @开始强化项链
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@强化武器]
+#if
+CHECKUSEITEM 1
+#ACT
+;PLAYEFFECT 12 1480 13 1 200 0
+;PLAYEFFECT 12 1492 14 1 200 0 0
+#CALL [\强化功能\强化武器.txt] @开始强化武器
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@强化衣服]
+#if
+CHECKUSEITEM 0
+#ACT
+#CALL [\强化功能\强化衣服.txt] @开始强化衣服
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+
+
+
+[@回退靴子]
+#if
+CHECKUSEITEM 11
+#ACT
+#CALL [\强化功能\强化靴子.txt] @开始回退靴子
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@回退腰带]
+#if
+CHECKUSEITEM 10
+#ACT
+#CALL [\强化功能\强化腰带.txt] @开始回退腰带
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@回退左戒]
+#if
+CHECKUSEITEM 8
+#ACT
+#CALL [\强化功能\强化左戒.txt] @开始回退左戒
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@回退右戒]
+#if
+CHECKUSEITEM 7
+#ACT
+#CALL [\强化功能\强化右戒.txt] @开始回退右戒
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@回退左手]
+#if
+CHECKUSEITEM 6
+#ACT
+#CALL [\强化功能\强化左手.txt] @开始回退左手
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@回退右手]
+#if
+CHECKUSEITEM 5
+#ACT
+#CALL [\强化功能\强化右手.txt] @开始回退右手
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@回退头盔]
+#if
+CHECKUSEITEM 4
+#ACT
+#CALL [\强化功能\强化头盔.txt] @开始回退头盔
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@回退项链]
+#if
+CHECKUSEITEM 3
+#ACT
+#CALL [\强化功能\强化项链.txt] @开始回退项链
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@回退武器]
+#if
+CHECKUSEITEM 1
+#ACT
+#CALL [\强化功能\强化武器.txt] @开始回退武器
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+[@回退衣服]
+#if
+CHECKUSEITEM 0
+#ACT
+#CALL [\强化功能\强化衣服.txt] @开始回退衣服
+#ELSEACT
+MESSAGEBOX 请先佩戴好装备再来找我！
+

@@ -1,0 +1,62 @@
+[@机关触发]
+{
+#IF
+random 6
+ISONMAP DT17
+#ACT
+GetRandomText ..\QuestDiary\数据文件\地图机关\时间抽取.txt S10
+PLAYEFFECT 34 580 10 1 100 0
+MAKEPOSION 5 <$STR(S10)>
+SendCenterMsg 255 249 你受到恶魔袭击，被麻痹<$STR(S10)>秒 0 5
+break
+
+#IF
+random 5
+ISONMAP DT17
+#ACT
+GetRandomText ..\QuestDiary\数据文件\地图机关\时间抽取.txt S10
+PLAYEFFECT 33 80 17 1 100 0
+MAKEPOSION 12 <$STR(S10)>
+SendCenterMsg 255 249 你碰到冰雪风暴，被冰封<$STR(S10)>秒. 0 5
+break
+
+#IF
+random 4
+ISONMAP DT17
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\地图机关\时间抽取A.txt S10
+CHANGESPEED 1 -5 <$STR(S10)>
+SendCenterMsg 255 249 你碰到减速陷阱移动速度降低50%持续<$STR(S10)>秒 0 5
+break
+
+#IF
+random 3
+ISONMAP DT17
+#ACT
+GetRandomText ..\QuestDiary\数据文件\地图机关\伤害抽取.txt S10
+PLAYEFFECT 32 10 5 1 100 0
+HUMANHP - <$STR(S10)>
+SendCenterMsg 255 249 天空一声巨响，你被闪电击中损失受到伤害<$STR(S10)>点. 0 5
+break
+
+#IF
+random 2
+ISONMAP DT17
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\地图机关\时间抽取A.txt S10
+CHANGESPEED 1 -5 <$STR(S10)>
+SendCenterMsg 255 249 你碰到减速陷阱移动速度降低50%持续<$STR(S10)>秒 0 5
+break
+
+#IF
+random 1
+ISONMAP DT17
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\地图机关\时间抽取A.txt S10
+MAKEPOSION 13 <$STR(S10)>
+SendCenterMsg 255 249 你被外星人袭击，被蜘蛛网缠绕<$STR(S10)>秒 0 5
+break
+}

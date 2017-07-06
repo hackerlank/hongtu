@@ -1,0 +1,131 @@
+{
+[@上线喊话]
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 男爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[男爵·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 子爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[子爵·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 伯爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[伯爵·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 侯爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[侯爵·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 公爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[公爵·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 领主功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[领主·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 长老功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[长老·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 亲王功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[亲王·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 血皇功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[血皇·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+
+#IF
+CHECKLEVELEX > 79
+CHECKITEMW 帝王功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[龙渊·赞助]使者【<$USERNAME>】上线了,欢迎他回来。 1 5
+
+#IF
+CHECKLEVELEX > 79
+check [100] 1
+#ACT
+SendCenterMsg 251 249 尊贵的[天择·会员]【<$USERNAME>】上线了,欢迎他回来。 1 5
+break
+
+#IF
+CHECKLEVELEX > 79
+#ACT
+break
+
+#IF
+CHECKITEMW 男爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[男爵·赞助]使者【<$USERNAME>】上线了,泡点经验+120000。 1 5
+
+#IF
+CHECKITEMW 子爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[子爵·赞助]使者【<$USERNAME>】上线了,泡点经验+140000。 1 5
+
+#IF
+CHECKITEMW 伯爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[伯爵·赞助]使者【<$USERNAME>】上线了,泡点经验+160000。 1 5
+
+#IF
+CHECKITEMW 侯爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[侯爵·赞助]使者【<$USERNAME>】上线了,泡点经验+200000。 1 5
+
+#IF
+CHECKITEMW 公爵功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[公爵·赞助]使者【<$USERNAME>】上线了,泡点经验+250000。 1 5
+
+#IF
+CHECKITEMW 领主功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[领主·赞助]使者【<$USERNAME>】上线了,泡点经验+400000。 1 5
+
+#IF
+CHECKITEMW 长老功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[长老·赞助]使者【<$USERNAME>】上线了,泡点经验+600000。 1 5
+
+#IF
+CHECKITEMW 亲王功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[亲王·赞助]使者【<$USERNAME>】上线了,泡点经验+900000。 1 5
+
+#IF
+CHECKITEMW 血皇功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[血皇·赞助]使者【<$USERNAME>】上线了,泡点经验+1500000。 1 5
+
+#IF
+CHECKITEMW 帝王功勋
+#ACT
+SendCenterMsg 251 249 尊贵的[龙渊·赞助]使者【<$USERNAME>】上线了,泡点经验+1500000。 1 5
+
+#IF
+check [100] 1
+#ACT
+SendCenterMsg 251 249 尊贵的[天择·会员]【<$USERNAME>】上线了,泡点经验提高一倍。 1 5
+
+}

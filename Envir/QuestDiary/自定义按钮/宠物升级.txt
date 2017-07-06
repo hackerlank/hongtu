@@ -1,0 +1,573 @@
+[@宠物升级]
+{
+
+#IF
+equal U30 0
+#ACT
+mov S$说明 <伴侣合体后增加1%攻击/SCOLOR=253>
+mov S$元宝 20000
+mov S$宏图古币 0
+mov S$条件 20000元宝
+mov S$星1 <Img:1143:12:30:50><Img:1143:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3256:20:150:-150:-230:0:0>
+mov S$名字 <飞翔的蛋超人/SCOLOR=23>
+#IF
+equal U30 1
+#ACT
+mov S$说明 <伴侣合体后增加2%攻击/SCOLOR=253>
+mov S$元宝 40000
+mov S$宏图古币 0
+mov S$条件 40000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1143:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3276:18:150:-120:-270:0:0>
+mov S$名字 <破壳的皱蛋超人★/SCOLOR=23>
+#IF
+equal U30 2
+#ACT
+mov S$说明 <伴侣合体后增加3%攻击/SCOLOR=253>
+mov S$元宝 60000
+mov S$宏图古币 0
+mov S$条件 60000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3294:20:150:-110:-270:0:0>
+mov S$名字 <小学生蛋超人★★/SCOLOR=23>
+#IF
+equal U30 3
+#ACT
+mov S$说明 <伴侣合体后增加4%攻击/SCOLOR=253>
+mov S$元宝 80000
+mov S$宏图古币 0
+mov S$条件 80000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1144:12:30:50>
+mov S$展示 <PlayImg:28:3314:10:150:-120:-270:0:0>
+mov S$名字 <爱运动的蛋超人★★★/SCOLOR=19>
+#IF
+equal U30 4
+#ACT
+mov S$说明 <伴侣合体后增加5%攻击/SCOLOR=253>
+mov S$元宝 120000
+mov S$宏图古币 0
+mov S$条件 120000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1143:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3324:17:150:-120:-270:0:0>
+mov S$名字 <双枪蛋超人★/SCOLOR=19>
+#IF
+equal U30 5
+#ACT
+mov S$说明 <伴侣合体后增加6%攻击/SCOLOR=253>
+mov S$元宝 200000
+mov S$宏图古币 0
+mov S$条件 200000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3341:13:150:-120:-270:0:0>
+mov S$名字 <神算子蛋超人★★/SCOLOR=19>
+#IF
+equal U30 6
+#ACT
+mov S$说明 <伴侣合体后增加7%攻击/SCOLOR=253>
+mov S$元宝 300000
+mov S$宏图古币 0
+mov S$条件 300000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1144:12:30:50>
+mov S$展示 <PlayImg:28:3341:13:150:-120:-270:0:0>
+mov S$名字 <神算子蛋超人★★★/SCOLOR=70>
+#IF
+equal U30 7
+#ACT
+mov S$说明 <伴侣合体后增加8%攻击/SCOLOR=253>
+mov S$元宝 400000
+mov S$宏图古币 0
+mov S$条件 400000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1143:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3354:10:150:-120:-270:0:0>
+mov S$名字 <魔术师蛋超人★/SCOLOR=70>
+
+#IF
+equal U30 8
+#ACT
+mov S$说明 <伴侣合体后增加9%攻击/SCOLOR=253>
+mov S$元宝 600000
+mov S$宏图古币 0
+mov S$条件 600000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3354:10:150:-120:-270:0:0>
+mov S$名字 <魔术师蛋超人★★/SCOLOR=70>
+
+#IF
+equal U30 9
+#ACT
+mov S$说明 <伴侣合体后增加10%攻击/SCOLOR=253>
+mov S$元宝 800000
+mov S$宏图古币 0
+mov S$条件 800000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1144:12:30:50>
+mov S$展示 <PlayImg:28:3354:10:150:-120:-270:0:0>
+mov S$名字 <魔术师蛋超人★★★/SCOLOR=70>
+
+
+#IF
+equal U30 10
+#ACT
+mov S$说明 <伴侣合体后增加11%攻击/SCOLOR=253>
+mov S$元宝 1000000
+mov S$宏图古币 0
+mov S$条件 1000000元宝
+mov S$星1 <Img:1144:12:30:50><Img:1143:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3364:8:150:-120:-270:0:0>
+mov S$名字 <忍者蛋超人★/SCOLOR=70>
+
+#IF
+equal U30 11
+#ACT
+mov S$说明 <伴侣合体后增加12%攻击/SCOLOR=253>
+mov S$元宝 0
+mov S$宏图古币 3000
+mov S$条件 3000宏图古币
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3364:8:150:-120:-270:0:0>
+mov S$名字 <忍者蛋超人★★/SCOLOR=70>
+
+
+#IF
+equal U30 12
+#ACT
+mov S$说明 <伴侣合体后增加13%攻击/SCOLOR=253>
+mov S$元宝 0
+mov S$宏图古币 8888
+mov S$条件 8888宏图古币
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1144:12:30:50>
+mov S$展示 <PlayImg:28:3364:8:150:-120:-270:0:0>
+mov S$名字 <忍者蛋超人★★★/SCOLOR=70>
+
+
+
+#IF
+equal U30 13
+#ACT
+mov S$说明 <伴侣合体后增加14%攻击/SCOLOR=253>
+mov S$元宝 0
+mov S$宏图古币 20000
+mov S$条件 20000宏图古币
+mov S$星1 <Img:1144:12:30:50><Img:1143:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3372:12:150:-120:-270:0:0>
+mov S$名字 <冯程程蛋超人★/SCOLOR=70>
+
+
+
+
+#IF
+equal U30 14
+#ACT
+mov S$说明 <伴侣合体后增加15%攻击/SCOLOR=253>
+mov S$元宝 0
+mov S$宏图古币 30000
+mov S$条件 30000宏图古币
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1143:12:30:50>
+mov S$展示 <PlayImg:28:3372:12:150:-120:-270:0:0>
+mov S$名字 <冯程程蛋超人★★/SCOLOR=70>
+
+
+
+#IF
+equal U30 15
+#ACT
+mov S$说明 <伴侣合体后增加15%攻击/SCOLOR=253>
+mov S$元宝 0
+mov S$宏图古币 0
+mov S$条件 已终极宝宝
+mov S$星1 <Img:1144:12:30:50><Img:1144:12:30:50><Img:1144:12:30:50>
+mov S$展示 <PlayImg:28:3384:14:150:-150:-260:0:0>
+mov S$名字 <终极暗影蛋超人★★★/SCOLOR=70>
+
+
+
+
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1780 1 4 0 0 1 450 10
+#say
+<Img:801:0:395:-6/@EXIT>\　\
+　　　　　　　　　　　　　　　　　　　　　　　<伴侣不攻击人物/SCOLOR=70>\
+　　　　　　　 <$STR(S$名字)>　　　　　　　　　　 <技能“/SCOLOR=70><召唤伴侣/SCOLOR=249><”出征/SCOLOR=70>\
+　　　　　　　　　　　　　　　　　　　　　　　<宝宝自带绿毒功能/SCOLOR=250>\
+　　　　　　　　　　　　　　　　　　　　　　　<宝宝达到一定级别/SCOLOR=250>\
+　　　　　　　　　　　　　　　　　　　　　　　<后将带有麻痹功能/SCOLOR=250>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　<$STR(S$说明)>\
+<ImgEx:12:1783:1784:1785:290:8/@合体>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　<合体/SCOLOR=251>\
+<$STR(S$展示)>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　<升级条件：<$STR(S$条件)>/SCOLOR=70>\
+　\
+<$STR(S$星1)>\
+<ImgEx:12:1783:1784:1785:290:8/@升级伴侣>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　<升级伴侣/SCOLOR=251>\
+
+
+[@合体]
+#IF
+#ACT
+close
+KILLSLAVE
+
+
+#IF
+equal U30 1
+#ACT
+POWERRATE 101 9999999
+
+#IF
+equal U30 2
+#ACT
+POWERRATE 102 9999999
+
+#IF
+equal U30 3
+#ACT
+POWERRATE 103 9999999
+
+#IF
+equal U30 4
+#ACT
+POWERRATE 104 9999999
+
+#IF
+equal U30 5
+#ACT
+POWERRATE 105 9999999
+
+#IF
+equal U30 6
+#ACT
+POWERRATE 106 9999999
+
+#IF
+equal U30 7
+#ACT
+POWERRATE 107 9999999
+
+#IF
+equal U30 8
+#ACT
+POWERRATE 108 9999999
+
+#IF
+equal U30 9
+#ACT
+POWERRATE 109 9999999
+
+#IF
+equal U30 10
+#ACT
+POWERRATE 110 9999999
+
+#IF
+equal U30 11
+#ACT
+POWERRATE 111 9999999
+
+#IF
+equal U30 12
+#ACT
+POWERRATE 112 9999999
+
+#IF
+equal U30 13
+#ACT
+POWERRATE 113 9999999
+
+#IF
+equal U30 14
+#ACT
+POWERRATE 114 9999999
+
+#IF
+equal U30 15
+#ACT
+POWERRATE 115 9999999
+
+
+
+
+[@升级伴侣]
+#IF
+equal U30 15
+#ACT
+MESSAGEBOX \\您的宝宝已经终极
+break
+
+
+#IF
+equal U30 14
+CHECKGAMEDIAMOND < <$STR(S$宏图古币)>
+#ACT
+MESSAGEBOX \\对不起您宏图古币不足升级条件！
+break
+
+#IF
+equal U30 14
+#ACT
+GAMEDIAMOND - <$STR(S$宏图古币)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{终极暗影蛋超人★★★|251:0:1}升级到了三星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 13
+CHECKGAMEDIAMOND < <$STR(S$宏图古币)>
+#ACT
+MESSAGEBOX \\对不起您宏图古币不足升级条件！
+break
+
+#IF
+equal U30 13
+#ACT
+GAMEDIAMOND - <$STR(S$宏图古币)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{冯程程蛋超人★★|251:0:1}升级到了二星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 12
+CHECKGAMEDIAMOND < <$STR(S$宏图古币)>
+#ACT
+MESSAGEBOX \\对不起您宏图古币不足升级条件！
+break
+
+#IF
+equal U30 12
+#ACT
+GAMEDIAMOND - <$STR(S$宏图古币)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{冯程程蛋超人★|251:0:1}升级到了一星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 11
+CHECKGAMEDIAMOND < <$STR(S$宏图古币)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 11
+#ACT
+GAMEDIAMOND - <$STR(S$宏图古币)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{忍者蛋超人★★★|251:0:1}升级到了三星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 10
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 10
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{忍者蛋超人★★|251:0:1}升级到了二星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 9
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 9
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{忍者蛋超人★|251:0:1}升级到了一星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 8
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 8
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{魔术师蛋超人★★★|251:0:1}升级到了三星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 7
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 7
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{魔术师蛋超人★★|251:0:1}升级到了二星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 6
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 6
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{魔术师蛋超人★|251:0:1}升级到了一星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 5
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 5
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{神算子蛋超人★★★|251:0:1}升级到了三星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 4
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 4
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{神算子蛋超人★★|251:0:1}升级到了二星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 3
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 3
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{双枪蛋超人★|251:0:1}升级到了一星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 2
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 2
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{爱运动的蛋超人★★★|251:0:1}升级到了三星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+#IF
+equal U30 1
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 1
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{小学生蛋超人★★|251:0:1}升级到了二星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+#IF
+equal U30 0
+CHECKGAMEGOLD < <$STR(S$元宝)>
+#ACT
+MESSAGEBOX \\对不起您元宝不足升级条件！
+break
+
+#IF
+equal U30 0
+#ACT
+GAMEGOLD - <$STR(S$元宝)>
+inc U30 1
+SENDMSG 0 251 70 恭喜{[<$USERNAME>]|250:0:1}把伴侣升级到了{破壳的皱蛋超人★|251:0:1}升级到了一星！！
+SENDMSG 6 恭喜您升级成功!
+goto @宠物升级
+break
+
+
+
+
+}

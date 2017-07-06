@@ -1,0 +1,15 @@
+[@main]
+#IF
+EQUAL A436 <$USERNAME>
+#act
+MESSAGEBOX \\你是BUFF携带者，无法回城！
+BREAK
+
+#IF
+#act
+MOVR P7 16
+INC P7 323
+MOVR P8 16
+INC P8 323
+mapmove xtc <$STR(P7)> <$STR(P8)>
+break

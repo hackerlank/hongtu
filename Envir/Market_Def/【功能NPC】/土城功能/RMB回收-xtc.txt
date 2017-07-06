@@ -1,0 +1,5 @@
+(@@InPutString)
+[@main]
+#IF
+#act
+#CALL [\提现系统\现金提现.txt] @RMB

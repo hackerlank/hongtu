@@ -1,0 +1,116 @@
+[@main]
+#IF
+#act
+GOTO @魔龙洞穴
+
+
+[@魔龙洞穴]
+#IF
+#Act
+
+OPENMERCHANTBIGDLG 12 1211 1 4 0 9 0
+#say
+<Img:801:0:490:25/@EXIT>\
+<PlayImg:15:150:4:200:90:-40:0>\
+　\
+　　　　　　　　　　　　　　　　　　<Img:1207:12::145:9>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<魔龙洞穴/SCOLOR=158>\
+　　　　　　　　　　　　　　　　　　<Img:1208:12::145:9/@雷炎洞穴>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<雷炎洞穴/SCOLOR=35>\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<地图特征:地图总共一层/SCOLOR=125>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<BOSS名称:吞噬魔王→铂金BOSS/SCOLOR=249>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<刷新时间:/SCOLOR=125><鼠标移此查看|253#白银BOSS刷新时间60分钟^253#黄金BOSS刷新时间30分钟^253#铂金BOSS刷新时间60分钟^249#荣耀BOSS刷新时间90分钟/SCOLOR=125>\
+　　　　　　　　　　　　　　 {地图爆率详情/SCOLOR=251}（移动鼠标查看）\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 <进入条件:二转/SCOLOR=70>\
+　　　　　　{白色怪爆率低/SCOLOR=255}　　{红色BOSS爆率超高/SCOLOR=249}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<消耗元宝:无需元宝/SCOLOR=70>\
+　<ImgEx:12:1212:1213:1214:380:20/@进入A>\
+　\　
+　\
+<ItemShow:410:0:70:-10:0>\
+<ItemShow:402:0:118:-26:0>\
+<ItemShow:403:0:160:-52:0>\
+<ItemShow:404:0:209:-70:0>\
+<ItemShow:401:0:253:-84:0>\
+<ItemShow:399:0:302:-100:0>\
+
+
+[@雷炎洞穴]
+#IF
+#Act
+
+OPENMERCHANTBIGDLG 12 1211 1 4 0 9 0
+#say
+<Img:801:0:490:25/@EXIT>\
+<PlayImg:15:234:4:200:130:-20:0>\
+　\
+　　　　　　　　　　　　　　　　　　<Img:1208:12::145:9/@魔龙洞穴>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<魔龙洞穴/SCOLOR=35>\
+　　　　　　　　　　　　　　　　　　<Img:1207:12::145:9>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<雷炎洞穴/SCOLOR=158>\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<地图特征:地图共有一层/SCOLOR=125>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<BOSS名称:阴阳魔王→铂金BOSS/SCOLOR=249>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<刷新时间:/SCOLOR=125><鼠标移此查看|255#普通怪刷新时间15分钟^253#阴阳魔王→铂金BOSS刷新时间100分钟/SCOLOR=125>\
+　　　　　　　　　　　　　　 {地图爆率详情/SCOLOR=251}（移动鼠标查看）\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 <进入条件:二转/SCOLOR=70>\
+　　　　　　{白色怪爆率低/SCOLOR=255}　　{红色BOSS爆率超高/SCOLOR=249}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<消耗元宝:无需元宝/SCOLOR=70>\
+　<ImgEx:12:1212:1213:1214:380:20/@进入B>\
+　\　
+　\
+<ItemShow:410:0:70:-10:0>\
+<ItemShow:402:0:118:-26:0>\
+<ItemShow:403:0:160:-52:0>\
+<ItemShow:404:0:209:-70:0>\
+<ItemShow:401:0:253:-84:0>\
+<ItemShow:399:0:302:-100:0>\
+
+[@进入A]
+#IF
+#ACT
+MESSAGEBOX \\请按技能“召唤宠物”来打怪 @确定A @取消
+
+[@确定A]
+#IF
+CHECKRENEWLEVEL < 2
+#ACT
+MESSAGEBOX \\你没有二转，无法进入！
+break
+
+#IF
+#ACT
+mapmove bsr01 59 40
+SENDMSG 0 251 70 玛法勇士{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1}！！
+break
+
+
+[@进入B]
+#IF
+#ACT
+MESSAGEBOX \\请按技能“召唤宠物”来打怪 @确定B @取消
+
+[@确定B]
+#IF
+CHECKRENEWLEVEL < 2
+#ACT
+MESSAGEBOX \\你没有二转，无法进入！
+break
+
+#IF
+#ACT
+mapmove XC1 93 68
+SENDMSG 0 251 70 玛法勇士{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1}！！
+break
+

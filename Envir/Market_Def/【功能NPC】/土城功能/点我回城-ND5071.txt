@@ -1,0 +1,16 @@
+[@main]
+#IF
+Checkitem RMB 1
+#act
+MESSAGEBOX \\你是RMB携带者无法回城！
+BREAK
+
+#IF
+NOT Checkitem RMB 1
+#act
+MOVR P7 16
+INC P7 323
+MOVR P8 16
+INC P8 323
+mapmove xtc <$STR(P7)> <$STR(P8)>
+break

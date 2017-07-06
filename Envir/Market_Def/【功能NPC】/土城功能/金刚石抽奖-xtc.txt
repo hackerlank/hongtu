@@ -1,0 +1,236 @@
+[@main]
+#IF
+#Act
+OPENMERCHANTBIGDLG 12 1420 1 4 0 0 0
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 0 A80
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 1 A81
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 2 A82
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 3 A83
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 4 A84
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 5 A85
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 6 A86
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 7 A87
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 8 A88
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt 9 A89
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\高级记录.txt 0 A90
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\高级记录.txt 1 A91
+GetListString ..\QuestDiary\数据文件\抽奖积分抽奖\高级记录.txt 2 A92
+
+#say
+<Img:801:0:727:45/@EXIT>\
+<PlayImg:12:1421:12:80:141:-67:0:0>\
+　\
+<Img:1436:12:242:183><PlayImg:12:1440:12:100:167:148:0:0|254#寻宝50次必定暴击^　^254#获得以下任意奖励物品^　^254#1,终极装备随机一件^　^254#2,随机特殊碎片(大)^　^254#3,盾牌升级石20颗^　^254#4,10万元宝>\
+
+<ItemShow:512:0:75:110:0><ItemShow:334:0:105:110:0><ItemShow:514:0:295:110:0><ItemShow:363:0:320:110:0>\
+<ItemShow:939:0:75:150:0><ItemShow:945:0:100:150:0><ItemShow:940:0:290:150:0><ItemShow:895:0:315:150:0>\
+　　　　　　　　　　　　　　{<$GAMEDIAMOND>/SCOLOR=103}　　　　　　　　　　　　　<$STR(U23)>　　　　　　　　\
+<ItemShow:508:0:75:175:0><ItemShow:515:0:100:175:0><ItemShow:582:0:295:175:0><ItemShow:947:0:320:175:0>\
+<ItemShow:987:0:75:215:0><ItemShow:513:0:100:215:0><ItemShow:983:0:295:215:0><ItemShow:350:0:315:215:0>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A92)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A91)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A90)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A89)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A88)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A87)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A86)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A85)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A84)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A83)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A82)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A81)>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<$STR(A80)>\
+<ImgEx:12:1433:1434:1435:220:-10/@抽奖>\
+
+
+[@抽奖]
+#IF
+CHECKGAMEDIAMOND < 10
+#ACT
+MESSAGEBOX \\寻宝失败！您的宝藏积分不足10点，充值赠送宝藏积分！
+break
+
+#IF
+NOT CHECKBAGSIZE 3
+#act
+MESSAGEBOX \存包失败：\\背包不足3个空位！
+BREAK
+
+#IF
+#ACT
+INC U23 1
+
+#IF
+equal U23 50
+#ACT
+GOTO @终极装备
+MOV U23 0
+break
+
+#IF
+CHECKGAMEDIAMOND > 9
+#ACT
+GAMEDIAMOND - 10
+GOTO @80抽奖
+break
+
+[@80抽奖]
+#IF
+random 50
+#ACT
+GOTO @5555
+break
+
+#IF
+random 35
+#ACT
+GOTO @4444
+break
+
+#IF
+random 15
+#ACT
+GOTO @3333
+break
+
+#IF
+random 3
+#ACT
+GOTO @2222
+break
+
+#IF
+random 2
+#ACT
+GOTO @1111
+break
+
+#IF
+#ACT
+GOTO @0000
+break
+
+[@0000]
+#IF
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\抽奖积分抽奖\0000.txt S10
+GIVE <$STR(S10)> 5
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　{<$STR(S10)>*5/SCOLOR=125} 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[<$STR(S10)>]*5|154:0:1}！
+goto @main
+break
+
+[@1111]
+#IF
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\抽奖积分抽奖\1111.txt S10
+GIVE <$STR(S10)> 1
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　{<$STR(S10)>/SCOLOR=125} 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[<$STR(S10)>]|154:0:1}！
+goto @main
+break
+
+[@2222]
+#IF
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\抽奖积分抽奖\2222.txt S10
+GIVE <$STR(S10)> 1
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　{<$STR(S10)>/SCOLOR=70} 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[<$STR(S10)>]|154:0:1}！
+goto @main
+break
+
+[@3333]
+#IF
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\抽奖积分抽奖\3333.txt S10
+GIVE <$STR(S10)> 1
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　<$STR(S10)> 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[<$STR(S10)>]|154:0:1}！
+goto @main
+break
+
+[@4444]
+#IF
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\抽奖积分抽奖\4444.txt S10
+GIVE <$STR(S10)> 1
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　{<$STR(S10)>/SCOLOR=70} 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\高级记录.txt <$USERNAME>　寻到　{<$STR(S10)>/SCOLOR=70} 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[<$STR(S10)>]|154:0:1}！
+goto @main
+break
+
+[@5555]
+#IF
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\抽奖积分抽奖\5555.txt S10
+GIVE <$STR(S10)> 1
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　{<$STR(S10)>/SCOLOR=70} 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\高级记录.txt <$USERNAME>　寻到　{<$STR(S10)>/SCOLOR=70} 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[<$STR(S10)>]|154:0:1}！
+goto @main
+break
+
+
+[@终极装备]
+#IF
+random 3
+#ACT
+MOV S10 0
+MOV S11 0
+GetRandomText ..\QuestDiary\数据文件\抽奖积分抽奖\终极装备.txt S10
+GIVE <$STR(S10)>
+MOV U23 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　{<$STR(S10)>/SCOLOR=254} 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\高级记录.txt <$USERNAME>　寻到　{<$STR(S10)>/SCOLOR=254} 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[<$STR(S10)>]|154:0:1}！
+goto @main
+break
+
+#IF
+random 3
+#ACT
+MOV S10 0
+MOV S11 0
+GetRandomText ..\QuestDiary\数据文件\抽奖积分抽奖\终极碎片.txt S11
+GIVE <$STR(S11)> 1
+MOV U23 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　{<$STR(S11)>/SCOLOR=254} 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\高级记录.txt <$USERNAME>　寻到　{<$STR(S11)>/SCOLOR=254} 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[<$STR(S11)>]|154:0:1}！
+goto @main
+break
+
+#IF
+random 3
+#ACT
+MOV S10 0
+MOV S11 0
+GIVE 盾牌升级石 20
+MOV U23 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　{盾牌升级石*20/SCOLOR=254} 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\高级记录.txt <$USERNAME>　寻到　{盾牌升级石*20/SCOLOR=254} 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[盾牌升级石*20]|154:0:1}！
+goto @main
+break
+
+#IF
+#ACT
+MOV S10 0
+MOV S11 0
+GIVE 100000元宝
+MOV U23 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\中将记录.txt <$USERNAME>　寻到　{10万元宝/SCOLOR=254} 0
+AddTextListEx ..\QuestDiary\数据文件\抽奖积分抽奖\高级记录.txt <$USERNAME>　寻到　{10万元宝/SCOLOR=254} 0
+SendMsg 0 {系统提示ぐ|151:0:1}：玩家{%s|227:0:1}在龙城寻宝中获得物品{[10万元宝]|154:0:1}！
+goto @main
+break
+
+

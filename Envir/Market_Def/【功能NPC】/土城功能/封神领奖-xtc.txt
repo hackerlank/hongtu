@@ -1,0 +1,312 @@
+[@main]
+#IF
+EQUAL G171 0
+#act
+mov G171 1
+#IF
+#ACT
+OPENMERCHANTBIGDLG 54 48 1 4 -50 -100 0
+#say
+<Img:801:0:400:20/@EXIT>\ \ 
+　　　　　　　 <‖封神领奖‖/SCOLOR=254>　　<新区福利，封神领奖/SCOLOR=253>\
+　\
+<><《荣登》全服第一位升级至（108级）  /SCOLOR=250>    <领取1288元古币/@15>  <玩家:/SCOLOR=254><$STR(A186)>\
+<><《荣登》全服第二位升级至（108级）  /SCOLOR=250>    <领取888元古币/@16>   <玩家:/SCOLOR=254><$STR(A185)>\
+<><《荣登》全服第三位升级至（108级）  /SCOLOR=250>    <领取388元古币/@17>   <玩家:/SCOLOR=254><$STR(A184)>\
+<><《荣登》全服第一位佩戴此（霸业之刃）/SCOLOR=250>   <领取288元古币/@1>   <玩家:/SCOLOR=254><$STR(A183)>\
+<><《荣登》全服第一位佩戴此（惊云之刃）/SCOLOR=250>   <领取188元古币/@2>   <玩家:/SCOLOR=254><$STR(A182)>\
+<><《荣登》全服第一位佩戴此（英雄之刃）/SCOLOR=250>   <领取 88元古币/@3>   <玩家:/SCOLOR=254><$STR(A181)>\
+<><《荣登》全服第一位佩戴此（四级时装）/SCOLOR=250>   <领取188元古币/@4>   <玩家:/SCOLOR=254><$STR(A180)>\
+<><《荣登》全服第一位佩戴此（终极护佑）/SCOLOR=250>   <领取188元古币/@5>   <玩家:/SCOLOR=254><$STR(A179)>\
+<><《荣登》全服第一位佩戴此（终极宝玉）/SCOLOR=250>   <领取188元古币/@6>   <玩家:/SCOLOR=254><$STR(A178)>\
+<><《荣登》全服第一位佩戴此（终极菩提）/SCOLOR=250>   <领取188元古币/@7>   <玩家:/SCOLOR=254><$STR(A177)>\
+<><《荣登》全服第一位佩戴此（终级血石）/SCOLOR=250>   <领取188元古币/@8>   <玩家:/SCOLOR=254><$STR(A176)>\
+<><《荣登》全服第一位佩戴此（终极盾牌）/SCOLOR=250>   <领取588元古币/@9>   <玩家:/SCOLOR=254><$STR(A175)>\
+<><《荣登》全服第一位转身至（十级转身）/SCOLOR=250>   <领取188元古币/@10>   <玩家:/SCOLOR=254><$STR(A174)>\
+<><《荣登》全服第一位集齐此（精品生肖）/SCOLOR=250>   <领取188元古币/@11>   <玩家:/SCOLOR=254><$STR(A173)>\
+<><《荣登》全服第一位集齐此（完美生肖）/SCOLOR=250>   <领取288元古币/@12>   <玩家:/SCOLOR=254><$STR(A172)>\
+<><《荣登》全服第一位学此书（十步一杀）/SCOLOR=250>   <领取100元古币/@13>   <玩家:/SCOLOR=254><$STR(A171)>\
+<><《荣登》全服第一位学此书（魔法盾）  /SCOLOR=250>   <领取100元古币/@14>   <玩家:/SCOLOR=254><$STR(A170)>\ \
+
+　　　　　<玩家注意：装备必须穿在身上才可以领取奖励！此奖励只有一次/SCOLOR=250>\
+　\
+[@1]
+#IF
+EQUAL G172 0
+CHECKITEMW 霸业之刃
+#act
+mov G172 1
+GAMEDIAMOND + 28800
+mov A183 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加28800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（霸业之刃）获得系统奖励28800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@2]
+#IF
+EQUAL G173 0
+CHECKITEMW 惊云之刃
+#act
+mov G173 1
+GAMEDIAMOND + 18800
+mov A182 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加18800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（惊云之刃）获得系统奖励18800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@3]
+#IF
+EQUAL G174 0
+CHECKITEMW 英雄之刃
+#act
+mov G174 1
+GAMEDIAMOND + 8800
+mov A181 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加8800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（英雄之刃）获得系统奖励8800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@4]
+#IF
+EQUAL G176 0
+CHECKITEMW 四级时装[男]
+#act
+mov G176 1
+GAMEDIAMOND + 18800
+mov A180 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加18800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（四级时装[男]）获得系统奖励18800古币!
+
+#IF
+EQUAL G176 0
+CHECKITEMW 四级时装[女]
+#act
+mov G176 1
+GAMEDIAMOND + 18800
+mov A180 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加18800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（四级时装[女]）获得系统奖励18800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+
+[@5]
+#IF
+EQUAL G178 0
+CHECKITEMW 终极护佑
+#act
+mov G178 1
+mov A179 <$USERNAME>
+GAMEDIAMOND + 18800
+goto @main
+MESSAGEBOX 恭喜领取成功，增加18800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（终极护佑）获得系统奖励18800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@6]
+#IF
+EQUAL G179 0
+CHECKITEMW 终极宝玉
+#act
+mov G179 1
+GAMEDIAMOND + 18800
+mov A178 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加18800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（终极宝玉）获得系统奖励18800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@7]
+#IF
+EQUAL G180 0
+CHECKITEMW 终极菩提
+#act
+mov G180 1
+GAMEDIAMOND + 18800
+mov A177 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加18800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（终极菩提）获得系统奖励18800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@8]
+#IF
+EQUAL G181 0
+CHECKITEMW 终级血石
+#act
+mov G181 1
+GAMEDIAMOND + 18800
+MESSAGEBOX 恭喜领取成功，增加18800宏图古币！
+mov A176 <$USERNAME>
+goto @main
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（终级血石）获得系统奖励18800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@9]
+#IF
+EQUAL G182 0
+CHECKITEMW 终极盾牌
+#act
+mov G182 1
+GAMEDIAMOND + 58800
+mov A175 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加58800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（终极盾牌）获得系统奖励58800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@10]
+#IF
+EQUAL G183 0
+CHECKRENEWLEVEL = 10
+#act
+mov G183 1
+GAMEDIAMOND + 18800
+mov A174 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加18800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（十级转身）获得系统奖励18800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@11]
+#IF
+EQUAL G184 0
+CHECKITEMW 子鼠[精品]
+CHECKITEMW 丑牛[精品]
+CHECKITEMW 寅虎[精品]
+CHECKITEMW 卯兔[精品]
+CHECKITEMW 辰龙[精品]
+CHECKITEMW 午马[精品]
+CHECKITEMW 巳蛇[精品]
+CHECKITEMW 未羊[精品]
+CHECKITEMW 申猴[精品]
+CHECKITEMW 酉鸡[精品]
+CHECKITEMW 戌狗[精品]
+CHECKITEMW 亥猪[精品]
+#act
+mov G184 1
+GAMEDIAMOND + 18800
+mov A173 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加18800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（精品生肖）获得系统奖励18800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+[@12]
+#IF
+EQUAL G185 0
+CHECKITEMW 子鼠[完美]
+CHECKITEMW 丑牛[完美]
+CHECKITEMW 寅虎[完美]
+CHECKITEMW 卯兔[完美]
+CHECKITEMW 辰龙[完美]
+CHECKITEMW 巳蛇[完美]
+CHECKITEMW 午马[完美]
+CHECKITEMW 未羊[完美]
+CHECKITEMW 申猴[完美]
+CHECKITEMW 酉鸡[完美]
+CHECKITEMW 戌狗[完美]
+CHECKITEMW 亥猪[完美]
+#act
+mov G185 1
+mov A172 <$USERNAME>
+GAMEDIAMOND + 28800
+goto @main
+MESSAGEBOX 恭喜领取成功，增加28800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位佩戴此（完美生肖）获得系统奖励28800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@13]
+#IF
+EQUAL G186 0
+CHECKSKILL 十步一杀 > 0
+#act
+mov G186 1
+GAMEDIAMOND + 10000
+mov A171 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加10000宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位学此书（十步一杀）获得系统奖励10000古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@14]
+#IF
+EQUAL G187 0
+CHECKSKILL 魔法盾 > 0
+#act
+mov G187 1
+GAMEDIAMOND + 10000
+mov A170 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加10000宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位学此书（魔法盾）获得系统奖励10000古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+
+
+[@15]
+#IF
+check [600] 0
+EQUAL G188 0
+CHECKLEVELEX > 107
+#act
+set [600] 1
+mov G188 1
+GAMEDIAMOND + 128800
+mov A186 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加128800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第一位升级至（108级）获得系统奖励128800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+
+[@16]
+#IF
+check [600] 0
+EQUAL G189 0
+CHECKLEVELEX > 107
+#act
+set [600] 1
+mov G189 1
+GAMEDIAMOND + 88800
+mov A185 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加88800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第二位升级至（108级）获得系统奖励88800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+
+[@17]
+#IF
+check [600] 0
+EQUAL G190 0
+CHECKLEVELEX > 107
+#act
+set [600] 1
+mov G190 1
+GAMEDIAMOND + 38800
+mov A184 <$USERNAME>
+goto @main
+MESSAGEBOX 恭喜领取成功，增加38800宏图古币！
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]全服第三位升级至（108级）获得系统奖励38800古币!
+#ELSEACT
+MESSAGEBOX \\奖励已被领取，或你的条件不符合！
+

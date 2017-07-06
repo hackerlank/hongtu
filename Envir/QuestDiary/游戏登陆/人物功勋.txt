@@ -1,0 +1,275 @@
+{
+[@¹¦Ñ«¼ì²â]
+#IF
+NOT CHECKBAGSIZE 2
+#act
+break
+
+#IF
+small U0 50
+#Act
+AutoTakeoffItem 33
+take µ¶»ê¹¦Ñ«¡¤Lv1 42
+take µ¶»ê¹¦Ñ«¡¤Lv2 42
+take µ¶»ê¹¦Ñ«¡¤Lv3 42
+take µ¶»ê¹¦Ñ«¡¤Lv4 42
+take µ¶»ê¹¦Ñ«¡¤Lv5 42
+take µ¶»ê¹¦Ñ«¡¤Lv6 42
+take µ¶»ê¹¦Ñ«¡¤Lv7 42
+break
+
+#IF
+large U0 49
+small U0 600
+check [60] 0
+#Act
+set [60] 1
+MAPKILLMONEXPRATE * 120
+SendMsg 5 ¹§Ï²Äúµ¶»ê¹¦Ñ«Éý¼¶µ½ÁËL1
+
+#IF
+large U0 599
+small U0 2000
+check [61] 0
+#Act
+set [61] 1
+MAPKILLMONEXPRATE * 140
+SendMsg 5 ¹§Ï²Äúµ¶»ê¹¦Ñ«Éý¼¶µ½ÁËL2
+
+#IF
+large U0 1999
+small U0 5000
+check [62] 0
+#Act
+set [62] 1
+MAPKILLMONEXPRATE * 160
+SendMsg 5 ¹§Ï²Äúµ¶»ê¹¦Ñ«Éý¼¶µ½ÁËL3
+
+
+#IF
+large U0 4999
+small U0 10000
+check [63] 0
+#Act
+set [63] 1
+MAPKILLMONEXPRATE * 180
+SendMsg 5 ¹§Ï²Äúµ¶»ê¹¦Ñ«Éý¼¶µ½ÁËL4
+
+
+#IF
+large U0 9999
+small U0 15000
+check [64] 0
+#Act
+set [64] 1
+MAPKILLMONEXPRATE * 200
+SendMsg 5 ¹§Ï²Äúµ¶»ê¹¦Ñ«Éý¼¶µ½ÁËL5
+
+
+#IF
+large U0 14999
+small U0 20000
+check [65] 0
+#Act
+set [65] 1
+MAPKILLMONEXPRATE * 220
+SendMsg 5 ¹§Ï²Äúµ¶»ê¹¦Ñ«Éý¼¶µ½ÁËL6
+
+
+#IF
+large U0 20000
+check [66] 0
+#Act
+set [66] 1
+MAPKILLMONEXPRATE * 250
+SendMsg 5 ¹§Ï²Äúµ¶»ê¹¦Ñ«Éý¼¶µ½ÁËL7
+
+
+
+#IF
+large U0 49
+small U0 600
+#Act
+GiveStateItem µ¶»ê¹¦Ñ«¡¤Lv1 1 1 1 0 1 1 1 1
+BAGITEMINTOBOX µ¶»ê¹¦Ñ«¡¤Lv1 1
+SetUpgradeItem 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 0 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 1 µ¶»ê
+CHANGECUSTOMITEMPROGRESSBAR -1 0 2 254
+CHANGECUSTOMITEMPROGRESSBAR -1 0 3 2
+CHANGECUSTOMITEMPROGRESSBAR -1 0 4 2
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 1 = 600
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 0 = <$STR(u0)> 
+UpDateBoxItem 1
+ReturnBoxItem 1
+AutoTakeOnItem µ¶»ê¹¦Ñ«¡¤Lv1 33
+take µ¶»ê¹¦Ñ«¡¤Lv1 42
+take µ¶»ê¹¦Ñ«¡¤Lv2 42
+take µ¶»ê¹¦Ñ«¡¤Lv3 42
+take µ¶»ê¹¦Ñ«¡¤Lv4 42
+take µ¶»ê¹¦Ñ«¡¤Lv5 42
+take µ¶»ê¹¦Ñ«¡¤Lv6 42
+take µ¶»ê¹¦Ñ«¡¤Lv7 42
+break
+
+#IF
+large U0 599
+small U0 2000
+#Act
+GiveStateItem µ¶»ê¹¦Ñ«¡¤Lv2 1 1 1 0 1 1 1 1
+BAGITEMINTOBOX µ¶»ê¹¦Ñ«¡¤Lv2 1
+SetUpgradeItem 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 0 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 1 µ¶»ê
+CHANGECUSTOMITEMPROGRESSBAR -1 0 2 254
+CHANGECUSTOMITEMPROGRESSBAR -1 0 3 2
+CHANGECUSTOMITEMPROGRESSBAR -1 0 4 2
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 1 = 2000
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 0 = <$STR(u0)> 
+UpDateBoxItem 1
+ReturnBoxItem 1
+AutoTakeOnItem µ¶»ê¹¦Ñ«¡¤Lv2 33
+take µ¶»ê¹¦Ñ«¡¤Lv1 42
+take µ¶»ê¹¦Ñ«¡¤Lv2 42
+take µ¶»ê¹¦Ñ«¡¤Lv3 42
+take µ¶»ê¹¦Ñ«¡¤Lv4 42
+take µ¶»ê¹¦Ñ«¡¤Lv5 42
+take µ¶»ê¹¦Ñ«¡¤Lv6 42
+take µ¶»ê¹¦Ñ«¡¤Lv7 42
+break
+
+#IF
+large U0 1999
+small U0 5000
+#Act
+GiveStateItem µ¶»ê¹¦Ñ«¡¤Lv3 1 1 1 0 1 1 1 1
+BAGITEMINTOBOX µ¶»ê¹¦Ñ«¡¤Lv3 1
+SetUpgradeItem 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 0 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 1 µ¶»ê
+CHANGECUSTOMITEMPROGRESSBAR -1 0 2 254
+CHANGECUSTOMITEMPROGRESSBAR -1 0 3 2
+CHANGECUSTOMITEMPROGRESSBAR -1 0 4 2
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 1 = 5000
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 0 = <$STR(u0)> 
+UpDateBoxItem 1
+ReturnBoxItem 1
+AutoTakeOnItem µ¶»ê¹¦Ñ«¡¤Lv3 33
+take µ¶»ê¹¦Ñ«¡¤Lv1 42
+take µ¶»ê¹¦Ñ«¡¤Lv2 42
+take µ¶»ê¹¦Ñ«¡¤Lv3 42
+take µ¶»ê¹¦Ñ«¡¤Lv4 42
+take µ¶»ê¹¦Ñ«¡¤Lv5 42
+take µ¶»ê¹¦Ñ«¡¤Lv6 42
+take µ¶»ê¹¦Ñ«¡¤Lv7 42
+break
+
+#IF
+large U0 4999
+small U0 10000
+#Act
+GiveStateItem µ¶»ê¹¦Ñ«¡¤Lv4 1 1 1 0 1 1 1 1
+BAGITEMINTOBOX µ¶»ê¹¦Ñ«¡¤Lv4 1
+SetUpgradeItem 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 0 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 1 µ¶»ê
+CHANGECUSTOMITEMPROGRESSBAR -1 0 2 254
+CHANGECUSTOMITEMPROGRESSBAR -1 0 3 2
+CHANGECUSTOMITEMPROGRESSBAR -1 0 4 2
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 1 = 10000
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 0 = <$STR(u0)> 
+UpDateBoxItem 1
+ReturnBoxItem 1
+AutoTakeOnItem µ¶»ê¹¦Ñ«¡¤Lv4 33
+take µ¶»ê¹¦Ñ«¡¤Lv1 42
+take µ¶»ê¹¦Ñ«¡¤Lv2 42
+take µ¶»ê¹¦Ñ«¡¤Lv3 42
+take µ¶»ê¹¦Ñ«¡¤Lv4 42
+take µ¶»ê¹¦Ñ«¡¤Lv5 42
+take µ¶»ê¹¦Ñ«¡¤Lv6 42
+take µ¶»ê¹¦Ñ«¡¤Lv7 42
+break
+
+#IF
+large U0 9999
+small U0 15000
+#Act
+GiveStateItem µ¶»ê¹¦Ñ«¡¤Lv5 1 1 1 0 1 1 1 1
+BAGITEMINTOBOX µ¶»ê¹¦Ñ«¡¤Lv5 1
+SetUpgradeItem 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 0 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 1 µ¶»ê
+CHANGECUSTOMITEMPROGRESSBAR -1 0 2 254
+CHANGECUSTOMITEMPROGRESSBAR -1 0 3 2
+CHANGECUSTOMITEMPROGRESSBAR -1 0 4 2
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 1 = 15000
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 0 = <$STR(u0)> 
+UpDateBoxItem 1
+ReturnBoxItem 1
+AutoTakeOnItem µ¶»ê¹¦Ñ«¡¤Lv5 33
+take µ¶»ê¹¦Ñ«¡¤Lv1 42
+take µ¶»ê¹¦Ñ«¡¤Lv2 42
+take µ¶»ê¹¦Ñ«¡¤Lv3 42
+take µ¶»ê¹¦Ñ«¡¤Lv4 42
+take µ¶»ê¹¦Ñ«¡¤Lv5 42
+take µ¶»ê¹¦Ñ«¡¤Lv6 42
+take µ¶»ê¹¦Ñ«¡¤Lv7 42
+break
+
+#IF
+large U0 14999
+small U0 20000
+#Act
+GiveStateItem µ¶»ê¹¦Ñ«¡¤Lv6 1 1 1 0 1 1 1 1
+BAGITEMINTOBOX µ¶»ê¹¦Ñ«¡¤Lv6 1
+SetUpgradeItem 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 0 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 1 µ¶»ê
+CHANGECUSTOMITEMPROGRESSBAR -1 0 2 254
+CHANGECUSTOMITEMPROGRESSBAR -1 0 3 2
+CHANGECUSTOMITEMPROGRESSBAR -1 0 4 2
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 1 = 20000
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 0 = <$STR(u0)> 
+UpDateBoxItem 1
+ReturnBoxItem 1
+AutoTakeOnItem µ¶»ê¹¦Ñ«¡¤Lv6 33
+take µ¶»ê¹¦Ñ«¡¤Lv1 42
+take µ¶»ê¹¦Ñ«¡¤Lv2 42
+take µ¶»ê¹¦Ñ«¡¤Lv3 42
+take µ¶»ê¹¦Ñ«¡¤Lv4 42
+take µ¶»ê¹¦Ñ«¡¤Lv5 42
+take µ¶»ê¹¦Ñ«¡¤Lv6 42
+take µ¶»ê¹¦Ñ«¡¤Lv7 42
+break
+
+#IF
+large U0 20000
+#Act
+GiveStateItem µ¶»ê¹¦Ñ«¡¤Lv7 1 1 1 0 1 1 1 1
+BAGITEMINTOBOX µ¶»ê¹¦Ñ«¡¤Lv7 1
+SetUpgradeItem 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 0 1
+CHANGECUSTOMITEMPROGRESSBAR -1 0 1 µ¶»ê
+CHANGECUSTOMITEMPROGRESSBAR -1 0 2 254
+CHANGECUSTOMITEMPROGRESSBAR -1 0 3 2
+CHANGECUSTOMITEMPROGRESSBAR -1 0 4 2
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 1 = 20000
+CHANGECUSTOMITEMPROGRESSBARVALUE -1 0 0 = <$STR(u0)> 
+UpDateBoxItem 1
+ReturnBoxItem 1
+AutoTakeOnItem µ¶»ê¹¦Ñ«¡¤Lv7 33
+take µ¶»ê¹¦Ñ«¡¤Lv1 42
+take µ¶»ê¹¦Ñ«¡¤Lv2 42
+take µ¶»ê¹¦Ñ«¡¤Lv3 42
+take µ¶»ê¹¦Ñ«¡¤Lv4 42
+take µ¶»ê¹¦Ñ«¡¤Lv5 42
+take µ¶»ê¹¦Ñ«¡¤Lv6 42
+take µ¶»ê¹¦Ñ«¡¤Lv7 42
+break
+
+[@¹Ø±Õ]
+#act
+CloseBigDialogBox
+Close
+
+}

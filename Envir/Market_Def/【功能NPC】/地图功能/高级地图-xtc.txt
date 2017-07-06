@@ -1,0 +1,57 @@
+[@main]
+#IF
+#act
+GOTO @牛魔洞穴
+
+
+
+[@牛魔洞穴]
+#IF
+#Act
+OPENMERCHANTBIGDLG 12 1211 1 4 0 9 0
+#say
+<Img:801:0:490:25/@EXIT>\
+<PlayImg:15:214:4:200:120:-20:0>\
+　\
+　　　　　　　　　　　　　　　　　　<Img:1207:12::145:9>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<牛魔洞穴/SCOLOR=158>\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<地图特征:地图共有一层/SCOLOR=125>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<BOSS名称:上古统领→黄金BOSS/SCOLOR=249>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<刷新时间:/SCOLOR=125><鼠标移此查看|253#白银BOSS刷新时间30分钟^249#黄金BOSS刷新时间60分钟/SCOLOR=125>\
+　　　　　　　　　　　　　　 {地图爆率详情/SCOLOR=251}（移动鼠标查看）\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 <进入条件:一转/SCOLOR=70>\
+　　　　　　{白色怪爆率低/SCOLOR=255}　　{红色BOSS爆率超高/SCOLOR=249}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<消耗元宝:无需元宝/SCOLOR=70>\
+　<ImgEx:12:1212:1213:1214:380:20/@进入B>\
+　\　
+　\
+<ItemShow:409:0:70:-10:0>\
+<ItemShow:402:0:118:-26:0>\
+<ItemShow:403:0:160:-52:0>\
+<ItemShow:404:0:209:-70:0>\
+<ItemShow:400:0:253:-84:0>\
+<ItemShow:398:0:302:-100:0>\
+
+
+
+[@进入B]
+#IF
+CHECKRENEWLEVEL < 1
+#ACT
+MESSAGEBOX \\你没有一转，无法进入！
+break
+
+#IF
+#ACT
+;GAMEGOLD - <$STR(N$价格B)>
+mapmove wyzz 18 36
+SENDMSG 0 251 70 玛法勇士{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1}！！
+break

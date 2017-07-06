@@ -1,0 +1,225 @@
+[@验证地图脱机]
+{
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\防脱机\防脱机地图编号.txt <$MAP>
+#ACT
+MOV N$验证标记 0
+SET [111] 1
+MOV S$之前地图 <$MAP>
+MOV S$之前X <$X>
+MOV S$之前Y <$Y>
+MOVR N$传送X 24 54
+MOVR N$传送Y 24 54
+DelMirrorMap <$USERNAME>防脱机
+AddMirrorMap FTJT <$USERNAME>防脱机 防脱机地图 99999 0159 99999
+mapMOVE <$USERNAME>防脱机 <$STR(N$传送X)> <$STR(N$传送Y)>
+SENDMOVEMSG 1 250 0 100 1 【验证提示】:根据地图光效数字顺序依次走过,期间请不要踩到其他数字,如踩错请重新从【一】位置再次验证!!!
+SENDMOVEMSG 1 250 0 130 1 【验证提示】:根据地图光效数字顺序依次走过,期间请不要踩到其他数字,如踩错请重新从【一】位置再次验证!!!
+SENDMOVEMSG 1 250 0 160 1 【验证提示】:根据地图光效数字顺序依次走过,期间请不要踩到其他数字,如踩错请重新从【一】位置再次验证!!!
+MESSAGEBOX 【防脱机验证：请在60秒内根据地图光效数字顺序依次走过。】\　\【警告:小退,大退,中途离开视为放弃,脱机记录增加1次,并继续验证脱机！】\　　\你当前脱机记录次数为：<$STR(U42)>次。
+SENDDELAYMSG 【防脱机验证：请在%s内根据地图光效数字顺序依次走过。】 60 249 1 @验证失败
+
+GOTO @地图验证效果
+
+
+[@上线验证地图脱机]
+{
+#IF
+#ACT
+MOV N$验证标记 0
+SET [111] 1
+MOV S$之前地图 <$MAP>
+MOV S$之前X <$X>
+MOV S$之前Y <$Y>
+MOVR N$传送X 24 54
+MOVR N$传送Y 24 54
+DelMirrorMap <$USERNAME>防脱机
+AddMirrorMap FTJT <$USERNAME>防脱机 防脱机地图 99999 0159 99999
+mapMOVE <$USERNAME>防脱机 <$STR(N$传送X)> <$STR(N$传送Y)>
+SENDMOVEMSG 1 250 0 100 1 【验证提示】:根据地图光效数字顺序依次走过,期间请不要踩到其他数字,如踩错请重新从【一】位置再次验证!!!
+SENDMOVEMSG 1 250 0 130 1 【验证提示】:根据地图光效数字顺序依次走过,期间请不要踩到其他数字,如踩错请重新从【一】位置再次验证!!!
+SENDMOVEMSG 1 250 0 160 1 【验证提示】:根据地图光效数字顺序依次走过,期间请不要踩到其他数字,如踩错请重新从【一】位置再次验证!!!
+MESSAGEBOX 【脱机验证中小退,大退或中途离开,增加脱机记录1次,并继续脱机验证!】\　　\【防脱机验证：请在60秒内根据地图光效数字顺序依次走过。】\　\你当前脱机记录次数为：<$STR(U42)>次。\
+SENDDELAYMSG 【防脱机验证：请在%s内根据地图光效数字顺序依次走过。】 60 249 1 @验证失败
+
+GOTO @地图验证效果
+
+
+
+
+[@地图验证效果]
+#IF
+#ACT
+MOV N$XA1 <$STR(N$传送X)>
+DEC N$XA1 6
+MOV N$XB2 <$STR(N$传送X)>
+INC N$XB2 7
+MOV N$YA1 <$STR(N$传送Y)>
+DEC N$YA1 6
+MOV N$YB2 <$STR(N$传送Y)>
+INC N$YB2 7
+MOVR N$X1 <$STR(N$XA1)> <$STR(N$XB2)>
+MOVR N$Y1 <$STR(N$YA1)> <$STR(N$YB2)>
+
+#IF
+EQUAL N$X1 <$STR(N$传送X)>
+EQUAL N$Y1 <$STR(N$传送Y)>
+#ACT
+SendMsg 5 [提示]:111111111
+GOTO @地图验证效果
+BREAK
+#ELSEACT
+MOV N$XN1 <$STR(N$X1)>
+DEC N$XN1 1
+CreateNPC 　　　一号点 <$USERNAME>防脱机 <$STR(N$XN1)> <$STR(N$Y1)> 8 点 1
+GMexecute MOBFIREBURN <$USERNAME>防脱机 <$STR(N$X1)> <$STR(N$Y1)> 4 99999 1
+SendMsg 5 [提示]:22222222
+GOTO @地图验证效果A
+
+[@地图验证效果A]
+#IF
+#ACT
+MOV N$XC1 <$STR(N$传送X)>
+DEC N$XC1 6
+MOV N$XD2 <$STR(N$传送X)>
+INC N$XD2 7
+MOV N$YC1 <$STR(N$传送Y)>
+DEC N$YC1 6
+MOV N$YD2 <$STR(N$传送Y)>
+INC N$YD2 7
+MOVR N$X2 <$STR(N$XC1)> <$STR(N$XD2)>
+MOVR N$Y2 <$STR(N$YC1)> <$STR(N$YD2)>
+
+
+#IF
+EQUAL N$X2 <$STR(N$传送X)>
+EQUAL N$Y2 <$STR(N$传送Y)>
+#ACT
+GOTO @地图验证效果A
+BREAK
+
+#IF
+EQUAL N$X2 <$STR(N$X1)>
+EQUAL N$Y2 <$STR(N$Y1)>
+#ACT
+GOTO @地图验证效果A
+BREAK
+#ELSEACT
+MOV N$XN2 <$STR(N$X2)>
+DEC N$XN2 1
+CreateNPC 　　　二号点 <$USERNAME>防脱机 <$STR(N$XN2)> <$STR(N$Y2)> 8 点 1
+GMexecute MOBFIREBURN <$USERNAME>防脱机 <$STR(N$X2)> <$STR(N$Y2)> 4 99999 1
+GOTO @地图验证效果B
+
+
+[@地图验证效果B]
+#IF
+#ACT
+MOV N$XE1 <$STR(N$传送X)>
+DEC N$XE1 6
+MOV N$XF2 <$STR(N$传送X)>
+INC N$XF2 7
+MOV N$YE1 <$STR(N$传送Y)>
+DEC N$YE1 6
+MOV N$YF2 <$STR(N$传送Y)>
+INC N$YF2 7
+MOVR N$X3 <$STR(N$XE1)> <$STR(N$XF2)>
+MOVR N$Y3 <$STR(N$YE1)> <$STR(N$YF2)>
+
+
+#IF
+EQUAL N$X3 <$STR(N$传送X)>
+EQUAL N$Y3 <$STR(N$传送Y)>
+#ACT
+GOTO @地图验证效果B
+BREAK
+
+#IF
+EQUAL N$X3 <$STR(N$X1)>
+EQUAL N$Y3 <$STR(N$Y1)>
+#ACT
+GOTO @地图验证效果B
+BREAK
+
+#IF
+EQUAL N$X3 <$STR(N$X2)>
+EQUAL N$Y3 <$STR(N$Y2)>
+#ACT
+GOTO @地图验证效果B
+BREAK
+
+#IF
+#ACT
+MOV N$XN3 <$STR(N$X3)>
+DEC N$XN3 1
+CreateNPC 　　　三号点 <$USERNAME>防脱机 <$STR(N$XN3)> <$STR(N$Y3)> 8 点 1
+GMexecute MOBFIREBURN <$USERNAME>防脱机 <$STR(N$X3)> <$STR(N$Y3)> 4 99999 1
+GOTO @地图验证效果C
+
+
+[@地图验证效果C]
+#IF
+#ACT
+MOV N$XG1 <$STR(N$传送X)>
+DEC N$XG1 6
+MOV N$XH2 <$STR(N$传送X)>
+INC N$XH2 7
+MOV N$YG1 <$STR(N$传送Y)>
+DEC N$YG1 6
+MOV N$YH2 <$STR(N$传送Y)>
+INC N$YH2 7
+MOVR N$X4 <$STR(N$XG1)> <$STR(N$XH2)>
+MOVR N$Y4 <$STR(N$YG1)> <$STR(N$YH2)>
+
+
+#IF
+EQUAL N$X4 <$STR(N$传送X)>
+EQUAL N$Y4 <$STR(N$传送Y)>
+#ACT
+GOTO @地图验证效果C
+BREAK
+
+#IF
+EQUAL N$X4 <$STR(N$X1)>
+EQUAL N$Y4 <$STR(N$Y1)>
+#ACT
+GOTO @地图验证效果C
+BREAK
+
+#IF
+EQUAL N$X4 <$STR(N$X2)>
+EQUAL N$Y4 <$STR(N$Y2)>
+#ACT
+GOTO @地图验证效果C
+BREAK
+
+#IF
+EQUAL N$X4 <$STR(N$X3)>
+EQUAL N$Y4 <$STR(N$Y3)>
+#ACT
+GOTO @地图验证效果C
+BREAK
+
+#IF
+#ACT
+MOV N$XN4 <$STR(N$X4)>
+DEC N$XN4 1
+CreateNPC 　　　四号点 <$USERNAME>防脱机 <$STR(N$XN4)> <$STR(N$Y4)> 8 点 1
+GMexecute MOBFIREBURN <$USERNAME>防脱机 <$STR(N$X4)> <$STR(N$Y4)> 4 99999 1
+
+
+
+[@验证失败]
+#IF
+#ACT
+INC U42 1
+MOV S$之前地图 XTC
+MOV S$之前X 330
+MOV S$之前Y 330
+MESSAGEBOX 【游戏验证失败，增加脱机记录1次！！！】\　　\你当前脱机记录次数为：<$STR(U42)>次。\　　\如您是第一次不会验证,请您继续按数字顺序验证.\　　\验证成功系统自动将您传回土城！
+OPENMERCHANTBIGDLG 12 1684 1 4 0 9 0
+BREAK
+#say
+<Img:801:0:500:0/@EXIT>\
+
+}

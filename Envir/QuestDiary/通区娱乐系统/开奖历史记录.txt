@@ -1,0 +1,31 @@
+[@开奖历史记录]
+{
+#IF
+EQUAL <$EGAME_VAR_CAIDIAN_GAMESTATUS> 6
+#ACT
+MOV S$diyiA_01 <$STR(A260)>
+MOV S$dierA_01 <$STR(A261)>
+MOV S$disaA_01 <$STR(A262)>
+MOV S$disyA_01 <$STR(A252)>
+MOV S$disyQ_01 <$STR(A265)>
+
+
+mov S$zzcjil 庄家名称：【<$STR(A263)>】
+mov S$ydjejl 押大金额：【<$STR(G265)>】欢乐豆
+mov S$yxjejl 押小金额：【<$STR(G266)>】欢乐豆
+mov S$kkzjjl 开奖局数：【<$STR(G270)>】局
+mov S$kjbzjl 豹子：【<$STR(G271)>】局
+mov S$kjkdjl 开大：【<$STR(G273)>】局
+mov S$kjkxjl 开小：【<$STR(G272)>】局
+
+SetStringBlank  <$STR(S$zzcjil)> 50 1
+SetStringBlank  <$STR(S$ydjejl)> 50 1
+SetStringBlank  <$STR(S$yXjejl)> 50 1
+SetStringBlank  <$STR(S$kkzjjl)> 50 1
+
+
+#IF
+#ACT
+	MOV S$lskjjl_01 　　　　　　　　　　　　　　　　【历史开奖】^-^251#<$STR(S$zzcjil)>庄家本钱：【<$STR(G264)>】^-^251#<$STR(S$kkzjjl)><$STR(S$kjbzjl)>^251#<$STR(S$ydjejl)><$STR(S$kjkdjl)>^251#<$STR(S$yxjejl)><$STR(S$kjkxjl)>^-^251#<$STR(S$diyiA_01)>^251#<$STR(S$dierA_01)>^251#<$STR(S$disaA_01)>^-^251#<$STR(S$disyA_01)>^-^251#<$STR(S$disyQ_01)>
+}
+

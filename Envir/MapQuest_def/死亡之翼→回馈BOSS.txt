@@ -1,0 +1,10 @@
+[@MAIN]
+#if
+ISONMAP hkdt4
+equal G143 0
+#ACT
+MOV G143 1
+mov A143 <$USERNAME>
+GAMEDIAMOND + 4500
+SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【死亡之翼→回馈BOSS】获得系统奖励4500古币!
+break

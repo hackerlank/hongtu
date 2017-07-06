@@ -1,0 +1,158 @@
+[@¶ÜÅÆ×°B]
+{
+;#IF
+;Check [51] 0
+;#act
+;SETICON 0 -1
+;break
+
+#OR
+checkitemw ¶¾Áã°×±ù¶Ü¡¤Ò»ĞÇ
+checkitemw ¶¾Áã°×±ù¶Ü¡¤¶şĞÇ
+checkitemw ¶¾Áã°×±ù¶Ü¡¤ÈıĞÇ
+checkitemw ¶¾Áã°×±ù¶Ü¡¤ËÄĞÇ
+checkitemw ¶¾Áã°×±ù¶Ü¡¤ÎåĞÇ
+checkitemw ¶¾Áã°×±ù¶Ü¡¤ÁùĞÇ
+checkitemw ¶¾Áã°×±ù¶Ü¡¤ÆßĞÇ
+checkitemw ¶¾Áã°×±ù¶Ü¡¤°ËĞÇ
+checkitemw ¶¾Áã°×±ù¶Ü¡¤¾ÅĞÇ
+checkitemw ¶¾Áã°×±ù¶Ü¡¤Ê®ĞÇ
+#act
+SetIcon 0 29 1000 0 30 12 0 100 0
+break
+
+#OR
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤Ò»ĞÇ
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤¶şĞÇ
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤ÈıĞÇ
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤ËÄĞÇ
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤ÎåĞÇ
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤ÁùĞÇ
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤ÆßĞÇ
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤°ËĞÇ
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤¾ÅĞÇ
+checkitemw Ñª½ğ°¬Ğ¿¶Ü¡¤Ê®ĞÇ
+#act
+SetIcon 0 29 1060 0 30 12 0 100 0
+break
+
+#OR
+checkitemw ¶¾²À°µÉ±¶Ü¡¤Ò»ĞÇ
+checkitemw ¶¾²À°µÉ±¶Ü¡¤¶şĞÇ
+checkitemw ¶¾²À°µÉ±¶Ü¡¤ÈıĞÇ
+checkitemw ¶¾²À°µÉ±¶Ü¡¤ËÄĞÇ
+checkitemw ¶¾²À°µÉ±¶Ü¡¤ÎåĞÇ
+checkitemw ¶¾²À°µÉ±¶Ü¡¤ÁùĞÇ
+checkitemw ¶¾²À°µÉ±¶Ü¡¤ÆßĞÇ
+checkitemw ¶¾²À°µÉ±¶Ü¡¤°ËĞÇ
+checkitemw ¶¾²À°µÉ±¶Ü¡¤¾ÅĞÇ
+checkitemw ¶¾²À°µÉ±¶Ü¡¤Ê®ĞÇ
+#act
+SetIcon 0 29 1120 0 30 12 0 100 0
+break
+
+#OR
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤Ò»ĞÇ
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤¶şĞÇ
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤ÈıĞÇ
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤ËÄĞÇ
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤ÎåĞÇ
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤ÁùĞÇ
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤ÆßĞÇ
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤°ËĞÇ
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤¾ÅĞÇ
+checkitemw ¿ñÖ®ÅØÏø¶Ü¡¤Ê®ĞÇ
+#act
+SetIcon 0 29 1140 0 30 12 0 100 0
+break
+
+#OR
+checkitemw ¿üÁéÅØÏø¶Ü¡¤Ò»ĞÇ
+checkitemw ¿üÁéÅØÏø¶Ü¡¤¶şĞÇ
+checkitemw ¿üÁéÅØÏø¶Ü¡¤ÈıĞÇ
+checkitemw ¿üÁéÅØÏø¶Ü¡¤ËÄĞÇ
+checkitemw ¿üÁéÅØÏø¶Ü¡¤ÎåĞÇ
+checkitemw ¿üÁéÅØÏø¶Ü¡¤ÁùĞÇ
+checkitemw ¿üÁéÅØÏø¶Ü¡¤ÆßĞÇ
+checkitemw ¿üÁéÅØÏø¶Ü¡¤°ËĞÇ
+checkitemw ¿üÁéÅØÏø¶Ü¡¤¾ÅĞÇ
+checkitemw ¿üÁéÅØÏø¶Ü¡¤Ê®ĞÇ
+#act
+SetIcon 0 29 1160 0 30 12 0 100 0
+break
+
+#OR
+checkitemw ÑıÁéÄ§À×¶Ü¡¤Ò»ĞÇ
+checkitemw ÑıÁéÄ§À×¶Ü¡¤¶şĞÇ
+checkitemw ÑıÁéÄ§À×¶Ü¡¤ÈıĞÇ
+checkitemw ÑıÁéÄ§À×¶Ü¡¤ËÄĞÇ
+checkitemw ÑıÁéÄ§À×¶Ü¡¤ÎåĞÇ
+checkitemw ÑıÁéÄ§À×¶Ü¡¤ÁùĞÇ
+checkitemw ÑıÁéÄ§À×¶Ü¡¤ÆßĞÇ
+checkitemw ÑıÁéÄ§À×¶Ü¡¤°ËĞÇ
+checkitemw ÑıÁéÄ§À×¶Ü¡¤¾ÅĞÇ
+checkitemw ÑıÁéÄ§À×¶Ü¡¤Ê®ĞÇ
+#act
+SetIcon 0 29 1180 0 30 12 0 100 0
+break
+
+#OR
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤Ò»ĞÇ
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤¶şĞÇ
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤ÈıĞÇ
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤ËÄĞÇ
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤ÎåĞÇ
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤ÁùĞÇ
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤ÆßĞÇ
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤°ËĞÇ
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤¾ÅĞÇ
+checkitemw ±ÀÁúÊ¥Áé¶Ü¡¤Ê®ĞÇ
+#act
+SetIcon 0 29 1200 0 30 12 0 100 0
+break
+
+#OR
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤Ò»ĞÇ
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤¶şĞÇ
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤ÈıĞÇ
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤ËÄĞÇ
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤ÎåĞÇ
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤ÁùĞÇ
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤ÆßĞÇ
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤°ËĞÇ
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤¾ÅĞÇ
+checkitemw Çà²Ô±ÀÉ°¶Ü¡¤Ê®ĞÇ
+#act
+SetIcon 0 29 1220 0 30 12 0 100 0
+break
+
+#OR
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤Ò»ĞÇ
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤¶şĞÇ
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤ÈıĞÇ
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤ËÄĞÇ
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤ÎåĞÇ
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤ÁùĞÇ
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤ÆßĞÇ
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤°ËĞÇ
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤¾ÅĞÇ
+checkitemw ¹ÅÀ¼»ÃİxÕÈ¡¤Ê®ĞÇ
+#act
+SetIcon 0 29 1240 0 30 12 0 100 0
+break
+
+#OR
+checkitemw ÁúÇú´´ÊÀ¶Ü¡¤Ò»ĞÇ
+checkitemw ÁúÇú´´ÊÀ¶Ü¡¤¶şĞÇ
+checkitemw ÁúÇú´´ÊÀ¶Ü¡¤ÈıĞÇ
+checkitemw ÁúÇú´´ÊÀ¶Ü¡¤ËÄĞÇ
+checkitemw ÁúÇú´´ÊÀ¶Ü¡¤ÎåĞÇ
+checkitemw ÁúÇú´´ÊÀ¶Ü¡¤ÁùĞÇ
+checkitemw ÁúÇú´´ÊÀ¶Ü¡¤ÆßĞÇ
+checkitemw ÁúÇú´´ÊÀ¶Ü¡¤°ËĞÇ
+checkitemw ÁúÇú´´ÊÀ¶Ü¡¤¾ÅĞÇ
+checkitemw ÖÕ¼«¶ÜÅÆ
+#act
+SetIcon 0 29 1260 0 30 12 0 100 0
+break
+}

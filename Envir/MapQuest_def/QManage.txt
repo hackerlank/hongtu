@@ -1,0 +1,1904 @@
+[@Startup]
+#IF
+small G450 1
+#ACT
+MOV G450 200000
+
+
+#IF
+#ACT
+VAR Integer GLOBAL 首沙天数
+LOADVAR GLOBAL 首沙天数 ..\QuestDiary\首沙倒计时.txt
+
+#IF
+#act
+MAPEFFECT OBJ34	19	32 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ38	86	118 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ39	19	26 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ40	121	23 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ41	31	135 15 48 10 -1 200 0 0 
+MAPEFFECT zhumayi	120	29 15 48 10 -1 200 0 0 
+MAPEFFECT zhumaer	11	41 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ46	8	83 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ47	23	56 15 48 10 -1 200 0 0 
+MAPEFFECT OBJHL	87	41 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ53	11	72 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ58	16	102 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ58	125	29 15 48 10 -1 200 0 0 
+MAPEFFECT OBJ59	12	15 15 48 10 -1 200 0 0 
+MAPEFFECT bsr01 39 115 15 48 10 -1 200 0 0 
+MAPEFFECT bsr02 26 24 15 48 10 -1 200 0 0 
+MAPEFFECT bsr02 282 276 15 48 10 -1 200 0 0 
+MAPEFFECT XC1 141 27 15 48 10 -1 200 0 0 
+MAPEFFECT XC1 285 165 15 48 10 -1 200 0 0 
+MAPEFFECT XC1 16 146 15 48 10 -1 200 0 0 
+MAPEFFECT YGSD3 267 38 15 48 10 -1 200 0 0 
+MAPEFFECT hsdx1 14 84 15 48 10 -1 200 0 0 
+MAPEFFECT HSDX2 208 240 15 48 10 -1 200 0 0 
+MAPEFFECT HSDX2 11 71 15 48 10 -1 200 0 0 
+
+[@Login]
+#IF
+CHECKLEVELEX > 0
+#ACT
+VAR Integer HUMAN 每日充值
+VAR String HUMAN 记录宏图古币
+VAR String HUMAN 押注记录
+LOADVAR HUMAN 押注记录 ..\QuestDiary\数据文件\押注记录.txt
+LOADVAR HUMAN 记录宏图古币 ..\QuestDiary\数据文件\记录古币.txt
+#CALL [\数据文件\二级密码\二级密码.txt] @登录检测
+#CALL [\游戏登陆\登陆脚本.txt] @登陆设置
+#CALL [\游戏登陆\按钮检测.txt] @开始按钮检测
+#CALL [\封号系统\封号更改.txt] @封号更改A
+set [21] 0
+PLAYMAGICBALLEFFECT 9 0 14 150 -1 0 1 0 -5 -6
+PLAYMAGICBALLEFFECT 9 20 14 150 -1 1 1 0 -8 -6
+dec N22 255
+MOV N22 <$SCREENHEIGHT>
+ADDBUTTON 12 10 1164 1164 1164 -30 <$STR(N22)> 0 伤害吸收值:<$SUCKDAMAGEPOINT> 151/<$STR(T9)>\253/吸收上限:<$STR(u6)>点\253/每秒恢复:<$STR(u7)>点\254/每次吸收:<$STR(u8)>%伤害
+SETONTIMER 10 1
+
+
+#IF
+CheckHumInRange xtc 330 330 20
+#ACT
+MOVR P2 323 341
+MOVR P3 333 351
+mapmove xtc <$STR(P2)> <$STR(P3)>
+
+#IF
+CHECKPKPOINTEX  > 199
+#act
+mapmove xtc 839 668
+
+#IF
+CheckInWarArea
+ISCASTLEGUILD
+#ACT
+MOVR I50 643 648
+MOVR I51 287 292
+mapmove xtc <$STR(I50)> <$STR(I51)>
+
+
+#IF
+CHECKLEVELEX > 5
+#act
+SETONTIMER 1 1
+
+
+#IF
+CHECK [111] 1
+NOT ISONMAP <$USERNAME>防脱机
+EQUAL N$验证标记 0
+NOT ISONMAP xhw
+#ACT
+DelMirrorMap <$USERNAME>防脱机
+SET [111] 0
+INC U42 1
+MOV N$验证标记 1
+#CALL [\数据文件\防脱机\地图验证.txt] @上线验证地图脱机
+
+#IF
+EQUAL U45 0
+#ACT
+MOVR U45 2700 3600
+
+
+#IF
+CHECKNAMELIST ..\QuestDiary\解封账号.txt
+#ACT
+MOV U42 0
+MOV U43 0
+SET [111] 0
+mapmove xtc 330 330
+delnamelist ..\QuestDiary\解封账号.txt
+delnamelist ..\QuestDiary\脱机玩家.txt
+
+
+;====================================================================================
+;技能CD
+[@OnTimer19]
+#if
+large M93 0
+#act
+DEC M93 1
+#ELSEACT
+SETOFFTIMER 19
+break
+;技能CD
+[@OnTimer20]
+#if
+large M94 0
+#act
+DEC M94 1
+#ELSEACT
+SETOFFTIMER 20
+break
+;====================================================================================
+
+;永久计时器
+[@OnTimer10]
+#OR
+equal <$ARMRING_L> 新手血石
+equal <$ARMRING_L> 一级血石
+equal <$ARMRING_L> 二级血石
+equal <$ARMRING_L> 三级血石
+equal <$ARMRING_L> 四级血石
+equal <$ARMRING_L> 五级血石
+equal <$ARMRING_L> 终级血石
+#ACT
+TakeOffItem 5
+
+#OR
+equal <$ARMRING_R> 新手血石
+equal <$ARMRING_R> 一级血石
+equal <$ARMRING_R> 二级血石
+equal <$ARMRING_R> 三级血石
+equal <$ARMRING_R> 四级血石
+equal <$ARMRING_R> 五级血石
+equal <$ARMRING_R> 终级血石
+#ACT
+TakeOffItem 6
+
+
+#IF
+#ACT
+#CALL [\数据文件\血石加血.txt] @自动回血
+
+#IF
+CHECK [111] 1
+NOT ISONMAP <$USERNAME>防脱机
+NOT ISONMAP xhw
+SMALL U42 10
+#ACT
+DelMirrorMap <$USERNAME>防脱机
+SET [111] 0
+INC U42 1
+MOV N$验证标记 1
+#CALL [\数据文件\防脱机\地图验证.txt] @上线验证地图脱机
+
+#IF
+LARGE U45 0
+#ACT
+goto @脱机计算
+
+#IF
+LARGE U43 0
+CHECKNAMELIST ..\QuestDiary\脱机玩家.txt
+#ACT
+mov U43 1
+MAPMOVE xhw
+messagebox 【你被封号】\　　\如有疑问请联系管理员。
+
+#IF
+LARGE U42 9
+NOT ISONMAP xhw
+#ACT
+AddNAMELIST ..\QuestDiary\脱机玩家.txt
+MAPMOVE xhw
+messagebox 【游戏脱机记录达到10次，你的号已被冻结】\　　\如有疑问请联系管理员。
+
+#IF
+SMALL U45 10
+#ACT
+GOTO @脱机报警
+
+#IF
+EQUAL <$STR(U45)> 0
+#ACT
+MOVR U45 2700 3600
+#CALL [\数据文件\防脱机\地图验证.txt] @验证地图脱机
+
+#IF
+CheckSuckDamage < <$STR(u6)>
+#ACT
+MOV U5 <$SUCKDAMAGEPOINT>
+inc U5 <$STR(u7)>
+SETSUCKDAMAGE = <$STR(u5)> <$STR(u8)>0 100
+MOV N22 <$SCREENHEIGHT>
+dec N22 255
+ADDBUTTON 12 10 1164 1164 1164 -30 <$STR(N22)> 0 伤害吸收值:<$SUCKDAMAGEPOINT> 151/<$STR(T9)>\253/吸收上限:<$STR(u6)>点\253/每秒恢复:<$STR(u7)>点\254/每次吸收:<$STR(u8)>%伤害
+
+#IF
+CheckSuckDamage > <$STR(u6)>
+#ACT
+MOV U5 <$STR(u6)>
+SETSUCKDAMAGE = <$STR(u5)> <$STR(u8)>0 100
+MOV N22 <$SCREENHEIGHT>
+dec N22 255
+ADDBUTTON 12 10 1164 1164 1164 -30 <$STR(N22)> 0 伤害吸收值:<$SUCKDAMAGEPOINT> 151/<$STR(T9)>\253/吸收上限:<$STR(u6)>点\253/每秒恢复:<$STR(u7)>点\254/每次吸收:<$STR(u8)>%伤害
+
+
+[@脱机计算]
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\防脱机\防脱机地图编号.txt <$MAP>
+#ACT
+DEC U45 1
+
+
+[@脱机报警]
+#IF
+CHECKTEXTLIST ..\QuestDiary\数据文件\防脱机\防脱机地图编号.txt <$MAP>
+#ACT
+SENDCENTERMSG 0 253 【脱机验证：<$STR(U45)>秒后出现，请做好准备。】 0 1
+
+
+[@OnTimer17]
+#IF
+CHECKLEVELEX > 79
+#ACT
+SetOffTimer 17
+break
+#IF
+NOT ISONMAP HLJY
+#ACT
+SetOffTimer 17
+break
+
+#IF
+CheckMapHumanCount HLJY > 15
+ISONMAP HLJY
+#ACT
+SendMsg 5 当前地图人数超过15人，经验停止！赶紧把闲杂人等清理出去！
+break
+
+#IF
+ISONMAP HLJY
+#ACT
+CHANGEEXP + 500000
+break
+
+
+
+
+;====================================================================================
+[@OnTimer1]
+
+#IF
+CHECKLEVELEX > 74
+#ACT
+SetOffTimer 1
+break
+
+#IF
+CheckOffline
+#ACT
+SetOffTimer 1
+break
+
+#IF
+check [109] 1
+#ACT
+CHANGEEXP + 20000
+break
+
+#IF
+check [108] 1
+#ACT
+CHANGEEXP + 15000
+break
+
+#IF
+check [107] 1
+#ACT
+CHANGEEXP + 14000
+break
+
+#IF
+check [106] 1
+#ACT
+CHANGEEXP + 13000
+break
+
+#IF
+check [105] 1
+#ACT
+CHANGEEXP + 11000
+break
+
+#IF
+check [100] 1
+#ACT
+CHANGEEXP + 10000
+break
+
+#IF
+CHECK [55] 1
+#ACT
+CHANGEEXP + 9000
+break
+
+#IF
+#ACT
+CHANGEEXP + 8000
+break
+
+
+
+
+;====================================================================================
+
+[@天天跑酷]
+#if
+check [80] 0
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><天天跑酷/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><13000元宝/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示天天跑酷><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT>　　　<PlayImg:52:8:2:150:0:0:1><参加天天跑酷·√/@进入天天跑酷>\
+
+[@提示天天跑酷]
+#IF
+#ACT
+SET [80] 1
+Close
+CloseBigDialogBox
+break
+
+[@进入天天跑酷]
+#IF
+EQUAL A431 开启
+#ACT
+KILLMONBURSTRATE 20140220 20140221 100 20140223 20140224 20140225 20140226 99999 20140227 20140228
+Mapmove TTPK 286 279
+GuildNoticeMsg 191 150 跑酷爱好者{「<$USERNAME>」|4:150:1}参加了[天天跑酷]活动，前三名奖励丰富哦！
+GuildNoticeMsg 191 150 跑酷爱好者{「<$USERNAME>」|4:150:1}参加了[天天跑酷]活动，前三名奖励丰富哦！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，天天跑酷活动现在是:[关闭状态]！
+
+
+[@保护RMB]
+#if
+check [81] 0
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><保护RMB/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><5-20元RMB/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示保护RMB><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT>　　　<PlayImg:52:8:2:150:0:0:1><参加保护.RMB·√/@进入保护RMB>\
+
+[@提示保护RMB]
+#IF
+#ACT
+SET [81] 1
+Close
+CloseBigDialogBox
+break
+
+
+[@进入保护RMB]
+#IF
+EQUAL A432 开启
+#ACT
+KILLMONBURSTRATE 20140220 20140221 100 20140223 20140224 20140225 20140226 99999 20140227 20140228
+MOVR P2 12 33
+MOVR P3 10 33
+Mapmove ND5071 <$STR(P2)> <$STR(P3)>
+GuildNoticeMsg 191 150 玛珐勇士{「<$USERNAME>」|4:150:1}参加了[保护RMB]活动，成功保护5分钟奖励5-20元RMB！
+GuildNoticeMsg 191 150 玛珐勇士{「<$USERNAME>」|4:150:1}参加了[保护RMB]活动，成功保护5分钟奖励5-20元RMB！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，保护RMB活动现在是:[关闭状态]！
+
+[@最强王者]
+#if
+check [82] 0
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><最强王者/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><最强王者功勋/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示最强王者><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT>　　　<PlayImg:52:8:2:150:0:0:1><参加最强王者·√/@进入最强王者>\
+
+[@提示最强王者]
+#IF
+#ACT
+SET [82] 1
+Close
+CloseBigDialogBox
+break
+
+[@进入最强王者]
+#IF
+EQUAL A433 开启
+#ACT
+KILLMONBURSTRATE 20140220 20140221 100 20140223 20140224 20140225 20140226 99999 20140227 20140228
+MOVR P2 12 33
+MOVR P3 10 33
+MapMOVE ZQWZ <$STR(P2)> <$STR(P3)>
+GuildNoticeMsg 191 150 玛珐勇士{「<$USERNAME>」|4:150:1}参加了[最强王者]活动，成功拥有8分钟奖励最强王者功勋！
+GuildNoticeMsg 191 150 玛珐勇士{「<$USERNAME>」|4:150:1}参加了[最强王者]活动，成功拥有8分钟奖励最强王者功勋！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，最强王者活动现在是:[关闭状态]！
+
+
+[@海量经验]
+#if
+check [83] 0
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><海量经验/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><每秒200万经验/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示海量经验><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT>　　　<PlayImg:52:8:2:150:0:0:1><参加海量经验·√/@进入海量经验>\
+
+[@提示海量经验]
+#IF
+#ACT
+SET [83] 1
+Close
+CloseBigDialogBox
+break
+
+
+[@进入海量经验]
+#IF
+EQUAL A435 开启
+#ACT
+KILLMONBURSTRATE 20140220 20140221 100 20140223 20140224 20140225 20140226 99999 20140227 20140228
+SETONTIMER 17 1
+MOVR P2 12 33
+MOVR P3 10 33
+MapMOVE HLJY <$STR(P2)> <$STR(P3)>
+GuildNoticeMsg 191 150 玛珐勇士{「<$USERNAME>」|4:150:1}参加了[海量经验]活动，每秒获得50万经验，拥有BUFF可增加200W经验！
+GuildNoticeMsg 191 150 玛珐勇士{「<$USERNAME>」|4:150:1}参加了[海量经验]活动，每秒获得50万经验，拥有BUFF可增加200W经验！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，海量经验活动现在是:[关闭状态]！
+
+[@超级对战]
+#if
+check [84] 0
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><超级对战/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><每秒50W经验+8元宝+进地图优惠80%/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示超级对战><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT>　　　<PlayImg:52:8:2:150:0:0:1><参加超级对战·√/@进入超级对战>\
+
+[@提示超级对战]
+#IF
+#ACT
+SET [84] 1
+Close
+CloseBigDialogBox
+break
+
+
+[@进入超级对战]
+#IF
+NOT HAVEGUILD
+#ACT
+MESSAGEBOX \\你最少加入个行会在来吧！
+break
+
+#IF
+EQUAL A437 开启
+#ACT
+KILLMONBURSTRATE 20140220 20140221 100 20140223 20140224 20140225 20140226 99999 20140227 20140228
+MOVR P2 12 33
+MOVR P3 10 33
+MapMOVE CJDZ <$STR(P2)> <$STR(P3)>
+SETONTIMER 9 1
+GuildNoticeMsg 191 150 行会成员{「<$USERNAME>」|4:150:1}参加了[超级对战]活动，大量财宝经验等你们来拿！
+GuildNoticeMsg 191 150 行会成员{「<$USERNAME>」|4:150:1}参加了[超级对战]活动，大量财宝经验等你们来拿！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，超级对战活动现在是:[关闭状态]！
+
+[@BOSS来袭]
+#if
+check [85] 0
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><BOSS来袭/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><大量装备，终极装备/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示BOSS来袭><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT>　　　<PlayImg:52:8:2:150:0:0:1><参加BOSS来袭·√/@进入BOSS来袭>\
+
+[@提示BOSS来袭]
+#IF
+#ACT
+SET [85] 1
+Close
+CloseBigDialogBox
+break
+
+[@进入BOSS来袭]
+#IF
+EQUAL A438 开启
+#ACT
+KILLMONBURSTRATE 20140220 20140221 100 20140223 20140224 20140225 20140226 99999 20140227 20140228
+MOVR P2 12 33
+MOVR P3 10 33
+MapMOVE BSLX <$STR(P2)> <$STR(P3)>
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[BOSS来袭]活动，携带大量宝物的BOSS已经复活！
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[BOSS来袭]活动，携带大量宝物的BOSS已经复活！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，超级对战活动现在是:[关闭状态]！
+
+
+
+[@四大城主]
+#if
+check [86] 0
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><四大城主/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><10-50元RMB/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示四大城主><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT>　　　<PlayImg:52:8:2:150:0:0:1><参加四大城主·√/@进入四大城主>\
+
+[@提示四大城主]
+#IF
+#ACT
+SET [86] 1
+Close
+CloseBigDialogBox
+break
+
+[@进入四大城主]
+#OR
+CheckMapSameMonCount 3 盟重城主 > 0
+CheckMapSameMonCount 0 比奇城主 > 0
+CheckMapSameMonCount 4 封魔城主 > 0
+CheckMapSameMonCount 5 苍月城主 > 0
+#ACT
+SendMsg 6 后生：我只能悄悄的告诉你坐标【<$STR(A21)>：<$STR(G22)>,<$STR(G23)>】现在还未杀死！请抓紧时间！
+break
+
+#IF
+#ACT
+MESSAGEBOX \\传送失败！四大城主BOSS已经被击杀！
+break
+
+
+[@激情树妖]
+#if
+check [87] 0
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><激情树妖/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><100-200元RMB/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示四大城主><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT>　　　<PlayImg:52:8:2:150:0:0:1><参加激情树妖·√/@进入激情树妖>\
+
+[@提示激情树妖]
+#IF
+#ACT
+SET [87] 1
+Close
+CloseBigDialogBox
+break
+
+[@进入激情树妖]
+#IF
+CheckMapSameMonCount 3 激情树妖 > 0
+#ACT
+mapmove xtc 647 291
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[激情树妖]活动，击杀必爆１００—２００RMB！
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[激情树妖]活动，击杀必爆１００—２００RMB！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，激情树妖已经被击杀！
+
+[@fwewffsdf]
+#ACT
+TakeOffItem 0
+TakeOffItem 1
+TakeOffItem 2
+TakeOffItem 3
+TakeOffItem 4
+TakeOffItem 5
+TakeOffItem 6
+TakeOffItem 7
+TakeOffItem 8
+TakeOffItem 9
+TakeOffItem 10
+TakeOffItem 11
+TakeOffItem 12
+TakeOffItem 13
+TakeOffItem 14
+TakeOffItem 15
+TakeOffItem 16
+GmExeCute 清理垃圾 Self
+
+[@OnTimer4]
+#IF
+EQUAL A432 开启
+ISONMAP ND5071
+Checkitem RMB 1
+LARGE M60 300
+#ACT
+SetOffTimer 4
+SetOffTimer 5
+MOV M60 0
+TAKE RMB 1
+GETRANDOMLINETEXT ..\QuestDiary\数据文件\活动详细\保护RMB奖励.txt <$STR(S0)>
+GIVE <$STR(S0)>
+MOV A432 关闭
+#CALL [\封号系统\封号更改.txt] @封号更改A
+GuildNoticeMsg 251 241 〖%S〗获得了本届“保护RMB”活动的胜利者，获得奖励<$STR(S0)>！
+GuildNoticeMsg 251 241 〖%S〗获得了本届“保护RMB”活动的胜利者，获得奖励<$STR(S0)>！
+GuildNoticeMsg 251 241 〖%S〗获得了本届“保护RMB”活动的胜利者，获得奖励<$STR(S0)>！
+GuildNoticeMsg 251 241 〖%S〗获得了本届“保护RMB”活动的胜利者，获得奖励<$STR(S0)>！
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+Gmexecute 开始提问 @活动结束
+MESSAGEBOX \\本次活动圆满结束，请期待下次活动！
+BREAK
+
+#IF
+small M60 301
+EQUAL A432 开启
+checkitem RMB 1
+ISONMAP ND5071
+#ACT
+INC M60 1
+PLAYEFFECT 25 328 10 1 100
+GuildNoticeMsg 251 241 “<$USERNAME>”当前位置：%m的(%x：%y)★已成功保护[<$STR(M60)>]秒,保护300秒获胜 Map
+BREAK
+#ELSEACT
+#CALL [\封号系统\封号更改.txt] @封号更改A
+SetOffTimer 4
+SetOffTimer 5
+BREAK
+
+[@OnTimer5]
+#IF
+EQUAL A432 开启
+checkitem RMB 1
+ISONMAP ND5071
+#ACT
+SendCenterMsg 251 241 “<$USERNAME>”携带RMB位置：%m的(%x：%y)已成功保护[<$STR(M60)>]秒。 1 10
+SendCenterMsg 251 241 “<$USERNAME>”携带RMB位置：%m的(%x：%y)已成功保护[<$STR(M60)>]秒。 1 10
+BREAK
+
+[@OnTimer6]
+#IF
+LARGE M61 480
+EQUAL A433 开启
+EQUAL A434 <$USERNAME>
+ISONMAP ZQWZ
+#ACT
+SetOffTimer 6
+SetOffTimer 7
+GiveStateItem 最强王者功勋 1 1 1 0 1 1 1 1
+MOV A8 <$USERNAME>
+GuildNoticeMsg 251 241 〖%S〗获得了本届“最强王者”活动的胜利者，获得奖励【最强王者功勋】！
+GuildNoticeMsg 251 241 〖%S〗获得了本届“最强王者”活动的胜利者，获得奖励【最强王者功勋】！
+GuildNoticeMsg 251 241 〖%S〗获得了本届“最强王者”活动的胜利者，获得奖励【最强王者功勋】！
+GuildNoticeMsg 251 241 〖%S〗获得了本届“最强王者”活动的胜利者，获得奖励【最强王者功勋】！
+MOV M61 0
+MOV A433 关闭
+MOV A434 
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+Gmexecute 开始提问 @活动结束
+MESSAGEBOX \\本次活动圆满结束，请期待下次活动！
+BREAK
+
+#IF
+small M61 481
+EQUAL A433 开启
+EQUAL A434 <$USERNAME>
+ISONMAP ZQWZ
+#ACT
+INC M61 1
+SHOWPHANTOM 1 1 1 1 1 30 1 1 1 1 
+PLAYEFFECT 25 328 10 1 100
+SendCenterMsg 251 241 “<$USERNAME>”当前坐标：(%x：%y)★成功拥有BUFF[<$STR(M61)>]秒,保护480秒获胜 4 1
+BREAK
+#ELSEACT
+SetOffTimer 6
+SetOffTimer 7
+ChangeHumAbility 2 = 0
+ChangeHumAbility 4 = 0
+GuildNoticeMsg 251 241 BUFF获得者〖{%S|227:0:1}〗已经[{逃跑|223:0:1}]，活动已经提前结束！
+GuildNoticeMsg 251 241 BUFF获得者〖{%S|227:0:1}〗已经[{逃跑|223:0:1}]，活动已经提前结束！
+GuildNoticeMsg 251 241 BUFF获得者〖{%S|227:0:1}〗已经[{逃跑|223:0:1}]，活动已经提前结束！
+GuildNoticeMsg 251 241 BUFF获得者〖{%S|227:0:1}〗已经[{逃跑|223:0:1}]，活动已经提前结束！
+Gmexecute 开始提问 @逃跑结束
+BREAK
+
+[@OnTimer7]
+#IF
+EQUAL A433 开启
+EQUAL A434 <$USERNAME>
+ISONMAP ZQWZ
+#ACT
+HUMANHP + 100
+HUMANMP + 100
+BREAK
+
+[@OnTimer8]
+#IF
+CHECKLEVELEX < 75
+large G433 0
+EQUAL A436 <$USERNAME>
+ISONMAP HLJY
+#ACT
+DEC G433 1
+CHANGEEXP + 2000000
+SHOWPHANTOM 1 1 1 1 1 30 1 1 1 1 
+PLAYEFFECT 25 328 10 1 100
+SendCenterMsg 251 241 “<$USERNAME>”当前坐标：(%x：%y)★经验BUFF剩余[<$STR(G433)>]秒结束 4 1
+BREAK
+
+#IF
+CHECKLEVELEX < 80
+CHECKLEVELEX > 74
+large G433 0
+EQUAL A436 <$USERNAME>
+ISONMAP HLJY
+#ACT
+DEC G433 1
+CHANGEEXP + 500000
+SHOWPHANTOM 1 1 1 1 1 30 1 1 1 1 
+PLAYEFFECT 25 328 10 1 100
+SendCenterMsg 251 241 “<$USERNAME>”当前坐标：(%x：%y)★经验BUFF剩余[<$STR(G433)>]秒结束 4 1
+BREAK
+
+
+#IF
+small G433 1
+EQUAL A436 <$USERNAME>
+ISONMAP HLJY
+#ACT
+SetOffTimer 8
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MOV A435 关闭
+MOV A436 
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+Gmexecute 开始提问 @活动结束
+MESSAGEBOX \\本次活动圆满结束，请期待下次活动！
+BREAK
+#ELSEACT
+SetOffTimer 8
+GuildNoticeMsg 251 241 经验BUFF获得者〖{%S|227:0:1}〗已经[{逃跑|223:0:1}]，活动已经提前结束！
+GuildNoticeMsg 251 241 经验BUFF获得者〖{%S|227:0:1}〗已经[{逃跑|223:0:1}]，活动已经提前结束！
+GuildNoticeMsg 251 241 经验BUFF获得者〖{%S|227:0:1}〗已经[{逃跑|223:0:1}]，活动已经提前结束！
+GuildNoticeMsg 251 241 经验BUFF获得者〖{%S|227:0:1}〗已经[{逃跑|223:0:1}]，活动已经提前结束！
+Gmexecute 开始提问 @逃跑结束
+BREAK
+
+[@添加行会]
+#IF
+NOT CHECKGUILDLIST ..\QuestDiary\数据文件\活动详细\超级对战行会.txt
+#ACT
+ADDGUILDLIST ..\QuestDiary\数据文件\活动详细\超级对战行会.txt
+
+[@OnTimer9]
+#IF
+ISONMAP CJDZ
+large G434 2
+MapHumIsSameGuild 1
+#ACT
+goto @添加行会
+
+
+#IF
+CHECKLEVELEX < 75
+ISONMAP CJDZ
+large G434 2
+MapHumIsSameGuild 1
+ISGUILDMASTER
+#ACT
+GAMEGOLD + 8
+CHANGEEXP + 500000
+break
+
+#IF
+CHECKLEVELEX < 75
+ISONMAP CJDZ
+large G434 2
+MapHumIsSameGuild 1
+HAVEGUILD
+#ACT
+GAMEGOLD + 5
+CHANGEEXP + 300000
+break
+
+#IF
+CHECKLEVELEX < 80
+CHECKLEVELEX > 74
+ISONMAP CJDZ
+large G434 2
+MapHumIsSameGuild 1
+ISGUILDMASTER
+#ACT
+GAMEGOLD + 8
+CHANGEEXP + 250000
+break
+
+#IF
+CHECKLEVELEX < 80
+CHECKLEVELEX > 74
+ISONMAP CJDZ
+large G434 2
+MapHumIsSameGuild 1
+HAVEGUILD
+#ACT
+GAMEGOLD + 5
+CHANGEEXP + 150000
+break
+
+
+#IF
+ISONMAP CJDZ
+#ACT
+break
+#ELSEACT
+SetOffTimer 9
+BREAK
+[@tichuxiazai]
+#IF
+EQUAL A400 <$USERNAME>
+#ACT
+KICK
+BREAK
+
+;====================================================================================
+[@逃跑结束]
+#IF
+EQUAL A436 <$USERNAME>
+#ACT
+MOV A435 关闭
+MOV A436 
+MOV G433 0
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+ISONMAP HLJY
+#ACT
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+MESSAGEBOX \\[海量经验]活动已结束，请期待下次活动！
+break
+
+#IF
+EQUAL A434 <$USERNAME>
+#ACT
+MOV A433 关闭
+MOV A434 
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+#IF
+ISONMAP ZQWZ
+#ACT
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+MESSAGEBOX \\[最强王者]活动已结束，请期待下次活动！
+break
+
+[@活动结束]
+#IF
+CHECKITEMW 最强王者功勋
+NOT EQUAL A8 <$USERNAME>
+#ACT
+TakeOffItem 36
+TAKE 最强王者功勋 42
+
+#IF
+NOT EQUAL A8 <$USERNAME>
+#ACT
+TAKE 最强王者功勋 42
+
+#IF
+ISONMAP BSLX
+#ACT
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+MESSAGEBOX \\[超级对战]活动已结束，请期待下次活动！
+break
+
+#IF
+ISONMAP CJDZ
+#ACT
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+MESSAGEBOX \\[超级对战]活动已结束，请期待下次活动！
+break
+
+#IF
+ISONMAP HLJY
+#ACT
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+MESSAGEBOX \\[海量经验]活动已结束，请期待下次活动！
+break
+
+#IF
+ISONMAP ZQWZ
+#ACT
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+MESSAGEBOX \\[最强王者]活动已结束，请期待下次活动！
+break
+
+#IF
+ISONMAP ND5071
+#ACT
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+MESSAGEBOX \\[保护RMB]活动已结束，请期待下次活动！
+break
+#IF
+ISONMAP TTPK
+#ACT
+MOVR P2 322 338
+MOVR P3 322 338
+mapmove xtc <$STR(P2)> <$STR(P3)>
+MESSAGEBOX \\[天天跑酷]活动已结束，请期待下次活动！
+break
+
+
+[@风雷召唤]
+#IF
+equal <$USERNAME> <$STR(A98)>
+#ACT
+BREAK
+
+#IF
+HaveGuild
+CheckOfGuild <$STR(A99)>
+#Act
+OPENMERCHANTBIGDLG 0 1492 1 4 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT>\
+　\
+　\
+　你的同门师兄弟【<$STR(A98)>】在〖<$STR(A97)>〗需要帮助！\
+　\
+　　　　你是否愿意前往？\
+　\
+　\
+　　　　　　<前往帮助/@风雷召唤_1>　　　　　　<不前往帮助/@EXIT>\
+#ACT
+mov S33 <$STR(A98)>
+BREAK
+
+[@风雷召唤_1]
+#OR
+s33.isonmap new0150
+s33.isonmap ygfx3
+#act
+set [21] 1
+SETONTIMER 12 1
+messagebox 对方所在地图无法帮助！
+break
+
+
+#IF
+HaveGuild
+CheckOfGuild <$STR(A99)>
+#ACT
+set [21] 1
+SETONTIMER 12 1
+Gmexecute GZ <$STR(A98)>
+MOV T19 <$MAP>
+BREAK
+
+
+;====================================================================================
+
+[@OnTimer12]
+#IF
+CHECKMAPNAME <$STR(T19)>
+#ACT
+#ELSEACT
+set [21] 0
+SetOffTimer 12
+break
+
+;========================================
+
+[@会员随身]
+#ACT
+SendCenterMsg 251 249 恭喜会员玩家[<$USERNAME>]开启了随身泡点服务！ 1 5
+SETONTIMER 18 1
+
+;====================================================================================
+[@OnTimer30]
+#IF
+ISONMAP wyzz3
+CHECKGAMEGOLD > 10
+#ACT
+GAMEGOLD - 10
+BREAK
+
+#IF
+ISONMAP Fditu3
+CHECKGAMEGOLD > 10
+#ACT
+GAMEGOLD - 10
+BREAK
+
+#IF
+ISONMAP Gditu3
+CHECKGAMEGOLD > 10
+#ACT
+GAMEGOLD - 10
+BREAK
+
+#IF
+ISONMAP OBJ48+49
+CHECKGAMEGOLD > 20
+#ACT
+GAMEGOLD - 20
+BREAK
+
+
+#IF
+ISONMAP Hditu1
+CHECKGAMEGOLD > 20
+#ACT
+GAMEGOLD - 20
+BREAK
+
+
+
+#IF
+ISONMAP pmd1
+CHECKGAMEGOLD > 20
+#ACT
+GAMEGOLD - 20
+BREAK
+
+#IF
+ISONMAP OBJML
+CHECKGAMEGOLD > 20
+#ACT
+GAMEGOLD - 20
+BREAK
+
+#IF
+ISONMAP pmd2
+CHECKGAMEGOLD > 20
+#ACT
+GAMEGOLD - 20
+BREAK
+
+#IF
+ISONMAP Hditu2
+CHECKGAMEGOLD > 20
+#ACT
+GAMEGOLD - 20
+BREAK
+
+#IF
+ISONMAP OBJ54
+CHECKGAMEGOLD > 20
+#ACT
+GAMEGOLD - 20
+BREAK
+
+#IF
+ISONMAP OBJ60
+CHECKGAMEGOLD > 30
+#ACT
+GAMEGOLD - 30
+BREAK
+
+
+#IF
+ISONMAP tmd1
+CHECKGAMEGOLD > 20
+#ACT
+GAMEGOLD - 20
+BREAK
+
+#IF
+ISONMAP tmd2
+CHECKGAMEGOLD > 30
+#ACT
+GAMEGOLD - 30
+BREAK
+
+
+#IF
+ISONMAP OBJ56
+CHECKGAMEGOLD > 50
+CHECKGAMEDIAMOND > 2
+#ACT
+GAMEGOLD - 50
+GAMEDIAMOND - 2
+BREAK
+
+#IF
+ISONMAP OBJ55
+CHECKGAMEGOLD > 60
+CHECKGAMEDIAMOND > 2
+#ACT
+GAMEGOLD - 60
+GAMEDIAMOND - 2
+BREAK
+
+#IF
+ISONMAP 47
+CHECKGAMEGOLD > 60
+CHECKGAMEDIAMOND > 2
+#ACT
+GAMEGOLD - 60
+GAMEDIAMOND - 2
+BREAK
+
+#IF
+ISONMAP 46
+CHECKGAMEGOLD > 100
+CHECKGAMEDIAMOND > 2
+#ACT
+GAMEGOLD - 100
+GAMEDIAMOND - 2
+BREAK
+
+#IF
+ISONMAP hkdt3
+CHECKGAMEGOLD > 50
+CHECKGAMEDIAMOND > 2
+#ACT
+GAMEGOLD - 50
+GAMEDIAMOND - 2
+BREAK
+
+
+#IF
+ISONMAP hkdt4
+CHECKGAMEGOLD > 60
+CHECKGAMEDIAMOND > 1
+#ACT
+GAMEGOLD - 60
+GAMEDIAMOND - 2
+BREAK
+
+#OR
+ISONMAP wyzz3
+ISONMAP OBJ48+49
+ISONMAP OBJML
+ISONMAP OBJ54
+ISONMAP tmd1
+ISONMAP tmd2
+ISONMAP OBJ60
+ISONMAP OBJ56
+ISONMAP OBJ55
+ISONMAP 47
+ISONMAP 46
+ISONMAP hkdt3
+ISONMAP hkdt4
+ISONMAP Fditu3
+ISONMAP Gditu3
+ISONMAP pmd1
+ISONMAP pmd2
+ISONMAP Hditu1
+ISONMAP Hditu2
+#ACT
+SetOffTimer 30
+MOVR P2 323 338
+MOVR P3 324 339
+mapmove xtc <$STR(P2)> <$STR(P3)>
+MESSAGEBOX \\对不起您元宝或宏图古币不足，将您送回土城
+break
+
+
+#if
+CheckInMapRange xtc 330 330 200
+#act
+KILLCALLMOB 飞翔的蛋超人 10
+KILLCALLMOB 破壳的皱蛋超人★ 10
+KILLCALLMOB 小学生蛋超人★★ 10
+KILLCALLMOB 爱运动的蛋超人★★★ 10
+KILLCALLMOB 双枪蛋超人★ 10
+KILLCALLMOB 神算子蛋超人★★ 10
+KILLCALLMOB 神算子蛋超人★★★ 10
+KILLCALLMOB 魔术师蛋超人★ 10
+KILLCALLMOB 魔术师蛋超人★★ 10
+KILLCALLMOB 魔术师蛋超人★★★ 10
+KILLCALLMOB 忍者蛋超人★ 10
+KILLCALLMOB 忍者蛋超人★★ 10
+KILLCALLMOB 忍者蛋超人★★★ 10
+KILLCALLMOB 冯程程蛋超人★ 10
+KILLCALLMOB 冯程程蛋超人★★ 10
+KILLCALLMOB 终极暗影蛋超人★★★ 10
+
+#if
+ISONMAP bbjx
+#act
+KILLCALLMOB 飞翔的蛋超人 10
+KILLCALLMOB 破壳的皱蛋超人★ 10
+KILLCALLMOB 小学生蛋超人★★ 10
+KILLCALLMOB 爱运动的蛋超人★★★ 10
+KILLCALLMOB 双枪蛋超人★ 10
+KILLCALLMOB 神算子蛋超人★★ 10
+KILLCALLMOB 神算子蛋超人★★★ 10
+KILLCALLMOB 魔术师蛋超人★ 10
+KILLCALLMOB 魔术师蛋超人★★ 10
+KILLCALLMOB 魔术师蛋超人★★★ 10
+KILLCALLMOB 忍者蛋超人★ 10
+KILLCALLMOB 忍者蛋超人★★ 10
+KILLCALLMOB 忍者蛋超人★★★ 10
+KILLCALLMOB 冯程程蛋超人★ 10
+KILLCALLMOB 冯程程蛋超人★★ 10
+KILLCALLMOB 终极暗影蛋超人★★★ 10
+
+
+
+[@OnTimer87]
+#IF
+checklevelex > 34
+#ACT
+SETONTIMER 88 5
+SetOffTimer 87
+BREAK
+
+#IF
+IsOnMap OBJ42+43
+checklevelex < 35
+#ACT
+DUMMYSTART
+BREAK
+
+#IF
+IsOnMap 3
+checklevelex < 35
+#ACT
+mapmove OBJ42+43 55 154
+DUMMYSTART
+BREAK
+
+
+
+
+[@新人传送A]
+#IF
+#ACT
+mapmove OBJ42+43 55 154
+DUMMYSTART
+BREAK
+
+[@给予变量值]
+#if
+#act
+MOV <$STR(A65)> <$STR(G65)>
+MOV A65
+MOV G65 0
+BREAK
+
+[@每日充值清除]
+#IF
+NOT EQUAL G70 <$STR(U3)>
+#ACT
+MOV U3 <$STR(G70)>
+MOV U2 0
+TakeOffItem 13
+TAKE 乾坤斗笠(限时) 42
+set [51] 0
+set [52] 0
+set [53] 0
+set [54] 0
+set [70] 0
+set [71] 0
+set [72] 0
+set [73] 0
+set [74] 0
+set [75] 0
+set [76] 0
+set [77] 0
+set [78] 0
+set [79] 0
+
+
+
+[@开始每日清除]
+#IF
+dayofweek sun
+check [11] 0
+#ACT
+set [11] 1
+set [12] 0
+set [13] 0
+set [14] 0
+set [15] 0
+set [16] 0
+set [17] 0
+MOV U22 0
+break
+#IF
+dayofweek mon
+check [12] 0
+#ACT
+set [11] 0
+set [12] 1
+set [13] 0
+set [14] 0
+set [15] 0
+set [16] 0
+set [17] 0
+MOV U22 0
+break
+#IF
+dayofweek tue
+check [13] 0
+#ACT
+set [11] 0
+set [12] 0
+set [13] 1
+set [14] 0
+set [15] 0
+set [16] 0
+set [17] 0
+MOV U22 0
+break
+#IF
+dayofweek wed
+check [14] 0
+#ACT
+set [11] 0
+set [12] 0
+set [13] 0
+set [14] 1
+set [15] 0
+set [16] 0
+set [17] 0
+MOV U22 0
+break
+#IF
+dayofweek thu
+check [15] 0
+#ACT
+set [11] 0
+set [12] 0
+set [13] 0
+set [14] 0
+set [15] 1
+set [16] 0
+set [17] 0
+MOV U22 0
+break
+#IF
+dayofweek fri
+check [16] 0
+#ACT
+set [11] 0
+set [12] 0
+set [13] 0
+set [14] 0
+set [15] 0
+set [16] 1
+set [17] 0
+MOV U22 0
+break
+#IF
+dayofweek sat
+check [17] 0
+#ACT
+set [11] 0
+set [12] 0
+set [13] 0
+set [14] 0
+set [15] 0
+set [16] 0
+set [17] 1
+MOV U22 0
+break
+
+[@封号全改]
+#IF
+#ACT
+#CALL [\封号系统\封号更改.txt] @封号更改A
+break
+
+[@LoadGuild]
+#IF
+#ACT
+
+
+
+;--------------------------------------------------------
+[@系统自动加元宝卷]
+#IF
+checkitem 10元宝 1
+#ACT
+take 10元宝 1
+GAMEGOLD + 10
+SendMsg 6 增加元宝10个
+BREAK
+
+#IF
+checkitem 20元宝 1
+#ACT
+take 20元宝 1
+GAMEGOLD + 20
+SendMsg 6 增加元宝20个
+BREAK
+
+#IF
+checkitem 50元宝 1
+#ACT
+take 50元宝 1
+GAMEGOLD + 50
+SendMsg 6 增加元宝50个
+BREAK
+
+#IF
+checkitem 100元宝 1
+#ACT
+take 100元宝 1
+GAMEGOLD + 100
+SendMsg 6 增加元宝100个
+BREAK
+
+
+#IF
+checkitem 500元宝 1
+#ACT
+take 500元宝 1
+GAMEGOLD + 500
+SendMsg 6 增加元宝500个
+BREAK
+
+
+#IF
+checkitem 宏图古币+1 1
+#ACT
+take 宏图古币+1 1
+GAMEDIAMOND + 1
+SendMsg 6 增加宏图古币+1
+BREAK
+
+#IF
+checkitem 宏图古币+5 1
+#ACT
+take 宏图古币+5 1
+GAMEDIAMOND + 5
+SendMsg 6 增加宏图古币+5
+BREAK
+
+#IF
+checkitem 宏图古币+10 1
+#ACT
+take 宏图古币+10 1
+GAMEDIAMOND + 10
+SendMsg 6 增加宏图古币+10
+BREAK
+
+#IF
+checkitem 宏图古币+50 1
+#ACT
+take 宏图古币+50 1
+GAMEDIAMOND + 50
+SendMsg 6 增加宏图古币+50
+BREAK
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━新区活动开始
+[@OnTimer3]
+#if
+IsOnMap BBJX
+#act
+MAKEPOSION 5 2 10
+#elseact
+SetOffTimer 3
+BREAK
+
+[@步步惊心A]
+#IF
+CHECKLEVELEX > 50
+#ACT
+DelayCall 120000 ~关闭对话
+OPENMERCHANTBIGDLG  54 126 3 4 0 -120 1 435 35
+#say
+\ \ \ \ \ 
+　　<全天活动公告提示：/SCOLOR=87><本服24小时不间断活动 绝对给你激情  Ｈot~/SCOLOR=28>\
+
+　　<┌┄┐/SCOLOR=116> \
+　　<┆步┆/SCOLOR=116> <√活动说明：/SCOLOR=210>  <玩家进入指定地图满地装备元宝材料，只可随机捡取! /SCOLOR=253>\
+　　<┆步┆/SCOLOR=116> <√活动说明：/SCOLOR=210>  <玩家进入指定地图满地装备元宝材料，只可随机捡取!/SCOLOR=250>\
+　　<┆惊┆/SCOLOR=116> <√活动说明：/SCOLOR=210>  <玩家进入指定地图满地装备元宝材料，只可随机捡取!/SCOLOR=151>\
+　　<┆心┆/SCOLOR=116> <√活动说明：/SCOLOR=210>  <玩家进入指定地图满地装备元宝材料，只可随机捡取!/SCOLOR=254>\
+　　<└┄┘/SCOLOR=116>\
+
+　　　　　　　<活动中心：/SCOLOR=151>　<→/SCOLOR=103>　　<点击前往击步步惊心·√/@击杀1>　　\
+　　
+
+[@击杀1]
+#OR
+ISONMAP mima
+ISONMAP xhw
+#ACT
+MESSAGEBOX 你所以在地图为禁闭房,无法前往该活动。。
+BREAK
+
+
+#IF
+#ACT
+MAPMOVE bbjx
+SETONTIMER 3 1
+MAKEPOSION 5 2 10
+SendCenterMsg  116 0 玩家:[<$USERNAME>]前往步步惊心地图,满屏装备元宝等着他.... 1 1
+GuildNoticeMsg 5 255 玩家:[<$USERNAME>]邀请您一起前往步步惊心地图.
+break
+
+;------------------------------
+
+[@天降元宝A]
+#if
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><天降元宝/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><大量元宝奖励.90秒后可捡/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示天降元宝><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT> <PlayImg:52:8:2:150:0:0:1><参加天降元宝·√/@进入天降元宝>\
+
+
+[@进入天降元宝]
+#IF
+#ACT
+MapMOVE xtc 357 349
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[天降元宝]活动，90秒可可捡取大量的元宝！
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[天降元宝]活动，90秒可可捡取大量的元宝！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，超级对战活动现在是:[关闭状态]！
+
+;---------------------------------
+
+
+
+[@限量1]
+#IF
+CHECKLEVELEX > 50
+#ACT
+DelayCall 120000 ~关闭对话
+OPENMERCHANTBIGDLG  54 126 3 4 0 -120 1 435 35
+#say
+\ \ \ \ \ 
+　　<全天活动公告提示：/SCOLOR=87><本服24小时不间断活动 绝对给你激情  Ｈot~/SCOLOR=28>\
+
+　　<┌┄┐/SCOLOR=116> \
+　　<┆限┆/SCOLOR=116> <√活动说明：/SCOLOR=210>  <...限量BOSS·新区开放后每一个小时开放一次.../SCOLOR=253>\
+　　<┆量┆/SCOLOR=116> <√活动说明：/SCOLOR=210>  <...限量BOSS·新区开放后第五个小时活动关闭.../SCOLOR=250>\
+　　<┆BO┆/SCOLOR=116> <√活动奖励：/SCOLOR=210><击杀限量BOSS几率爆限时奖励装备,几率爆出终极装备/SCOLOR=151>\
+　　<┆SS┆/SCOLOR=116> <√活动奖励：/SCOLOR=210><击杀限量BOSS几率爆限时奖励装备,几率爆出终极装备/SCOLOR=254>\
+　　<└┄┘/SCOLOR=116>\
+
+　　　　　　　<活动中心：/SCOLOR=151>　<→/SCOLOR=103>　　<点击前往击杀BOSS·√/@击杀>　　\
+　　
+
+[@击杀]
+#OR
+ISONMAP mima
+ISONMAP 0156
+ISONMAP heiwu
+#ACT
+MESSAGEBOX 你所以在地图为禁闭房,无法前往该活动。。
+BREAK
+
+
+#IF
+#ACT
+MAPMOVE xtc 629 283
+SendCenterMsg  116 0 玩家:[<$USERNAME>]前往沙巴克击杀[大量·限量版BOSS]，此怪可爆本服终级装备.... 1 1
+GuildNoticeMsg 5 255 玩家:[<$USERNAME>]邀请您一起前往沙巴克击杀[大量·福利限量版BOSS].
+break
+
+;--------------------
+
+[@怪物偷袭A]
+#if
+check [84] 0
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><怪物偷袭/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><杀死怪物可获得大量元宝/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示怪物偷袭><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT> <PlayImg:52:8:2:150:0:0:1><参加怪物偷袭·√/@进入怪物偷袭>\
+
+[@进入怪物偷袭]
+#IF
+#ACT
+MapMOVE xtc 371 352
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[怪物偷袭]活动，大量财宝等你们来拿！
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[怪物偷袭]活动，大量财宝等你们来拿！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，超级对战活动现在是:[关闭状态]！
+
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━固定活动开始
+[@装备放送A]
+#if
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><装备大放送/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><大量装备，最高可爆出天罡/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示天降元宝><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT> <PlayImg:52:8:2:150:0:0:1><参加装备放送·√/@进入装备放送>\
+
+
+[@进入装备放送]
+#IF
+#ACT
+Map hzdt3
+SETONTIMER 30 1
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[装备放送]活动，最高可爆出天罡装备！
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[装备放送]活动，最高可爆出天罡装备！
+break
+
+
+
+[@狂欢放送A]
+#if
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><狂欢放送/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><大量特殊物品/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示天降元宝><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT> <PlayImg:52:8:2:150:0:0:1><参加狂欢放送·√/@进入狂欢放送>\
+
+
+[@进入狂欢放送]
+#IF
+#ACT
+Map hzdt2
+SETONTIMER 30 1
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[狂欢放送]活动，可爆出大量特殊物品！
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[狂欢放送]活动，可爆出大量特殊物品！
+break
+
+
+[@元宝狂暴A]
+#if
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><元宝狂暴/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><大量元宝/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示天降元宝><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT> <PlayImg:52:8:2:150:0:0:1><参加元宝狂暴·√/@进入元宝狂暴>\
+
+[@进入元宝狂暴]
+#IF
+#ACT
+Map hzdt1
+SETONTIMER 30 1
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[元宝狂暴]活动，可爆出大量元宝！
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[元宝狂暴]活动，可爆出大量元宝！
+break
+
+
+[@沙城霸主A]
+#if
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><沙城霸主/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><魔法盾，终极剑甲等/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示四大城主><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT> <PlayImg:52:8:2:150:0:0:1><参加沙城霸主·√/@进入沙城霸主>\
+
+
+
+[@进入沙城霸主]
+#IF
+CheckMapSameMonCount xtc 沙城妖龙→【沙城BOSS】 > 0
+#ACT
+MapMOVE xtc 647 291
+SETONTIMER 30 1
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[沙城霸主]活动，有几率爆出魔法盾，终极剑甲等！
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[沙城霸主]活动，有几率爆出魔法盾，终极剑甲等！
+break
+#ELSEACT
+MESSAGEBOX \\进入失败，沙城妖龙→【沙城BOSS】已经被击杀！
+
+
+
+;------------------------------------------------------------------------------------
+
+
+[@行会争霸]
+#if
+#act
+OPENMERCHANTBIGDLG 0 690 1 2 0 -260 0
+#say
+　　　　　活动提示框<Img:801:0:75:-12/@EXIT>\
+　 \
+<√活动名称：/SCOLOR=7><行会争霸/SCOLOR=70>\
+<√活动奖励：/SCOLOR=7><行会奖励/SCOLOR=70>\
+　 \
+<√是否提示：/SCOLOR=7> <Img:1031:12:-5:-3|点击关闭此活动每次提示^可在土城活动NPC处开启提示/@提示天降元宝><此活动关闭提示/SCOLOR=249>\
+　<Img:803:0:-150:4>\
+<我不去了·×/@EXIT> <PlayImg:52:8:2:150:0:0:1><参加行会争霸·√/@进入行会争霸>\
+
+[@进入行会争霸]
+#IF
+#ACT
+Map hhzb
+SETONTIMER 30 1
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[元宝狂暴]活动，可爆出大量元宝！
+GuildNoticeMsg 191 150 勇士{「<$USERNAME>」|4:150:1}参加了[元宝狂暴]活动，可爆出大量元宝！
+break
+
+
+[@加体力A]
+#OR
+ISONMAP Fditu1
+ISONMAP Fditu2
+ISONMAP Fditu3
+ISONMAP Gditu1
+ISONMAP Gditu2
+ISONMAP Hditu1
+ISONMAP Hditu2
+ISONMAP tmd1
+ISONMAP tmd2
+ISONMAP pmd1
+ISONMAP pmd2
+ISONMAP xtc
+ISONMAP xj1
+ISONMAP ygfx3
+ISONMAP huiyuan
+ISONMAP xdte
+ISONMAP OBJ33
+ISONMAP sldg
+ISONMAP OBJ32
+ISONMAP huiyuan
+ISONMAP OBJ34
+ISONMAP OBJ35
+ISONMAP OBJ36
+ISONMAP OBJ37
+ISONMAP OBJ38
+ISONMAP OBJ39
+ISONMAP A65
+ISONMAP OBJ40
+ISONMAP OBJ41
+ISONMAP wyzz3
+ISONMAP zhumayi
+ISONMAP zhumaer
+ISONMAP OBJ44
+ISONMAP OBJ67
+ISONMAP OBJ46
+ISONMAP OBJ47
+ISONMAP OBJ48+49
+ISONMAP OBJML
+ISONMAP OBJHL
+ISONMAP ywdb1
+ISONMAP ywdb2
+ISONMAP OBJ53
+ISONMAP OBJ54
+ISONMAP OBJ60
+ISONMAP OBJ56
+ISONMAP OBJ55
+ISONMAP hkdt1
+ISONMAP hkdt2
+ISONMAP hkdt3
+ISONMAP hkdt4
+ISONMAP 47
+ISONMAP 46
+ISONMAP n0139
+ISONMAP wyzz
+ISONMAP wyzz01
+ISONMAP bsr01
+ISONMAP bsr02
+ISONMAP bsrlm
+ISONMAP XC1
+ISONMAP hzdt1
+ISONMAP hzdt2
+ISONMAP hzdt3
+ISONMAP XCLJTD
+ISONMAP YGSD3
+ISONMAP YGSD4
+ISONMAP hsdx1
+ISONMAP hsdx2
+ISONMAP hsdx3
+ISONMAP DSDT
+ISONMAP OBJ57
+ISONMAP OBJ58
+ISONMAP OBJ59
+ISONMAP 0
+#ACT
+GAMEGLORY + 1
+
+

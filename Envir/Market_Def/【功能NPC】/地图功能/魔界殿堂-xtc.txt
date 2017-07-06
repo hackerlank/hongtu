@@ -1,0 +1,163 @@
+[@main]
+#IF
+EQUAL N53 0
+#act
+mov S$爆率提高 
+mov N$倍率 100
+#IF
+CHECKITEMW 男爵功勋
+#act
+mov S$赞助名称 男爵赞助使者
+mov S$爆率提高 爆率提高1.1倍
+mov N$倍率 110
+#IF
+CHECKITEMW 子爵功勋
+#act
+mov S$赞助名称 子爵赞助使者
+mov S$爆率提高 爆率提高1.2倍
+mov N$倍率 120
+#IF
+CHECKITEMW 伯爵功勋
+#act
+mov S$赞助名称 伯爵赞助使者
+mov S$爆率提高 爆率提高1.3倍
+mov N$倍率 130
+#IF
+CHECKITEMW 侯爵功勋
+#act
+mov S$赞助名称 侯爵赞助使者
+mov S$爆率提高 爆率提高1.4倍
+mov N$倍率 140
+#IF
+CHECKITEMW 公爵功勋
+#act
+mov S$赞助名称 公爵赞助使者
+mov S$爆率提高 爆率提高1.5倍
+mov N$倍率 150
+#IF
+CHECKITEMW 领主功勋
+#act
+mov S$赞助名称 领主赞助使者
+mov S$爆率提高 爆率提高1.6倍
+mov N$倍率 160
+#IF
+CHECKITEMW 长老功勋
+#act
+mov S$赞助名称 长老赞助使者
+mov S$爆率提高 爆率提高1.8倍
+mov N$倍率 180
+#IF
+CHECKITEMW 亲王功勋
+#act
+mov S$赞助名称 亲王赞助使者
+mov S$爆率提高 爆率提高2.0倍
+mov N$倍率 200
+#IF
+CHECKITEMW 血皇功勋
+#act
+mov S$赞助名称 血皇赞助使者
+mov S$爆率提高 爆率提高2.2倍
+mov N$倍率 220
+#IF
+CHECKITEMW 帝王功勋
+#act
+mov S$赞助名称 帝王赞助使者
+mov S$爆率提高 爆率提高2.5倍
+mov N$倍率 250
+
+#IF
+#act
+mov N$价格A 0
+
+#IF
+CHECKGUILDLIST ..\QuestDiary\数据文件\活动详细\超级对战行会.txt
+#act
+mov N$价格A 0
+
+#IF
+#Act
+OPENMERCHANTBIGDLG 12 1211 1 4 0 9 0
+#say
+<Img:801:0:490:25/@EXIT>\
+<PlayImg:15:238:4:200:100:20:0>\
+　\
+　　　　　　　　　　　　　　　　　　<Img:1207:12::145:9>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<魔界殿堂/SCOLOR=158>\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<地图特征:地图超大/SCOLOR=125>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<BOSS名称:终极神龙/SCOLOR=249>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<刷新时间:/SCOLOR=125><鼠标移此查看|255#普通怪刷新时间30分钟^2hsdx2#精英怪刷新时间40分钟^239#首领怪刷新时间60分钟^253#BOSS怪刷新时间120分钟/SCOLOR=125>\
+　　　　　　　　　　　　　　 {地图爆率详情/SCOLOR=251}（移动鼠标查看）\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 <进入条件:五转/SCOLOR=70>\
+　　　　　　{白色怪爆率低/SCOLOR=255}　{小BOSS爆率适中/SCOLOR=253}　{红色BOSS爆率超高/SCOLOR=249}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<附加条件:需击杀"魔界起源"/SCOLOR=70>\
+　<ImgEx:12:1212:1213:1214:380:20/@进入A>\
+　\　
+　\
+<ItemShow:938:0:70:-10:0>\
+<ItemShow:520:0:118:-26:0>\
+<ItemShow:940:0:168:-42:0>\
+<ItemShow:941:0:216:-58:0>\
+<ItemShow:948:0:264:-74:0>\
+<ItemShow:955:0:312:-90:0>\
+
+[@进入A]
+#IF
+CHECKRENEWLEVEL < 5
+#ACT
+MESSAGEBOX \\你没有五转，无法进入！
+break
+
+#IF
+CHECKGAMEGOLD < <$STR(N$价格A)>
+#ACT
+MESSAGEBOX \\你的元宝数量不足<$STR(N$价格A)>颗，无法进入！
+break
+
+#IF
+EQUAL N53 1
+CHECKGUILDLIST ..\QuestDiary\数据文件\活动详细\超级对战行会.txt
+#ACT
+GAMEGOLD - <$STR(N$价格A)>
+mapmove sxfb 20 22
+KILLMONBURSTRATE 20140220 20140221 <$STR(N$倍率)> 20140223 20140224 20140225 20140226 99999 20140227 20140228
+SENDMSG 0 251 70 尊贵的{[<$STR(S$赞助名称)>]|251:253:1}{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1},<$STR(S$爆率提高)>，希望他满载而归！！
+SENDMSG 0 251 70 提示：活动{[超级对战]|31:0:1}胜利行会成员{[<$USERNAME>]|250:0:1}进入所有地图八折优惠！！
+SENDMSG 6 杀怪爆率<$KILLMONBURSTRATE>倍，时长：<$KILLMONBURSTRATETIME>秒!
+break
+
+#IF
+CHECKGUILDLIST ..\QuestDiary\数据文件\活动详细\超级对战行会.txt
+#ACT
+GAMEGOLD - <$STR(N$价格A)>
+mapmove sxfb 20 22
+KILLMONBURSTRATE 20140220 20140221 <$STR(N$倍率)> 20140223 20140224 20140225 20140226 99999 20140227 20140228
+SENDMSG 0 251 70 玛法勇士{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1}！！
+SENDMSG 0 251 70 提示：活动{[超级对战]|31:0:1}胜利行会成员{[<$USERNAME>]|250:0:1}进入所有地图八折优惠！！
+break
+
+#IF
+EQUAL N53 1
+#ACT
+GAMEGOLD - <$STR(N$价格A)>
+mapmove sxfb 20 22
+KILLMONBURSTRATE 20140220 20140221 <$STR(N$倍率)> 20140223 20140224 20140225 20140226 99999 20140227 20140228
+SENDMSG 0 251 70 尊贵的{[<$STR(S$赞助名称)>]|251:253:1}{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1},<$STR(S$爆率提高)>，希望他满载而归！！
+SENDMSG 6 杀怪爆率<$KILLMONBURSTRATE>倍，时长：<$KILLMONBURSTRATETIME>秒!
+break
+
+#IF
+#ACT
+GAMEGOLD - <$STR(N$价格A)>
+inc G450 16
+mapmove sxfb 20 22
+KILLMONBURSTRATE 20140220 20140221 <$STR(N$倍率)> 20140223 20140224 20140225 20140226 99999 20140227 20140228
+SENDMSG 0 251 70 玛法勇士{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1}！！
+break

@@ -1,0 +1,95 @@
+[@main]
+#IF
+#Act
+INC N72 1
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<沙城使者/SCOLOR=154> <New/SCOLOR=249>\
+　　　<荣耀，辉煌，沙城是所有人向往的辉煌之巅，兄弟们冲啊！/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<模式：/SCOLOR=149><新区开放第３天下午18点合区晚上20点攻沙，老区每日攻沙/SCOLOR=147>\
+　<时间：/SCOLOR=149><每次合区攻城都会有大量现金古币奖励，具体金额参照沙奖使者/SCOLOR=147>\
+　<Img:803:0:0:4>\
+;　<奖励领取：/SCOLOR=149><领取攻沙奖励·√/@领取攻沙奖励> <当前奖池拥有[/SCOLOR=70>{<$STR(G450)>/SCOLOR=249}<]颗元宝/SCOLOR=70>\
+　<沙城传送：/SCOLOR=149><复活点/@复活点> <100元宝/SCOLOR=250>　　<沙大门/@沙大门> <50元宝/SCOLOR=250>　　<衣服口/@衣服口> <50元宝/SCOLOR=250>\
+<测试胖妞/@测试胖妞>
+
+
+[@测试胖妞]
+#ACT
+MOV G17 0
+
+[@领取攻沙奖励]
+#IF
+NOT ISCASTLEMASTER
+#ACT
+MESSAGEBOX \\你不是沙城老大！
+break
+
+#IF
+large G451 0
+#ACT
+MESSAGEBOX \\今日奖励已经领取，请不要重复领取！
+break
+
+#IF
+equal G451 0
+large G450 0
+HOUR 22 22
+MIN  30 59
+ISCASTLEMASTER
+#ACT
+GAMEGOLD + <$STR(G450)>
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+SendMsg 0 伟大的沙巴克城主「%s」领取进入攻沙奖励[<$STR(G450)>]元宝！
+MOV G450 0
+MOV G451 1
+MOV G453 1
+break
+#ELSEACT
+MESSAGEBOX \\请在22:30-23:00来领取！
+break
+
+[@衣服口]
+#IF
+CHECKGAMEGOLD > 49
+#ACT
+GAMEGOLD - 50
+mapmove 3 658 274
+give 回城卷 1
+SendMsg 0 [%s]一路狂飙，操上家伙直冲沙衣服口！沙城又要掀起一片血雨腥风！
+BREAK
+#ELSEACT
+MESSAGEBOX \\你的元宝不足50，我无法送你过去！
+break
+
+
+[@沙大门]
+#IF
+CHECKGAMEGOLD > 49
+#ACT
+GAMEGOLD - 50
+mapmove 3 676 333
+give 回城卷 1
+SendMsg 0 [%s]一路狂飙，操上家伙直冲沙大门！沙城又要掀起一片血雨腥风！
+BREAK
+#ELSEACT
+MESSAGEBOX \\你的元宝不足50，我无法送你过去！
+break
+
+[@复活点]
+#IF
+CHECKGAMEGOLD > 99
+#ACT
+GAMEGOLD - 100
+mapmove 3 647 291
+give 回城卷 1
+SendMsg 0 [%s]一路狂飙，操上家伙直冲沙复活点！沙城又要掀起一片血雨腥风！
+BREAK
+#ELSEACT
+MESSAGEBOX \\你的元宝不足100，我无法送你过去！
+break

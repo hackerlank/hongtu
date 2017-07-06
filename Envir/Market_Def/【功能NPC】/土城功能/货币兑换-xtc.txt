@@ -1,0 +1,173 @@
+[@main]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1040 1 4 0 0 1 450 10
+#say
+<Img:801:0:456:20/@EXIT>
+ \ \
+　　　                     <宏图霸业·货币兑换系统/SCOLOR=250> \ 
+　　　                <方便游戏中玩家之间交易,开放货币提取/SCOLOR=250>\ \
+<>　 <人民币兑换宏图古币:/SCOLOR=253>\ \
+<>　 <1RMB兑换宏图古币|253#1人民币点可兑换100宏图古币/@1>　<10RMB兑换宏图古币|253#10人民币点可兑换1000宏图古币/@2>　<100RMB兑换宏图古币|253#100人民币点可兑换10000宏图古币/@3>　<1000RMB兑换宏图古币|253#1000人民币点可兑换100000宏图古币/@4>\ \ 
+<>　 <宏图古币兑换人民币:/SCOLOR=253>\ \
+<>　 <1百宏图古币兑换RMB|253#100宏图古币可兑换1人民币点/@5>　<1千宏图古币兑换RMB|253#1000宏图古币可兑换10人民币点/@6>　<1万宏图古币兑换RMB|253#10000宏图古币可兑换100人民币点/@7>　<10万宏图古币兑换RMB|253#100000宏图古币可兑换1000人民币点/@8>\ \
+<>　 <宏图古币提取:/SCOLOR=253>\ \
+<>　 <提取500个宏图古币/@32>　　      <提取1000个宏图古币/@33>　　      <提取5000个宏图古币/@34>\ \ 
+<>　 <提取10000个宏图古币/@35>　　    <提取50000个宏图古币/@36>　　     <提取100000个宏图古币/@37>\ \ 
+<>　 <您当前宏图古币数量:/SCOLOR=250><$GAMEDIAMOND>　 <您当前RMB点数量:/SCOLOR=250><$GAMEPOINT>\ \
+<>   <防骗须知:本服授权游戏商人头顶授权商人封号,请注意看清楚!/SCOLOR=249>
+
+
+
+[@游戏商人]
+#act
+OPENMERCHANTBIGDLG  54 98 3 4 0 -120 1 465 30
+#say
+ \  \  \   
+　　　                <宏图霸业单职业·游戏受权商人查询/SCOLOR=253> \ 
+<>         <游戏商人⒈/scolor=251>  <宏图银商/scolor=242>  <联系QQ：/scolor=249>  <590282/scolor=251> \ \
+<>         <游戏商人⒉/scolor=251>  <宏图银商/scolor=254>  <联系QQ：/scolor=249>  <590282/scolor=251> \ \
+<>         <游戏商人⒊/scolor=251>  <宏图银商/scolor=250>  <联系QQ：/scolor=249>  <590282/scolor=251> \ \
+<>         <游戏商人⒋/scolor=251>  <宏图银商/scolor=245>  <联系QQ：/scolor=249>  <590282/scolor=251> \ \
+<>         <游戏商人⒌/scolor=251>  <宏图银商/scolor=254>  <联系QQ：/scolor=249>  <590282/scolor=251> \ 
+<><防骗须知：本服授权游戏商人名单已公布!请玩家在交易货币之前，先确实银商是否头顶商人封号!/SCOLOR=250>\ 
+
+[@32]
+#if
+CHECKGAMEDIAMOND > 499
+#act
+GAMEDIAMOND - 500
+give 宏图古币+500 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币500个。
+
+[@33]
+#if
+CHECKGAMEDIAMOND > 999
+#act
+GAMEDIAMOND - 1000
+give 宏图古币+1000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币1000个。
+
+[@34]
+#if
+CHECKGAMEDIAMOND > 4999
+#act
+GAMEDIAMOND - 5000
+give 宏图古币+5000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币5000个。
+
+[@35]
+#if
+CHECKGAMEDIAMOND > 9999
+#act
+GAMEDIAMOND - 10000
+give 宏图古币+10000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币10000个。
+
+
+[@36]
+#if
+CHECKGAMEDIAMOND > 49999
+#act
+GAMEDIAMOND - 50000
+give 宏图古币+50000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币50000个。
+
+
+[@37]
+#if
+CHECKGAMEDIAMOND > 99999
+#act
+GAMEDIAMOND - 100000
+give 宏图古币+100000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币100000个。
+
+
+[@1]
+#if
+CHECKGAMEPOINT > 0
+#act
+GAMEPOINT - 1
+GAMEDIAMOND + 100
+GOTO @MAIN
+#ELSEACT
+MESSAGEBOX 对不起，您的人民币不足1点。
+
+[@2]
+#if
+CHECKGAMEPOINT > 9
+#act
+GAMEPOINT - 10
+GAMEDIAMOND + 1000
+GOTO @MAIN
+#ELSEACT
+MESSAGEBOX 对不起，您的人民币不足10点。
+
+[@3]
+#if
+CHECKGAMEPOINT > 99
+#act
+GAMEPOINT - 100
+GAMEDIAMOND + 10000
+GOTO @MAIN
+#ELSEACT
+MESSAGEBOX 对不起，您的人民币不足100点。
+
+[@4]
+#if
+CHECKGAMEPOINT > 999
+#act
+GAMEPOINT - 1000
+GAMEDIAMOND + 100000
+GOTO @MAIN
+#ELSEACT
+MESSAGEBOX 对不起，您的人民币不足1000点。
+
+[@5]
+#if
+CHECKGAMEDIAMOND > 99
+#act
+GAMEDIAMOND - 100
+GAMEPOINT + 1
+GOTO @MAIN
+#ELSEACT
+MESSAGEBOX 对不起，您的宏霸古币不足100个。
+
+[@6]
+#if
+CHECKGAMEDIAMOND > 999
+#act
+GAMEDIAMOND - 1000
+GAMEPOINT + 10
+GOTO @MAIN
+#ELSEACT
+MESSAGEBOX 对不起，您的宏霸古币不足1000个。
+
+[@7]
+#if
+CHECKGAMEDIAMOND > 9999
+#act
+GAMEDIAMOND - 10000
+GAMEPOINT + 100
+GOTO @MAIN
+#ELSEACT
+MESSAGEBOX 对不起，您的宏霸古币不足10000个。
+
+
+[@8]
+#if
+CHECKGAMEDIAMOND > 99999
+#act
+GAMEDIAMOND - 100000
+GAMEPOINT + 1000
+GOTO @MAIN
+#ELSEACT
+MESSAGEBOX 对不起，您的宏霸古币不足100000个。
+
+

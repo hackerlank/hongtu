@@ -1,0 +1,191 @@
+[@main]
+#OR
+checkitem 护身指环·Max
+checkitemw 护身指环·Max
+checkitem 切割指环·Max
+checkitemw 切割指环·Max
+checkitem 复活指环·Max
+checkitemw 复活指环·Max
+#act
+goto @麻痹1
+break
+
+#IF
+#act
+MESSAGEBOX \\你没有Max指环！暂不对你开放！
+
+
+
+[@麻痹1]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1710 1 4 0 0 0
+#say
+<Img:801:0:520:0/@EXIT>\
+　\
+　\
+　\
+　　　　<Img:1718:12:5:5>\
+　　　　　　　　　　　　　　　　　　　　　　　　   <守护奥秘指环/FCOLOR=224>\
+　\
+　　<ImgEx:12:1713:1713:1713:12:7/@麻痹1>\
+　　　　　　<守护奥秘指环/FCOLOR=251>\
+　　<ImgEx:12:1711:1712:1713:12:7/@麻痹2>\
+　　　　　　<怨灵永恒指环/FCOLOR=70>\
+　　<ImgEx:12:1711:1712:1713:12:7/@麻痹3>\
+　　　　　　<月冕远古指环/FCOLOR=70>\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　<PlayImg:28:136:5:150:170:-360:0>\
+　\
+　　　　　　　　　　　　　　　　　　<特殊属性：/FCOLOR=70><同时拥有 麻痹，复活 属性/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　<基础属性：/FCOLOR=70><全属性100-100  永久1.4倍攻击  死亡不爆/FCOLOR=249>\
+　　　　　　　　　　　　　　　　　　<合成条件：/FCOLOR=70><宏图古币 20000 颗 + 50块指环碎片/FCOLOR=242>\
+　　　　　　　　　　　　　　　　　　<合成条件：/FCOLOR=70><切割指环·Max + 复活指环·Max/FCOLOR=242>\
+　　<Img:1716:12:250:0/@守护奥秘指环>\
+
+[@麻痹2]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1710 1 4 0 0 0
+#say
+<Img:801:0:520:0/@EXIT>\
+　\
+　\
+　\
+　　　　<Img:1718:12:5:5>\
+　　　　　　　　　　　　　　　　　　　　　　　　   <怨灵永恒指环/FCOLOR=224>\
+　\
+　　<ImgEx:12:1711:1712:1713:12:7/@麻痹1>\
+　　　　　　<守护奥秘指环/FCOLOR=70>\
+　　<ImgEx:12:1713:1713:1713:12:7/@麻痹2>\
+　　　　　　<怨灵永恒指环/FCOLOR=251>\
+　　<ImgEx:12:1711:1712:1713:12:7/@麻痹3>\
+　　　　　　<月冕远古指环/FCOLOR=70>\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　<PlayImg:28:148:6:150:170:-360:0>\
+　\
+　　　　　　　　　　　　　　　　　　<特殊属性：/FCOLOR=70><同时拥有 麻痹，护身 属性/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　<基础属性：/FCOLOR=70><全属性100-100  永久1.4倍攻击  死亡不爆/FCOLOR=249>\
+　　　　　　　　　　　　　　　　　　<合成条件：/FCOLOR=70><宏图古币 20000 颗 + 50块指环碎片/FCOLOR=242>\
+　　　　　　　　　　　　　　　　　　<合成条件：/FCOLOR=70><切割指环·Max + 护身指环·Max/FCOLOR=242>\
+　　<Img:1716:12:250:0/@怨灵永恒指环>\
+
+[@麻痹3]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1710 1 4 0 0 0
+#say
+<Img:801:0:520:0/@EXIT>\
+　\
+　\
+　\
+　　　　<Img:1718:12:5:5>\
+　　　　　　　　　　　　　　　　　　　　　　　　   <月冕远古指环/FCOLOR=224>\
+　\
+　　<ImgEx:12:1711:1712:1713:12:7/@麻痹1>\
+　　　　　　<守护奥秘指环/FCOLOR=70>\
+　　<ImgEx:12:1711:1712:1713:12:7/@麻痹2>\
+　　　　　　<怨灵永恒指环/FCOLOR=70>\
+　　<ImgEx:12:1713:1713:1713:12:7/@麻痹3>\
+　　　　　　<月冕远古指环/FCOLOR=251>\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　<PlayImg:28:154:6:150:170:-360:0>\
+　\
+　　　　　　　　　　　　　　　　　　<特殊属性：/FCOLOR=70><同时拥有 复活，护身 属性/FCOLOR=254>\
+　　　　　　　　　　　　　　　　　　<基础属性：/FCOLOR=70><全属性100-100  永久1.4倍攻击  死亡不爆/FCOLOR=249>\
+　　　　　　　　　　　　　　　　　　<合成条件：/FCOLOR=70><宏图古币 20000 颗 + 50块指环碎片/FCOLOR=242>\
+　　　　　　　　　　　　　　　　　　<合成条件：/FCOLOR=70><复活指环·Max + 护身指环·Max/FCOLOR=242>\
+　　<Img:1716:12:250:0/@月冕远古指环>\
+
+
+
+
+
+
+[@守护奥秘指环]
+#IF
+CHECKGAMEDIAMOND < 20000
+#ACT
+MESSAGEBOX \\你的宏图古币数量不足20000颗，无法合成！
+break
+
+#IF
+checkitem 指环碎片 50
+checkitem 切割指环·Max 1 
+checkitem 复活指环·Max 1 
+#ACT
+GAMEDIAMOND - 20000
+take 切割指环·Max 1
+take 复活指环·Max 1
+take 指环碎片 50
+give 守护奥秘指环 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[特殊指环]|250:0:1}NPC处成功合成了守护奥秘指环
+SENDMSG 6 合成成功
+#ELSEACT
+MESSAGEBOX \\合成失败！请检查合成条件！
+break
+
+[@怨灵永恒指环]
+#IF
+CHECKGAMEDIAMOND < 20000
+#ACT
+MESSAGEBOX \\你的宏图古币数量不足20000颗，无法合成！
+break
+
+#IF 
+checkitem 指环碎片 50
+checkitem 切割指环·Max 1 
+checkitem 护身指环·Max 1 
+#ACT
+GAMEDIAMOND - 20000
+take 切割指环·Max 1
+take 护身指环·Max 1
+take 指环碎片 50
+give 怨灵永恒指环 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[特殊指环]|250:0:1}NPC处成功合成了怨灵永恒指环
+SENDMSG 6 合成成功
+#ELSEACT
+MESSAGEBOX \\合成失败！请检查合成条件！
+
+[@月冕远古指环]
+#IF
+CHECKGAMEDIAMOND < 20000
+#ACT
+MESSAGEBOX \\你的宏图古币数量不足20000颗，无法合成！
+break
+
+#IF 
+checkitem 指环碎片 50
+checkitem 护身指环·Max 1 
+checkitem 复活指环·Max 1 
+#ACT
+GAMEDIAMOND - 20000
+take 护身指环·Max 1
+take 复活指环·Max 1
+take 指环碎片 50
+give 月冕远古指环 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[特殊指环]|250:0:1}NPC处成功合成了月冕远古指环
+SENDMSG 6 合成成功
+#ELSEACT
+MESSAGEBOX \\合成失败！请检查合成条件！

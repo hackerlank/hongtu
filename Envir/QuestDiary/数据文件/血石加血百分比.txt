@@ -1,0 +1,80 @@
+[@自动回血]
+{
+
+#IF
+#ACT
+MOV N$HP上限 <$MAXHP>
+MOV N$MP上限 <$MAXMP>
+
+#IF
+checkitemw 新手血石
+#ACT
+MUL N$加HP N$HP上限 1
+DIV N$加HP N$加HP 100
+MUL N$加MP N$MP上限 1
+DIV N$加MP N$加MP 100
+HUMANHP + <$STR(N$加HP)>
+HUMANMP + <$STR(N$加MP)>
+
+#IF
+checkitemw 一级血石
+#ACT
+MUL N$加HP N$HP上限 2
+DIV N$加HP N$加HP 100
+MUL N$加MP N$MP上限 2
+DIV N$加MP N$加MP 100
+HUMANHP + <$STR(N$加HP)>
+HUMANMP + <$STR(N$加MP)>
+
+#IF
+checkitemw 二级血石
+#ACT
+MUL N$加HP N$HP上限 3
+DIV N$加HP N$加HP 100
+MUL N$加MP N$MP上限 3
+DIV N$加MP N$加MP 100
+HUMANHP + <$STR(N$加HP)>
+HUMANMP + <$STR(N$加MP)>
+
+#IF
+checkitemw 三级血石
+#ACT
+MUL N$加HP N$HP上限 4
+DIV N$加HP N$加HP 100
+MUL N$加MP N$MP上限 4
+DIV N$加MP N$加MP 100
+HUMANHP + <$STR(N$加HP)>
+HUMANMP + <$STR(N$加MP)>
+
+#IF
+checkitemw 四级血石
+#ACT
+MUL N$加HP N$HP上限 5
+DIV N$加HP N$加HP 100
+MUL N$加MP N$MP上限 5
+DIV N$加MP N$加MP 100
+HUMANHP + <$STR(N$加HP)>
+HUMANMP + <$STR(N$加MP)>
+
+#IF
+checkitemw 五级血石
+#ACT
+MUL N$加HP N$HP上限 7
+DIV N$加HP N$加HP 100
+MUL N$加MP N$MP上限 7
+DIV N$加MP N$加MP 100
+HUMANHP + <$STR(N$加HP)>
+HUMANMP + <$STR(N$加MP)>
+
+#IF
+checkitemw 终级血石
+#ACT
+MUL N$加HP N$HP上限 10
+DIV N$加HP N$加HP 100
+MUL N$加MP N$MP上限 10
+DIV N$加MP N$加MP 100
+HUMANHP + <$STR(N$加HP)>
+HUMANMP + <$STR(N$加MP)>
+
+
+}

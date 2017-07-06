@@ -1,0 +1,215 @@
+[@封号更改B]
+{
+#IF
+#ACT
+MOV N53 0
+MOV N54 0
+MOV N55 0
+MOV N56 0
+MOV S$会员
+MOV S$天下第一
+
+#IF
+#ACT
+SetIcon 1 -1
+
+#IF
+check [100] 1
+#ACT
+MOV N54 1
+MOV S$会员 特权：「天择·会员」
+CHANGENAMECOLOR 253
+SetIcon 1 0 1491 10 -16 0 0 200
+
+#IF
+CHECKITEMW 男爵功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 380 10 -16 0 0 200
+MOV S$赞助大使 神圣：男爵·赞助
+
+#IF
+CHECKITEMW 子爵功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 381 10 -16 0 0 200
+MOV S$赞助大使 神圣：子爵·赞助
+
+#IF
+CHECKITEMW 伯爵功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 382 10 -16 0 0 200
+MOV S$赞助大使 神圣：伯爵·赞助
+
+#IF
+CHECKITEMW 侯爵功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 383 10 -16 0 0 200
+MOV S$赞助大使 神圣：侯爵·赞助
+
+#IF
+CHECKITEMW 公爵功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 384 10 -16 0 0 200
+MOV S$赞助大使 神圣：公爵·赞助
+
+#IF
+CHECKITEMW 领主功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 385 10 -16 0 0 200
+MOV S$赞助大使 神圣：领主·赞助
+
+#IF
+CHECKITEMW 长老功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 386 10 -16 0 0 200
+MOV S$赞助大使 神圣：长老·赞助
+
+#IF
+CHECKITEMW 亲王功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 387 10 -16 0 0 200
+MOV S$赞助大使 神圣：亲王·赞助
+
+#IF
+CHECKITEMW 血皇功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 388 10 -16 0 0 200
+MOV S$赞助大使 神圣：血皇·赞助
+
+#IF
+CHECKITEMW 帝王功勋
+#ACT
+MOV N53 1
+CHANGENAMECOLOR 253
+SetIcon 1 12 389 10 -16 0 0 200
+MOV S$赞助大使 神圣：龙渊·赞助
+
+#IF
+checkjob warrior
+gender man
+CHECKITEMW 天下第一功勋
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一男战士
+CHANGENAMECOLOR 250
+
+#IF
+checkjob warrior
+gender woman
+CHECKITEMW 天下第一功勋
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一女战士
+CHANGENAMECOLOR 250
+
+#IF
+checkjob wizard
+gender man
+CHECKITEMW 天下第一功勋
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一男法师
+CHANGENAMECOLOR 250
+
+#IF
+checkjob wizard
+gender woman
+CHECKITEMW 天下第一功勋
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一女法师
+CHANGENAMECOLOR 250
+
+#IF
+checkjob taoist
+gender man
+CHECKITEMW 天下第一功勋
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一男道士
+CHANGENAMECOLOR 250
+
+#IF
+checkjob taoist
+gender woman
+CHECKITEMW 天下第一功勋
+#act
+MOV N55 1
+MOV S$天下第一 荣誉：天下第一女道士
+CHANGENAMECOLOR 250
+
+#IF
+CHECKLEVELEX > 0
+#ACT
+MOV N56 1
+MOV S$佣兵 【天择传奇】
+
+#IF
+large N53 0
+large N54 0
+large N55 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$赞助大使)>\<$STR(S$天下第一)>\──────────\<$STR(S$会员)>\<$STR(S$佣兵)>\
+break
+
+#IF
+large N54 0
+large N55 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$天下第一)>\──────────\<$STR(S$会员)>\<$STR(S$佣兵)>\
+break
+
+#IF
+large N53 0
+large N54 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$赞助大使)>\──────────\<$STR(S$会员)>\<$STR(S$佣兵)>\
+break
+
+#IF
+large N53 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$赞助大使)>\──────────\<$STR(S$佣兵)>\
+break
+
+#IF
+large N55 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$天下第一)>\──────────\<$STR(S$佣兵)>\
+break
+
+#IF
+large N54 0
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$会员)>\<$STR(S$佣兵)>\
+break
+
+#IF
+large N56 0
+#ACT
+SETRANKLEVELNAME %s\<$STR(S$佣兵)>\
+break
+}

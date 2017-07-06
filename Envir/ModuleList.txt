@@ -1,0 +1,4 @@
+fd47de308ea5a2e892333406d81e738b|c:\windows\system32\qqpinyin.ime|1
+a44253de20c0e390c995eee56ac750f3|c:\users\administrator\appdata\roaming\taobaoprotect\taobaoprotectse.dll|1
+eb81e29ad929527f4459d2f7a025b7f5|f:\dexpot 1.6.14.2439\app\dexpot\hooxpot.dll|1
+9a058f34865a08e76ad1697728950aac|c:\users\admini~1\appdata\local\temp\wnmkey.dll|1

@@ -1,0 +1,537 @@
+[@main]
+#if
+#act 
+goto @第一套男
+;<PlayImg:28:2730:20:80:180:-370:0:0/@1>\
+;<PlayImg:28:2760:20:80:73:-339:0:0/@1>\
+;<PlayImg:28:2790:22:80:90:-419:0:0/@1>\
+;<PlayImg:28:2830:21:80:130:-290:0:0/@1>\
+;<PlayImg:28:2870:20:80:50:-325:0:0/@1>\
+;<PlayImg:28:2900:20:80:60:-395:0:0/@1>\
+;女
+;<PlayImg:28:2930:20:80:108:-310:0:0/@1>\
+;<PlayImg:28:2960:20:80:106:-495:0:0/@1>\
+;<PlayImg:28:2990:20:80:170:-310:0:0/@1>\
+;<PlayImg:28:3020:21:80:145:-350:0:0/@1>\
+;<PlayImg:28:3060:21:80:100:-333:0:0/@1>\
+;<PlayImg:28:3100:21:80:170:-333:0:0/@1>\
+;<PlayImg:28:3100:21:80:170:-333:0:0/@1>\
+
+
+
+
+[@第一套男]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1720 1 4 0 0 0
+#say
+<Img:801:0:670:70/@EXIT>\
+　\
+　<ItemShow:422:0:68:85>　<ItemShow:423:0:580:85>\
+　<ItemShow:424:0:68:110>　<ItemShow:425:0:580:110>\
+　<ItemShow:426:0:68:145>　<ItemShow:427:0:580:145>\
+　<ItemShow:428:0:68:180>　<ItemShow:429:0:580:180>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　<一级时装武器/FCOLOR=253>\
+　\
+　　　　　　　　　　　<一级时装男/FCOLOR=249> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <一级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<查 看 中/FCOLOR=242> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第一套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第一套女>\
+　　　　　　　　　　　<二级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <二级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第二套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第二套女>\
+　　　　　　　　　　　<三级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <三级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第三套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第三套女>\
+　　　　　　　　　　　<四级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　  <四级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第四套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第四套女>\
+<PlayImg:28:3498:20:80:100:-370:0:0/@1>\
+　\
+　　　　　　　　<所需条件:20万元宝+8000古币/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:20万元宝+8000古币/FCOLOR=70>\
+　\
+　\
+　\
+　<Img:1723:12:100:-6/@一男合成>　<Img:1724:12:450:-6/@一女合成>\
+
+[@第一套女]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1720 1 4 0 0 0
+#say
+<Img:801:0:670:70/@EXIT>\
+　\
+　<ItemShow:422:0:68:85>　<ItemShow:423:0:580:85>\
+　<ItemShow:424:0:68:110>　<ItemShow:425:0:580:110>\
+　<ItemShow:426:0:68:145>　<ItemShow:427:0:580:145>\
+　<ItemShow:428:0:68:180>　<ItemShow:429:0:580:180>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　<一级时装武器/FCOLOR=253>\
+　\
+　　　　　　　　　　　<一级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <一级时装女/FCOLOR=249>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<查 看 中/FCOLOR=242> \
+　<Img:1721:12:55:-45/@第一套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第一套女>\
+　　　　　　　　　　　<二级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <二级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第二套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第二套女>\
+　　　　　　　　　　　<三级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <三级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第三套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第三套女>\
+　　　　　　　　　　　<四级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　  <四级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第四套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第四套女>\
+<PlayImg:28:3612:20:80:100:-370:0:0/@1>\
+　\
+　　　　　　　　<所需条件:20万元宝+8000古币/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:20万元宝+8000古币/FCOLOR=70>\
+　\
+　\
+　\
+　<Img:1723:12:100:-6/@一男合成>　<Img:1724:12:450:-6/@一女合成>\
+
+
+[@第二套男]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1720 1 4 0 0 0
+#say
+<Img:801:0:670:70/@EXIT>\
+　\
+　<ItemShow:422:0:68:85>　<ItemShow:423:0:580:85>\
+　<ItemShow:424:0:68:110>　<ItemShow:425:0:580:110>\
+　<ItemShow:426:0:68:145>　<ItemShow:427:0:580:145>\
+　<ItemShow:428:0:68:180>　<ItemShow:429:0:580:180>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　<一级时装武器/FCOLOR=253>\
+　\
+　　　　　　　　　　　<一级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <一级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第一套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第一套女>\
+　　　　　　　　　　　<二级时装男/FCOLOR=249> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <二级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<查 看 中/FCOLOR=242> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第二套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第二套女>\
+　　　　　　　　　　　<三级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <三级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第三套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第三套女>\
+　　　　　　　　　　　<四级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　  <四级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第四套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第四套女>\
+<PlayImg:28:3458:20:80:80:-370:0:0/@1>\
+　\
+　　　　　　　　<所需条件:50万元宝+18000古币/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:50万元宝+18000古币/FCOLOR=70>\
+　\
+　　　　　　　　<所需条件:一级时装男 * 1/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:一级时装女 * 1/FCOLOR=70>\
+　\
+　<Img:1723:12:100:-6/@二男合成>　<Img:1724:12:450:-6/@二女合成>\
+
+[@第二套女]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1720 1 4 0 0 0
+#say
+<Img:801:0:670:70/@EXIT>\
+　\
+　<ItemShow:422:0:68:85>　<ItemShow:423:0:580:85>\
+　<ItemShow:424:0:68:110>　<ItemShow:425:0:580:110>\
+　<ItemShow:426:0:68:145>　<ItemShow:427:0:580:145>\
+　<ItemShow:428:0:68:180>　<ItemShow:429:0:580:180>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　<一级时装武器/FCOLOR=253>\
+　\
+　　　　　　　　　　　<一级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <一级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第一套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第一套女>\
+　　　　　　　　　　　<二级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <二级时装女/FCOLOR=249>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<查 看 中/FCOLOR=242> \
+　<Img:1721:12:55:-45/@第二套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第二套女>\
+　　　　　　　　　　　<三级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <三级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第三套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第三套女>\
+　　　　　　　　　　　<四级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　  <四级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第四套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第四套女>\
+<PlayImg:28:3418:20:80:80:-370:0:0/@1>\
+　\
+　　　　　　　　<所需条件:50万元宝+18000古币/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:50万元宝+18000古币/FCOLOR=70>\
+　\
+　　　　　　　　<所需条件:一级时装男 * 1/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:一级时装女 * 1/FCOLOR=70>\
+　\
+　<Img:1723:12:100:-6/@二男合成>　<Img:1724:12:450:-6/@二女合成>\
+
+
+
+
+[@第三套男]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1720 1 4 0 0 0
+#say
+<Img:801:0:670:70/@EXIT>\
+　\
+　<ItemShow:422:0:68:85>　<ItemShow:423:0:580:85>\
+　<ItemShow:424:0:68:110>　<ItemShow:425:0:580:110>\
+　<ItemShow:426:0:68:145>　<ItemShow:427:0:580:145>\
+　<ItemShow:428:0:68:180>　<ItemShow:429:0:580:180>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　<一级时装武器/FCOLOR=253>\
+　\
+　　　　　　　　　　　<一级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <一级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第一套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第一套女>\
+　　　　　　　　　　　<二级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <二级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第二套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第二套女>\
+　　　　　　　　　　　<三级时装男/FCOLOR=249> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <三级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<查 看 中/FCOLOR=242> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第三套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第三套女>\
+　　　　　　　　　　　<四级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　  <四级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第四套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第四套女>\
+<PlayImg:28:3438:20:80:90:-370:0:0/@1>\
+　\
+　　　　　　　　<所需条件:88万元宝+50000古币/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:88万元宝+50000古币/FCOLOR=70>\
+　\
+　　　　　　　　<所需条件:二级时装男 * 1/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:二级时装女 * 1/FCOLOR=70>\
+　\
+　<Img:1723:12:100:-6/@三男合成>　<Img:1724:12:450:-6/@二女合成>\
+
+[@第三套女]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1720 1 4 0 0 0
+#say
+<Img:801:0:670:70/@EXIT>\
+　\
+　<ItemShow:422:0:68:85>　<ItemShow:423:0:580:85>\
+　<ItemShow:424:0:68:110>　<ItemShow:425:0:580:110>\
+　<ItemShow:426:0:68:145>　<ItemShow:427:0:580:145>\
+　<ItemShow:428:0:68:180>　<ItemShow:429:0:580:180>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　<一级时装武器/FCOLOR=253>\
+　\
+　　　　　　　　　　　<一级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <一级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第一套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第一套女>\
+　　　　　　　　　　　<二级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <二级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第二套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第二套女>\
+　　　　　　　　　　　<三级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <三级时装女/FCOLOR=249>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<查 看 中/FCOLOR=242> \
+　<Img:1721:12:55:-45/@第三套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第三套女>\
+　　　　　　　　　　　<四级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　  <四级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第四套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第四套女>\
+<PlayImg:28:3398:20:80:130:-300:0:0/@1>\
+　\
+　　　　　　　　<所需条件:88万元宝+50000古币/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:88万元宝+50000古币/FCOLOR=70>\
+　\
+　　　　　　　　<所需条件:二级时装男 * 1/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:二级时装女 * 1/FCOLOR=70>\
+　\
+　<Img:1723:12:100:-6/@三男合成>　<Img:1724:12:450:-6/@三女合成>\
+
+
+[@第四套男]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1720 1 4 0 0 0
+#say
+<Img:801:0:670:70/@EXIT>\
+　\
+　<ItemShow:422:0:68:85>　<ItemShow:423:0:580:85>\
+　<ItemShow:424:0:68:110>　<ItemShow:425:0:580:110>\
+　<ItemShow:426:0:68:145>　<ItemShow:427:0:580:145>\
+　<ItemShow:428:0:68:180>　<ItemShow:429:0:580:180>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　<一级时装武器/FCOLOR=253>\
+　\
+　　　　　　　　　　　<一级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <一级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第一套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第一套女>\
+　　　　　　　　　　　<二级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <二级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第二套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第二套女>\
+　　　　　　　　　　　<三级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <三级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第三套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第三套女>\
+　　　　　　　　　　　<四级时装男/FCOLOR=249> 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　  <四级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<查 看 中/FCOLOR=242> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第四套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第四套女>\
+<PlayImg:28:3632:20:80:80:-370:0:0/@1>\
+　\
+　　　　　　　　<所需条件:200万元宝+88888古币/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　 　　　<所需条件:200万元宝+88888古币/FCOLOR=70>\
+　\
+　　　　　　　　<所需条件:三级时装男 * 1/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:三级时装女 * 1/FCOLOR=70>\
+　\
+　<Img:1723:12:100:-6/@四男合成>　<Img:1724:12:450:-6/@四女合成>\
+
+
+[@第四套女]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1720 1 4 0 0 0
+#say
+<Img:801:0:670:70/@EXIT>\
+　\
+　<ItemShow:422:0:68:85>　<ItemShow:423:0:580:85>\
+　<ItemShow:424:0:68:110>　<ItemShow:425:0:580:110>\
+　<ItemShow:426:0:68:145>　<ItemShow:427:0:580:145>\
+　<ItemShow:428:0:68:180>　<ItemShow:429:0:580:180>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　<一级时装武器/FCOLOR=253>\
+　\
+　　　　　　　　　　　<一级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <一级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第一套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第一套女>\
+　　　　　　　　　　　<二级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <二级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第二套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第二套女>\
+　　　　　　　　　　　<三级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　   <三级时装女/FCOLOR=19>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　  　<点击详情/FCOLOR=247> \
+　<Img:1721:12:55:-45/@第三套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第三套女>\
+　　　　　　　　　　　<四级时装男/FCOLOR=19> 　　　　　　　　　　　　　　　　　　　　　　　　　　　 　　　  <四级时装女/FCOLOR=249>\
+　　　　　　　　　　　　<点击详情/FCOLOR=247> 　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 　<查 看 中/FCOLOR=242> \
+　<Img:1721:12:55:-45/@第四套男>　　　　　　　　　　　　　　　　　　　　<Img:1722:12:55:-45/@第四套女>\
+<PlayImg:28:3478:20:80:100:-370:0:0/@1>\
+　\
+　　　　　　　　<所需条件:200万元宝+88888古币/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　 　　<所需条件:200万元宝+88888古币/FCOLOR=70>\
+　\
+　　　　　　　　<所需条件:三级时装男 * 1/FCOLOR=70>　　　　　　　　　　　　　　　　　　　　　　　　　　<所需条件:三级时装女 * 1/FCOLOR=70>\
+　\
+　<Img:1723:12:100:-6/@四男合成>　<Img:1724:12:450:-6/@四女合成>\
+
+
+[@一男合成]
+#IF
+CHECKGAMEGOLD < 200000
+#ACT
+MESSAGEBOX \\你的元宝数量不足200000颗！
+break
+#IF
+CHECKGAMEDIAMOND > 7999
+#ACT
+GAMEGOLD - 200000
+GAMEDIAMOND - 8000
+give 一级时装[男] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功购买了一级时装[男]
+break
+
+[@一女合成]
+#IF
+CHECKGAMEGOLD < 200000
+#ACT
+MESSAGEBOX \\你的元宝数量不足100000颗！
+break
+
+#IF
+CHECKGAMEDIAMOND > 7999
+#ACT
+GAMEGOLD - 200000
+GAMEDIAMOND - 8000
+give 一级时装[女] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功购买了一级时装[女]
+break
+
+
+[@二男合成]
+#IF
+CHECKGAMEGOLD < 500000
+#ACT
+MESSAGEBOX \\你的元宝数量不足500000颗！
+break
+
+#IF
+CHECKGAMEDIAMOND > 17999
+checkitem 一级时装[男] 1
+#ACT
+GAMEDIAMOND - 18000
+GAMEGOLD - 500000
+take 一级时装[男] 1
+give 二级时装[男] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了二级时装[男]
+break
+
+#IF
+CHECKGAMEDIAMOND > 17999
+checkitem 一级时装[女] 1
+#ACT
+GAMEDIAMOND - 18000
+GAMEGOLD - 500000
+take 一级时装[女] 1
+give 二级时装[男] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了二级时装[男]
+break
+
+#IF
+#ACT
+MESSAGEBOX \\请将体验时装放入包裹才可以升级
+break
+
+[@二女合成]
+#IF
+CHECKGAMEGOLD < 500000
+#ACT
+MESSAGEBOX \\你的元宝数量不足500000颗！
+break
+
+#IF
+CHECKGAMEDIAMOND > 17999
+checkitem 一级时装[男] 1
+#ACT
+GAMEDIAMOND - 18000
+GAMEGOLD - 500000
+take 一级时装[男] 1
+give 二级时装[女] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了二级时装[女]
+break
+
+#IF
+CHECKGAMEDIAMOND > 17999
+checkitem 一级时装[女] 1
+#ACT
+GAMEDIAMOND - 18000
+GAMEGOLD - 500000
+take 一级时装[女] 1
+give 二级时装[女] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了二级时装[女]
+break
+
+#IF
+#ACT
+MESSAGEBOX \\请将体验时装放入包裹才可以升级
+break
+
+
+
+[@三男合成]
+#IF
+CHECKGAMEGOLD < 880000
+#ACT
+MESSAGEBOX \\你的元宝数量不足880000颗！
+break
+
+#IF
+CHECKGAMEDIAMOND > 49999
+checkitem 二级时装[男] 1
+#ACT
+GAMEDIAMOND - 50000
+GAMEGOLD - 880000
+take 二级时装[男] 1
+give 三级时装[男] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了三级时装[男]
+break
+
+#IF
+CHECKGAMEDIAMOND > 49999
+checkitem 二级时装[女] 1
+#ACT
+GAMEDIAMOND - 50000
+GAMEGOLD - 880000
+take 二级时装[女] 1
+give 三级时装[男] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了三级时装[男]
+break
+
+#IF
+#ACT
+MESSAGEBOX \\请将体验时装放入包裹才可以升级
+break
+
+[@三女合成]
+#IF
+CHECKGAMEGOLD < 880000
+#ACT
+MESSAGEBOX \\你的元宝数量不足880000颗！
+break
+
+#IF
+CHECKGAMEDIAMOND > 49999
+checkitem 二级时装[男] 1
+#ACT
+GAMEDIAMOND - 50000
+GAMEGOLD - 880000
+take 二级时装[男] 1
+give 三级时装[女] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了三级时装[女]
+break
+
+#IF
+CHECKGAMEDIAMOND > 49999
+checkitem 二级时装[女] 1
+#ACT
+GAMEDIAMOND - 50000
+GAMEGOLD - 880000
+take 二级时装[女] 1
+give 三级时装[女] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了三级时装[女]
+break
+
+#IF
+#ACT
+MESSAGEBOX \\请将体验时装放入包裹才可以升级
+break
+
+[@四男合成]
+#IF
+CHECKGAMEGOLD < 2000000
+#ACT
+MESSAGEBOX \\你的元宝数量不足2000000颗！
+break
+
+#IF
+CHECKGAMEDIAMOND > 79999
+checkitem 三级时装[男] 1
+#ACT
+GAMEDIAMOND - 88888
+GAMEGOLD - 2000000
+take 三级时装[男] 1
+give 四级时装[男] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了四级时装[男]
+break
+
+#IF
+CHECKGAMEDIAMOND > 79999
+checkitem 三级时装[女] 1
+#ACT
+GAMEDIAMOND - 88888
+GAMEGOLD - 2000000
+take 三级时装[女] 1
+give 四级时装[男] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了四级时装[男]
+break
+
+#IF
+#ACT
+MESSAGEBOX \\请将体验时装放入包裹才可以升级
+break
+
+[@四女合成]
+#IF
+CHECKGAMEGOLD < 2000000
+#ACT
+MESSAGEBOX \\你的元宝数量不足2000000颗！
+break
+
+#IF
+CHECKGAMEDIAMOND > 79999
+checkitem 三级时装[男] 1
+#ACT
+GAMEDIAMOND - 88888
+GAMEGOLD - 2000000
+take 三级时装[男] 1
+give 四级时装[女] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了四级时装[女]
+break
+
+#IF
+CHECKGAMEDIAMOND > 79999
+checkitem 三级时装[女] 1
+#ACT
+GAMEDIAMOND - 88888
+GAMEGOLD - 2000000
+take 三级时装[女] 1
+give 四级时装[女] 1
+SENDMSG 0 251 70 系统提示：{[<$USERNAME>]|31:0:1}在{[酷炫时装]|250:0:1}NPC处成功升级了四级时装[女]
+break
+
+#IF
+#ACT
+MESSAGEBOX \\请将体验时装放入包裹才可以升级
+break
+
+
+
+
+
+
+

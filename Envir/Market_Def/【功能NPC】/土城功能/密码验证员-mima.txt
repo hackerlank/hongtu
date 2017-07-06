@@ -1,0 +1,13 @@
+[@main]
+#if
+equal T1 <$IPADDR>
+#ACT
+MOVR P7 16
+INC P7 323
+MOVR P8 16
+INC P8 323
+mapmove xtc <$STR(P7)> <$STR(P8)>
+BREAK
+#elseACT
+#CALL [\数据文件\二级密码\二级密码.txt] @验证密保
+BREAK

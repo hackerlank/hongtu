@@ -1,0 +1,1392 @@
+
+[@开始回收]
+{
+#IF
+check [20] 0
+#Act
+set [20] 1
+set [22] 1
+set [23] 1
+set [24] 1
+set [25] 1
+set [26] 1
+set [27] 1
+
+
+#IF
+check [22] 1
+#Act
+mov S$雷霆装备 <Img:1032:12:-5:-3/@雷霆装备><雷霆装备/SCOLOR=250>
+#ELSEACT
+mov S$雷霆装备 <Img:1031:12:-5:-3/@雷霆装备><雷霆装备/SCOLOR=70>
+#IF
+check [23] 1
+#Act
+mov S$龙渊装备 <Img:1032:12:-5:-3/@龙渊装备><龙渊装备/SCOLOR=250>
+#ELSEACT
+mov S$龙渊装备 <Img:1031:12:-5:-3/@龙渊装备><龙渊装备/SCOLOR=70>
+#IF
+check [25] 1
+#Act
+mov S$战神装备 <Img:1032:12:-5:-3/@战神装备><战神装备/SCOLOR=250>
+#ELSEACT
+mov S$战神装备 <Img:1031:12:-5:-3/@战神装备><战神装备/SCOLOR=70>
+#IF
+check [26] 1
+#Act
+mov S$龙焰装备 <Img:1032:12:-5:-3/@龙焰装备><龙焰装备/SCOLOR=250>
+#ELSEACT
+mov S$龙焰装备 <Img:1031:12:-5:-3/@龙焰装备><龙焰装备/SCOLOR=70>
+#IF
+check [28] 1
+#Act
+mov S$狂雷装备 <Img:1032:12:-5:-3/@狂雷装备><狂雷装备/SCOLOR=250>
+#ELSEACT
+mov S$狂雷装备 <Img:1031:12:-5:-3/@狂雷装备><狂雷装备/SCOLOR=70>
+#IF
+check [29] 1
+#Act
+mov S$干将装备 <Img:1032:12:-5:-3/@干将装备><干将装备/SCOLOR=250>
+#ELSEACT
+mov S$干将装备 <Img:1031:12:-5:-3/@干将装备><干将装备/SCOLOR=70>
+#IF
+check [31] 1
+#Act
+mov S$火龙装备 <Img:1032:12:-5:-3/@火龙装备><火龙装备/SCOLOR=250>
+#ELSEACT
+mov S$火龙装备 <Img:1031:12:-5:-3/@火龙装备><火龙装备/SCOLOR=70>
+#IF
+check [32] 1
+#Act
+mov S$巨阕装备 <Img:1032:12:-5:-3/@巨阕装备><巨阕装备/SCOLOR=250>
+#ELSEACT
+mov S$巨阕装备 <Img:1031:12:-5:-3/@巨阕装备><巨阕装备/SCOLOR=70>
+#IF
+check [33] 1
+#Act
+mov S$征程装备 <Img:1032:12:-5:-3/@征程装备><征程装备/SCOLOR=250>
+#ELSEACT
+mov S$征程装备 <Img:1031:12:-5:-3/@征程装备><征程装备/SCOLOR=70>
+#IF
+check [34] 1
+#Act
+mov S$青虹装备 <Img:1032:12:-5:-3/@青虹装备><青虹装备/SCOLOR=250>
+#ELSEACT
+mov S$青虹装备 <Img:1031:12:-5:-3/@青虹装备><青虹装备/SCOLOR=70>
+#IF
+check [35] 1
+#Act
+mov S$湛卢装备 <Img:1032:12:-5:-3/@湛卢装备><湛卢装备/SCOLOR=250>
+#ELSEACT
+mov S$湛卢装备 <Img:1031:12:-5:-3/@湛卢装备><湛卢装备/SCOLOR=70>
+#IF
+check [36] 1
+#Act
+mov S$神纹装备 <Img:1032:12:-5:-3/@神纹装备><神纹装备/SCOLOR=250>
+#ELSEACT
+mov S$神纹装备 <Img:1031:12:-5:-3/@神纹装备><神纹装备/SCOLOR=70>
+
+#IF
+check [37] 1
+#Act
+mov S$莫邪装备 <Img:1032:12:-5:-3/@莫邪装备><莫邪装备/SCOLOR=250>
+#ELSEACT
+mov S$莫邪装备 <Img:1031:12:-5:-3/@莫邪装备><莫邪装备/SCOLOR=70>
+#IF
+check [38] 1
+#Act
+mov S$天煞装备 <Img:1032:12:-5:-3/@天煞装备><天煞装备/SCOLOR=250>
+#ELSEACT
+mov S$天煞装备 <Img:1031:12:-5:-3/@天煞装备><天煞装备/SCOLOR=70>
+#IF
+check [39] 1
+#Act
+mov S$赤霄装备 <Img:1032:12:-5:-3/@赤霄装备><赤霄装备/SCOLOR=250>
+#ELSEACT
+mov S$赤霄装备 <Img:1031:12:-5:-3/@赤霄装备><赤霄装备/SCOLOR=70>
+
+#IF
+#Act
+OPENMERCHANTBIGDLG 12 1030 1 4 0 0
+#say
+<Img:801:0:452:-14/@EXIT>\ \
+　<$STR(S$雷霆装备)>　　  　<$STR(S$战神装备)>　　  　<$STR(S$狂雷装备)>\
+< >                                      　　　　          <名字/SCOLOR=67>     <元宝/SCOLOR=21>     <经验/SCOLOR=250>\
+< >                                      　　　　          <雷霆/SCOLOR=255>     <80/SCOLOR=21>       <1500/SCOLOR=250>\
+　<$STR(S$火龙装备)>　　  　<$STR(S$青虹装备)>　　  　<$STR(S$莫邪装备)>     <战神/SCOLOR=255>     <150/SCOLOR=21>      <2000/SCOLOR=250>\
+< >                                      　　　　          <狂雷/SCOLOR=250>     <300/SCOLOR=21>      <2500/SCOLOR=250>\
+< >                                      　　　　          <火龙/SCOLOR=250>     <400/SCOLOR=21>      <3000/SCOLOR=250>\
+　<$STR(S$龙渊装备)>　　  　<$STR(S$龙焰装备)>　　  　<$STR(S$干将装备)>     <青虹/SCOLOR=243>     <500/SCOLOR=21>      <4000/SCOLOR=250>\
+< >                                      　　　　          <莫邪/SCOLOR=243>     <700/SCOLOR=21>      <6000/SCOLOR=250>\
+< >                                      　　　　          <龙渊/SCOLOR=251>     <1000/SCOLOR=21>     <8000/SCOLOR=250>\
+　<$STR(S$巨阕装备)>　　  　<$STR(S$湛卢装备)>　　  　<$STR(S$天煞装备)>     <龙焰/SCOLOR=251>     <1800/SCOLOR=21>     <12000/SCOLOR=250>\
+< >                        　　　　                        <干将/SCOLOR=254>     <3000/SCOLOR=21>     <15000/SCOLOR=250>\
+< >                                      　　　　          <巨阕/SCOLOR=254>     <6000/SCOLOR=21>     <18000/SCOLOR=250>\
+< >                                      　　　　          <湛卢/SCOLOR=252>     <15000/SCOLOR=21>    <25000/SCOLOR=250>\
+< >                                      　　　　          <天煞/SCOLOR=252>     <30000/SCOLOR=21>    <50000/SCOLOR=250>\
+<ImgEx:12:1034:1033:1033:43:-60/@回收>
+< >                                                        \
+< > <仓库服务/@storage>                      <货币兑换提取|250#点击货币兑换/@货币兑换>                 <回收提示:/SCOLOR=251><剑甲回收翻倍！/SCOLOR=249>\
+< >                                                           \
+<回收注意:/SCOLOR=250><请玩家在回收装备之前，先把要用的装备存仓库/SCOLOR=249>\ 
+<回收注意:/SCOLOR=250><请玩家在回收装备之前，先把要用的装备存仓库/SCOLOR=249>\ 
+
+[@货币兑换]
+#IF
+#ACT
+OPENMERCHANTBIGDLG 12 1040 1 4 0 0 1 450 10
+#say
+<Img:801:0:456:20/@EXIT>
+ \ \
+　　　                     <宏图霸业·货币兑换系统/SCOLOR=250> \ 
+　　　                <方便游戏中玩家之间交易,开放货币提取/SCOLOR=250>\ \
+<>　 <人民币兑换宏图古币:/SCOLOR=253>\ \
+<>　 <1RMB兑换宏图古币|253#1人民币点可兑换100宏图古币/@1>　<10RMB兑换宏图古币|253#10人民币点可兑换1000宏图古币/@2>　<100RMB兑换宏图古币|253#100人民币点可兑换10000宏图古币/@3>　<1000RMB兑换宏图古币|253#1000人民币点可兑换100000宏图古币/@4>\ \ 
+<>　 <宏图古币兑换人民币:/SCOLOR=253>\ \
+<>　 <1百宏图古币兑换RMB|253#100宏图古币可兑换1人民币点/@5>　<1千宏图古币兑换RMB|253#1000宏图古币可兑换10人民币点/@6>　<1万宏图古币兑换RMB|253#10000宏图古币可兑换100人民币点/@7>　<10万宏图古币兑换RMB|253#100000宏图古币可兑换1000人民币点/@8>\ \
+<>　 <宏图古币提取:/SCOLOR=253>\ \
+<>　 <提取500个宏图古币/@32>　　      <提取1000个宏图古币/@33>　　      <提取5000个宏图古币/@34>\ \ 
+<>　 <提取10000个宏图古币/@35>　　    <提取50000个宏图古币/@36>　　     <提取100000个宏图古币/@37>\ \ 
+<>　 <您当前宏图古币数量:/SCOLOR=250><$GAMEDIAMOND>　 <您当前RMB点数量:/SCOLOR=250><$GAMEPOINT>\ \
+<>   <防骗须知:本服授权游戏商人头顶授权商人封号,请注意看清楚!/SCOLOR=249>
+
+
+
+[@游戏商人]
+#act
+OPENMERCHANTBIGDLG  54 98 3 4 0 -120 1 465 30
+#say
+ \  \  \   
+　　　                <宏图霸业单职业·游戏受权商人查询/SCOLOR=253> \ 
+<>         <游戏商人⒈/scolor=251>  <宏图银商/scolor=242>  <联系QQ：/scolor=249>  <590282/scolor=251> \ \
+<>         <游戏商人⒉/scolor=251>  <宏图银商/scolor=254>  <联系QQ：/scolor=249>  <590282/scolor=251> \ \
+<>         <游戏商人⒊/scolor=251>  <宏图银商/scolor=250>  <联系QQ：/scolor=249>  <590282/scolor=251> \ \
+<>         <游戏商人⒋/scolor=251>  <宏图银商/scolor=245>  <联系QQ：/scolor=249>  <590282/scolor=251> \ \
+<>         <游戏商人⒌/scolor=251>  <宏图银商/scolor=254>  <联系QQ：/scolor=249>  <590282/scolor=251> \ 
+<><防骗须知：本服授权游戏商人名单已公布!请玩家在交易货币之前，先确实银商是否头顶商人封号!/SCOLOR=250>\ 
+
+[@32]
+#if
+CHECKGAMEDIAMOND > 499
+#act
+GAMEDIAMOND - 500
+give 宏图古币+500 1
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币500个。
+
+[@33]
+#if
+CHECKGAMEDIAMOND > 999
+#act
+GAMEDIAMOND - 1000
+give 宏图古币+1000 1
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币1000个。
+
+[@34]
+#if
+CHECKGAMEDIAMOND > 4999
+#act
+GAMEDIAMOND - 5000
+give 宏图古币+5000 1
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币5000个。
+
+[@35]
+#if
+CHECKGAMEDIAMOND > 9999
+#act
+GAMEDIAMOND - 10000
+give 宏图古币+10000 1
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币10000个。
+
+
+[@36]
+#if
+CHECKGAMEDIAMOND > 49999
+#act
+GAMEDIAMOND - 50000
+give 宏图古币+50000 1
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币50000个。
+
+
+[@37]
+#if
+CHECKGAMEDIAMOND > 99999
+#act
+GAMEDIAMOND - 100000
+give 宏图古币+100000 1
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币100000个。
+
+
+[@1]
+#if
+CHECKGAMEPOINT > 0
+#act
+GAMEPOINT - 1
+GAMEDIAMOND + 100
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的人民币不足1点。
+
+[@2]
+#if
+CHECKGAMEPOINT > 9
+#act
+GAMEPOINT - 10
+GAMEDIAMOND + 1000
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的人民币不足10点。
+
+[@3]
+#if
+CHECKGAMEPOINT > 99
+#act
+GAMEPOINT - 100
+GAMEDIAMOND + 10000
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的人民币不足100点。
+
+[@4]
+#if
+CHECKGAMEPOINT > 999
+#act
+GAMEPOINT - 1000
+GAMEDIAMOND + 100000
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的人民币不足1000点。
+
+[@5]
+#if
+CHECKGAMEDIAMOND > 99
+#act
+GAMEDIAMOND - 100
+GAMEPOINT + 1
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏霸古币不足100个。
+
+[@6]
+#if
+CHECKGAMEDIAMOND > 999
+#act
+GAMEDIAMOND - 1000
+GAMEPOINT + 10
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏霸古币不足1000个。
+
+[@7]
+#if
+CHECKGAMEDIAMOND > 9999
+#act
+GAMEDIAMOND - 10000
+GAMEPOINT + 100
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏霸古币不足10000个。
+
+
+[@8]
+#if
+CHECKGAMEDIAMOND > 99999
+#act
+GAMEDIAMOND - 100000
+GAMEPOINT + 1000
+GOTO @货币兑换
+#ELSEACT
+MESSAGEBOX 对不起，您的宏霸古币不足100000个。
+
+
+
+
+
+
+
+
+
+
+
+
+
+[@古币提取]
+#act
+OPENMERCHANTBIGDLG  54 98 3 4 0 -120 1 465 30
+#say
+<PlayImg:1:0:11:200:100:-65:0>
+ \  \  \   
+　　　                     <宏图霸业单职业·货币提取系统/SCOLOR=253> \ 
+　　　                <方便游戏中玩家之间交易,开放货币提取/SCOLOR=250>\ \
+<>　<提取500个宏图古币/@32>　　      <提取1000个宏图古币/@33>　　      <提取5000个宏图古币/@34>\ \ 
+<>　<提取10000个宏图古币/@35>　　    <提取50000个宏图古币/@36>　　     <提取100000个宏图古币/@37>\ \ 
+
+
+[@32]
+#if
+CHECKGAMEDIAMOND > 499
+#act
+GAMEDIAMOND - 500
+give 宏图古币+500 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币500个。
+
+[@33]
+#if
+CHECKGAMEDIAMOND > 999
+#act
+GAMEDIAMOND - 1000
+give 宏图古币+1000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币1000个。
+
+[@34]
+#if
+CHECKGAMEDIAMOND > 4999
+#act
+GAMEDIAMOND - 5000
+give 宏图古币+5000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币5000个。
+
+[@35]
+#if
+CHECKGAMEDIAMOND > 9999
+#act
+GAMEDIAMOND - 10000
+give 宏图古币+10000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币10000个。
+
+
+[@36]
+#if
+CHECKGAMEDIAMOND > 49999
+#act
+GAMEDIAMOND - 50000
+give 宏图古币+50000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币50000个。
+
+
+[@37]
+#if
+CHECKGAMEDIAMOND > 99999
+#act
+GAMEDIAMOND - 100000
+give 宏图古币+100000 1
+#ELSEACT
+MESSAGEBOX 对不起，您的宏图古币100000个。
+
+
+
+
+[@ItemOutBox4]
+#IF
+#ACT
+GOTO @开始回收
+[@ItemIntoBox4]
+#IF
+NOT CheckContainsTextListEx ..\QuestDiary\数据文件\装备回收\所有装备.txt <$BOXITEM[4].NAME>
+#ACT
+MESSAGEBOX \\此物品禁止回收！
+ReturnBoxItem 4
+break
+
+#IF
+CheckContainsTextListEx ..\QuestDiary\数据文件\装备回收\所有装备.txt <$BOXITEM[4].NAME>
+CheckBoxItemCount 4 1
+equal <$BOXITEM[4].UPGRADECOUNT> 3
+#ACT
+MOV S$当前装备名称 <$BOXITEM[4].NAME>
+MOV S$当前装备星级 <PlayImg:0:530:6:200:0:0:0><PlayImg:0:530:6:200:0:0:0><PlayImg:0:530:6:200:0:0:0>
+MOV S$当前装备价格 1颗装备精华
+MOV S$当前回收状态 <点击确定回收·√/@开始三星回收>
+GOTO @带星装备回收
+break
+
+#IF
+CheckContainsTextListEx ..\QuestDiary\数据文件\装备回收\所有装备.txt <$BOXITEM[4].NAME>
+CheckBoxItemCount 4 1
+equal <$BOXITEM[4].UPGRADECOUNT> 4
+#ACT
+MOV S$当前装备名称 <$BOXITEM[4].NAME>
+MOV S$当前装备星级 <PlayImg:0:530:6:200:0:0:0><PlayImg:0:530:6:200:0:0:0><PlayImg:0:530:6:200:0:0:0><PlayImg:0:530:6:200:0:0:0>
+MOV S$当前装备价格 2颗装备精华
+MOV S$当前回收状态 <点击确定回收·√/@开始四星回收>
+GOTO @带星装备回收
+break
+
+#IF
+CheckContainsTextListEx ..\QuestDiary\数据文件\装备回收\所有装备.txt <$BOXITEM[4].NAME>
+CheckBoxItemCount 4 1
+equal <$BOXITEM[4].UPGRADECOUNT> 5
+#ACT
+MOV S$当前装备名称 <$BOXITEM[4].NAME>
+MOV S$当前装备星级 <PlayImg:0:530:6:200:0:0:0><PlayImg:0:530:6:200:0:0:0><PlayImg:0:530:6:200:0:0:0><PlayImg:0:530:6:200:0:0:0><PlayImg:0:530:6:200:0:0:0>
+MOV S$当前装备价格 3颗装备精华
+MOV S$当前回收状态 <点击确定回收·√/@开始五星回收>
+GOTO @带星装备回收
+break
+#ELSEACT
+ReturnBoxItem 4
+MESSAGEBOX \\请放入“三星，四星，五星”装备！
+break
+
+[@开始三星回收]
+#IF
+CheckBoxItemCount 4 1
+equal <$BOXITEM[4].UPGRADECOUNT> 3
+#ACT
+DELBOXITEM 4
+UpDateBoxItem
+give 装备精华 1
+DELAYGOTO 1 @开始回收
+SendMsg 0 {装备回收ぐ|151:0:1}：{%s|227:0:1}回收{[★★★]|154:0:1}装备获得装备精华{[1]|250:0:1}颗！
+break
+
+[@开始四星回收]
+#IF
+CheckBoxItemCount 4 1
+equal <$BOXITEM[4].UPGRADECOUNT> 4
+#ACT
+DELBOXITEM 4
+UpDateBoxItem
+give 装备精华 2
+DELAYGOTO 1 @开始回收
+SendMsg 0 {装备回收ぐ|151:0:1}：{%s|227:0:1}回收{[★★★★]|154:0:1}装备获得装备精华{[2]|250:0:1}颗！
+break
+
+[@开始五星回收]
+#IF
+CheckBoxItemCount 4 1
+equal <$BOXITEM[4].UPGRADECOUNT> 5
+#ACT
+DELBOXITEM 4
+UpDateBoxItem
+give 装备精华 3
+DELAYGOTO 1 @开始回收
+SendMsg 0 {装备回收ぐ|151:0:1}：{%s|227:0:1}回收{[★★★★★]|154:0:1}装备获得装备精华{[3]|250:0:1}颗！
+break
+
+[@回收]
+#IF
+#ACT
+MOV N1 0
+MOV N5 0
+MOV N6 0
+
+
+#IF
+check [39] 1
+#ACT
+TakeBagItem 赤霄之剑|赤霄道袍|赤霄道衣 46 0 0 0 12000000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 15
+MUL N5 N1 40000
+MUL N6 N1 12000000
+
+GAMEGOLD + <$STR(N5)>
+inc G300 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {赤霄剑甲|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [39] 1
+#ACT
+TakeBagItem 赤霄之剑|赤霄道袍|赤霄道衣|赤霄头盔|赤霄项链|赤霄手镯|赤霄戒指|赤霄腰带|赤霄靴子 46 0 0 0 6000000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 15
+MUL N5 N1 20000
+MUL N6 N1 6000000
+
+GAMEGOLD + <$STR(N5)>
+inc G300 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {赤霄首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [38] 1
+#ACT
+TakeBagItem 龙炎法杖|龙炎法袍|龙炎法衣 46 0 0 0 12000000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 15
+MUL N5 N1 40000
+MUL N6 N1 12000000
+
+GAMEGOLD + <$STR(N5)>
+inc G301 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {龙炎首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [38] 1
+#ACT
+TakeBagItem 天煞之刃|天煞战甲|天煞战衣 46 0 0 0 100000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 15
+MUL N5 N1 60000
+MUL N6 N1 100000
+
+GAMEGOLD + <$STR(N5)>
+inc G301 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {天煞武器衣服|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [38] 1
+#ACT
+TakeBagItem 天煞头盔|天煞项链|天煞手镯|天煞戒指|天煞腰带|天煞靴子 46 0 0 0 50000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 15
+MUL N5 N1 30000
+MUL N6 N1 50000
+
+GAMEGOLD + <$STR(N5)>
+inc G301 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {天煞首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [37] 1
+#ACT
+TakeBagItem 莫邪之刃|莫邪战甲|莫邪战衣 46 0 0 0 12000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 15
+MUL N5 N1 1400
+MUL N6 N1 12000
+
+GAMEGOLD + <$STR(N5)>
+inc G302 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {莫邪首饰|243:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [37] 1
+#ACT
+TakeBagItem 莫邪之刃|莫邪战甲|莫邪战衣|莫邪头盔|莫邪项链|莫邪手镯|莫邪戒指|莫邪腰带|莫邪靴子 46 0 0 0 6000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 15
+MUL N5 N1 700
+MUL N6 N1 6000
+
+GAMEGOLD + <$STR(N5)>
+inc G302 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {莫邪首饰|243:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [36] 1
+#ACT
+TakeBagItem 神纹之剑|神纹道袍|神纹道衣 46 0 0 0 1000000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 10
+MUL N5 N1 10000
+MUL N6 N1 1000000
+
+GAMEGOLD + <$STR(N5)>
+inc G303 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {神纹首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [36] 1
+#ACT
+TakeBagItem 神纹之剑|神纹道袍|神纹道衣|神纹头盔|神纹项链|神纹手镯|神纹戒指|神纹腰带|神纹靴子 46 0 0 0 500000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 10
+MUL N5 N1 5000
+MUL N6 N1 500000
+
+GAMEGOLD + <$STR(N5)>
+inc G303 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {神纹首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [35] 1
+#ACT
+TakeBagItem 湛卢之刃|湛卢战甲|湛卢战衣 46 0 0 0 50000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 10
+MUL N5 N1 30000
+MUL N6 N1 50000
+
+GAMEGOLD + <$STR(N5)>
+inc G304 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {湛卢武器衣服|252:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [35] 1
+#ACT
+TakeBagItem 湛卢头盔|湛卢项链|湛卢手镯|湛卢戒指|湛卢腰带|湛卢靴子 46 0 0 0 25000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 10
+MUL N5 N1 15000
+MUL N6 N1 25000
+
+GAMEGOLD + <$STR(N5)>
+inc G304 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {湛卢首饰|252:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [34] 1
+#ACT
+TakeBagItem 青虹之刃|青虹战甲|青虹战衣 46 0 0 0 8000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 10
+MUL N5 N1 1000
+MUL N6 N1 8000
+
+GAMEGOLD + <$STR(N5)>
+inc G305 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {青虹首饰|243:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [34] 1
+#ACT
+TakeBagItem 青虹头盔|青虹项链|青虹手镯|青虹戒指|青虹腰带|青虹靴子 46 0 0 0 4000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 10
+MUL N5 N1 500
+MUL N6 N1 4000
+
+GAMEGOLD + <$STR(N5)>
+inc G305 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {青虹首饰|243:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [33] 1
+#ACT
+TakeBagItem 征程之剑|征程道袍|征程道衣 46 0 0 0 200000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 7
+MUL N5 N1 4000
+MUL N6 N1 200000
+
+GAMEGOLD + <$STR(N5)>
+inc G306 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {征程首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [33] 1
+#ACT
+TakeBagItem 征程之剑|征程道袍|征程道衣|征程头盔|征程项链|征程手镯|征程戒指|征程腰带|征程靴子 46 0 0 0 100000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 7
+MUL N5 N1 2000
+MUL N6 N1 100000
+
+GAMEGOLD + <$STR(N5)>
+inc G306 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {征程首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [32] 1
+#ACT
+TakeBagItem 巨阕之刃|巨阕战甲|巨阕战衣 46 0 0 0 36000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 7
+MUL N5 N1 12000
+MUL N6 N1 36000
+
+GAMEGOLD + <$STR(N5)>
+inc G307 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {巨阕武器衣服|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [32] 1
+#ACT
+TakeBagItem 巨阕头盔|巨阕项链|巨阕手镯|巨阕戒指|巨阕腰带|巨阕靴子 46 0 0 0 18000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 7
+MUL N5 N1 6000
+MUL N6 N1 18000
+
+GAMEGOLD + <$STR(N5)>
+inc G307 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {巨阕首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [31] 1
+#ACT
+TakeBagItem 火龙之刃|火龙战甲|火龙战衣 46 0 0 0 6000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 7
+MUL N5 N1 800
+MUL N6 N1 6000
+
+GAMEGOLD + <$STR(N5)>
+inc G308 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {火龙首饰|250:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [31] 1
+#ACT
+TakeBagItem 火龙头盔|火龙项链|火龙手镯|火龙戒指|火龙腰带|火龙靴子 46 0 0 0 3000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 7
+MUL N5 N1 400
+MUL N6 N1 3000
+
+GAMEGOLD + <$STR(N5)>
+inc G308 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {火龙首饰|250:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+
+#IF
+check [29] 1
+#ACT
+TakeBagItem 干将之刃|干将战甲|干将战衣 46 0 0 0 30000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 5
+MUL N5 N1 4800
+MUL N6 N1 30000
+
+GAMEGOLD + <$STR(N5)>
+inc G310 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {干将武器衣服|254:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [29] 1
+#ACT
+TakeBagItem 干将头盔|干将项链|干将手镯|干将戒指|干将腰带|干将靴子 46 0 0 0 15000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 5
+MUL N5 N1 2400
+MUL N6 N1 15000
+
+GAMEGOLD + <$STR(N5)>
+inc G310 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {干将首饰|254:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [28] 1
+#ACT
+TakeBagItem 狂雷之刃|狂雷战甲|狂雷战衣 46 0 0 0 5000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 5
+MUL N5 N1 600
+MUL N6 N1 5000
+
+GAMEGOLD + <$STR(N5)>
+inc G311 <$STR(N5)>
+SENDMSG 7 249 251 〖<$USERNAME>〗回收 {狂雷剑甲|250:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [28] 1
+#ACT
+TakeBagItem 狂雷头盔|狂雷项链|狂雷手镯|狂雷戒指|狂雷腰带|狂雷靴子 46 0 0 0 2500 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 5
+MUL N5 N1 300
+MUL N6 N1 2500
+
+GAMEGOLD + <$STR(N5)>
+inc G311 <$STR(N5)>
+SENDMSG 7 249 251 〖<$USERNAME>〗回收 {狂雷首饰|250:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+
+
+
+#IF
+check [26] 1
+#ACT
+TakeBagItem 龙焰之刃|龙焰战甲|龙焰战衣 46 0 0 0 24000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 3
+MUL N5 N1 3600
+MUL N6 N1 24000
+
+GAMEGOLD + <$STR(N5)>
+inc G313 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {龙焰武器衣服|251:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [26] 1
+#ACT
+TakeBagItem 龙焰头盔|龙焰项链|龙焰手镯|龙焰戒指|龙焰腰带|龙焰靴子 46 0 0 0 12000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 3
+MUL N5 N1 1800
+MUL N6 N1 12000
+
+GAMEGOLD + <$STR(N5)>
+inc G313 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {龙焰首饰|251:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [25] 1
+#ACT
+TakeBagItem 战神之刃|战神战甲|战神战衣 46 0 0 0 4000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 3
+MUL N5 N1 300
+MUL N6 N1 4000
+
+GAMEGOLD + <$STR(N5)>
+inc G314 <$STR(N5)>
+SENDMSG 7 249 251 〖<$USERNAME>〗回收 {战神首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [25] 1
+#ACT
+TakeBagItem 战神头盔|战神项链|战神手镯|战神戒指|战神腰带|战神靴子 46 0 0 0 2000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 3
+MUL N5 N1 150
+MUL N6 N1 2000
+
+GAMEGOLD + <$STR(N5)>
+inc G314 <$STR(N5)>
+SENDMSG 7 249 251 〖<$USERNAME>〗回收 {战神首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+
+
+#IF
+check [23] 1
+#ACT
+TakeBagItem 龙渊之刃|龙渊战甲|龙渊战衣 46 0 0 0 16000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 1
+MUL N5 N1 2000
+MUL N6 N1 16000
+
+GAMEGOLD + <$STR(N5)>
+inc G316 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {龙渊武器衣服|251:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [23] 1
+#ACT
+TakeBagItem 龙渊头盔|龙渊项链|龙渊手镯|龙渊戒指|龙渊腰带|龙渊靴子 46 0 0 0 8000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 1
+MUL N5 N1 1000
+MUL N6 N1 8000
+
+GAMEGOLD + <$STR(N5)>
+inc G316 <$STR(N5)>
+SENDMSG 0 249 251 〖<$USERNAME>〗回收 {龙渊首饰|251:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [22] 1
+#ACT
+TakeBagItem 雷霆之刃|雷霆战甲|雷霆战衣 46 0 0 0 3000 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 1
+MUL N5 N1 160
+MUL N6 N1 3000
+
+GAMEGOLD + <$STR(N5)>
+inc G317 <$STR(N5)>
+SENDMSG 7 249 251 〖<$USERNAME>〗回收 {雷霆首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+#IF
+check [22] 1
+#ACT
+TakeBagItem 雷霆头盔|雷霆项链|雷霆手镯|雷霆戒指|雷霆腰带|雷霆靴子 46 0 0 0 1500 N1 0
+#IF
+large N1 > 0
+#ACT
+MUL N4 N1 1
+MUL N5 N1 80
+MUL N6 N1 1500
+
+GAMEGOLD + <$STR(N5)>
+inc G317 <$STR(N5)>
+SENDMSG 7 249 251 〖<$USERNAME>〗回收 {雷霆首饰|255:0:1} <$STR(N1)>件，元宝增加<$STR(N5)>颗，共获得经验值<$STR(N6)>。
+MOV N1 0
+MOV N4 0
+MOV N5 0
+MOV N6 0
+MOV N7 1
+
+
+#if
+large N7 0
+#ACT
+#CALL [\游戏登陆\人物功勋.txt] @功勋检测
+MOV N7 0
+
+
+
+[@雷霆装备]
+#IF
+check [22] 0
+#ACT
+SET [22] 1
+goto @开始回收
+break
+#IF
+check [22] 1
+#ACT
+SET [22] 0
+goto @开始回收
+break
+
+
+[@龙渊装备]
+#IF
+check [23] 0
+#ACT
+SET [23] 1
+goto @开始回收
+break
+#IF
+check [23] 1
+#ACT
+SET [23] 0
+goto @开始回收
+break
+
+
+[@英雄装备]
+#IF
+check [24] 0
+#ACT
+SET [24] 1
+goto @开始回收
+break
+#IF
+check [24] 1
+#ACT
+SET [24] 0
+goto @开始回收
+break
+
+
+[@战神装备]
+#IF
+check [25] 0
+#ACT
+SET [25] 1
+goto @开始回收
+break
+#IF
+check [25] 1
+#ACT
+SET [25] 0
+goto @开始回收
+break
+
+
+[@龙焰装备]
+#IF
+check [26] 0
+#ACT
+SET [26] 1
+goto @开始回收
+break
+#IF
+check [26] 1
+#ACT
+SET [26] 0
+goto @开始回收
+break
+
+
+[@惊云装备]
+#IF
+check [27] 0
+#ACT
+SET [27] 1
+goto @开始回收
+break
+#IF
+check [27] 1
+#ACT
+SET [27] 0
+goto @开始回收
+break
+
+
+[@狂雷装备]
+#IF
+check [28] 0
+#ACT
+SET [28] 1
+goto @开始回收
+break
+#IF
+check [28] 1
+#ACT
+SET [28] 0
+goto @开始回收
+break
+
+
+[@干将装备]
+#IF
+check [29] 0
+#ACT
+SET [29] 1
+goto @开始回收
+break
+#IF
+check [29] 1
+#ACT
+SET [29] 0
+goto @开始回收
+break
+
+
+[@霸业装备]
+#IF
+check [30] 0
+#ACT
+SET [30] 1
+goto @开始回收
+break
+#IF
+check [30] 1
+#ACT
+SET [30] 0
+goto @开始回收
+break
+
+
+[@火龙装备]
+#IF
+check [31] 0
+#ACT
+SET [31] 1
+goto @开始回收
+break
+#IF
+check [31] 1
+#ACT
+SET [31] 0
+goto @开始回收
+break
+
+
+[@巨阕装备]
+#IF
+check [32] 0
+#ACT
+SET [32] 1
+goto @开始回收
+break
+#IF
+check [32] 1
+#ACT
+SET [32] 0
+goto @开始回收
+break
+
+
+[@征程装备]
+#IF
+check [33] 0
+#ACT
+SET [33] 1
+goto @开始回收
+break
+#IF
+check [33] 1
+#ACT
+SET [33] 0
+goto @开始回收
+break
+
+[@青虹装备]
+#IF
+check [34] 0
+#ACT
+SET [34] 1
+goto @开始回收
+break
+#IF
+check [34] 1
+#ACT
+SET [34] 0
+goto @开始回收
+break
+
+
+[@湛卢装备]
+#IF
+check [35] 0
+#ACT
+SET [35] 1
+goto @开始回收
+break
+#IF
+check [35] 1
+#ACT
+SET [35] 0
+goto @开始回收
+break
+
+
+[@神纹装备]
+#IF
+check [36] 0
+#ACT
+SET [36] 1
+goto @开始回收
+break
+#IF
+check [36] 1
+#ACT
+SET [36] 0
+goto @开始回收
+break
+
+
+[@莫邪装备]
+#IF
+check [37] 0
+#ACT
+SET [37] 1
+goto @开始回收
+break
+#IF
+check [37] 1
+#ACT
+SET [37] 0
+goto @开始回收
+break
+
+[@天煞装备]
+#IF
+check [38] 0
+#ACT
+SET [38] 1
+goto @开始回收
+break
+#IF
+check [38] 1
+#ACT
+SET [38] 0
+goto @开始回收
+break
+
+[@赤霄装备]
+#IF
+check [39] 0
+#ACT
+SET [39] 1
+goto @开始回收
+break
+#IF
+check [39] 1
+#ACT
+SET [39] 0
+goto @开始回收
+break
+
+}

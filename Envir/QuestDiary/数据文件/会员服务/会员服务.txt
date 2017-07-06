@@ -1,0 +1,654 @@
+{
+[@会员服务]
+#IF
+check [100] 1
+#ACT
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<贵宾接待员/SCOLOR=154>\
+　　　<欢迎您尊贵的“/SCOLOR=87><VIP会员/SCOLOR=70><”玩家，请选择您需要使用的特权：/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<1.会员获得1.2倍打怪爆率,人物上线自动触发，真实有效可以测试/SCOLOR=147>\
+　<2.会员在激情泡点间泡点获得双倍经验，抢点也获得双倍经验哦！/SCOLOR=145>\
+　<Img:803:0:0:4>\
+　<「/SCOLOR=103><每日奖励/@每日奖励><」　　「/SCOLOR=103><自动回收/@自动回收><」　　「/SCOLOR=103><装备提醒/@装备提醒><」/SCOLOR=103><HOT/SCOLOR=253> <「/SCOLOR=103><会员神力/@会员神力><」/SCOLOR=103>\
+　<「/SCOLOR=103><免费寻宝/@幸运之神><」　　「/SCOLOR=103><经验翻倍/@经验翻倍><」　　「/SCOLOR=103><会员地图/@会员地图><」　　「/SCOLOR=103><会员副本/@会员副本><」/SCOLOR=103><HOT/SCOLOR=253>\
+　<Img:803:0:0:4>\
+　<更多功能我们会陆续更新，您的满意是我们永远的追求/SCOLOR=239> <天择传奇宣/SCOLOR=249>
+#ELSEACT
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#ELSEsay
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<贵宾接待员/SCOLOR=154>\
+　　　<欢迎您尊贵的“/SCOLOR=87><VIP会员/SCOLOR=70><”玩家，请选择您需要使用的特权：/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<1.会员获得1.2倍打怪爆率,人物上线自动触发，真实有效可以测试/SCOLOR=147>\
+　<2.会员在激情泡点间泡点获得双倍经验，抢点也获得双倍经验哦！/SCOLOR=145>\
+　<Img:803:0:0:4>\
+　<「/SCOLOR=103><每日奖励><」　　「/SCOLOR=103><自动回收><」　　「/SCOLOR=103><装备提醒><」/SCOLOR=103><HOT/SCOLOR=253> <「/SCOLOR=103><会员神力><」/SCOLOR=103>\
+　<「/SCOLOR=103><免费寻宝><」　　「/SCOLOR=103><随身泡点><」　　「/SCOLOR=103><会员地图><」　　「/SCOLOR=103><会员副本><」/SCOLOR=103><HOT/SCOLOR=253>\
+　<Img:803:0:0:4>\
+　<更多功能我们会陆续更新，您的满意是我们永远的追求/SCOLOR=239> <天择传奇宣/SCOLOR=249>
+
+[@经验翻倍]
+#ACT
+MESSAGEBOX \\加入会员经验自动翻倍，无需手动开启！
+BREAK
+
+[@自动回收]
+#IF
+check [90] 1
+#Act
+mov S$10元宝 <Img:1032:12:-5:-3/@10元宝自动><10元宝/SCOLOR=250>
+#ELSEACT
+mov S$10元宝 <Img:1031:12:-5:-3/@10元宝自动><10元宝/SCOLOR=70>
+#IF
+check [91] 1
+#Act
+mov S$20元宝 <Img:1032:12:-5:-3/@20元宝自动><20元宝/SCOLOR=250>
+#ELSEACT
+mov S$20元宝 <Img:1031:12:-5:-3/@20元宝自动><20元宝/SCOLOR=70>
+
+#IF
+check [92] 1
+#Act
+mov S$50元宝 <Img:1032:12:-5:-3/@50元宝自动><50元宝/SCOLOR=250>
+#ELSEACT
+mov S$50元宝 <Img:1031:12:-5:-3/@50元宝自动><50元宝/SCOLOR=70>
+#IF
+check [93] 1
+#Act
+mov S$100元宝 <Img:1032:12:-5:-3/@100元宝自动><100元宝/SCOLOR=250>
+#ELSEACT
+mov S$100元宝 <Img:1031:12:-5:-3/@100元宝自动><100元宝/SCOLOR=70>
+#IF
+check [94] 1
+#Act
+mov S$500元宝 <Img:1032:12:-5:-3/@500元宝自动><500元宝/SCOLOR=250>
+#ELSEACT
+mov S$500元宝 <Img:1031:12:-5:-3/@500元宝自动><500元宝/SCOLOR=70>
+#IF
+check [95] 1
+#Act
+mov S$1000元宝 <Img:1032:12:-5:-3/@1000元宝自动><1000元宝/SCOLOR=250>
+#ELSEACT
+mov S$1000元宝 <Img:1031:12:-5:-3/@1000元宝自动><1000元宝/SCOLOR=70>
+#IF
+check [96] 1
+#Act
+mov S$2000元宝 <Img:1032:12:-5:-3/@2000元宝自动><2000元宝/SCOLOR=250>
+#ELSEACT
+mov S$2000元宝 <Img:1031:12:-5:-3/@2000元宝自动><2000元宝/SCOLOR=70>
+#IF
+check [97] 1
+#Act
+mov S$5000元宝 <Img:1032:12:-5:-3/@5000元宝自动><5000元宝/SCOLOR=250>
+#ELSEACT
+mov S$5000元宝 <Img:1031:12:-5:-3/@5000元宝自动><5000元宝/SCOLOR=70>
+
+#IF
+check [101] 1
+#Act
+mov S$血玉碎片 <Img:1032:12:-5:-3/@血玉碎片自动><血玉碎片/SCOLOR=250>
+#ELSEACT
+mov S$血玉碎片 <Img:1031:12:-5:-3/@血玉碎片自动><血玉碎片/SCOLOR=70>
+#IF
+check [102] 1
+#Act
+mov S$印记碎片 <Img:1032:12:-5:-3/@印记碎片自动><印记碎片/SCOLOR=250>
+#ELSEACT
+mov S$印记碎片 <Img:1031:12:-5:-3/@印记碎片自动><印记碎片/SCOLOR=70>
+#IF
+check [103] 1
+#Act
+mov S$魂晶碎片 <Img:1032:12:-5:-3/@魂晶碎片自动><魂晶碎片/SCOLOR=250>
+#ELSEACT
+mov S$魂晶碎片 <Img:1031:12:-5:-3/@魂晶碎片自动><魂晶碎片/SCOLOR=70>
+#IF
+check [104] 1
+#Act
+mov S$秘符碎片 <Img:1032:12:-5:-3/@秘符碎片自动><秘符碎片/SCOLOR=250>
+#ELSEACT
+mov S$秘符碎片 <Img:1031:12:-5:-3/@秘符碎片自动><秘符碎片/SCOLOR=70>
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<您可以自由开启或关闭以下功能/SCOLOR=154>\
+
+　\
+　<$STR(S$10元宝)>　    <$STR(S$20元宝)>　    <$STR(S$50元宝)>　    <$STR(S$100元宝)>\
+　\
+　<$STR(S$500元宝)>　   <$STR(S$1000元宝)>　  <$STR(S$2000元宝)>　  <$STR(S$5000元宝)> \
+　\
+　<$STR(S$血玉碎片)>　  <$STR(S$印记碎片)>　  <$STR(S$魂晶碎片)>　  <$STR(S$秘符碎片)>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　<返回首页/@会员服务>\
+<注：因碎片(中)和碎片(大)比较贵重！系统禁止自动回收！请手动点击！/SCOLOR=249>\
+[@秘符碎片自动]
+#IF
+check [104] 0
+#ACT
+SET [104] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了秘符碎片自动回收功能！
+goto @自动回收
+break
+#IF
+check [104] 1
+#ACT
+SET [104] 0
+goto @自动回收
+break
+
+[@魂晶碎片自动]
+#IF
+check [103] 0
+#ACT
+SET [103] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了魂晶碎片自动回收功能！
+goto @自动回收
+break
+#IF
+check [103] 1
+#ACT
+SET [103] 0
+goto @自动回收
+break
+
+[@印记碎片自动]
+#IF
+check [102] 0
+#ACT
+SET [102] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了印记碎片自动回收功能！
+goto @自动回收
+break
+#IF
+check [102] 1
+#ACT
+SET [102] 0
+goto @自动回收
+break
+
+[@血玉碎片自动]
+#IF
+check [101] 0
+#ACT
+SET [101] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了血玉碎片自动回收功能！
+goto @自动回收
+break
+#IF
+check [101] 1
+#ACT
+SET [101] 0
+goto @自动回收
+break
+
+[@5000元宝自动]
+#IF
+check [97] 0
+#ACT
+SET [97] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了5000元宝自动回收功能！
+goto @自动回收
+break
+#IF
+check [97] 1
+#ACT
+SET [97] 0
+goto @自动回收
+break
+
+[@2000元宝自动]
+#IF
+check [96] 0
+#ACT
+SET [96] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了2000元宝自动回收功能！
+goto @自动回收
+break
+#IF
+check [96] 1
+#ACT
+SET [96] 0
+goto @自动回收
+break
+
+[@1000元宝自动]
+#IF
+check [95] 0
+#ACT
+SET [95] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了1000元宝自动回收功能！
+goto @自动回收
+break
+#IF
+check [95] 1
+#ACT
+SET [95] 0
+goto @自动回收
+break
+
+[@500元宝自动]
+#IF
+check [94] 0
+#ACT
+SET [94] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了500元宝自动回收功能！
+goto @自动回收
+break
+#IF
+check [94] 1
+#ACT
+SET [94] 0
+goto @自动回收
+break
+
+[@100元宝自动]
+#IF
+check [93] 0
+#ACT
+SET [93] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了100元宝自动回收功能！
+goto @自动回收
+break
+#IF
+check [93] 1
+#ACT
+SET [93] 0
+goto @自动回收
+break
+
+[@50元宝自动]
+#IF
+check [92] 0
+#ACT
+SET [92] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了50元宝自动回收功能！
+goto @自动回收
+break
+#IF
+check [92] 1
+#ACT
+SET [92] 0
+goto @自动回收
+break
+
+[@20元宝自动]
+#IF
+check [91] 0
+#ACT
+SET [91] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了20元宝自动回收功能！
+goto @自动回收
+break
+#IF
+check [91] 1
+#ACT
+SET [91] 0
+goto @自动回收
+break
+
+[@10元宝自动]
+#IF
+check [90] 0
+#ACT
+SET [90] 1
+SendMsg 1 [提示]:尊贵的会员玩家%s开启了10元宝自动回收功能！
+goto @自动回收
+break
+#IF
+check [90] 1
+#ACT
+SET [90] 0
+goto @自动回收
+break
+
+
+[@装备提醒]
+#ACT
+MESSAGEBOX \\捡起比身上带的装备更高级会自动提醒！会员专属！无须手动开启！
+BREAK
+
+
+[@BOSS查询]
+#IF
+CheckMapSameMonCount Nf002 骷髅精灵 > 0
+#ACT
+MOV S$骷髅精灵 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount Nf002 骷髅精灵 < 1
+#ACT
+MOV S$骷髅精灵 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount ND024 沃玛教主 > 0
+#ACT
+MOV S$沃玛教主 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount ND024 沃玛教主 < 1
+#ACT
+MOV S$沃玛教主 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount ND717 邪恶白猪王 > 0
+#ACT
+MOV S$邪恶白猪王 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount ND717 邪恶白猪王 < 1
+#ACT
+MOV S$邪恶白猪王 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount ND5074 禁地教主 > 0
+#ACT
+MOV S$禁地教主 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount ND5074 禁地教主 < 1
+#ACT
+MOV S$禁地教主 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount ND2079 圣地魔王 > 0
+#ACT
+MOV S$圣地魔王 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount ND2079 圣地魔王 < 1
+#ACT
+MOV S$圣地魔王 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount NFOX01 赤月蛛王 > 0
+#ACT
+MOV S$赤月蛛王 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount NFOX01 赤月蛛王 < 1
+#ACT
+MOV S$赤月蛛王 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount DT13 暗夜法王 > 0
+#ACT
+MOV S$暗夜法王 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount DT13 暗夜法王 < 1
+#ACT
+MOV S$暗夜法王 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount Nr001 王者蚁后 > 0
+#ACT
+MOV S$王者蚁后 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount Nr001 王者蚁后 < 1
+#ACT
+MOV S$王者蚁后 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount dbanya8 酒窖教主 > 0
+#ACT
+MOV S$酒窖教主 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount dbanya8 酒窖教主 < 1
+#ACT
+MOV S$酒窖教主 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount PD 天牢守护兽 > 0
+#ACT
+MOV S$天牢守护兽 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount PD 天牢守护兽 < 1
+#ACT
+MOV S$天牢守护兽 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount DT15 皇陵霸主 > 0
+#ACT
+MOV S$皇陵霸主 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount DT15 皇陵霸主 < 1
+#ACT
+MOV S$皇陵霸主 <未刷/SCOLOR=249>
+
+#IF
+CheckMapSameMonCount NDA2079 暗殿魔王 > 0
+#ACT
+MOV S$暗殿魔王 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount NDA2079 暗殿魔王 < 1
+#ACT
+MOV S$暗殿魔王 <未刷/SCOLOR=249>
+
+
+#IF
+CheckMapSameMonCount DT22 炽焰殿主 > 0
+#ACT
+MOV S$炽焰殿主 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount DT22 炽焰殿主 < 1
+#ACT
+MOV S$炽焰殿主 <未刷/SCOLOR=249>
+
+
+#IF
+CheckMapSameMonCount DT17 冰雪狼王 > 0
+#ACT
+MOV S$冰雪狼王 <已刷/SCOLOR=250>
+
+#IF
+CheckMapSameMonCount DT17 冰雪狼王 < 1
+#ACT
+MOV S$冰雪狼王 <未刷/SCOLOR=249>
+
+
+#IF
+check [100] 1
+#ACT
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<BOSS公布信息/SCOLOR=154>\
+　　　<为方便玩家查询BOSS刷新情况，特开放BOSS查询信息公告！/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　<新人地图:/AUTOCOLOR=147><骷髅精灵/AUTOCOLOR=150>　 <$STR(S$骷髅精灵)>　　　　　<沃玛殿堂:/AUTOCOLOR=147><沃玛教主/AUTOCOLOR=150>　 <$STR(S$沃玛教主)>\
+　<石墓洞穴:/AUTOCOLOR=147><邪恶白猪王/AUTOCOLOR=150> <$STR(S$邪恶白猪王)>　　　　　<祖玛禁地:/AUTOCOLOR=147><禁地教主/AUTOCOLOR=150>　 <$STR(S$禁地教主)>\
+　<牛魔圣地:/AUTOCOLOR=147><圣地魔王/AUTOCOLOR=150>　 <$STR(S$圣地魔王)>　　　　　<赤月峡谷:/AUTOCOLOR=147><赤月蛛王/AUTOCOLOR=150>　 <$STR(S$赤月蛛王)>\
+　<暗夜神殿:/AUTOCOLOR=147><暗夜法王/AUTOCOLOR=150>　 <$STR(S$暗夜法王)>　　　　　<战争酒窖:/AUTOCOLOR=147><酒窖教主/AUTOCOLOR=150>　 <$STR(S$酒窖教主)>\
+　<王者蚂穴:/AUTOCOLOR=147><王者蚁后/AUTOCOLOR=150>　 <$STR(S$王者蚁后)>　　　　　<死亡天牢:/AUTOCOLOR=147><天牢守护兽/AUTOCOLOR=150> <$STR(S$天牢守护兽)>\
+　<地下皇陵:/AUTOCOLOR=147><皇陵守护兽/AUTOCOLOR=150> <$STR(S$皇陵霸主)>　　　　　<伏魔暗殿:/AUTOCOLOR=147><暗殿魔王/AUTOCOLOR=150>　 <$STR(S$暗殿魔王)>\
+　<炽焰殿堂:/AUTOCOLOR=147><炽焰殿主/AUTOCOLOR=150>　 <$STR(S$炽焰殿主)>　　　　　<冰雪森林:/AUTOCOLOR=147><冰雪狼王/AUTOCOLOR=150>　 <$STR(S$冰雪狼王)>\
+　<Img:803:0:0:4>\
+
+[@幸运之神]
+#IF
+CHECKNAMELIST ..\QuestDiary\每日清理\幸运之神.txt
+#ACT
+MESSAGEBOX \\幸运之神今日已经降临与你，请明日来在祈福！
+BREAK
+
+#IF
+check [100] 1
+#ACT
+MOV S10 0
+GetRandomText ..\QuestDiary\数据文件\抽奖积分抽奖\会员抽奖.txt S10
+give <$STR(S10)> 1
+SendMsg 0 {会员服务ぐ|151:0:1}：幸运之神降临VIP会员玩家{%s|227:0:1}获得了物品{[<$STR(S10)>]|154:0:1}！
+AddNAMELIST ..\QuestDiary\每日清理\幸运之神.txt
+BREAK
+
+
+[@会员地图]
+#IF
+#ACT
+MAP huiyuan
+SENDMSG 0 244 151 尊贵的会员玩家{[<$USERNAME>]|250:0:1}进入了{[会员地图]|254:0:1}！！
+BREAK
+
+[@会员副本]
+#if
+CheckMirrorMap <$USERNAME>
+#ACT
+MirrorMapTime <$USERNAME>
+MESSAGEBOX \\进入失败：退出副本后无法再次进入！等待<$STR(D99)>秒后可再次开启副本！\\副本重置时间为60分钟
+BREAK
+
+#if
+Equal D99 1
+#ACT
+MirrorMapTime <$USERNAME>
+MESSAGEBOX \\进入失败：退出副本后无法再次进入！等待<$STR(D99)>秒后可再次开启副本！\\副本重置时间为60分钟
+BREAK
+
+#IF
+CHECKLEVELEX < 80
+#ACT
+AddMirrorMap hf005 <$USERNAME> <$USERNAME>【会员专属】 3600 0159 10020
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级BOSS.txt S10
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级BOSS.txt S11
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级首领.txt S12
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级首领.txt S13
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级首领.txt S14
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S15
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S16
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S17
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S18
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S19
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S20
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S21
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S22
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S23
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S24
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员初级精英.txt S25
+MonGenEx <$USERNAME> 54 34 <$STR(S10)> 0 1 0 249
+MonGenEx <$USERNAME> 64 44 <$STR(S11)> 0 1 0 249
+MonGenEx <$USERNAME> 52 44 <$STR(S12)> 10 1 0 253
+MonGenEx <$USERNAME> 52 44 <$STR(S13)> 10 1 0 253
+MonGenEx <$USERNAME> 52 44 <$STR(S14)> 10 1 0 253
+MonGenEx <$USERNAME> 52 44 <$STR(S15)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S16)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S17)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S18)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S19)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S20)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S21)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S22)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S23)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S24)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S25)> 10 1 0 250
+mapmove <$USERNAME> 39 60
+SENDMSG 0 244 151 尊贵的会员玩家{[<$USERNAME>]|250:0:1}进入了{[会员副本]|254:0:1}，此副本随机刷新所有BOSS！！
+BREAK
+
+#IF
+CHECKLEVELEX > 79
+#ACT
+AddMirrorMap hf005 <$USERNAME> <$USERNAME>【会员专属】 6000 0159 10020
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级BOSS.txt S10
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级BOSS.txt S11
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级首领.txt S12
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级首领.txt S13
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级首领.txt S14
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S15
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S16
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S17
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S18
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S19
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S20
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S21
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S22
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S23
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S24
+GetRandomText ..\QuestDiary\数据文件\会员服务\会员高级精英.txt S25
+MonGenEx <$USERNAME> 54 34 <$STR(S10)> 0 1 0 249
+MonGenEx <$USERNAME> 64 44 <$STR(S11)> 0 1 0 249
+MonGenEx <$USERNAME> 52 44 <$STR(S12)> 10 1 0 253
+MonGenEx <$USERNAME> 52 44 <$STR(S13)> 10 1 0 253
+MonGenEx <$USERNAME> 52 44 <$STR(S14)> 10 1 0 253
+MonGenEx <$USERNAME> 52 44 <$STR(S15)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S16)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S17)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S18)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S19)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S20)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S21)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S22)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S23)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S24)> 10 1 0 250
+MonGenEx <$USERNAME> 52 44 <$STR(S25)> 10 1 0 250
+mapmove <$USERNAME> 39 60
+SENDMSG 0 244 151 尊贵的会员玩家{[<$USERNAME>]|250:0:1}进入了{[会员副本]|254:0:1}，此副本随机刷新所有BOSS！！
+mapmove <$USERNAME> 39 60
+BREAK
+
+
+[@会员神力]
+#IF
+CHECKNAMELIST ..\QuestDiary\每日清理\会员神力.txt
+#ACT
+MESSAGEBOX 你已经领取过了,请明天再来!
+BREAK
+
+#IF
+check [100] 1
+#ACT
+POWERRATE 120 1800
+messagebox \\[会员服务]：恭喜您领取了每日1.2被攻击神力
+AddNAMELIST ..\QuestDiary\每日清理\会员神力.txt
+BREAK
+
+[@免费特修]
+#IF
+check [100] 1
+#ACT
+ACTREPAIRALL
+SENDMSG 6 你身上的装备全部特修好了
+break
+
+[@每日奖励]
+#IF
+CHECKNAMELIST ..\QuestDiary\每日清理\每日奖励.txt
+#ACT
+MESSAGEBOX \\你已经领取过了,请明天再来!
+BREAK
+
+#IF
+check [100] 1
+#ACT
+GAMEGOLD + 2000
+messagebox \\[会员服务]：恭喜您领取了每日2000元宝奖励
+AddNAMELIST ..\QuestDiary\每日清理\每日奖励.txt
+BREAK
+
+[@无限洗红]
+#IF
+check [100] 1
+CHECKPKPOINTEX  < 100
+#ACT
+MESSAGEBOX \\你都没红名，别开玩笑行吗？
+break
+
+#IF
+check [100] 1
+#ACT
+CHANGEPKPOINT = 0
+SENDMSG 6 你的PK点数已经清除.
+break
+}

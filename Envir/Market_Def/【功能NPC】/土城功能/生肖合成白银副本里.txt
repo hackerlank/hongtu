@@ -1,0 +1,384 @@
+[@main]
+#IF
+equal U25 0
+#Act
+MOV U25 1
+MOV U27 5
+MOV U28 5
+MOV U29 5
+
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+　<生肖大师/SCOLOR=154>\
+　　　<如果你给我10000元宝。我可以为你制作出更好的生肖/SCOLOR=87>\
+　<Img:803:0:0:4>\
+　　　　　<使用三枚相同的十二生肖可合成一枚精品生肖,80%几率成功/SCOLOR=87>\
+　　<子鼠[精品]/@子鼠>　　<丑牛[精品]/@丑牛>　　<寅虎[精品]/@寅虎>　　<卯兔[精品]/@卯兔>\
+　　<辰龙[精品]/@辰龙>　　<巳蛇[精品]/@巳蛇>　　<午马[精品]/@午马>　　<未羊[精品]/@未羊>\
+　　<申猴[精品]/@申猴>　　<酉鸡[精品]/@酉鸡>　　<戌狗[精品]/@戌狗>　　<亥猪[精品]/@亥猪>\
+　<Img:803:0:0:4>\
+
+
+[@亥猪]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+#IF
+random 2
+checkitem 亥猪 3
+#ACT
+GAMEGOLD - 10000
+take 亥猪 3
+give 亥猪[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[亥猪]|154:0:1}成功合成了{[亥猪[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 亥猪 3
+#ACT
+GAMEGOLD - 10000
+take 亥猪 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@戌狗]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+#IF
+random 2
+checkitem 戌狗 3
+#ACT
+GAMEGOLD - 10000
+take 戌狗 3
+give 戌狗[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[戌狗]|154:0:1}成功合成了{[戌狗[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 戌狗 3
+#ACT
+GAMEGOLD - 10000
+take 戌狗 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@酉鸡]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+
+#IF
+random 2
+checkitem 酉鸡 3
+#ACT
+GAMEGOLD - 10000
+take 酉鸡 3
+give 酉鸡[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[酉鸡]|154:0:1}成功合成了{[酉鸡[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 酉鸡 3
+#ACT
+GAMEGOLD - 10000
+take 酉鸡 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@申猴]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+
+#IF
+random 2
+checkitem 申猴 3
+#ACT
+GAMEGOLD - 10000
+take 申猴 3
+give 申猴[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[申猴]|154:0:1}成功合成了{[申猴[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 申猴 3
+#ACT
+GAMEGOLD - 10000
+take 申猴 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@未羊]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+
+#IF
+random 2
+checkitem 未羊 3
+#ACT
+GAMEGOLD - 10000
+take 未羊 3
+give 未羊[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[未羊]|154:0:1}成功合成了{[未羊[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 未羊 3
+#ACT
+GAMEGOLD - 10000
+take 未羊 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@午马]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+
+#IF
+random 2
+checkitem 午马 3
+#ACT
+GAMEGOLD - 10000
+take 午马 3
+give 午马[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[午马]|154:0:1}成功合成了{[午马[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 午马 3
+#ACT
+GAMEGOLD - 10000
+take 午马 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@巳蛇]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+
+#IF
+random 2
+checkitem 巳蛇 3
+#ACT
+GAMEGOLD - 10000
+take 巳蛇 3
+give 巳蛇[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[巳蛇]|154:0:1}成功合成了{[巳蛇[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 巳蛇 3
+#ACT
+GAMEGOLD - 10000
+take 巳蛇 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@辰龙]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+
+#IF
+random 2
+checkitem 辰龙 3
+#ACT
+GAMEGOLD - 10000
+take 辰龙 3
+give 辰龙[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[辰龙]|154:0:1}成功合成了{[辰龙[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 辰龙 3
+#ACT
+GAMEGOLD - 10000
+take 辰龙 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@卯兔]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+#IF
+random 2
+checkitem 卯兔 3
+#ACT
+GAMEGOLD - 10000
+take 卯兔 3
+give 卯兔[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[卯兔]|154:0:1}成功合成了{[卯兔[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 卯兔 3
+#ACT
+GAMEGOLD - 10000
+take 卯兔 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@寅虎]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+#IF
+random 2
+checkitem 寅虎 3
+#ACT
+GAMEGOLD - 10000
+take 寅虎 3
+give 寅虎[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[寅虎]|154:0:1}成功合成了{[寅虎[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 寅虎 3
+#ACT
+GAMEGOLD - 10000
+take 寅虎 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@丑牛]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+#IF
+random 2
+checkitem 丑牛 3
+#ACT
+GAMEGOLD - 10000
+take 丑牛 3
+give 丑牛[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[丑牛]|154:0:1}成功合成了{[丑牛[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 丑牛 3
+#ACT
+GAMEGOLD - 10000
+take 丑牛 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@子鼠]
+#IF
+CHECKGAMEGOLD < 10000
+#ACT
+MESSAGEBOX \\兑换失败:你没有10000元宝
+break
+
+#IF
+random 2
+checkitem 子鼠 3
+#ACT
+GAMEGOLD - 10000
+take 子鼠 3
+give 子鼠[精品] 1
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[子鼠]|154:0:1}成功合成了{[子鼠[精品]]|250:0:1}一枚
+break
+
+#IF
+checkitem 子鼠 3
+#ACT
+GAMEGOLD - 10000
+take 子鼠 3
+SendMsg 7 对不起。合成失败！
+break
+#elseact
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+[@点击兑换]
+#IF
+NOT checkitem 生肖原石 10
+#ACT
+MESSAGEBOX \\兑换失败:请仔细检查兑换条件
+break
+
+#IF
+checkitem 生肖原石 10
+#ACT
+GetRandomText ..\QuestDiary\数据文件\生肖列表.txt S10
+give <$STR(S10)> 1
+take 生肖原石 10
+SendMsg 0 {生肖大师ぐ|151:0:1}：恭喜{「%s」|146:0:1}使用{[生肖原石]|154:0:1}成功兑换了{[<$STR(S10)>]|250:0:1}一枚
+break
+
+
+;==================================================================================================================

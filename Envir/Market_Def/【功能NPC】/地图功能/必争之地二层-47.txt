@@ -1,0 +1,56 @@
+[@main]
+#IF
+#Act
+OPENMERCHANTBIGDLG 12 1211 1 4 0 9 0
+#say
+<Img:801:0:490:25/@EXIT>\
+<PlayImg:15:194:4:200:-30:-150:0>\
+　\
+　　　　　　　　　　　　　　　　　　<Img:1207:12::145:9>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<必争之地二层/SCOLOR=158>\
+　　　　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <全服顶级BOSS/SCOLOR=58>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <爆顶级装备/SCOLOR=58>\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　    <玩家必争之选/SCOLOR=58>\
+　　　　\
+　　　　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<地图特征:BOSS很多/SCOLOR=125>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<BOSS名称:修罗魔龙→史诗BOSS/SCOLOR=249>\
+　\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<刷新时间:/SCOLOR=125><鼠标移此查看|253#荣耀BOSS刷新时间60分钟^253#王者BOSS刷新时间60分钟^253#巅峰BOSS刷新时间60分钟^249#至尊BOSS刷新时间60分钟^249#史诗BOSS刷新时间120分钟/SCOLOR=125>\
+　　　　　　　　　　　　　　 {地图爆率详情/SCOLOR=251}（移动鼠标查看）\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 　 <进入条件:十转/SCOLOR=70>\
+　　　　　　{白色怪爆率低/SCOLOR=255}　　{红色BOSS爆率超高/SCOLOR=249}\
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<消耗元宝:每秒扣除100元宝2宏图古币/SCOLOR=70>\
+　<ImgEx:12:1212:1213:1214:380:20/@进入A>\
+　\　
+　\
+<ItemShow:396:0:70:-10:0>\
+<ItemShow:402:0:118:-26:0>\
+<ItemShow:403:0:160:-52:0>\
+<ItemShow:395:0:209:-70:0>\
+<ItemShow:401:0:253:-84:0>\
+<ItemShow:399:0:302:-100:0>\
+
+
+
+[@进入A]
+#IF
+#ACT
+MESSAGEBOX \\必争之地二层每秒扣100个元宝2宏图古币，请注意！\\请按技能“召唤宠物”来打怪 @确定A @取消
+
+[@确定A]
+#IF
+CHECKRENEWLEVEL < 10
+#ACT
+MESSAGEBOX \\你没有十转，无法进入！
+break
+
+#IF
+#ACT
+mapmove 46 224 224
+SETONTIMER 30 1
+SENDMSG 0 251 70 玛法勇士{[<$USERNAME>]|250:0:1}闯入{[<$MapTitle>]|254:0:1}！！
+break
+

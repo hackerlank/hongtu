@@ -1,0 +1,675 @@
+(@@sendmsg @storage @getback)
+[@main]
+#IF
+Equal U11 5
+checkjob Warrior
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【战圣】/AUTOCOLOR=254,251,168,191,250,70,245,249,253>
+MOV S$晋升级别 
+#IF
+Equal U11 4
+checkjob Warrior
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【武尊】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升战圣√/@晋升战5>
+#IF
+Equal U11 3
+checkjob Warrior
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【武狂】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升武尊√/@晋升战4>
+#IF
+Equal U11 2
+checkjob Warrior
+#ACT
+GOTO @战士2
+MOV S$佣兵级别 <您当前雇佣兵级别为【战狂】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升武狂√/@晋升战3>
+#IF
+Equal U11 1
+checkjob Warrior
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【战将】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升战狂√/@晋升战2>
+#IF
+Equal U11 0
+checkjob Warrior
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【暂无】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升战将√/@晋升战1>
+#IF
+Equal U11 5
+checkjob Wizard
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【法魂】/AUTOCOLOR=254,251,168,191,250,70,245,249,253>
+MOV S$晋升级别 
+#IF
+Equal U11 4
+checkjob Wizard
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【法王】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升法魂√/@晋升法5>
+#IF
+Equal U11 3
+checkjob Wizard
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【法灵】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升法王√/@晋升法4>
+#IF
+Equal U11 2
+checkjob Wizard
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【法魄】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升法灵√/@晋升法3>
+#IF
+Equal U11 1
+checkjob Wizard
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【法魂】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升法魄√/@晋升法2>
+#IF
+Equal U11 0
+checkjob Wizard
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【暂无】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升法魂√/@晋升法1>
+#IF
+Equal U11 5
+checkjob Taoist
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【梦绕】/AUTOCOLOR=254,251,168,191,250,70,245,249,253>
+MOV S$晋升级别 
+#IF
+Equal U11 4
+checkjob Taoist
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【道尊】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升梦绕√/@晋升道5>
+#IF
+Equal U11 3
+checkjob Taoist
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【真人】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升道尊√/@晋升道4>
+#IF
+Equal U11 2
+checkjob Taoist
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【散人】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升真人√/@晋升道3>
+#IF
+Equal U11 1
+checkjob Taoist
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【道玄】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升散人√/@晋升道2>
+#IF
+Equal U11 0
+checkjob Taoist
+#ACT
+MOV S$佣兵级别 <您当前雇佣兵级别为【暂无】/AUTOCOLOR=249>
+MOV S$晋升级别 <晋升道玄√/@晋升道1>
+
+#IF
+checkjob warrior
+#ACT
+OPENMERCHANTBIGDLG 9 58 1 0 0 0 0
+#say
+<Img:801:0:390:0/@EXIT>\
+　<Img:803:0:0:4>\
+<雇佣兵类型   晋升等级  晋升费用   晋升材料   职业要求   属性奖励/SCOLOR=70>\\
+　<Img:803:0:0:4>\ \
+　 <战将        Lv.62   完全免费/AUTOCOLOR=147>     <查询/@材料1>       <战士/AUTOCOLOR=9>       <查看/@属性1>\
+　 <战狂        Lv.65   完全免费/AUTOCOLOR=145>     <查询/@材料2>       <战士/AUTOCOLOR=9>       <查看/@属性2>\
+　 <武狂        Lv.68   完全免费/AUTOCOLOR=155>     <查询/@材料3>       <战士/AUTOCOLOR=9>       <查看/@属性3>\
+　 <武尊        Lv.70   完全免费/AUTOCOLOR=156>     <查询/@材料4>       <战士/AUTOCOLOR=9>       <查看/@属性4>\
+　 <战圣        Lv.72   完全免费/AUTOCOLOR=156>     <查询/@材料5>       <战士/AUTOCOLOR=9>       <查看/@属性5>\ \
+　<Img:803:0:0:4>\ \
+　<$STR(S$晋升级别)><$STR(S$佣兵级别)><关闭对话×/@exit>\ \
+　<提示：“士兵残骸”可从相对应的地图(小型怪物)身上几率获得！/AUTOCOLOR=249>\
+　<“教主头颅”可从相对应的地图(BOSS怪物)身上几率获得！/AUTOCOLOR=249>
+
+#IF
+checkjob wizard
+#ACT
+OPENMERCHANTBIGDLG 9 58 1 0 0 0 0
+#say
+　\
+　<Img:803:0:0:4>\
+<雇佣兵类型   晋升等级  晋升费用   晋升材料   职业要求   属性奖励/SCOLOR=70>\\
+　<Img:803:0:0:4>\
+　 <法魂        Lv.62   完全免费/AUTOCOLOR=238>     <查询/@材料6>       <法师/AUTOCOLOR=7>       <查看/@属性6>\
+　 <法魄        Lv.65   完全免费/AUTOCOLOR=240>     <查询/@材料7>       <法师/AUTOCOLOR=7>       <查看/@属性7>\
+　 <法灵        Lv.68   完全免费/AUTOCOLOR=232>     <查询/@材料8>       <法师/AUTOCOLOR=7>       <查看/@属性8>\
+　 <法王        Lv.70   完全免费/AUTOCOLOR=239>     <查询/@材料9>       <法师/AUTOCOLOR=7>       <查看/@属性9>\
+　 <法魂        Lv.72   完全免费/AUTOCOLOR=242>     <查询/@材料10>       <法师/AUTOCOLOR=7>       <查看/@属性10>\ \
+　<Img:803:0:0:4>\ \
+　<$STR(S$晋升级别)><$STR(S$佣兵级别)><关闭对话×/@exit>\ \
+　<提示：“士兵残骸”可从相对应的地图(小型怪物)身上几率获得！/AUTOCOLOR=249>\
+　<“教主头颅”可从相对应的地图(BOSS怪物)身上几率获得！/AUTOCOLOR=249>
+
+#IF
+checkjob taoist
+#ACT
+OPENMERCHANTBIGDLG 9 58 1 0 0 0 0
+#say
+　\
+　<Img:803:0:0:4>\
+<雇佣兵类型   晋升等级  晋升费用   晋升材料   职业要求   属性奖励/SCOLOR=70>\\
+　<Img:803:0:0:4>\
+　 <道玄        Lv.62   完全免费/AUTOCOLOR=157>     <查询/@材料11>       <道士/AUTOCOLOR=9>       <查看/@属性11>\
+　 <散人        Lv.65   完全免费/AUTOCOLOR=156>     <查询/@材料12>       <道士/AUTOCOLOR=9>       <查看/@属性12>\
+　 <真人        Lv.68   完全免费/AUTOCOLOR=155>     <查询/@材料13>       <道士/AUTOCOLOR=9>       <查看/@属性13>\
+　 <道尊        Lv.70   完全免费/AUTOCOLOR=145>     <查询/@材料14>       <道士/AUTOCOLOR=9>       <查看/@属性14>\
+　 <梦绕        Lv.72   完全免费/AUTOCOLOR=147>     <查询/@材料15>       <道士/AUTOCOLOR=9>       <查看/@属性15>\ \
+　<Img:803:0:0:4>\ \
+　<$STR(S$晋升级别)><$STR(S$佣兵级别)><关闭对话×/@exit>\ \
+　<提示：“士兵残骸”可从相对应的地图(小型怪物)身上几率获得！/AUTOCOLOR=249>\
+　<“教主头颅”可从相对应的地图(BOSS怪物)身上几率获得！/AUTOCOLOR=249>
+
+
+[@111111]
+#ACT
+MOV U11 0
+
+[@晋升道1]
+#IF
+Equal U11 0
+checkjob taoist
+checkitem 沃玛士兵残骸 10
+checkitem 邪恶士兵残骸 10
+checkitem 禁地士兵残骸 10
+checkitem 沃玛教主头颅 2
+checkitem 邪恶猪王头颅 2
+checkitem 禁地教主头颅 2
+CHECKLEVELEX > 61
+#ACT
+take  沃玛士兵残骸 10
+take  邪恶士兵残骸 10
+take  禁地士兵残骸 10
+take  沃玛教主头颅 2
+take  邪恶猪王头颅 2
+take  禁地教主头颅 2
+MOV U11 1
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为道玄！\奖励属性：防御5-5魔御1-5道术5-5.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升道玄所需要材料：\\1、沃玛士兵残骸１０块.\2、邪恶士兵残骸１０块.\3、禁地士兵残骸１０块.\　\4、沃玛教主头颅２块.\5、邪恶猪王头颅２块.\6、禁地教主头颅２块.
+BREAK
+
+
+[@晋升道2]
+#IF
+Equal U11 1
+checkjob taoist
+checkitem 圣地士兵残骸 10
+checkitem 蜘蛛士兵残骸 10
+checkitem 暗夜士兵残骸 10
+checkitem 圣地魔王头颅 2
+checkitem 赤月蛛王头颅 2
+checkitem 暗夜法王头颅 2
+CHECKLEVELEX > 64
+#ACT
+take  圣地士兵残骸 10
+take  蜘蛛士兵残骸 10
+take  暗夜士兵残骸 10
+take  圣地魔王头颅 2
+take  赤月蛛王头颅 2
+take  暗夜法王头颅 2
+MOV U11 2
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为散人！\奖励属性：防御8-8魔御8-8道术8-8.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升散人所需要材料：\\1、圣地士兵残骸１０块.\2、蜘蛛士兵残骸１０块.\3、暗夜士兵残骸１０块.\　\4、圣地魔王头颅２块.\5、赤月蛛王头颅２块.\6、暗夜道王头颅２块.
+BREAK
+[@晋升道3]
+#IF
+Equal U11 2
+checkjob taoist
+checkitem 蚂蚁士兵残骸 10
+checkitem 酒窖士兵残骸 10
+checkitem 酒窖教主头颅 2
+checkitem 王者蚁后头颅 2
+CHECKLEVELEX > 67
+#ACT
+take  蚂蚁士兵残骸 10
+take  酒窖士兵残骸 10
+take  酒窖教主头颅 2
+take  王者蚁后头颅 2
+MOV U11 3
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为真人！\奖励属性：防御11-11魔御11-11道术11-11.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升真人所需要材料：\\1、酒窖士兵残骸１０块.\2、蚂蚁士兵残骸１０块.　\　\3、酒窖教主头颅２块.\4、王者蚁后头颅２块.
+BREAK
+[@晋升道4]
+#IF
+Equal U11 3
+checkjob taoist
+checkitem 天牢士兵残骸 10
+checkitem 皇陵士兵残骸 10
+checkitem 天牢护兽头颅 2
+checkitem 皇陵霸主头颅 2
+CHECKLEVELEX > 69
+#ACT
+take  天牢士兵残骸 10
+take  皇陵士兵残骸 10
+take  天牢护兽头颅 2
+take  皇陵霸主头颅 2
+MOV U11 4
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为道尊！\奖励属性：防御15-15魔御15-15道术15-15.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升道尊所需要材料：\\1、天牢士兵残骸１０块.\2、皇陵士兵残骸１０块.　\　\3、天牢护兽头颅２块.\4、皇陵霸主头颅２块.
+BREAK
+[@晋升道5]
+#IF
+Equal U11 4
+checkjob taoist
+checkitem 暗殿士兵残骸 10
+checkitem 炽焰士兵残骸 10
+checkitem 暗殿魔王头颅 2
+checkitem 炽焰殿主头颅 2
+CHECKLEVELEX > 71
+#ACT
+take  暗殿士兵残骸 10
+take  炽焰士兵残骸 10
+take  暗殿魔王头颅 2
+take  炽焰殿主头颅 2
+MOV U11 5
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为梦绕！\奖励属性：防御20-20魔御20-20道术20-20.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升梦绕所需要材料：\\1、暗殿士兵残骸１０块.\2、炽焰士兵残骸１０块.　\　\3、暗殿魔王头颅２块.\4、炽焰殿主头颅２块.
+BREAK
+
+[@晋升法1]
+#IF
+Equal U11 0
+checkjob Wizard
+checkitem 沃玛士兵残骸 10
+checkitem 邪恶士兵残骸 10
+checkitem 禁地士兵残骸 10
+checkitem 沃玛教主头颅 2
+checkitem 邪恶猪王头颅 2
+checkitem 禁地教主头颅 2
+CHECKLEVELEX > 61
+#ACT
+take  沃玛士兵残骸 10
+take  邪恶士兵残骸 10
+take  禁地士兵残骸 10
+take  沃玛教主头颅 2
+take  邪恶猪王头颅 2
+take  禁地教主头颅 2
+MOV U11 1
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为法魂！\奖励属性：防御5-5魔御1-5魔法5-5.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升法魂所需要材料：\\1、沃玛士兵残骸１０块.\2、邪恶士兵残骸１０块.\3、禁地士兵残骸１０块.\　\4、沃玛教主头颅２块.\5、邪恶猪王头颅２块.\6、禁地教主头颅２块.
+BREAK
+
+
+[@晋升法2]
+#IF
+Equal U11 1
+checkjob Wizard
+checkitem 圣地士兵残骸 10
+checkitem 蜘蛛士兵残骸 10
+checkitem 暗夜士兵残骸 10
+checkitem 圣地魔王头颅 2
+checkitem 赤月蛛王头颅 2
+checkitem 暗夜法王头颅 2
+CHECKLEVELEX > 64
+#ACT
+take  圣地士兵残骸 10
+take  蜘蛛士兵残骸 10
+take  暗夜士兵残骸 10
+take  圣地魔王头颅 2
+take  赤月蛛王头颅 2
+take  暗夜法王头颅 2
+MOV U11 2
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为法魄！\奖励属性：防御8-8魔御8-8魔法8-8.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升法魄所需要材料：\\1、圣地士兵残骸１０块.\2、蜘蛛士兵残骸１０块.\3、暗夜士兵残骸１０块.\　\4、圣地魔王头颅２块.\5、赤月蛛王头颅２块.\6、暗夜法王头颅２块.
+BREAK
+[@晋升法3]
+#IF
+Equal U11 2
+checkjob Wizard
+checkitem 蚂蚁士兵残骸 10
+checkitem 酒窖士兵残骸 10
+checkitem 酒窖教主头颅 2
+checkitem 王者蚁后头颅 2
+CHECKLEVELEX > 67
+#ACT
+take  蚂蚁士兵残骸 10
+take  酒窖士兵残骸 10
+take  酒窖教主头颅 2
+take  王者蚁后头颅 2
+MOV U11 3
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为法灵！\奖励属性：防御11-11魔御11-11魔法11-11.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升法灵所需要材料：\\1、酒窖士兵残骸１０块.\2、蚂蚁士兵残骸１０块.　\　\3、酒窖教主头颅２块.\4、王者蚁后头颅２块.
+BREAK
+[@晋升法4]
+#IF
+Equal U11 3
+checkjob Wizard
+checkitem 天牢士兵残骸 10
+checkitem 皇陵士兵残骸 10
+checkitem 天牢护兽头颅 2
+checkitem 皇陵霸主头颅 2
+CHECKLEVELEX > 69
+#ACT
+take  天牢士兵残骸 10
+take  皇陵士兵残骸 10
+take  天牢护兽头颅 2
+take  皇陵霸主头颅 2
+MOV U11 4
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为法王！\奖励属性：防御15-15魔御15-15魔法15-15.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升法王所需要材料：\\1、天牢士兵残骸１０块.\2、皇陵士兵残骸１０块.　\　\3、天牢护兽头颅２块.\4、皇陵霸主头颅２块.
+BREAK
+[@晋升法5]
+#IF
+Equal U11 4
+checkjob Wizard
+checkitem 暗殿士兵残骸 10
+checkitem 炽焰士兵残骸 10
+checkitem 暗殿魔王头颅 2
+checkitem 炽焰殿主头颅 2
+CHECKLEVELEX > 71
+#ACT
+take  暗殿士兵残骸 10
+take  炽焰士兵残骸 10
+take  暗殿魔王头颅 2
+take  炽焰殿主头颅 2
+MOV U11 5
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为法魂！\奖励属性：防御20-20魔御20-20魔法20-20.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升法魂所需要材料：\\1、暗殿士兵残骸１０块.\2、炽焰士兵残骸１０块.　\　\3、暗殿魔王头颅２块.\4、炽焰殿主头颅２块.
+BREAK
+
+
+[@晋升战1]
+#IF
+Equal U11 0
+checkjob Warrior
+checkitem 沃玛士兵残骸 10
+checkitem 邪恶士兵残骸 10
+checkitem 禁地士兵残骸 10
+checkitem 沃玛教主头颅 2
+checkitem 邪恶猪王头颅 2
+checkitem 禁地教主头颅 2
+CHECKLEVELEX > 61
+#ACT
+take  沃玛士兵残骸 10
+take  邪恶士兵残骸 10
+take  禁地士兵残骸 10
+take  沃玛教主头颅 2
+take  邪恶猪王头颅 2
+take  禁地教主头颅 2
+MOV U11 1
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为战将！\奖励属性：防御5-5魔御1-5攻击5-5.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升战将所需要材料：\\1、沃玛士兵残骸１０块.\2、邪恶士兵残骸１０块.\3、禁地士兵残骸１０块.\　\4、沃玛教主头颅２块.\5、邪恶猪王头颅２块.\6、禁地教主头颅２块.
+BREAK
+
+
+[@晋升战2]
+#IF
+Equal U11 1
+checkjob Warrior
+checkitem 圣地士兵残骸 10
+checkitem 蜘蛛士兵残骸 10
+checkitem 暗夜士兵残骸 10
+checkitem 圣地魔王头颅 2
+checkitem 赤月蛛王头颅 2
+checkitem 暗夜法王头颅 2
+CHECKLEVELEX > 64
+#ACT
+take  圣地士兵残骸 10
+take  蜘蛛士兵残骸 10
+take  暗夜士兵残骸 10
+take  圣地魔王头颅 2
+take  赤月蛛王头颅 2
+take  暗夜法王头颅 2
+MOV U11 2
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为战狂！\奖励属性：防御8-8魔御8-8攻击8-8.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升战狂所需要材料：\\1、圣地士兵残骸１０块.\2、蜘蛛士兵残骸１０块.\3、暗夜士兵残骸１０块.\　\4、圣地魔王头颅２块.\5、赤月蛛王头颅２块.\6、暗夜法王头颅２块.
+BREAK
+[@晋升战3]
+#IF
+Equal U11 2
+checkjob Warrior
+checkitem 蚂蚁士兵残骸 10
+checkitem 酒窖士兵残骸 10
+checkitem 酒窖教主头颅 2
+checkitem 王者蚁后头颅 2
+CHECKLEVELEX > 67
+#ACT
+take  蚂蚁士兵残骸 10
+take  酒窖士兵残骸 10
+take  酒窖教主头颅 2
+take  王者蚁后头颅 2
+MOV U11 3
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为武狂！\奖励属性：防御11-11魔御11-11攻击11-11.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升武狂所需要材料：\\1、酒窖士兵残骸１０块.\2、蚂蚁士兵残骸１０块.　\　\3、酒窖教主头颅２块.\4、王者蚁后头颅２块.
+BREAK
+[@晋升战4]
+#IF
+Equal U11 3
+checkjob Warrior
+checkitem 天牢士兵残骸 10
+checkitem 皇陵士兵残骸 10
+checkitem 天牢护兽头颅 2
+checkitem 皇陵霸主头颅 2
+CHECKLEVELEX > 69
+#ACT
+take  天牢士兵残骸 10
+take  皇陵士兵残骸 10
+take  天牢护兽头颅 2
+take  皇陵霸主头颅 2
+MOV U11 4
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为武尊！\奖励属性：防御15-15魔御15-15攻击15-15.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升武尊所需要材料：\\1、天牢士兵残骸１０块.\2、皇陵士兵残骸１０块.　\　\3、天牢护兽头颅２块.\4、皇陵霸主头颅２块.
+BREAK
+[@晋升战5]
+#IF
+Equal U11 4
+checkjob Warrior
+checkitem 暗殿士兵残骸 10
+checkitem 炽焰士兵残骸 10
+checkitem 暗殿魔王头颅 2
+checkitem 炽焰殿主头颅 2
+CHECKLEVELEX > 71
+#ACT
+take  暗殿士兵残骸 10
+take  炽焰士兵残骸 10
+take  暗殿魔王头颅 2
+take  炽焰殿主头颅 2
+MOV U11 5
+GOTO @MAIN
+#CALL [\封号系统\封号更改.txt] @封号更改A
+MESSAGEBOX [晋升成功]：\\恭喜您已经晋升为战圣！\奖励属性：防御20-20魔御20-20攻击20-20.
+#ELSEACT
+MESSAGEBOX [晋级失败]\晋升战圣所需要材料：\\1、暗殿士兵残骸１０块.\2、炽焰士兵残骸１０块.　\　\3、暗殿魔王头颅２块.\4、炽焰殿主头颅２块.
+BREAK
+
+[@材料1]
+#if
+#ACT
+MESSAGEBOX [晋升战将]\晋升战将所需要材料：\\1、沃玛士兵残骸１０块.\2、邪恶士兵残骸１０块.\3、禁地士兵残骸１０块.\　\4、沃玛教主头颅２块.\5、邪恶猪王头颅２块.\6、禁地教主头颅２块.
+BREAK
+[@材料2]
+#if
+#ACT
+MESSAGEBOX [晋升战狂]\晋升战狂所需要材料：\\1、圣地士兵残骸１０块.\2、蜘蛛士兵残骸１０块.\3、暗夜士兵残骸１０块.\　\4、圣地魔王头颅２块.\5、赤月蛛王头颅２块.\6、暗夜法王头颅２块.
+BREAK
+[@材料3]
+#if
+#ACT
+MESSAGEBOX [晋升武狂]\晋升武狂所需要材料：\\1、酒窖士兵残骸１０块.\2、蚂蚁士兵残骸１０块.　\　\3、酒窖教主头颅２块.\4、王者蚁后头颅２块.
+BREAK
+[@材料4]
+#if
+#ACT
+MESSAGEBOX [晋升武尊]\晋升武尊所需要材料：\\1、天牢士兵残骸１０块.\2、皇陵士兵残骸１０块.　\　\3、天牢护兽头颅２块.\4、皇陵霸主头颅２块.
+BREAK
+[@材料5]
+#if
+#ACT
+MESSAGEBOX [晋升战圣]\晋升战圣所需要材料：\\1、暗殿士兵残骸１０块.\2、炽焰士兵残骸１０块.　\　\3、暗殿魔王头颅２块.\4、炽焰殿主头颅２块.
+BREAK
+
+[@材料6]
+#if
+#ACT
+MESSAGEBOX [晋升法魂]\晋升法魂所需要材料：\\1、沃玛士兵残骸１０块.\2、邪恶士兵残骸１０块.\3、禁地士兵残骸１０块.\　\4、沃玛教主头颅２块.\5、邪恶猪王头颅２块.\6、禁地教主头颅２块.
+BREAK
+[@材料7]
+#if
+#ACT
+MESSAGEBOX [晋升法魄]\晋升法魄所需要材料：\\1、圣地士兵残骸１０块.\2、蜘蛛士兵残骸１０块.\3、暗夜士兵残骸１０块.\　\4、圣地魔王头颅２块.\5、赤月蛛王头颅２块.\6、暗夜法王头颅２块.
+BREAK
+[@材料8]
+#if
+#ACT
+MESSAGEBOX [晋升武狂]\晋升武狂所需要材料：\\1、酒窖士兵残骸１０块.\2、蚂蚁士兵残骸１０块.　\　\3、酒窖教主头颅２块.\4、王者蚁后头颅２块.
+BREAK
+[@材料9]
+#if
+#ACT
+MESSAGEBOX [晋升法灵]\晋升法灵所需要材料：\\1、天牢士兵残骸１０块.\2、皇陵士兵残骸１０块.　\　\3、天牢护兽头颅２块.\4、皇陵霸主头颅２块.
+BREAK
+[@材料10]
+#if
+#ACT
+MESSAGEBOX [晋升法王]\晋升法王所需要材料：\\1、暗殿士兵残骸１０块.\2、炽焰士兵残骸１０块.　\　\3、暗殿魔王头颅２块.\4、炽焰殿主头颅２块.
+BREAK
+[@材料11]
+#if
+#ACT
+MESSAGEBOX [晋升道玄]\晋升道玄所需要材料：\\1、沃玛士兵残骸１０块.\2、邪恶士兵残骸１０块.\3、禁地士兵残骸１０块.\　\4、沃玛教主头颅２块.\5、邪恶猪王头颅２块.\6、禁地教主头颅２块.
+BREAK
+[@材料12]
+#if
+#ACT
+MESSAGEBOX [晋升散人]\晋升散人所需要材料：\\1、圣地士兵残骸１０块.\2、蜘蛛士兵残骸１０块.\3、暗夜士兵残骸１０块.\　\4、圣地魔王头颅２块.\5、赤月蛛王头颅２块.\6、暗夜法王头颅２块.
+BREAK
+[@材料13]
+#if
+#ACT
+MESSAGEBOX [晋升真人]\晋升真人所需要材料：\\1、酒窖士兵残骸１０块.\2、蚂蚁士兵残骸１０块.　\　\3、酒窖教主头颅２块.\4、王者蚁后头颅２块.
+BREAK
+[@材料14]
+#if
+#ACT
+MESSAGEBOX [晋升道尊]\晋升道尊所需要材料：\\1、天牢士兵残骸１０块.\2、皇陵士兵残骸１０块.　\　\3、天牢护兽头颅２块.\4、皇陵霸主头颅２块.
+BREAK
+[@材料15]
+#if
+#ACT
+MESSAGEBOX [晋升梦绕]\晋升梦绕所需要材料：\\1、暗殿士兵残骸１０块.\2、炽焰士兵残骸１０块.　\　\3、暗殿魔王头颅２块.\4、炽焰殿主头颅２块.
+BREAK
+
+[@属性1]
+#if
+#ACT
+MESSAGEBOX [战将属性奖励]\\防御5-5魔御5-5攻击5-5.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性2]
+#if
+#ACT
+MESSAGEBOX [战狂属性奖励]\\防御8-8魔御8-8攻击8-8.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性3]
+#if
+#ACT
+MESSAGEBOX [武狂属性奖励]\\防御11-11魔御11-11攻击11-11.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性4]
+#if
+#ACT
+MESSAGEBOX [武尊属性奖励]\\防御15-15魔御15-15攻击15-15.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性5]
+#if
+#ACT
+MESSAGEBOX [战圣属性奖励]\\防御20-20魔御20-20攻击20-20.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性6]
+#if
+#ACT
+MESSAGEBOX [法魂属性奖励]\\防御5-5魔御5-5魔法5-5.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性7]
+#if
+#ACT
+MESSAGEBOX [法魄属性奖励]\\防御8-8魔御8-8魔法8-8.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性8]
+#if
+#ACT
+MESSAGEBOX [法灵属性奖励]\\防御11-11魔御11-11魔法11-11.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性9]
+#if
+#ACT
+MESSAGEBOX [法王属性奖励]\\防御15-15魔御15-15魔法15-15.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性10]
+#if
+#ACT
+MESSAGEBOX [法魂属性奖励]\\防御20-20魔御20-20魔法20-20.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性11]
+#if
+#ACT
+MESSAGEBOX [道玄属性奖励]\\防御5-5魔御5-5道术5-5.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性12]
+#if
+#ACT
+MESSAGEBOX [散人属性奖励]\\防御8-8魔御8-8道术8-8.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性13]
+#if
+#ACT
+MESSAGEBOX [真人属性奖励]\\防御11-11魔御11-11道术11-11.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性14]
+#if
+#ACT
+MESSAGEBOX [道尊属性奖励]\\防御15-15魔御15-15道术15-15.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK
+[@属性15]
+#if
+#ACT
+MESSAGEBOX [梦绕属性奖励]\\防御20-20魔御20-20道术20-20.\\上线登陆自动获取对应雇佣兵级别属性奖励.
+BREAK

@@ -1,0 +1,34 @@
+[@main]
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+
+　<Img:803:0:0:4>\
+　\
+　　　　　　　　杀死4只BOSS后可领取1000万经验奖励\
+
+　\
+　　　　　　　　　　　　　　<领取奖励/@领取奖励>\
+　\
+　<Img:803:0:0:4>\
+
+
+
+
+[@领取奖励]
+#IF
+CheckMapSameMonCount <$USERNAME> 恶灵战将→白银BOSS = 0 1
+CheckMapSameMonCount <$USERNAME> 骷髅领主→白银BOSS = 0 1
+CheckMapSameMonCount <$USERNAME> 战狂统领→白银BOSS = 0 1
+CheckMapSameMonCount <$USERNAME> 石墓教主→白银BOSS = 0 1
+#act
+mapmove xtc 330 330
+SendMsg 0 恭喜%s成功挑战了经验副本，获得1000万经验！
+MESSAGEBOX 恭喜您获得1000万经验
+CHANGEEXP  + 10000000
+#ELSEACT
+MESSAGEBOX 领取失败，将BOSS杀死即可领取！
+
+

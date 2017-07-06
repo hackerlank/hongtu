@@ -1,0 +1,102 @@
+[@真人头盔穿戴]
+{
+#if
+large <$CURRTEMLOOKS> 10000
+#act
+mov N13 <$CURRTEMLOOKS>
+dec N13  10000
+mov N14 7
+MOV S28 <$CURRTEMNAME>
+
+#if
+small <$CURRTEMLOOKS> 10000
+#act
+mov N13 <$CURRTEMLOOKS>
+mov N14 2
+MOV S28 <$CURRTEMNAME>
+
+#OR
+equal <$CURRTEMSTDMODE> 15
+#ACT
+mov A4 
+mov N21 0
+
+#IF
+checkjob warrior
+CheckContainsTextList ..\QuestDiary\穿戴提示\装备战士排序.txt <$CURRTEMNAME>
+#ACT
+GetStringPos ..\QuestDiary\穿戴提示\装备战士排序.txt <$CURRTEMNAME>
+MOV N27 <$STR(N0)>
+GetStringPos ..\QuestDiary\穿戴提示\装备战士排序.txt <$HELMET>
+MOV N28 <$STR(N0)>
+goto @真人执行头盔
+
+#IF
+checkjob Wizard
+CheckContainsTextList ..\QuestDiary\穿戴提示\装备法师排序.txt <$CURRTEMNAME>
+#ACT
+GetStringPos ..\QuestDiary\穿戴提示\装备法师排序.txt <$CURRTEMNAME>
+MOV N27 <$STR(N0)>
+GetStringPos ..\QuestDiary\穿戴提示\装备法师排序.txt <$HELMET>
+MOV N28 <$STR(N0)>
+goto @真人执行头盔
+
+#IF
+checkjob Taoist
+CheckContainsTextList ..\QuestDiary\穿戴提示\装备道士排序.txt <$CURRTEMNAME>
+#ACT
+GetStringPos ..\QuestDiary\穿戴提示\装备道士排序.txt <$CURRTEMNAME>
+MOV N27 <$STR(N0)>
+GetStringPos ..\QuestDiary\穿戴提示\装备道士排序.txt <$HELMET>
+MOV N28 <$STR(N0)>
+goto @真人执行头盔
+
+[@真人执行头盔]
+#if
+check [100] 1
+equal N48 0
+large N28 N27
+#act
+OPENMERCHANTBIGDLG 0 690 1 3 0 -200 0
+#say
+<Img:801:0:198:-12/@EXIT>\
+<Img:1269:12:10:38><PlayImg:0:700:10:100:-32:68:1><PlayImg:0:710:10:100:-86:-5:1>\
+　　　　　<恭喜您获得一件新装备/SCOLOR=70>\
+<Img:<$STR(N13)>:<$STR(N14)>:13:8|<$STR(S28)>/@装备头盔>\
+　　　　　　　<立即装备/SCOLOR=95>\
+<ImgEx:12:1681:1682:1683:63:-22/@装备头盔>\
+　　　　　<本次登录取消提示/SCOLOR=248><ImgEx:12:1031:1031:1032:5:-2/@取消提示>
+#act
+break
+#if
+equal N48 0
+large N28 N27
+
+#act
+
+OPENMERCHANTBIGDLG 0 690 1 3 0 -200 0
+#say
+<Img:801:0:198:-12/@EXIT>\
+<Img:1269:12:10:38><PlayImg:0:700:10:100:-32:68:1><PlayImg:0:710:10:100:-86:-5:1>\
+　　　　　<恭喜您获得一件新装备/SCOLOR=70>\
+<Img:<$STR(N13)>:<$STR(N14)>:13:8|<$STR(S28)>/@装备头盔>\
+　　　　　　　<立即装备/SCOLOR=95>\
+<ImgEx:12:1681:1682:1683:63:-22/@装备头盔>\
+　　　　　<本次登录取消提示/SCOLOR=248><ImgEx:12:1031:1031:1032:5:-2/@取消提示>\
+　　
+
+
+[@装备头盔]
+#if
+#act
+AutoTakeOnItem <$STR(S28)> 4
+CLOSE
+break
+
+[@取消提示]
+#if
+#act
+MOV N48 1
+CLOSE
+break
+}

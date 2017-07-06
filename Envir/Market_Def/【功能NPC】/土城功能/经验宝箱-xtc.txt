@@ -1,0 +1,436 @@
+[@main]
+#IF
+CHECKLEVELEX < 100
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<人物在线或者大退后都可以增加1点体力值  您当前体力值为：/SCOLOR=70><$GAMEGLORY><点/SCOLOR=70>\
+　\
+<开启副本需20个经验[宝箱]+4000元宝+60点体力值，完成副本可获得1000万经验/SCOLOR=70>\　\
+　　　<快人一筹/@快人一筹> <$STR(U28)>次　　　　　　　　　　　　<挑战副本/@副本>\
+
+　<Img:803:0:0:4>\
+　　　　　<花费200元宝直接开启经验[宝箱]可获得25万经验/SCOLOR=87>\ \
+　　　　　　<开启1个/@1个>　　　<开启10个/@10个>　　　<开启50个/@50个>\
+　<Img:803:0:0:4>\
+
+#IF
+CHECKLEVELEX > 99
+#Act
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT><Img:802:0:-38:16>\ \
+<人物在线或者大退后都可以增加1点体力值  您当前体力值为：/SCOLOR=70><$GAMEGLORY><点/SCOLOR=70>\
+　\
+<开启副本需20个经验[宝箱]+8000元宝+400个宏图古币+60点体力值，完成副本可获得1000万经验/SCOLOR=70>\　\
+　　　<快人一筹/@快人一筹A> <$STR(U28)>次　　　　　　　　　　　　<挑战副本/@副本A>\
+
+　<Img:803:0:0:4>\
+　　　　　<花费500元宝+20个宏图古币直接开启经验[宝箱]可获得25万经验/SCOLOR=87>\ \
+　　　　　　<开启1个/@1个A>　　　<开启10个/@10个A>　　　<开启50个/@50个A>\
+　<Img:803:0:0:4>\
+
+[@快人一筹]
+#ACT
+MESSAGEBOX \开启快人一筹以后。您在开启经验的经验将提高至50万经验，可开启200次。\　\每次开启需消耗2000宏图古币\　\　　　　　　点击确定按钮开启 @开启 @取消
+
+[@开启]
+#IF
+equal u28 0
+CHECKGAMEDIAMOND > 1999
+#ACT
+GAMEDIAMOND - 2000
+mov u28 200
+SendMsg 6 开启成功，你还剩<$STR(U28)>次
+SendMsg 0 恭喜%s成功开启了快人一筹，他将获得每个经验[宝箱]+50万经验的特权
+goto @main
+#ELSEACT
+MESSAGEBOX 对不起开启失败！您宏图古币数量不足2000个，或者您还有开启次用没使用完！
+
+
+
+[@50个]
+#IF
+large u28 49
+CHECKGAMEGOLD > 9999
+checkitem 经验[宝箱] 50
+#act
+dec U28 50
+take 经验[宝箱] 50
+GAMEGOLD - 10000
+CHANGEEXP  + 25000000
+SendMsg 6 开启成功获得2500万经验
+SendMsg 0 恭喜%s使用快人一筹成功开启了50个经验[宝箱]获得了25000000经验
+goto @main
+break
+
+#IF
+CHECKGAMEGOLD > 9999
+checkitem 经验[宝箱] 50
+#act
+take 经验[宝箱] 50
+GAMEGOLD - 10000
+CHANGEEXP  + 12500000
+SendMsg 6 开启成功获得1250万经验
+SendMsg 0 恭喜%s成功开启了50个经验[宝箱]获得了12500000经验
+#ELSEACT
+MESSAGEBOX 开启失败，请仔细检查条件
+
+[@10个]
+#IF
+large u28 9
+CHECKGAMEGOLD > 1999
+checkitem 经验[宝箱] 10
+#act
+dec U28 10
+take 经验[宝箱] 10
+GAMEGOLD - 2000
+CHANGEEXP  + 5000000
+SendMsg 6 开启成功获得500万经验
+SendMsg 0 恭喜%s使用快人一筹成功开启了10个经验[宝箱]获得了5000000经验
+goto @main
+break
+
+
+#IF
+CHECKGAMEGOLD > 1999
+checkitem 经验[宝箱] 10
+#act
+take 经验[宝箱] 10
+GAMEGOLD - 2000
+CHANGEEXP  + 2500000
+SendMsg 6 开启成功获得250万经验
+SendMsg 0 恭喜%s成功开启了10个经验[宝箱]获得了2500000经验
+#ELSEACT
+MESSAGEBOX 开启失败，请仔细检查条件
+
+[@1个]
+#IF
+large u28 0
+CHECKGAMEGOLD > 1999
+checkitem 经验[宝箱] 1
+#act
+dec U28 1
+take 经验[宝箱] 1
+GAMEGOLD - 200
+CHANGEEXP  + 500000
+SendMsg 6 开启成功获得50万经验
+SendMsg 0 恭喜%s使用快人一筹成功开启了1个经验[宝箱]获得了500000经验
+goto @main
+break
+
+#IF
+CHECKGAMEGOLD > 199
+checkitem 经验[宝箱] 1
+#act
+take 经验[宝箱] 1
+GAMEGOLD - 200
+CHANGEEXP  + 250000
+SendMsg 6 开启成功获得25万经验
+SendMsg 0 恭喜%s成功开启了1个经验[宝箱]获得了250000经验
+#ELSEACT
+MESSAGEBOX 开启失败，请仔细检查条件
+
+
+[@副本]
+#IF
+CHECKGAMEGLORY > 59
+CHECKGAMEGOLD > 3999
+checkitem 经验[宝箱] 20
+#act
+take 经验[宝箱] 20
+GAMEGOLD - 4000
+GAMEGLORY - 60
+DelMirrorMap <$USERNAME>
+AddMirrorMap n0139 <$USERNAME> <$USERNAME>【经验副本】 3600 0159
+MonGenEx <$USERNAME> 26 25 恶灵战将→白银BOSS 0 1 0 249
+MonGenEx <$USERNAME> 32 31 骷髅领主→白银BOSS 0 1 0 249
+MonGenEx <$USERNAME> 24 39 战狂统领→白银BOSS 0 1 0 249
+MonGenEx <$USERNAME> 18 31 石墓教主→白银BOSS 0 1 0 249
+mapmove <$USERNAME> 25 32
+CreateNPC 刷怪员 <$USERNAME> 27 29 252 【功能NPC】\土城功能\经验丹领奖 1 
+SendMsg 0 恭喜%s进入了经验副本
+#ELSEACT
+MESSAGEBOX 进入失败，请仔细检查开启条件！
+;---------------------
+
+
+[@快人一筹A]
+#ACT
+MESSAGEBOX \开启快人一筹以后。您在开启经验的经验将提高至50万经验，可开启200次。\　\每次开启需消耗2000宏图古币\　\　　　　　　点击确定按钮开启 @开启A @取消
+
+[@开启A]
+#IF
+equal u28 0
+CHECKGAMEDIAMOND > 3999
+#ACT
+GAMEDIAMOND - 4000
+mov u28 200
+SendMsg 6 开启成功，你还剩<$STR(U28)>次
+SendMsg 0 恭喜%s成功开启了快人一筹，他将获得每个经验[宝箱]+50万经验的特权
+goto @main
+#ELSEACT
+MESSAGEBOX 对不起开启失败！您宏图古币数量不足2000个，或者您还有开启次用没使用完！
+
+
+
+[@50个A]
+#IF
+large u28 49
+CHECKGAMEDIAMOND > 999
+CHECKGAMEGOLD > 24999
+checkitem 经验[宝箱] 50
+#act
+dec U28 50
+take 经验[宝箱] 50
+GAMEDIAMOND - 1000
+GAMEGOLD - 25000
+CHANGEEXP  + 25000000
+SendMsg 6 开启成功获得2500万经验
+SendMsg 0 恭喜%s使用快人一筹成功开启了50个经验[宝箱]获得了25000000经验
+goto @main
+break
+
+#IF
+CHECKGAMEGOLD > 24999
+CHECKGAMEDIAMOND > 999
+checkitem 经验[宝箱] 50
+#act
+take 经验[宝箱] 50
+GAMEDIAMOND - 1000
+GAMEGOLD - 25000
+CHANGEEXP  + 12500000
+SendMsg 6 开启成功获得1250万经验
+SendMsg 0 恭喜%s成功开启了50个经验[宝箱]获得了12500000经验
+#ELSEACT
+MESSAGEBOX 开启失败，请仔细检查条件
+
+[@10个A]
+#IF
+large u28 9
+CHECKGAMEGOLD > 4999
+CHECKGAMEDIAMOND > 199
+checkitem 经验[宝箱] 10
+#act
+dec U28 10
+take 经验[宝箱] 10
+GAMEGOLD - 5000
+GAMEDIAMOND - 200
+CHANGEEXP  + 5000000
+SendMsg 6 开启成功获得500万经验
+SendMsg 0 恭喜%s使用快人一筹成功开启了10个经验[宝箱]获得了5000000经验
+goto @main
+break
+
+
+#IF
+CHECKGAMEGOLD > 4999
+CHECKGAMEDIAMOND > 199
+checkitem 经验[宝箱] 10
+#act
+take 经验[宝箱] 10
+GAMEGOLD - 5000
+GAMEDIAMOND - 200
+CHANGEEXP  + 2500000
+SendMsg 6 开启成功获得250万经验
+SendMsg 0 恭喜%s成功开启了10个经验[宝箱]获得了2500000经验
+#ELSEACT
+MESSAGEBOX 开启失败，请仔细检查条件
+
+[@1个A]
+#IF
+large u28 0
+CHECKGAMEGOLD > 499
+CHECKGAMEDIAMOND > 19
+checkitem 经验[宝箱] 1
+#act
+dec U28 1
+take 经验[宝箱] 1
+GAMEGOLD - 500
+GAMEDIAMOND - 20
+CHANGEEXP  + 500000
+SendMsg 6 开启成功获得50万经验
+SendMsg 0 恭喜%s使用快人一筹成功开启了1个经验[宝箱]获得了500000经验
+goto @main
+break
+
+#IF
+CHECKGAMEGOLD > 499
+CHECKGAMEDIAMOND > 19
+checkitem 经验[宝箱] 1
+#act
+take 经验[宝箱] 1
+GAMEGOLD - 500
+GAMEDIAMOND - 20
+CHANGEEXP  + 250000
+SendMsg 6 开启成功获得25万经验
+SendMsg 0 恭喜%s成功开启了1个经验[宝箱]获得了250000经验
+#ELSEACT
+MESSAGEBOX 开启失败，请仔细检查条件
+
+
+[@副本A]
+#IF
+CHECKGAMEGLORY > 59
+CHECKGAMEGOLD > 7999
+CHECKGAMEDIAMOND > 399
+checkitem 经验[宝箱] 20
+#act
+take 经验[宝箱] 20
+GAMEGOLD - 8000
+GAMEGLORY - 60
+GAMEDIAMOND - 400
+DelMirrorMap <$USERNAME>
+AddMirrorMap n0139 <$USERNAME> <$USERNAME>【经验副本】 3600 0159
+MonGenEx <$USERNAME> 26 25 恶灵战将→白银BOSS 0 1 0 249
+MonGenEx <$USERNAME> 32 31 骷髅领主→白银BOSS 0 1 0 249
+MonGenEx <$USERNAME> 24 39 战狂统领→白银BOSS 0 1 0 249
+MonGenEx <$USERNAME> 18 31 石墓教主→白银BOSS 0 1 0 249
+mapmove <$USERNAME> 25 32
+CreateNPC 刷怪员 <$USERNAME> 27 29 252 【功能NPC】\土城功能\经验丹领奖 1 
+SendMsg 0 恭喜%s进入了经验副本
+#ELSEACT
+MESSAGEBOX 进入失败，请仔细检查开启条件！
+;---------------------
+
+
+
+[@快人一筹B]
+#ACT
+MESSAGEBOX \开启快人一筹以后。您在开启经验的经验将提高至50万经验，可开启200次。\　\每次开启需消耗8000宏图古币\　\　　　　　　点击确定按钮开启 @开启B @取消
+
+[@开启B]
+#IF
+equal u28 0
+CHECKGAMEDIAMOND > 7999
+#ACT
+GAMEDIAMOND - 8000
+mov u28 200
+SendMsg 6 开启成功，你还剩<$STR(U28)>次
+SendMsg 0 恭喜%s成功开启了快人一筹，他将获得每个经验[宝箱]+50万经验的特权
+goto @main
+#ELSEACT
+MESSAGEBOX 对不起开启失败！您宏图古币数量不足8000个，或者您还有开启次用没使用完！
+
+
+
+[@50个B]
+#IF
+large u28 49
+CHECKGAMEGOLD > 49999
+CHECKGAMEDIAMOND > 1999
+checkitem 经验[宝箱] 50
+#act
+dec U28 50
+take 经验[宝箱] 50
+GAMEDIAMOND - 2000
+GAMEGOLD - 50000
+CHANGEEXP  + 25000000
+SendMsg 6 开启成功获得2500万经验
+SendMsg 0 恭喜%s使用快人一筹成功开启了50个经验[宝箱]获得了25000000经验
+goto @main
+break
+
+#IF
+CHECKGAMEGOLD > 49999
+CHECKGAMEDIAMOND > 1999
+checkitem 经验[宝箱] 50
+#act
+take 经验[宝箱] 50
+GAMEDIAMOND - 2000
+GAMEGOLD - 50000
+CHANGEEXP  + 12500000
+SendMsg 6 开启成功获得1250万经验
+SendMsg 0 恭喜%s成功开启了50个经验[宝箱]获得了12500000经验
+#ELSEACT
+MESSAGEBOX 开启失败，请仔细检查条件
+
+[@10个B]
+#IF
+large u28 9
+CHECKGAMEGOLD > 9999
+CHECKGAMEDIAMOND > 399
+checkitem 经验[宝箱] 10
+#act
+dec U28 10
+take 经验[宝箱] 10
+GAMEGOLD - 10000
+GAMEDIAMOND - 400
+CHANGEEXP  + 5000000
+SendMsg 6 开启成功获得500万经验
+SendMsg 0 恭喜%s使用快人一筹成功开启了10个经验[宝箱]获得了5000000经验
+goto @main
+break
+
+
+#IF
+CHECKGAMEGOLD > 9999
+CHECKGAMEDIAMOND > 399
+checkitem 经验[宝箱] 10
+#act
+take 经验[宝箱] 10
+GAMEGOLD - 10000
+GAMEDIAMOND - 400
+CHANGEEXP  + 2500000
+SendMsg 6 开启成功获得250万经验
+SendMsg 0 恭喜%s成功开启了10个经验[宝箱]获得了2500000经验
+#ELSEACT
+MESSAGEBOX 开启失败，请仔细检查条件
+
+[@1个B]
+#IF
+large u28 0
+CHECKGAMEGOLD > 999
+CHECKGAMEDIAMOND > 39
+checkitem 经验[宝箱] 1
+#act
+dec U28 1
+take 经验[宝箱] 1
+GAMEGOLD - 1000
+GAMEDIAMOND - 40
+CHANGEEXP  + 500000
+SendMsg 6 开启成功获得50万经验
+SendMsg 0 恭喜%s使用快人一筹成功开启了1个经验[宝箱]获得了500000经验
+goto @main
+break
+
+#IF
+CHECKGAMEGOLD > 999
+CHECKGAMEDIAMOND > 39
+checkitem 经验[宝箱] 1
+#act
+take 经验[宝箱] 1
+GAMEGOLD - 1000
+GAMEDIAMOND - 40
+CHANGEEXP  + 250000
+SendMsg 6 开启成功获得25万经验
+SendMsg 0 恭喜%s成功开启了1个经验[宝箱]获得了250000经验
+#ELSEACT
+MESSAGEBOX 开启失败，请仔细检查条件
+
+
+[@副本B]
+#IF
+CHECKGAMEGLORY > 59
+CHECKGAMEGOLD > 15999
+CHECKGAMEDIAMOND > 799
+checkitem 经验[宝箱] 20
+#act
+take 经验[宝箱] 20
+GAMEDIAMOND - 800
+GAMEGOLD - 16000
+GAMEGLORY - 60
+DelMirrorMap <$USERNAME>
+AddMirrorMap n0139 <$USERNAME> <$USERNAME>【经验副本】 3600 0159
+MonGenEx <$USERNAME> 26 25 恶灵战将→白银BOSS 0 1 0 249
+MonGenEx <$USERNAME> 32 31 骷髅领主→白银BOSS 0 1 0 249
+MonGenEx <$USERNAME> 24 39 战狂统领→白银BOSS 0 1 0 249
+MonGenEx <$USERNAME> 18 31 石墓教主→白银BOSS 0 1 0 249
+mapmove <$USERNAME> 25 32
+CreateNPC 刷怪员 <$USERNAME> 27 29 252 【功能NPC】\土城功能\经验丹领奖 1 
+SendMsg 0 恭喜%s进入了经验副本
+#ELSEACT
+MESSAGEBOX 进入失败，请仔细检查开启条件！
+;---------------------
+

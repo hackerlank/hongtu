@@ -1,0 +1,52 @@
+[@自动回血]
+{
+
+
+#IF
+checkitemw 新手血石
+#ACT
+HUMANHP + 50
+HUMANMP + 50
+
+#IF
+checkitemw 一级血石
+#ACT
+HUMANHP + 100
+HUMANMP + 100
+
+#IF
+checkitemw 二级血石
+#ACT
+HUMANHP + 200
+HUMANMP + 200
+
+#IF
+checkitemw 三级血石
+#ACT
+HUMANHP + 300
+HUMANMP + 300
+
+#IF
+checkitemw 四级血石
+#ACT
+HUMANHP + 400
+HUMANMP + 400
+
+#IF
+checkitemw 五级血石
+#ACT
+HUMANHP + 500
+HUMANMP + 500
+
+#IF
+checkitemw 终级血石
+#ACT
+HUMANHP + 600
+HUMANMP + 600
+
+#IF
+checkitemw 顶级血石
+#ACT
+HUMANHP + 700
+HUMANMP + 700
+}

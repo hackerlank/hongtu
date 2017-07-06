@@ -1,0 +1,231 @@
+
+(@@InPutString @@InPutInteger)
+[@main]
+#IF
+HOUR 22 22
+MIN 00 15
+ISCASTLEMASTER
+#ACT
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#SAY
+<PlayImg:1:0:11:200:100:-65:0>
+ \  
+<>                               <沙城奖励榜：/SCOLOR=250> \ 
+<>   <攻城状态：/SCOLOR=253><开区第二天合区,第三天20点首区拿沙，第四天中午第二次合区拿沙。/SCOLOR=146>\
+<>   <所属行会：/SCOLOR=253><[/SCOLOR=7><$OWNERGUILD><]/SCOLOR=7>\
+<>   <城主姓名：/SCOLOR=253><[/SCOLOR=7><$LORD><]/SCOLOR=7>\
+<-----------------------------------------------------------------------/SCOLOR=13> \ 
+<>                 <本服古币可找游戏中的商人回收成RMB/SCOLOR=250>\
+<>  <攻城奖励：/SCOLOR=205><第一次合区攻城奖励88800古币> <(价值888RMB)/SCOLOR=253> →  <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第二次合区攻城奖励188800古币><(价值1888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第三次合区攻城奖励288800古币><(价值2888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第四次合区攻城奖励388800古币><(价值3888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第五次合区攻城奖励588800古币><(价值5888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第六次合区攻城奖励888800古币><(价值8888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><正常拿沙奖励20000古币+800万元宝><(价值200RMB)/SCOLOR=253> → <领取奖励/@正常>\  
+
+#IF
+#ACT
+OPENMERCHANTBIGDLG 0 1492 0 0 0 0 0
+#SAY
+\ 
+<>                               <沙城奖励榜：/SCOLOR=250> \ 
+<>   <攻城状态：/SCOLOR=253><开区第二天合区,第三天20点首区拿沙，第四天中午第二次合区拿沙。/SCOLOR=146>\
+<>   <所属行会：/SCOLOR=253><[/SCOLOR=7><$OWNERGUILD><]/SCOLOR=7>\
+<>   <城主姓名：/SCOLOR=253><[/SCOLOR=7><$LORD><]/SCOLOR=7>\
+<-----------------------------------------------------------------------/SCOLOR=13> \ 
+<>               <本服古币可找游戏中的商人回收成RMB/SCOLOR=250>\
+<>  <攻城奖励：/SCOLOR=205><第一次合区攻城奖励88800古币> <(价值888RMB)/SCOLOR=253> →  <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第二次合区攻城奖励188800古币><(价值1888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第三次合区攻城奖励288800古币><(价值2888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第四次合区攻城奖励388800古币><(价值3888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第五次合区攻城奖励588800古币><(价值5888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\ 
+<>  <攻城奖励：/SCOLOR=205><第六次合区攻城奖励888800古币><(价值8888RMB)/SCOLOR=253> → <领取奖励/@jiangli>\
+<>  <攻城奖励：/SCOLOR=205><正常拿沙奖励20000古币+800万元宝><(价值200RMB)/SCOLOR=253> → <领取奖励/@正常>\  
+
+
+[@正常]
+#IF
+ISCASTLEMASTER
+#ACT
+goto @jiangliaAAA
+BREAK
+#ELSESAY
+ \  \  \  \  \  \  \  \ 
+<>      你不是沙城城主无法领取奖励........ \ 
+
+[@jiangliaAAA]
+#if
+HOUR 22 22
+MIN 00 30
+#ACT
+goto @正常奖励
+#elseact
+MESSAGEBOX [提示]：请在22:00-22::30分前来领取奖励，过期无效！
+BREAK
+
+[@正常奖励]
+#IF
+CHECKGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+#ACT
+MESSAGEBOX 对不起！今天的沙老大元宝奖励已经被领取了哦！
+#elseact
+GAMEDIAMOND + 20000
+GAMEGOLD + 5000000
+ADDGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+SENDMSG 0 沙城老大【%s】自豪的领走了20000古币+500万元宝攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了20000古币+500万元宝攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了20000古币+500万元宝攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了20000古币+500万元宝攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了20000古币+500万元宝攻城奖励，昨天的努力今天的收获!
+BREAK
+
+
+
+
+
+
+[@jiangli]
+#IF
+ISCASTLEMASTER
+#ACT
+goto @jianglib
+BREAK
+#ELSESAY
+ \  \  \  \  \  \  \  \ 
+<>      你不是沙城城主无法领取奖励........ \ 
+
+
+
+[@jianglia]
+#if
+HOUR 22 22
+MIN 00 30
+#ACT
+goto @jianglib
+#elseact
+MESSAGEBOX [提示]：请在22:00-22::30分前来领取奖励，过期无效！
+BREAK
+
+[@jianglib]
+#IF
+CHECKVAR GLOBAL 首沙天数 > 0
+#ACT
+goto @第一次
+#IF
+CHECKVAR GLOBAL 首沙天数 > 3
+#ACT
+goto @第二次
+#IF
+CHECKVAR GLOBAL 首沙天数 > 7
+#ACT
+goto @第三次
+#IF
+CHECKVAR GLOBAL 首沙天数 > 15
+#ACT
+goto @第四次
+#IF
+CHECKVAR GLOBAL 首沙天数 > 31
+#ACT
+goto @第五次
+
+#IF
+CHECKVAR GLOBAL 首沙天数 > 63
+#ACT
+goto @第六次
+
+
+
+[@第一次]
+#IF
+CHECKGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+#ACT
+MESSAGEBOX 对不起！今天的沙老大元宝奖励已经被领取了哦！
+#elseact
+GAMEDIAMOND + 88800
+ADDGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+SENDMSG 0 沙城老大【%s】自豪的领走了88800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了88800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了88800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了88800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了88800古币攻城奖励，昨天的努力今天的收获!
+BREAK
+
+[@第二次]
+#IF
+CHECKGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+#ACT
+MESSAGEBOX 对不起！今天的沙老大元宝奖励已经被领取了哦！
+#elseact
+GAMEDIAMOND + 188800
+ADDGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+SENDMSG 0 沙城老大【%s】自豪的领走了188800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了188800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了188800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了188800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了188800古币攻城奖励，昨天的努力今天的收获!
+BREAK
+
+[@第三次]
+#IF
+CHECKGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+#ACT
+MESSAGEBOX 对不起！今天的沙老大元宝奖励已经被领取了哦！
+#elseact
+GAMEDIAMOND + 288800
+ADDGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+SENDMSG 0 沙城老大【%s】自豪的领走了288800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了288800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了288800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了288800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了288800古币攻城奖励，昨天的努力今天的收获!
+BREAK
+
+[@第四次]
+#IF
+CHECKGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+#ACT
+MESSAGEBOX 对不起！今天的沙老大元宝奖励已经被领取了哦！
+#elseact
+GAMEDIAMOND + 388800
+ADDGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+SENDMSG 0 沙城老大【%s】自豪的领走了388800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了388800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了388800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了388800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了388800古币攻城奖励，昨天的努力今天的收获!
+BREAK
+
+[@第五次]
+#IF
+CHECKGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+#ACT
+MESSAGEBOX 对不起！今天的沙老大元宝奖励已经被领取了哦！
+#elseact
+GAMEDIAMOND + 588800
+ADDGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+SENDMSG 0 沙城老大【%s】自豪的领走了588800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了588800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了588800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了588800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了588800古币攻城奖励，昨天的努力今天的收获!
+BREAK
+
+[@第六次]
+#IF
+CHECKGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+#ACT
+MESSAGEBOX 对不起！今天的沙老大元宝奖励已经被领取了哦！
+#elseact
+GAMEDIAMOND + 888800
+ADDGUILDLIST ..\QuestDiary\数据文件\每天拿沙奖励.txt
+SENDMSG 0 沙城老大【%s】自豪的领走了888800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了888800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了888800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了888800古币攻城奖励，昨天的努力今天的收获!
+SENDMSG 0 沙城老大【%s】自豪的领走了888800古币攻城奖励，昨天的努力今天的收获!
+BREAK
+
+
+
+

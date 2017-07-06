@@ -1,0 +1,88 @@
+{
+[@行会功勋]
+#IF
+NOT CHECKBAGSIZE 2
+#act
+break
+#if
+CHECKGUILDBUILDPOINT = 1
+CHECKITEMW 行会功勋·Lv1
+#act
+break
+#if
+CHECKGUILDBUILDPOINT = 2
+CHECKITEMW 行会功勋·Lv2
+#act
+break
+#if
+CHECKGUILDBUILDPOINT = 3
+CHECKITEMW 行会功勋·Lv3
+#act
+break
+#if
+CHECKGUILDBUILDPOINT = 4
+CHECKITEMW 行会功勋·Lv4
+#act
+break
+#if
+CHECKGUILDBUILDPOINT = 5
+CHECKITEMW 行会功勋·Lv5
+#act
+break
+
+#if
+CHECKGUILDBUILDPOINT = 1
+#act
+GiveStateItem 行会功勋·Lv1 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv1 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+#if
+CHECKGUILDBUILDPOINT = 2
+#act
+GiveStateItem 行会功勋·Lv2 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv2 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+#if
+CHECKGUILDBUILDPOINT = 3
+#act
+GiveStateItem 行会功勋·Lv3 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv3 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+#if
+CHECKGUILDBUILDPOINT = 4
+#act
+GiveStateItem 行会功勋·Lv4 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv4 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+#if
+CHECKGUILDBUILDPOINT = 5
+#act
+GiveStateItem 行会功勋·Lv5 1 1 1 0 1 1 1 1
+AutoTakeOnItem 行会功勋·Lv5 39
+take 行会功勋·Lv1 42
+take 行会功勋·Lv2 42
+take 行会功勋·Lv3 42
+take 行会功勋·Lv4 42
+take 行会功勋·Lv5 42
+
+}

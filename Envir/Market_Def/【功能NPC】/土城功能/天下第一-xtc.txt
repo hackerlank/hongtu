@@ -1,0 +1,454 @@
+[@main]
+#IF
+Equal A401
+#ACT
+MOV A401 暂无申请..
+MOV A402 0
+MOV A403 暂无行会..
+MOV A404 0
+
+#IF
+Equal A406
+#ACT
+MOV A406 暂无申请..
+MOV A407 0
+MOV A408 暂无行会..
+MOV A409 0
+
+#IF
+Equal A411
+#ACT
+MOV A411 暂无申请..
+MOV A412 0
+MOV A413 暂无行会..
+MOV A414 0
+
+#IF
+Equal A416
+#ACT
+MOV A416 暂无申请..
+MOV A417 0
+MOV A418 暂无行会..
+MOV A419 0
+
+#IF
+Equal A421
+#ACT
+MOV A421 暂无申请..
+MOV A422 0
+MOV A423 暂无行会..
+MOV A424 0
+
+#IF
+Equal A426
+#ACT
+MOV A426 暂无申请..
+MOV A427 0
+MOV A428 暂无行会..
+MOV A429 0
+
+#IF
+#Act
+OPENMERCHANTBIGDLG 12 125 1 4 0 -100 0
+#say
+<Img:801:0:550:-13/@EXIT>\
+　\
+<Img:119:12:0:-2|^151#男战名字:<$STR(A401)>^151#申请等级:<$STR(A402)>^151#所属行会:<$STR(A403)>^151#当前攻击:<$STR(A404)>^13#-------------------^215#获得称号:第一男战^215#获得属性:1.1倍属性^13#-------------------^146#系统每6小时重置..^146#点击申请：第一男战/@申请第一>　
+<Img:120:12:-1:-2|^151#女战名字:<$STR(A406)>^151#申请等级:<$STR(A407)>^151#所属行会:<$STR(A408)>^151#当前攻击:<$STR(A409)>^13#-------------------^215#获得称号:第一女战^215#获得属性:1.1倍属性^13#-------------------^146#系统每6小时重置..^146#点击申请：第一女战/@申请第一>　
+<Img:121:12:-2:-2|^151#男法名字:<$STR(A411)>^151#申请等级:<$STR(A412)>^151#所属行会:<$STR(A413)>^151#当前魔法:<$STR(A414)>^13#-------------------^215#获得称号:第一男法^215#获得属性:1.1倍属性^13#-------------------^146#系统每6小时重置..^146#点击申请：第一男法/@申请第一>　
+<Img:122:12:-3:-2|^151#女法名字:<$STR(A416)>^151#申请等级:<$STR(A417)>^151#所属行会:<$STR(A418)>^151#当前魔法:<$STR(A419)>^13#-------------------^215#获得称号:第一女法^215#获得属性:1.1倍属性^13#-------------------^146#系统每6小时重置..^146#点击申请：第一女法/@申请第一>　
+<Img:123:12:-4:-2|^151#男道名字:<$STR(A421)>^151#申请等级:<$STR(A422)>^151#所属行会:<$STR(A423)>^151#当前道术:<$STR(A424)>^13#-------------------^215#获得称号:第一男道^215#获得属性:1.1倍属性^13#-------------------^146#系统每6小时重置..^146#点击申请：第一男道/@申请第一>　
+<Img:124:12:-5:-2|^151#女道名字:<$STR(A426)>^151#申请等级:<$STR(A427)>^151#所属行会:<$STR(A428)>^151#当前道术:<$STR(A429)>^13#-------------------^215#获得称号:第一女道^215#获得属性:1.1倍属性^13#-------------------^146#系统每6小时重置..^146#点击申请：第一女道/@申请第一>\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　\
+　 <男战士　　　　　女战士　　　　　 男法师　　　　　 女法师　　　　　 男道士　　　　　 女道士/SCOLOR=87>\
+
+[@申请第一]
+#IF
+CHECKLEVELEX < 45
+#act
+MESSAGEBOX 看来你很有信心？\\不过你还没有达到资格！\\你需要45级来证明自己的实力！\\现在来申请天下第一恐怕还嫌早！
+break
+#IF
+gender MAN
+checkjob warrior
+#act
+goto @男战申请
+break
+#IF
+gender MAN
+checkjob wizard
+#act
+goto @男法申请
+break
+#IF
+gender MAN
+checkjob taoist
+#act
+goto @男道申请
+break
+#IF
+gender WOMAN
+checkjob warrior
+#act
+goto @女战申请
+break
+#IF
+gender WOMAN
+checkjob wizard
+#act
+goto @女法申请
+break
+#IF
+gender WOMAN
+checkjob taoist
+#act
+goto @女道申请
+break
+
+[@男战申请]
+#IF
+Equal A401 <$USERNAME>
+#act
+MOV G401 <$LEVEL>
+MOV A401 <$USERNAME>
+MOV A402 <$LEVEL>
+MOV A403 <$GUILDNAME>
+MOV A404 <$MAXDC>
+DELAYGOTO 2 @main
+SENDMSG 6 最新信息已经更新成功
+break
+
+#IF
+gender MAN
+checkjob warrior
+SMALL G401 <$LEVEL>
+#act
+MOV A405 <$STR(A401)>
+MOV G401 <$LEVEL>
+MOV A401 <$USERNAME>
+MOV A402 <$LEVEL>
+MOV A403 <$GUILDNAME>
+MOV A404 <$MAXDC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @男战士封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一男战士]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一男战士是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+
+#IF
+gender MAN
+checkjob warrior
+equal G401 <$LEVEL>
+SMALL A404 <$MAXDC>
+#act
+MOV A405 <$STR(A401)>
+MOV G401 <$LEVEL>
+MOV A401 <$USERNAME>
+MOV A402 <$LEVEL>
+MOV A403 <$GUILDNAME>
+MOV A404 <$MAXDC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @男战士封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一男战士]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一男战士是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+#ELSEACT
+MESSAGEBOX 对不起！你目前还不是最高等级或者不是最高攻击！\\目前第一男战士:【<$STR(A401)>】\\目前最高等级:【<$STR(G401)>】级\\目前攻击力为:【<$STR(G404)>】级\\目前所属行会:【<$STR(A403)>】级\\当你的等级或者攻击力超越他才可以申请！
+GOTO @MAIN
+break
+
+[@女战申请]
+#IF
+Equal A406 <$USERNAME>
+#act
+MOV G402 <$LEVEL>
+MOV A406 <$USERNAME>
+MOV A407 <$LEVEL>
+MOV A408 <$GUILDNAME>
+MOV A409 <$MAXDC>
+DELAYGOTO 2 @main
+SENDMSG 6 最新信息已经更新成功
+break
+
+#IF
+gender woMAN
+checkjob warrior
+SMALL G402 <$LEVEL>
+#act
+MOV A410 <$STR(A406)>
+MOV G402 <$LEVEL>
+MOV A406 <$USERNAME>
+MOV A407 <$LEVEL>
+MOV A408 <$GUILDNAME>
+MOV A409 <$MAXDC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @女战士封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一女战士]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一女战士是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+
+#IF
+gender woMAN
+checkjob warrior
+equal G402 <$LEVEL>
+SMALL A409 <$MAXDC>
+#act
+MOV A410 <$STR(A406)>
+MOV G402 <$LEVEL>
+MOV A406 <$USERNAME>
+MOV A407 <$LEVEL>
+MOV A408 <$GUILDNAME>
+MOV A409 <$MAXDC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @女战士封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一女战士]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一女战士是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+#ELSEACT
+MESSAGEBOX 对不起！你目前还不是最高等级或者不是最高攻击！\\目前第一女战士:【<$STR(A406)>】\\目前最高等级:【<$STR(G402)>】级\\目前攻击力为:【<$STR(G409)>】级\\目前所属行会:【<$STR(A408)>】级\\当你的等级或者攻击力超越他才可以申请！
+GOTO @MAIN
+break
+
+[@男法申请]
+#IF
+Equal A411 <$USERNAME>
+#act
+MOV G411 <$LEVEL>
+MOV A411 <$USERNAME>
+MOV A412 <$LEVEL>
+MOV A413 <$GUILDNAME>
+MOV A414 <$MAXMC>
+SENDMSG 6 最新信息已经更新成功
+DELAYGOTO 2 @main
+break
+
+#IF
+gender MAN
+checkjob wizard
+SMALL G411 <$LEVEL>
+#act
+MOV A415 <$STR(A411)>
+MOV G411 <$LEVEL>
+MOV A411 <$USERNAME>
+MOV A412 <$LEVEL>
+MOV A413 <$GUILDNAME>
+MOV A414 <$MAXMC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @男法师封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一男法师]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一男法师是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+
+#IF
+gender MAN
+checkjob wizard
+equal G411 <$LEVEL>
+SMALL A414 <$MAXMC>
+#act
+MOV A415 <$STR(A411)>
+MOV G411 <$LEVEL>
+MOV A411 <$USERNAME>
+MOV A412 <$LEVEL>
+MOV A413 <$GUILDNAME>
+MOV A414 <$MAXMC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @男法师封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一男法师]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一男法师是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+#ELSEACT
+MESSAGEBOX 对不起！你目前还不是最高等级或者不是最高魔法！\\目前第一男法师:【<$STR(A411)>】\\目前最高等级:【<$STR(G411)>】级\\目前攻击力为:【<$STR(G414)>】级\\目前所属行会:【<$STR(A413)>】级\\当你的等级或者攻击力超越他才可以申请！
+GOTO @MAIN
+break
+
+[@女法申请]
+#IF
+Equal A416 <$USERNAME>
+#act
+MOV G412 <$LEVEL>
+MOV A416 <$USERNAME>
+MOV A417 <$LEVEL>
+MOV A418 <$GUILDNAME>
+MOV A419 <$MAXMC>
+SENDMSG 6 最新信息已经更新成功
+DELAYGOTO 2 @main
+break
+
+#IF
+gender WOMAN
+checkjob wizard
+SMALL G412 <$LEVEL>
+#act
+MOV A420 <$STR(A416)>
+MOV G412 <$LEVEL>
+MOV A416 <$USERNAME>
+MOV A417 <$LEVEL>
+MOV A418 <$GUILDNAME>
+MOV A419 <$MAXMC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @女法师封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一女法师]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一女法师是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+
+#IF
+gender WOMAN
+checkjob wizard
+equal G412 <$LEVEL>
+SMALL A419 <$MAXMC>
+#act
+MOV A420 <$STR(A416)>
+MOV G412 <$LEVEL>
+MOV A416 <$USERNAME>
+MOV A417 <$LEVEL>
+MOV A418 <$GUILDNAME>
+MOV A419 <$MAXMC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @女法师封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一女法师]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一女法师是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+#ELSEACT
+MESSAGEBOX 对不起！你目前还不是最高等级或者不是最高魔法！\\目前第一女法师:【<$STR(A416)>】\\目前最高等级:【<$STR(G412)>】级\\目前攻击力为:【<$STR(G419)>】级\\目前所属行会:【<$STR(A418)>】级\\当你的等级或者攻击力超越他才可以申请！
+GOTO @MAIN
+break
+
+[@男道申请]
+#IF
+Equal A421 <$USERNAME>
+#act
+MOV G421 <$LEVEL>
+MOV A421 <$USERNAME>
+MOV A422 <$LEVEL>
+MOV A423 <$GUILDNAME>
+MOV A424 <$MAXSC>
+SENDMSG 6 最新信息已经更新成功
+DELAYGOTO 2 @main
+break
+
+#IF
+gender MAN
+checkjob taoist
+SMALL G421 <$LEVEL>
+#act
+MOV A425 <$STR(A421)>
+MOV G421 <$LEVEL>
+MOV A421 <$USERNAME>
+MOV A422 <$LEVEL>
+MOV A423 <$GUILDNAME>
+MOV A424 <$MAXSC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @男道士封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一男道士]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一男道士是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+
+#IF
+gender MAN
+checkjob taoist
+equal G421 <$LEVEL>
+SMALL A424 <$MAXSC>
+#act
+MOV A425 <$STR(A421)>
+MOV G421 <$LEVEL>
+MOV A421 <$USERNAME>
+MOV A422 <$LEVEL>
+MOV A423 <$GUILDNAME>
+MOV A424 <$MAXSC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @男道士封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一男道士]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一男道士是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+#ELSEACT
+MESSAGEBOX 对不起！你目前还不是最高等级或者不是最高道术！\\目前第一男道士:【<$STR(A421)>】\\目前最高等级:【<$STR(G421)>】级\\目前攻击力为:【<$STR(G424)>】级\\目前所属行会:【<$STR(A423)>】级\\当你的等级或者攻击力超越他才可以申请！
+GOTO @MAIN
+break
+
+[@女道申请]
+#IF
+Equal A426 <$USERNAME>
+#act
+MOV G422 <$LEVEL>
+MOV A426 <$USERNAME>
+MOV A427 <$LEVEL>
+MOV A428 <$GUILDNAME>
+MOV A429 <$MAXSC>
+SENDMSG 6 最新信息已经更新成功
+DELAYGOTO 2 @main
+break
+
+#IF
+gender WOMAN
+checkjob taoist
+SMALL G422 <$LEVEL>
+#act
+MOV A430 <$STR(A426)>
+MOV G422 <$LEVEL>
+MOV A426 <$USERNAME>
+MOV A427 <$LEVEL>
+MOV A428 <$GUILDNAME>
+MOV A429 <$MAXSC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @女道士封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一女道士]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一女道士是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+
+#IF
+gender WOMAN
+checkjob taoist
+equal G422 <$LEVEL>
+SMALL A429 <$MAXSC>
+#act
+MOV A430 <$STR(A426)>
+MOV G422 <$LEVEL>
+MOV A426 <$USERNAME>
+MOV A427 <$LEVEL>
+MOV A428 <$GUILDNAME>
+MOV A429 <$MAXSC>
+;GiveStateItem 天下第一功勋 1 1 1 0 1 1 1 1
+GMEXECUTE 开始提问 @女道士封号更改
+DELAYGOTO 2 @main
+SENDMSG 0 {天下第一信息ぐ|151:0:1}「{%s|227:0:1}」成功申请了{[天下第一女道士]|254:0:1}！他在烽烟四起的{[<$SERVERNAME>]|9:0:1}中修炼成为天下第一，获得{1.1倍属性|223:0:1}的待遇，明天的天下第一会是谁？
+MESSAGEBOX \\申请成功！目前天下第一女道士是【<$USERNAME>】！\\明天的天下第一会是谁？
+GOTO @MAIN
+break
+#ELSEACT
+MESSAGEBOX 对不起！你目前还不是最高等级或者不是最高魔法！\\目前第一女法师:【<$STR(A426)>】\\目前最高等级:【<$STR(G422)>】级\\目前攻击力为:【<$STR(G429)>】级\\目前所属行会:【<$STR(A428)>】级\\当你的等级或者攻击力超越他才可以申请！
+GOTO @MAIN
+break

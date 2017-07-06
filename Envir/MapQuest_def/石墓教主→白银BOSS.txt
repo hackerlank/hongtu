@@ -1,0 +1,10 @@
+[@MAIN]
+#if
+ISONMAP OBJ40
+equal G166 0
+#ACT
+MOV G166 1
+mov A166 <$USERNAME>
+GAMEDIAMOND + 500
+SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【石墓教主→白银BOSS】获得系统奖励500古币!
+break

@@ -1,0 +1,47 @@
+[@main]
+　 　　  <改名服务/SCOLOR=168>   \
+　 　　  <管理员/SCOLOR=19> <尊敬的金钻會員,您好/SCOLOR=151> <〖欢迎使用改名服务〗/SCOLOR=87>\
+<--------------------------------------------------------------/AUTOCOLOR=90>\
+<1.为了防止游戏出现乱改名现象，改名服务收费500RMB！/SCOLOR=156>  \
+<2.暂时只支持因合区后游戏名重复，名字后面多了字母！/SCOLOR=155>  \
+<3.如名：潇洒哥a，那么改名后直可以将你的字母a去掉！/SCOLOR=145>  \
+<4.修改名字之前，请先输入新的游戏名，查询是否可用！/SCOLOR=147>  \
+<查询名称是否可以使用/@@InputString1(请输入新的名称：)><(第⒈步)>     <我要改名/@@InputString2(请输入新的名称：)><(第⒉步)> \
+<--------------------------------------------------------------/AUTOCOLOR=90>\
+
+[@InputString1]
+#IF
+Equal S1
+#ACT
+SENDMSG 6 请输入一个正确的名称
+Break
+
+#OR
+CheckStringlength S1 > 20
+CheckStringlength S1 < 4
+#ACT
+SENDMSG 6 输入名称长度不正确
+Break
+
+#IF
+#ACT
+QUERYHUMNAMEEXIST S1
+
+[@InputString2]
+#IF
+Equal S2
+#ACT
+SENDMSG 6 请输入一个正确的名称
+Break
+
+#OR
+CheckStringlength S2 > 20
+CheckStringlength S2 < 4
+#ACT
+SENDMSG 6 输入名称长度不正确
+Break
+
+#IF
+#ACT
+CHANGEHUMNAME S2
+

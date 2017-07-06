@@ -1,0 +1,4 @@
+[@main]
+#ACT
+#CALL [\排行榜\排行文本.txt] @排行开始
+BREAK

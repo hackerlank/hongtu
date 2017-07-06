@@ -1,0 +1,162 @@
+
+{
+[@召唤宝宝]
+
+#IF
+#ACT
+POWERRATE 100 9999999
+
+
+#IF
+equal U30 0
+#ACT
+KILLSLAVE
+RECALLMOB 飞翔的蛋超人 0 99999 0
+ChangeSlaveNameColor 飞翔的蛋超人 154
+ChangeSlaveAttackHumPowerRate 飞翔的蛋超人 0
+BREAK
+
+#IF
+equal U30 1
+#ACT
+KILLSLAVE
+RECALLMOB 破壳的皱蛋超人★ 0 99999 0
+ChangeSlaveNameColor 破壳的皱蛋超人★ 154
+ChangeSlaveAttackHumPowerRate 破壳的皱蛋超人★ 0
+BREAK
+
+#IF
+equal U30 2
+#ACT
+KILLSLAVE
+RECALLMOB 小学生蛋超人★★ 0 99999 0
+ChangeSlaveNameColor 小学生蛋超人★★ 154
+ChangeSlaveAttackHumPowerRate 小学生蛋超人★★ 0
+BREAK
+
+#IF
+equal U30 3
+#ACT
+KILLSLAVE
+RECALLMOB 爱运动的蛋超人★★★ 0 99999 0
+ChangeSlaveNameColor 爱运动的蛋超人★★★ 154
+ChangeSlaveAttackHumPowerRate 爱运动的蛋超人★★★ 0
+BREAK
+
+#IF
+equal U30 4
+#ACT
+KILLSLAVE
+RECALLMOB 双枪蛋超人★ 0 99999 0
+ChangeSlaveNameColor 双枪蛋超人★ 154
+ChangeSlaveAttackHumPowerRate 双枪蛋超人★ 0
+BREAK
+
+
+#IF
+equal U30 5
+#ACT
+KILLSLAVE
+RECALLMOB 神算子蛋超人★★ 0 99999 0
+ChangeSlaveNameColor 神算子蛋超人★★ 154
+ChangeSlaveAttackHumPowerRate 神算子蛋超人★★ 0
+BREAK
+
+#IF
+equal U30 6
+#ACT
+KILLSLAVE
+RECALLMOB 神算子蛋超人★★★ 0 99999 0
+ChangeSlaveNameColor 双枪蛋超人★★★ 154
+ChangeSlaveAttackHumPowerRate 双枪蛋超人★★★ 0
+BREAK
+
+#IF
+equal U30 7
+#ACT
+KILLSLAVE
+RECALLMOB 魔术师蛋超人★ 0 99999 0
+ChangeSlaveNameColor 魔术师蛋超人★ 154
+ChangeSlaveAttackHumPowerRate 魔术师蛋超人★ 0
+BREAK
+
+#IF
+equal U30 8
+#ACT
+KILLSLAVE
+RECALLMOB 魔术师蛋超人★★ 0 99999 0
+ChangeSlaveNameColor 魔术师蛋超人★★ 154
+ChangeSlaveAttackHumPowerRate 魔术师蛋超人★★ 0
+BREAK
+
+#IF
+equal U30 9
+#ACT
+KILLSLAVE
+RECALLMOB 魔术师蛋超人★★★ 0 99999 0
+ChangeSlaveNameColor 魔术师蛋超人★★★ 154
+ChangeSlaveAttackHumPowerRate 魔术师蛋超人★★★ 0
+BREAK
+
+#IF
+equal U30 10
+#ACT
+KILLSLAVE
+RECALLMOB 忍者蛋超人★ 0 99999 0
+ChangeSlaveNameColor 忍者蛋超人★ 154
+ChangeSlaveAttackHumPowerRate 忍者蛋超人★ 0
+BREAK
+
+
+#IF
+equal U30 11
+#ACT
+KILLSLAVE
+RECALLMOB 忍者蛋超人★★ 0 99999 0
+ChangeSlaveNameColor 忍者蛋超人★★ 154
+ChangeSlaveAttackHumPowerRate 忍者蛋超人★★ 0
+BREAK
+
+
+#IF
+equal U30 12
+#ACT
+KILLSLAVE
+RECALLMOB 忍者蛋超人★★★ 0 99999 0
+ChangeSlaveNameColor 忍者蛋超人★★★ 154
+ChangeSlaveAttackHumPowerRate 忍者蛋超人★★★ 0
+BREAK
+
+
+#IF
+equal U30 13
+#ACT
+KILLSLAVE
+RECALLMOB 冯程程蛋超人★ 0 99999 0
+ChangeSlaveNameColor 冯程程蛋超人★ 154
+ChangeSlaveAttackHumPowerRate 冯程程蛋超人★ 0
+BREAK
+
+
+#IF
+equal U30 14
+#ACT
+KILLSLAVE
+RECALLMOB 冯程程蛋超人★★ 0 99999 0
+ChangeSlaveNameColor 冯程程蛋超人★★ 154
+ChangeSlaveAttackHumPowerRate 冯程程蛋超人★★ 0
+BREAK
+
+
+#IF
+equal U30 15
+#ACT
+KILLSLAVE
+RECALLMOB 终极暗影蛋超人★★★ 0 99999 0
+ChangeSlaveNameColor 终极暗影蛋超人★★★ 154
+ChangeSlaveAttackHumPowerRate 终极暗影蛋超人★★★ 0
+BREAK
+
+
+
+}

@@ -1,0 +1,30 @@
+[@main]
+#IF
+#Act
+OPENMERCHANTBIGDLG 0 1492 1 0 0 0 0
+#say
+<Img:801:0:360:-12/@EXIT>\
+　\
+元宝比例   网银充值1:100  宏图古币\
+　\
+当前帐户的宏图古币数为：<$GAMEDIAMOND>\
+当前帐户的充值积分数为：<$GAMEGIRD>\
+　　　　　　　　　　　　　　　　　　　<领取宏图古币/@锋锐领取>\
+<Img:803:0:0:4>\
+<RMB说明：领取RMB后可用于购买玩家摆摊出售的RMB物品/SCOLOR=70>\
+　\
+<如需兑换成元宝，可以自行在“RMB换元宝”处兑换/SCOLOR=70>\
+　\
+{当前帐户的RMB为：<$GOLDCOUNT>/SCOLOR=70}　　　　　　　　<领取RMB/@锋锐领取RMB>\
+
+[@锋锐领取]
+#Act
+#CALL [\HF元宝\hf.txt] @领取元宝
+#CALL [\HF附加\hf.txt] @领取附加
+goto @main
+
+[@锋锐领取RMB]
+#Act
+#CALL [\HF元宝\hfRMB.txt] @领取元宝RMB
+#CALL [\HF附加\hfRMB.txt] @领取附加RMB
+goto @main

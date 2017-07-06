@@ -1,0 +1,78 @@
+[@main]
+#IF
+CheckBoxItemCount 1 1
+#ACT
+ReturnBoxItem 1
+
+#IF
+#Act
+OPENMERCHANTBIGDLG 54 48 0 0 0 0 0
+#say
+　\
+<Img:801:0:380:-1/@EXIT>\ \
+< >                           <[活动介绍]/AUTOCOLOR=253>\
+　<Img:803:0:0:4>\
+<新区活动⒈/SCOLOR=251>　<「/SCOLOR=103><步步惊心/SCOLOR=70><」 → /SCOLOR=103> <新区15分钟开放/AUTOCOLOR=254>          【<进入活动/@步步惊心>】\
+　\
+<新区活动⒉/SCOLOR=251>　<「/SCOLOR=103><天降元宝/SCOLOR=70><」 → /SCOLOR=103> <新区30和45分钟开放/AUTOCOLOR=254>      【<进入活动/@天降元宝>】\
+　\
+<新区活动⒊/SCOLOR=251>　<「/SCOLOR=103><限时BOSS/SCOLOR=70><」 → /SCOLOR=103> <新区60分钟开放/AUTOCOLOR=254>          【<进入活动/@限时BOSS>】\
+　\
+<新区活动⒋/SCOLOR=251>　<「/SCOLOR=103><元宝狂暴/SCOLOR=70><」 → /SCOLOR=103> <新区90分钟开放/AUTOCOLOR=254>          【<进入活动/@元宝狂暴>】\
+　<Img:803:0:0:4>\
+<固定活动⒈/SCOLOR=250>　<「/SCOLOR=103><装备放送/SCOLOR=253><」 → /SCOLOR=103> <每天13点准时开放/AUTOCOLOR=249>        【<进入活动/@装备放送>】\
+　\
+<固定活动⒉/SCOLOR=250>　<「/SCOLOR=103><狂欢放送/SCOLOR=253><」 → /SCOLOR=103> <每天16点准时开放/AUTOCOLOR=249>        【<进入活动/@狂欢放送>】\
+　\
+<固定活动⒊/SCOLOR=250>　<「/SCOLOR=103><元宝狂暴/SCOLOR=253><」 → /SCOLOR=103> <每天19点准时开放/AUTOCOLOR=249>        【<进入活动/@元宝狂暴>】\
+　\
+<固定活动⒋/SCOLOR=250>　<「/SCOLOR=103><行会霸主/SCOLOR=253><」 → /SCOLOR=103> <每天22点20分开放/AUTOCOLOR=249>        【<进入活动/@行会争霸>】\
+　<Img:803:0:0:4>\
+
+[@步步惊心]
+#if
+#act
+MAPMOVE bbjx
+SETONTIMER 3 1
+MAKEPOSION 5 2 10
+SENDMSG 0 251 70 {[<$USERNAME>]|250:0:1}进入了{[步步惊心]|254:0:1}活动地图
+
+[@天降元宝]
+#if
+#act
+MapMOVE xtc 357 349
+SENDMSG 0 251 70 {[<$USERNAME>]|250:0:1}进入了{[天降元宝]|254:0:1}活动地图
+
+[@限时BOSS]
+#if
+#act
+MAPMOVE xtc 629 283
+SENDMSG 0 251 70 {[<$USERNAME>]|250:0:1}进入了{[限时BOSS]|254:0:1}活动地图
+
+[@元宝狂暴]
+#if
+#act
+map hzdt1
+SENDMSG 0 251 70 {[<$USERNAME>]|250:0:1}进入了{[元宝狂暴]|254:0:1}活动地图
+
+[@狂欢放送]
+#if
+#act
+map hzdt2
+SENDMSG 0 251 70 {[<$USERNAME>]|250:0:1}进入了{[狂欢大放送]|254:0:1}活动地图
+
+[@装备放送]
+#if
+#act
+map hzdt3
+SENDMSG 0 251 70 {[<$USERNAME>]|250:0:1}进入了{[装备大放送]|254:0:1}活动地图
+
+[@行会争霸]
+#if
+hour 22 22
+min 20 45
+#act
+map hhzb
+SENDMSG 0 251 70 {[<$USERNAME>]|250:0:1}进入了{[行会争霸]|254:0:1}活动地图
+#elseact
+MESSAGEBOX 赛场进入开放时间：\22:20-22:45
