@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP wyzz
-equal G163 0
+equal G163 1
 #ACT
-MOV G163 1
+MOV G163 0
 mov A163 <$USERNAME>
 GAMEDIAMOND + 1000
 SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【上古统领→黄金BOSS】获得系统奖励1000古币!

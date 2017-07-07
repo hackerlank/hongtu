@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP OBJ54
-equal G153 0
+equal G153 1
 #ACT
-MOV G153 1
+MOV G153 0
 mov A153 <$USERNAME>
 GAMEDIAMOND + 4000
 SENDMOVEMSG 0 253 0 153 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【幽冥灵尊→至尊BOSS】获得系统奖励4000古币!

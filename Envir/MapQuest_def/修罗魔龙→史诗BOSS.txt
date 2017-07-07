@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP 47
-equal G149 0
+equal G149 1
 #ACT
-MOV G149 1
+MOV G149 0
 mov A149 <$USERNAME>
 GAMEDIAMOND + 6000
 SENDMOVEMSG 0 253 0 149 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【修罗魔龙→史诗BOSS】获得系统奖励6000古币!

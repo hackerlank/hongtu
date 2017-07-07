@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP ygfx3
-equal G167 0
+equal G167 1
 #ACT
-MOV G167 1
+MOV G167 0
 mov A167 <$USERNAME>
 GAMEDIAMOND + 500
 SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【战狂统领→白银BOSS】获得系统奖励500古币!

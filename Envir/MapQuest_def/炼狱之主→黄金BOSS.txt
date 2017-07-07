@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP OBJ46
-equal G162 0
+equal G162 1
 #ACT
-MOV G162 1
+MOV G162 0
 mov A162 <$USERNAME>
 GAMEDIAMOND + 200
 SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【炼狱之主→黄金BOSS】获得系统奖励200古币!

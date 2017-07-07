@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP OBJ56
-equal G150 0
+equal G150 1
 #ACT
-MOV G150 1
+MOV G150 0
 mov A150 <$USERNAME>
 GAMEDIAMOND + 6000
 SENDMOVEMSG 0 253 0 152 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【毒龙蚀天→史诗BOSS】获得系统奖励6000古币!

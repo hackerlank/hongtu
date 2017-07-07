@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP hkdt2
-equal G141 0
+equal G141 1
 #ACT
-MOV G141 1
+MOV G141 0
 mov A141 <$USERNAME>
 GAMEDIAMOND + 2500
 SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【神异领主→回馈BOSS】获得系统奖励2500古币!

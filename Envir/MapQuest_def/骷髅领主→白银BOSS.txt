@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP OBJ34
-equal G168 0
+equal G168 1
 #ACT
-MOV G168 1
+MOV G168 0
 mov A168 <$USERNAME>
 GAMEDIAMOND + 500
 SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【骷髅领主→白银BOSS】获得系统奖励500古币!

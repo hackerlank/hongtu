@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP xj1
-equal G169 0
+equal G169 1
 #ACT
-MOV G169 1
+MOV G169 0
 mov A169 <$USERNAME>
 GAMEDIAMOND + 500
 SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【恶灵战将→白银BOSS】获得系统奖励500古币!

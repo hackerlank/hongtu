@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP bsr01
-equal G161 0
+equal G161 1
 #ACT
-MOV G161 1
+MOV G161 0
 mov A161 <$USERNAME>
 GAMEDIAMOND + 1500
 SENDMOVEMSG 0 253 0 160 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【吞噬魔王→铂金BOSS】获得系统奖励1500古币!

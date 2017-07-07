@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP hsdx1
-equal G157 0
+equal G157 1
 #ACT
-MOV G157 1
+MOV G157 0
 mov A157 <$USERNAME>
 GAMEDIAMOND + 2500
 SENDMOVEMSG 0 253 0 157 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【蓝色妖兽→王者BOSS】获得系统奖励2500古币!

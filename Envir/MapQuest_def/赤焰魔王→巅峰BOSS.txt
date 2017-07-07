@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP OBJ36
-equal G156 0
+equal G156 1
 #ACT
-MOV G156 1
+MOV G156 0
 mov A156 <$USERNAME>
 GAMEDIAMOND + 3000
 SENDMOVEMSG 0 253 0 156 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【赤焰魔王→巅峰BOSS】获得系统奖励3000古币!

@@ -1,9 +1,9 @@
 [@MAIN]
 #if
 ISONMAP YGSD3
-equal G158 0
+equal G158 1
 #ACT
-MOV G158 1
+MOV G158 0
 mov A158 <$USERNAME>
 GAMEDIAMOND + 2000
 SENDMOVEMSG 0 253 0 158 1 【系统提示】:恭喜[<$USERNAME>]首次击杀【恶魔鬼魂→荣耀BOSS】获得系统奖励2000古币!
